@@ -5,7 +5,7 @@
 <title>整外最後衝刺卷 · 114/115</title>
 <link rel="apple-touch-icon" href="icon180.png?v=3">
 <link rel="icon" type="image/png" href="icon192.png?v=3">
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="manifest-sprint.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="最後衝刺">
@@ -277,14 +277,14 @@ function migrateEntry(op){
 }
 function normalizeP(P){for(const id in P){const e=P[id];if(e&&e.S===undefined&&(e.s!==undefined||e.n!==undefined))P[id]=migrateEntry(e);}return P;}
 
-let S={P:{},star:{},note:{},flag:{},retire:{},last:null,shuffle:true};
+let S={P:{},star:{},note:{},flag:{},retire:{},qorder:null,last:null,shuffle:true};
 let pool=[], idx=0, sel=new Set(), locked=false, mode='home', curCat=null, curType=null;
 let orderMap={}, addedRetry=new Set();
 
 function load(){
-  try{const r=localStorage.getItem(LS);if(r){const o=JSON.parse(r);S.P=normalizeP(o.P||{});S.star=o.star||{};S.note=o.note||{};S.flag=o.flag||{};S.retire=o.retire||{};S.last=o.last||null;S.shuffle=(o.shuffle!==false);}}catch(e){}
+  try{const r=localStorage.getItem(LS);if(r){const o=JSON.parse(r);S.P=normalizeP(o.P||{});S.star=o.star||{};S.note=o.note||{};S.flag=o.flag||{};S.retire=o.retire||{};S.qorder=o.qorder||null;S.last=o.last||null;S.shuffle=(o.shuffle!==false);}}catch(e){}
   // 自 v2(固定間隔模型)遷移 → FSRS，保留 star/note
-  try{if(!Object.keys(S.P).length){const r2=localStorage.getItem(LSv2);if(r2){const o=JSON.parse(r2);const op=o.P||{};for(const id in op)S.P[id]=migrateEntry(op[id]);S.star=o.star||{};S.note=o.note||{};S.flag=o.flag||{};S.retire=o.retire||{};S.last=o.last||null;S.shuffle=(o.shuffle!==false);}}}catch(e){}
+  try{if(!Object.keys(S.P).length){const r2=localStorage.getItem(LSv2);if(r2){const o=JSON.parse(r2);const op=o.P||{};for(const id in op)S.P[id]=migrateEntry(op[id]);S.star=o.star||{};S.note=o.note||{};S.flag=o.flag||{};S.retire=o.retire||{};S.qorder=o.qorder||null;S.last=o.last||null;S.shuffle=(o.shuffle!==false);}}}catch(e){}
   // 自 v1(status模型)遷移
   try{if(!Object.keys(S.P).length){const r1=localStorage.getItem(LSv1);if(r1){const o=JSON.parse(r1);const st=o.status||{};for(const id in st){const ok=st[id]==='ok';S.P[id]=migrateEntry({n:1,s:ok?1:0,f:ok?1:0,w:!ok});}S.star=o.star||{};S.last=o.last||null;}}}catch(e){}
 }
@@ -301,6 +301,9 @@ const starIds=()=>Object.keys(S.star).filter(id=>S.star[id]);
 const flagIds=()=>Object.keys(S.flag||{}).filter(id=>S.flag[id]);
 const retiredIds=()=>Object.keys(S.retire||{}).filter(id=>S.retire[id]);
 const isRet=id=>!!(S.retire&&S.retire[id]);
+function makeOrder(){const a=DATA.map(q=>q.id);for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}S.qorder=a;return a;}
+function randOrder(){if(!Array.isArray(S.qorder)||S.qorder.length!==DATA.length)makeOrder();const pos={};S.qorder.forEach((id,i)=>pos[id]=i);return DATA.slice().sort((x,y)=>(pos[x.id]===undefined?9e9:pos[x.id])-(pos[y.id]===undefined?9e9:pos[y.id]));}
+function reshuffle(){makeOrder();save();toast('🔀 已重新洗牌，全部題目重新隨機排序。');}
 const isHF=q=>Array.isArray(q.years)&&q.years.length>=3;
 const wrongActiveIds=()=>Object.keys(S.P).filter(id=>S.P[id].w&&!mastered(S.P[id])&&!isRet(id));
 const dueIds=()=>{const n=Date.now();return Object.keys(S.P).filter(id=>S.P[id].due&&S.P[id].due<=n&&!isRet(id));};
@@ -331,7 +334,7 @@ function buildPool(){
   else if(mode==='conflict'){pool=conflictList();}
   else if(mode==='due'){const d=dueIds();const set=new Map(d.map(id=>[id,S.P[id].due]));pool=DATA.filter(q=>set.has(q.id));pool.sort((x,y)=>set.get(x.id)-set.get(y.id));}
   else if(mode==='retired'){pool=DATA.filter(q=>isRet(q.id));}
-  else pool=DATA.slice();
+  else pool=randOrder();
   if(mode!=='retired')pool=pool.filter(q=>!isRet(q.id));
   if(idx>=pool.length)idx=0;if(idx<0)idx=0;
 }
@@ -369,7 +372,7 @@ function renderHome(){
    +'<div class="lb"><i><span class="k" style="background:var(--pale)"></span>已作答</i><i><span class="k" style="background:var(--green)"></span>已掌握(記憶穩定)</i></div></div>';
   app.innerHTML=h;
   const wrapE=document.createElement('div');wrapE.className='entries';
-  wrapE.appendChild(entry('▶','全部依序練習',act+' 題（未退場）','pri wide',()=>{mode='all';if(S.last){const i=DATA.findIndex(q=>q.id===S.last);if(i>=0)idx=i;}render();scrollTo({top:0});}));
+  wrapE.appendChild(entry('🔀','隨機練習（不分領域）',act+' 題（未退場）','pri wide',()=>{mode='all';buildPool();if(S.last){const i=pool.findIndex(q=>q.id===S.last);if(i>=0)idx=i;}render();scrollTo({top:0});}));
   wrapE.appendChild(entry('⏰','今日複習',due?due+' 題到期':'暫無到期','',()=>{if(!due){toast('目前沒有到期複習題。FSRS 會依你每題的記憶狀態，在「快忘掉但救得回」時排回來。');return;}mode='due';idx=0;render();scrollTo({top:0});}));
   wrapE.appendChild(entry('⭐','高頻必刷',hf+' 題（考≥3年）','',()=>{mode='hf';idx=0;render();scrollTo({top:0});}));
   wrapE.appendChild(entry('⚠','爭議／分歧',cf+' 題','',()=>{mode='conflict';idx=0;render();scrollTo({top:0});}));
@@ -419,7 +422,7 @@ function renderWrongHome(){
   app.appendChild(g);
 }
 function crumbHTML(){
-  const map={cat:curCat?(curCat+' · '+SUBS[curCat]):'',wrongcat:'錯題 · '+(curCat?SUBS[curCat]:''),wrongtype:'錯題 · '+curType,wrong:'錯題本',wronghome:'錯題本',star:'收藏題',due:'今日複習',hf:'高頻必刷',conflict:'爭議／分歧題',flag:'待查／爭議'};
+  const map={cat:curCat?(curCat+' · '+SUBS[curCat]):'',wrongcat:'錯題 · '+(curCat?SUBS[curCat]:''),wrongtype:'錯題 · '+curType,wrong:'錯題本',wronghome:'錯題本',star:'收藏題',due:'今日複習',hf:'高頻必刷',conflict:'爭議／分歧題',flag:'待查／爭議',all:'🔀 隨機練習（不分領域）',retired:'已退場'};
   if(mode==='home'||mode==='all'||mode==='data')return '';
   const back=(mode==='wrongcat'||mode==='wrongtype')?'錯題本':'首頁';
   return '<div class="crumb"><button class="bk" id="bkHome">← '+back+'</button><span class="cur">'+(map[mode]||'')+'</span></div>';
@@ -441,7 +444,7 @@ function render(){
   if(mode==='all'||mode==='cat'){S.last=q.id;try{localStorage.setItem(LS,JSON.stringify(S));}catch(e){}}
   const on=S.star[q.id]?'on':'';const fon=(S.flag&&S.flag[q.id])?'on':'';
   let h=crumbHTML()+'<div class="card"><div class="meta">'
-   +'<span class="pill id">本領域第 '+DIDX[q.id]+' 題</span>'
+   +'<span class="pill id">第 '+DIDX[q.id]+' 題</span>'
    +'<span class="pill" style="opacity:.5;font-size:11px">CN'+q.id+'</span>'
    +'<span class="pill src'+q.src+'">'+q.src+'</span>'
    +'<span class="pill sub">'+q.sub+' '+SUBS[q.sub]+'</span>'
@@ -456,7 +459,7 @@ function render(){
    +'</div><div class="stem">'+esc(q.stem)+'</div>';
   for(const L of optOrder(q))
     h+='<div class="opt" data-l="'+L+'"><div class="lt">'+L+'</div><div class="tx">'+esc(q.opts[L])+'</div></div>';
-  h+='<div class="mini" style="text-align:left;margin-top:4px">本領域第 '+DIDX[q.id]+' 題（共 '+DATA.length+'）· 目前清單 '+(idx+1)+'/'+pool.length+(S.shuffle?' · 選項已洗牌':'')+'</div></div>';
+  h+='<div class="mini" style="text-align:left;margin-top:4px">第 '+DIDX[q.id]+' 題（共 '+DATA.length+'）· '+(mode==='all'?'隨機第 ':'清單 ')+(idx+1)+'/'+pool.length+(S.shuffle?' · 選項已洗牌':'')+'</div></div>';
   app.innerHTML=h;bindCrumb();
   app.querySelectorAll('.opt').forEach(o=>o.onclick=()=>peck(o));
   document.getElementById('star').onclick=function(){S.star[q.id]=!S.star[q.id];if(!S.star[q.id])delete S.star[q.id];this.classList.toggle('on',!!S.star[q.id]);this.textContent=S.star[q.id]?'★':'☆';save();hdr();};
@@ -558,7 +561,7 @@ function renderData(){
   const st=starIds();
   let h='<div class="card"><div class="h3">練習設定</div>'
    +'<div class="toggle"><div><div style="font-weight:600;font-size:13.5px">選項洗牌</div><div class="dim">重做時打散選項順序，破除「背第幾個」</div></div><div class="sw '+(S.shuffle?'on':'')+'" id="swShuf"><i></i></div></div>'
-   +'<div class="toggle" style="border-bottom:none"><div><div style="font-weight:600;font-size:13.5px">FSRS 間隔複習</div><div class="dim">依每題記憶狀態動態排下次複習（目標留存率 90%）。作答對錯＋信心度＝FSRS 評級；穩定度≥21天視為已掌握。</div></div></div></div>';
+   +'<div class="row"><button class="icon" id="reshuf" style="flex:1">🔀 重新洗牌題序</button></div><div class="toggle" style="border-bottom:none"><div><div style="font-weight:600;font-size:13.5px">FSRS 間隔複習</div><div class="dim">依每題記憶狀態動態排下次複習（目標留存率 90%）。作答對錯＋信心度＝FSRS 評級；穩定度≥21天視為已掌握。</div></div></div></div>';
   h+='<div class="card"><div class="h3">收藏題（'+st.length+'）</div>';
   if(!st.length)h+='<div class="dim">尚無收藏。作答時點右上角 ☆ 收藏。</div>';
   else{h+='<div class="wlist">';st.forEach(id=>{const q=DATA.find(x=>x.id===id);if(!q)return;h+='<div class="wrow" data-goto="'+id+'"><span class="wid s">★ 第'+DIDX[id]+'題</span><span class="wq">'+esc(q.stem.slice(0,42))+(q.stem.length>42?'…':'')+'</span></div>';});h+='</div>';}
@@ -578,11 +581,12 @@ function renderData(){
    +'<div class="mini" id="iomsg" style="text-align:left"></div></div>';
   const app=document.getElementById('app');app.innerHTML=h;
   document.getElementById('swShuf').onclick=function(){S.shuffle=!S.shuffle;this.classList.toggle('on',S.shuffle);orderMap={};save();};
+  {const rs=document.getElementById('reshuf');if(rs)rs.onclick=()=>{reshuffle();idx=0;msg('✓ 題序已重新隨機排列。');};}
   app.querySelectorAll('.wrow[data-unret]').forEach(r=>r.onclick=()=>{delete S.retire[r.dataset.unret];save();hdr();renderData();});
   {const ua=document.getElementById('unretall');if(ua)ua.onclick=()=>{S.retire={};save();hdr();renderData();msg('✓ 已全部復原。');};}
   app.querySelectorAll('.wrow[data-goto]').forEach(r=>r.onclick=()=>gotoId(r.dataset.goto));
   document.getElementById('exp').onclick=()=>{document.getElementById('io').value=btoa(unescape(encodeURIComponent(JSON.stringify(S))));msg('已產生完整進度代碼，請複製保存。');};
-  document.getElementById('imp').onclick=()=>{try{const v=document.getElementById('io').value.trim();const o=JSON.parse(decodeURIComponent(escape(atob(v))));S.P=normalizeP(o.P||{});S.star=o.star||{};S.note=o.note||{};S.flag=o.flag||{};S.retire=o.retire||{};S.last=o.last||null;S.shuffle=(o.shuffle!==false);save();msg('✓ 匯入成功（作答 '+Object.keys(S.P).length+' · 收藏 '+Object.keys(S.star).length+' · 筆記 '+Object.keys(S.note).length+'）');hdr();renderData();}catch(e){msg('✗ 代碼無效，請確認。');}};
+  document.getElementById('imp').onclick=()=>{try{const v=document.getElementById('io').value.trim();const o=JSON.parse(decodeURIComponent(escape(atob(v))));S.P=normalizeP(o.P||{});S.star=o.star||{};S.note=o.note||{};S.flag=o.flag||{};S.retire=o.retire||{};S.qorder=o.qorder||null;S.last=o.last||null;S.shuffle=(o.shuffle!==false);save();msg('✓ 匯入成功（作答 '+Object.keys(S.P).length+' · 收藏 '+Object.keys(S.star).length+' · 筆記 '+Object.keys(S.note).length+'）');hdr();renderData();}catch(e){msg('✗ 代碼無效，請確認。');}};
   document.getElementById('cpy').onclick=()=>{const t=document.getElementById('io');if(!t.value){msg('請先按「匯出全部進度」產生代碼。');return;}t.select();
     const fb=()=>{try{document.execCommand('copy');msg('已複製。');}catch(e){msg('請長按手動複製。');}};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(()=>msg('已複製。')).catch(fb);}else fb();};
@@ -596,7 +600,7 @@ function renderData(){
       return;
     }
     clearTimeout(b._t);
-    S={P:{},star:{},note:{},flag:{},retire:{},last:null,shuffle:S.shuffle};
+    S={P:{},star:{},note:{},flag:{},retire:{},qorder:null,last:null,shuffle:S.shuffle};
     orderMap={}; addedRetry=new Set(); pool=[]; idx=0; sel=new Set(); locked=false;
     try{localStorage.removeItem(LS);localStorage.removeItem(LSv2);localStorage.removeItem(LSv1);}catch(e){}
     save(); hdr(); renderData();
@@ -604,7 +608,7 @@ function renderData(){
   };
 }
 function gotoId(id){const i=DATA.findIndex(q=>q.id===id);if(i<0)return;mode='cat';curCat=DATA[i].sub;buildPool();idx=pool.findIndex(q=>q.id===id);if(idx<0)idx=0;render();scrollTo({top:0});}
-function gotoNum(n){n=parseInt(n,10);if(!n||n<1||n>DATA.length){toast('請輸入 1 – '+DATA.length+' 之間的題號。');return;}document.getElementById('ovl').classList.remove('on');mode='all';buildPool();idx=n-1;render();scrollTo({top:0});}
+function gotoNum(n){n=parseInt(n,10);if(!n||n<1||n>DATA.length){toast('請輸入 1 – '+DATA.length+' 之間的題號。');return;}document.getElementById('ovl').classList.remove('on');const tid=DATA[n-1].id;if(isRet(tid)){toast('第 '+n+' 題已退場，可到「存檔」頁復原。');return;}mode='all';buildPool();idx=pool.findIndex(q=>q.id===tid);if(idx<0)idx=0;render();scrollTo({top:0});}
 function msg(t){const m=document.getElementById('iomsg');if(m)m.textContent=t;}
 function toast(t){
   let el=document.getElementById('toast');
@@ -620,7 +624,7 @@ function openPick(){
   pool.forEach((q,i)=>{const p=S.P[q.id];let c=p?(mastered(p)?'mast':(p.w?'wrong':'ok')):'';const cur=(i===idx)?' cur':'';
     h+='<div class="cell '+c+cur+'" data-i="'+i+'">'+(i+1)+(S.star[q.id]?'<span class="st">★</span>':'')+'</div>';});
   g.innerHTML=h;
-  document.getElementById('pickTitle').textContent=(mode==='cat'?(curCat+' '+SUBS[curCat]):mode==='wrongcat'?('錯題 '+curCat):mode==='wrongtype'?('錯題 '+curType):{wrong:'錯題本',star:'收藏',flag:'待查',due:'今日複習',hf:'高頻必刷',conflict:'爭議題',all:'全部'}[mode]||'')+' · 選題';
+  document.getElementById('pickTitle').textContent=(mode==='cat'?(curCat+' '+SUBS[curCat]):mode==='wrongcat'?('錯題 '+curCat):mode==='wrongtype'?('錯題 '+curType):{wrong:'錯題本',star:'收藏',flag:'待查',due:'今日複習',hf:'高頻必刷',conflict:'爭議題',all:'隨機練習',retired:'已退場'}[mode]||'')+' · 選題';
   g.querySelectorAll('.cell').forEach(c=>c.onclick=()=>{idx=+c.dataset.i;document.getElementById('ovl').classList.remove('on');render();scrollTo({top:0});});
   document.getElementById('ovl').classList.add('on');
 }
@@ -631,7 +635,7 @@ document.getElementById('jumpN').addEventListener('keydown',e=>{if(e.key==='Ente
 document.getElementById('closePick').onclick=()=>document.getElementById('ovl').classList.remove('on');
 document.getElementById('ovl').onclick=e=>{if(e.target.id==='ovl')document.getElementById('ovl').classList.remove('on');};
 document.getElementById('tabHome').onclick=()=>{mode='home';render();scrollTo({top:0});};
-document.getElementById('tabAll').onclick=()=>{mode='all';if(S.last){const i=DATA.findIndex(q=>q.id===S.last);if(i>=0)idx=i;}render();scrollTo({top:0});};
+document.getElementById('tabAll').onclick=()=>{mode='all';buildPool();if(S.last){const i=pool.findIndex(q=>q.id===S.last);if(i>=0)idx=i;}render();scrollTo({top:0});};
 document.getElementById('tabWrong').onclick=()=>{mode='wronghome';render();scrollTo({top:0});};
 document.getElementById('tabStar').onclick=()=>{mode='star';idx=0;render();scrollTo({top:0});};
 document.getElementById('tabFlag').onclick=()=>{mode='flag';idx=0;render();scrollTo({top:0});};
