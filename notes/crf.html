@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-Hant"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2C4A38">
+<title>記不住的東西 · 顱顏</title>
+<style>
+:root{--green:#4A7C59;--forest:#2C4A38;--steel:#6B7B8D;--pale:#A8D5B5;--amber:#C99A3B;
+--bg:#F4F6F3;--ink:#22322A;--rightbg:#E9F5EC;--line:#E1E7E0;--card:#fff;--red:#B4483C}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+background:var(--bg);color:var(--ink);line-height:1.68;-webkit-text-size-adjust:100%}
+.wrap{max-width:940px;margin:0 auto;padding:20px 16px 70px}
+a{color:var(--green)}
+header.hd{background:linear-gradient(135deg,#2C4A38,#3E6B4E);color:#fff;border-radius:18px;padding:24px 22px;
+box-shadow:0 6px 22px rgba(44,74,56,.22)}
+header.hd h1{margin:0 0 4px;font-size:22px;letter-spacing:.5px}
+header.hd .sub{opacity:.85;font-size:13.5px}
+header.hd .crumb{font-size:12px;opacity:.8;margin-bottom:10px}
+header.hd .crumb a{color:#DCEFE2;text-decoration:none}
+header.hd .crumb a:hover{text-decoration:underline}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.stat{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:9px 14px;flex:1;min-width:88px}
+.stat b{display:block;font-size:22px;font-weight:800;line-height:1.15}
+.stat span{font-size:11.5px;opacity:.82}
+.hdlinks{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.hdlinks a{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;
+font-size:12.5px;padding:6px 12px;border-radius:20px}
+.hdlinks a:hover{background:rgba(255,255,255,.24)}
+/* search */
+.searchbox{margin:20px 0 6px;position:relative}
+.searchbox input{width:100%;padding:13px 15px 13px 40px;border:1px solid var(--line);border-radius:13px;
+font-size:15px;background:#fff;color:var(--ink);font-family:inherit}
+.searchbox input:focus{outline:none;border-color:var(--pale);box-shadow:0 0 0 3px rgba(168,213,181,.35)}
+.searchbox .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.45;font-size:15px}
+.hint{font-size:11.5px;color:var(--steel);margin:0 0 4px 2px}
+/* sections */
+section{margin-top:24px}
+section h2{font-size:13.5px;color:var(--green);font-weight:800;margin:0 0 11px;padding-left:10px;
+border-left:4px solid var(--pale);letter-spacing:1px;display:flex;align-items:center;gap:8px}
+section h2 .n{color:var(--steel);font-weight:600;font-size:11.5px;letter-spacing:0}
+.grid{display:grid;grid-template-columns:1fr;gap:11px}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+.ncard{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
+text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s,border-color .12s}
+.ncard:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(44,74,56,.13);border-color:var(--pale)}
+.ncard .top{display:flex;align-items:flex-start;gap:10px}
+.badge{flex:none;min-width:42px;height:24px;padding:0 8px;border-radius:8px;background:var(--forest);color:#fff;
+font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px}
+.ncard .ttl{font-weight:800;font-size:15.5px;line-height:1.4;flex:1}
+.ncard .key{font-size:12.5px;color:var(--steel);margin-top:7px;line-height:1.6}
+.ncard .sb{font-size:11px;color:#93A29A;margin-top:6px}
+.noresult{display:none;text-align:center;color:var(--steel);font-size:13px;padding:30px 0}
+/* toc */
+.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:20px}
+.toc b{font-size:12px;color:var(--green);letter-spacing:1px}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc li{margin:3px 0;font-size:13.5px}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+/* note article */
+article.note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;margin-top:18px;
+scroll-margin-top:14px}
+article.note>h3{margin:0;font-size:19px;line-height:1.5;display:block}
+article.note>h3 .num{margin-right:9px}
+@media(max-width:640px){article.note{padding:17px 15px 15px}article.note>h3{font-size:17.5px}}
+article.note>h3 .num{display:inline-block;color:#fff;background:var(--green);font-size:12px;font-weight:800;
+border-radius:7px;padding:1px 8px;vertical-align:2px}
+article.note>h3 a.anchor{font-size:14px;color:#C3CFC7;text-decoration:none;font-weight:400}
+article.note>h3 a.anchor:hover{color:var(--green)}
+.subtag{font-size:11.5px;color:var(--steel);margin-top:7px}
+.keyline{background:var(--rightbg);border:1px solid #D5E7DB;border-radius:11px;padding:10px 13px;
+font-size:13.5px;margin:13px 0 4px;color:#2B5340}
+.keyline b{color:var(--forest)}
+article.note h4{font-size:14.5px;color:var(--forest);margin:20px 0 8px;padding-bottom:5px;border-bottom:1px dashed var(--line)}
+article.note p{margin:11px 0;font-size:14.5px}
+article.note ul,article.note ol{margin:11px 0;padding-left:23px;font-size:14.5px}
+article.note li{margin:5px 0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;border:1px solid var(--line);border-radius:12px;
+position:relative;background:linear-gradient(to right,#fff 30%,rgba(255,255,255,0)),
+linear-gradient(to right,rgba(255,255,255,0),#fff 70%) 100% 0,
+radial-gradient(farthest-side at 0 50%,rgba(44,74,56,.14),rgba(0,0,0,0)),
+radial-gradient(farthest-side at 100% 50%,rgba(44,74,56,.14),rgba(0,0,0,0)) 100% 0;
+background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%;background-attachment:local,local,scroll,scroll}
+.swipe{display:none;font-size:11.5px;color:var(--steel);margin:-8px 0 12px 2px}
+@media(max-width:700px){.swipe.on{display:block}}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;min-width:520px}
+th{background:#EEF4F0;color:var(--forest);font-weight:800;text-align:left;padding:9px 11px;
+border-bottom:2px solid var(--line);font-size:12.5px;white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid #F0F3F1;vertical-align:top;line-height:1.62}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#FBFCFB}
+td:first-child{white-space:nowrap}
+@media(max-width:640px){td:first-child{white-space:normal}}
+.ins{color:#5C6B62;font-size:.94em}
+.co{border-radius:12px;padding:11px 14px;margin:14px 0;font-size:13.8px;line-height:1.68}
+.co.star{background:#FFF8E8;border:1px solid #F0DFB4;border-left:4px solid var(--amber)}
+.co.trap{background:#FDEEEC;border:1px solid #F3D2CD;border-left:4px solid var(--red)}
+.co.note{background:var(--rightbg);border:1px solid #D5E7DB;border-left:4px solid var(--green)}
+.co .lb{display:block;font-size:11px;font-weight:800;letter-spacing:1px;margin-bottom:4px;opacity:.85}
+.co.star .lb{color:#8A6A1E}.co.trap .lb{color:#93372C}.co.note .lb{color:var(--forest)}
+figure{margin:16px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:zoom-in}
+figcaption{font-size:12px;color:var(--steel);margin-top:7px;line-height:1.6}
+.lnk{display:inline-flex;align-items:center;gap:7px;background:var(--rightbg);border:1px solid #D5E7DB;
+border-radius:10px;padding:9px 13px;text-decoration:none;font-size:13.5px;font-weight:700;margin:6px 0}
+.lnk:hover{background:#DDEEE3}
+.rel{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--steel)}
+.rel b{color:var(--green);letter-spacing:1px;font-size:11px}
+.rel a{display:inline-block;background:#F3F7F4;border:1px solid var(--line);border-radius:18px;padding:3px 11px;
+margin:5px 5px 0 0;text-decoration:none;font-size:12.5px}
+.rel a:hover{border-color:var(--pale);background:var(--rightbg)}
+/* nav */
+.pager{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.pager a{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 14px;
+text-decoration:none;color:inherit;font-size:13px}
+.pager a:hover{border-color:var(--pale);box-shadow:0 6px 16px rgba(44,74,56,.1)}
+.pager .lb{display:block;font-size:10.5px;color:var(--steel);letter-spacing:1px;margin-bottom:2px}
+.pager .nm{font-weight:800;color:var(--forest)}
+.pager a.nx{text-align:right}
+.tip{margin-top:24px;font-size:12px;color:var(--steel);background:#fff;border:1px dashed var(--line);
+border-radius:12px;padding:13px 15px;line-height:1.75}
+.tip b{color:var(--green)}
+footer{margin-top:24px;text-align:center;font-size:11px;color:#9AA79E}
+.btop{position:fixed;right:16px;bottom:16px;width:42px;height:42px;border-radius:50%;background:var(--forest);
+color:#fff;border:none;font-size:17px;box-shadow:0 4px 14px rgba(44,74,56,.3);cursor:pointer;display:none;z-index:40}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(20,30,24,.92);display:none;align-items:center;justify-content:center;
+z-index:90;padding:16px;cursor:zoom-out}
+#lb img{max-width:100%;max-height:100%;border-radius:8px}
+@media print{
+ body{background:#fff}.btop,.searchbox,.hdlinks,.pager{display:none!important}
+ article.note{break-inside:avoid;box-shadow:none;border-color:#ccc}
+ header.hd{background:#2C4A38!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style></head><body>
+<div class="wrap">
+<header class="hd">
+  <div class="crumb"><a href="index.html">記不住的東西</a> ／ 顱顏</div>
+  <h1>顱顏</h1>
+  <div class="sub">CRF · 共 5 則易忘點</div>
+  <div class="hdlinks"><a href="index.html">← 筆記索引</a><a href="../crf.html">CRF 題庫 App</a><a href="../index.html">題庫總覽</a></div>
+</header>
+
+<div class="toc"><b>本頁目錄</b><ol><li><a href="#pierre-robin">Pierre Robin sequence 診斷三聯症</a></li><li><a href="#syndrome-occlusion">四大顱顏症候群的顎骨與咬合表現</a></li><li><a href="#pharyngeal-arch">咽弓（Pharyngeal arch）衍生物總表</a></li><li><a href="#cleft-timeline">唇顎裂全期治療黃金時程表</a></li><li><a href="#calnan">Calnan's triad（黏膜下顎裂）</a></li></ol></div>
+
+<article class="note" id="pierre-robin">
+  <h3><span class="num">01</span>Pierre Robin sequence 診斷三聯症<a class="anchor" href="#pierre-robin" title="複製此段連結">§</a></h3>
+  <div class="subtag">CRF · A 顱顏症候群/畸形</div>
+  <div class="keyline">三個特徵必須「同時、無條件」成立才叫 PRS；micrognathia 是原發缺陷，其餘兩項是骨牌效應。</div>
+  <p><b>核心診斷三聯症矩陣（臨床直覺反射！🚨）</b>：在臨床上，必須<b>同時、無條件</b>滿足以下三大特徵聯套（combination of three features）方能確診。</p>
+<ol><li><b>小下頜畸形（micrognathia）</b>：下頜骨三維發育嚴重後縮與短小，此為<b>原發性胚胎起源</b>（primary defect）。</li><li><b>舌下垂（glossoptosis）</b>：下頜骨基底短小導致舌根肌肉失去向前支撐力，舌頭向後向下塌陷下垂。</li><li><b>上呼吸道阻塞</b>（upper airway obstruction）。</li></ol>
+<div class="co star"><span class="lb">⭐ 記憶錨點</span>記憶關鍵在「sequence」二字 —— micrognathia 是<b>因</b>，glossoptosis 與 airway obstruction 是被推倒的骨牌。因果順序講錯，這題就沒了。</div>
+  <div class="rel"><b>相關筆記</b><br><a href="crf.html#syndrome-occlusion">四大顱顏症候群的顎骨與咬合表現</a><a href="crf.html#cleft-timeline">唇顎裂全期治療黃金時程表</a></div>
+</article>
+<article class="note" id="syndrome-occlusion">
+  <h3><span class="num">02</span>四大顱顏症候群的顎骨與咬合表現<a class="anchor" href="#syndrome-occlusion" title="複製此段連結">§</a></h3>
+  <div class="subtag">CRF · A 顱顏症候群/畸形 · F 正顎/咬合</div>
+  <div class="keyline">Apert 是四者中唯一明列「下顎前突」的一列，最容易漏記。</div>
+  <div class="tw"><table><thead><tr><th>症候群</th><th>顎骨與咬合表現</th></tr></thead><tbody><tr><td>Crouzon</td><td>中臉發育不良，牽涉眼眶、顴骨、鼻、上顎</td></tr><tr><td><b>Apert</b></td><td>⭐ <b>下顎前突</b>（mandibular protrusion）＋ <b>class III</b> ＋ <b>前開咬</b>（anterior open bite）＋ 上顎發育不良 ＋ 牙齒明顯而擁擠</td></tr><tr><td><b>Treacher Collins</b></td><td>⭐ 上顎與下顎在前後徑皆發育不良，但<b>下顎的發育不良特別嚴重</b> —— 特徵為<b>短的下顎枝</b>（short ramus）與明顯彎曲且向後旋轉的<b>下顎角前切跡</b>（antegonial notch）</td></tr><tr><td>Muenke</td><td>中臉發育不良併牙齒擁擠</td></tr></tbody></table></div>
+<div class="co trap"><span class="lb">🚨 考場地雷</span>Apert 那一列是最容易被記漏的：它是四者中<b>唯一明列「下顎前突」</b>的 —— ⚠ 但注意，它的 class III <b>同時有下顎前突與上顎發育不良兩個成分</b>，與 Crouzon 的<b>純中臉問題</b>不同。這是一組很好的鑑別考點。</div>
+  <div class="rel"><b>相關筆記</b><br><a href="crf.html#pierre-robin">Pierre Robin sequence 診斷三聯症</a></div>
+</article>
+<article class="note" id="pharyngeal-arch">
+  <h3><span class="num">03</span>咽弓（Pharyngeal arch）衍生物總表<a class="anchor" href="#pharyngeal-arch" title="複製此段連結">§</a></h3>
+  <div class="subtag">CRF · 胚胎學基礎</div>
+  <div class="keyline">第 5 弓在人類不存在；stylopharyngeus 是第 3 弓唯一一條肌肉；cricothyroid 是喉內肌中唯一不歸 recurrent laryngeal 管的。</div>
+  <h4>速記版</h4>
+<div class="tw"><table><thead><tr><th>咽弓</th><th>骨骼</th><th>肌肉</th><th>神經</th><th>動脈</th></tr></thead><tbody><tr><td>1（下頜）</td><td>Meckel 軟骨→malleus 錘骨、incus 砧骨；下頜、上頜、顴、顳骨鱗部</td><td>咀嚼肌（＋mylohyoid、二腹肌前腹、tensor tympani、tensor veli palatini）</td><td>CN V 三叉</td><td>maxillary a.（上頜動脈）</td></tr><tr><td>2（舌骨 hyoid）</td><td>Reichert 軟骨→stapes 鐙骨、styloid、舌骨小角＋上半</td><td>顏面表情肌（＋stapedius、stylohyoid、二腹肌後腹）</td><td>CN VII 顏面</td><td>stapedial a.（鐙骨動脈）</td></tr><tr><td>3</td><td>舌骨大角＋下半體</td><td>stylopharyngeus、上中咽縮肌</td><td>CN IX 舌咽</td><td>總／內頸動脈</td></tr><tr><td>4＆6</td><td>喉軟骨（甲狀、環狀、杓狀…）</td><td>咽縮肌、發聲肌、軟顎肌（除 tensor veli palatini）、上食道肌</td><td>CN X 迷走</td><td>主動脈弓、右鎖骨下、肺動脈、動脈導管</td></tr></tbody></table></div>
+<div class="swipe on">← 表格可左右滑動 →</div>
+<h4>完整版（含考點標記）</h4>
+<div class="tw"><table><thead><tr><th>弓</th><th>神經</th><th>軟骨衍生物</th><th>肌肉</th><th>動脈</th></tr></thead><tbody><tr><td>1</td><td>⭐ V（三叉）</td><td>Meckel's：錘骨、砧骨、錘骨前韌帶、蝶下頜韌帶</td><td>咀嚼肌群、mylohyoid、二腹肌前腹、tensor tympani、⭐ <b>tensor veli palatini</b></td><td>上頜動脈</td></tr><tr><td>2</td><td>⭐ VII（顏面）</td><td>Reichert's：鐙骨、莖突、莖突舌骨韌帶、舌骨小角＋體上部</td><td>表情肌全體、stapedius、stylohyoid、二腹肌後腹</td><td>鐙骨動脈</td></tr><tr><td>3</td><td>⭐ IX（舌咽）</td><td>⭐ 舌骨大角 ＋ 體下部</td><td>⭐ <b>Stylopharyngeus（唯一一條）</b></td><td>總頸動脈 ＋ 內頸動脈近端</td></tr><tr><td>4</td><td>⭐ X — superior laryngeal</td><td>甲狀軟骨、會厭軟骨</td><td>⭐ Cricothyroid、⭐ <b>Levator veli palatini</b>、咽縮肌群（上中下）</td><td>左：主動脈弓；右：右鎖骨下動脈近端</td></tr><tr><td>⚠ 5</td><td>—</td><td>⭐ <b>人類無此弓</b></td><td>—</td><td>—</td></tr><tr><td>6</td><td>⭐ X — recurrent laryngeal</td><td>環狀、杓狀、小角、楔狀軟骨</td><td>⭐ 除 cricothyroid 外的<b>所有喉內肌</b></td><td>左：肺動脈近端＋動脈導管；右：右肺動脈近端</td></tr></tbody></table></div>
+<div class="swipe on">← 表格可左右滑動 →</div>
+<h4>⭐ 三組必背的「同名不同弓」</h4>
+<p><b>① 顎的兩條張肌</b> —— 與先前讀的 IVV 直接接軌</p>
+<div class="tw"><table><thead><tr><th></th><th>弓</th><th>神經</th><th>功能</th></tr></thead><tbody><tr><td>⭐ Tensor veli palatini</td><td>1</td><td>V3</td><td>開耳咽管</td></tr><tr><td>⭐ Levator veli palatini</td><td>4</td><td>X／咽叢</td><td>提軟顎、顎咽閉合</td></tr></tbody></table></div>
+<div class="swipe on">← 表格可左右滑動 →</div>
+<div class="co star"><span class="lb">⭐ 記憶錨點</span>⭐ 這就是 <b>Ch.21.10</b> 把「complete IVV（levator）」與「hamulus 處鬆開 tensor tendon」<b>分列兩條</b>的胚胎學根據 —— 它們從來不是同一個系統。</div>
+<ul><li><b>② 中耳兩條小肌</b>：tensor tympani（1，V3） vs stapedius（2，VII）—— 與其附著的聽小骨來源一致。</li><li><b>③ 二腹肌</b>：前腹（1，V3） vs 後腹（2，VII）。</li><li><b>④ 喉內肌</b>：cricothyroid（4，superior laryngeal） vs 其餘全部（6，recurrent laryngeal）。</li></ul>
+  <div class="rel"><b>相關筆記</b><br><a href="hnk.html#lamb">顏面表情肌的深層例外 —— LAMB 口訣</a><a href="crf.html#cleft-timeline">唇顎裂全期治療黃金時程表</a></div>
+</article>
+<article class="note" id="cleft-timeline">
+  <h3><span class="num">04</span>唇顎裂全期治療黃金時程表<a class="anchor" href="#cleft-timeline" title="複製此段連結">§</a></h3>
+  <div class="subtag">CRF · B 唇顎裂/唇部重建</div>
+  <div class="keyline">顎裂修補要卡在 12 個月語言發展前；ABG 要卡在恆犬齒萌發前；第 2 階段鼻整形絕對不能動鼻中隔。</div>
+  <p>📅 <b>Professor's Master Timeline</b>（GB & Neligan 聯合應證）</p>
+<div class="tw"><table><thead><tr><th>病患年齡</th><th>治療階段與核心術式</th><th>手術目的與考場地雷細節</th></tr></thead><tbody><tr><td><b>0 – 3 個月</b></td><td>術前嬰兒牙顎矯正<br>(Presurgical Infant Orthopedics, PSIO / NAM)</td><td>利用鼻牙槽塑形（NAM）縮小裂隙寬度、牽引牙槽骨，並利用鼻支架預先撐起塌陷的下側鼻軟骨（LLC），減輕後續手術張力。</td></tr><tr><td><b>3 – 6 個月</b></td><td>一期唇裂修補術<br>(Primary Lip Repair)<br>＋<br>第一階段鼻整形<br>(Primary Rhinoplasty)</td><td><b>唇部</b>：恢復垂直高度與口輪匝肌的連續性。<br><span class='ins'>教授額外補充：教科書外常考的黃金準則為「<b>Rule of 10s</b>」，即體重 10 磅、血紅素 10 g/dL、白血球不超過 10,000、出生 10 週，作為適合手術的安全門檻。</span><br><b>鼻部（第 1 階段）</b>：進行鼻尖與下三分之一的初步復位，僅作<b>有限度</b>的軟骨剝離與懸吊，絕對避免破壞生長潛力。也可合併執行牙齦骨膜成形術（GPP）。</td></tr><tr><td><b>9 – 12 個月</b></td><td>一期顎裂修補術<br>(Primary Palate Repair)<br>＋<br>中耳通氣管置放</td><td><b>致命考點：為什麼是這個時間點？</b>因為必須在「兒童發展出關鍵語言能力（大約 12 個月大）」<b>之前</b>完成，否則會發展出代償性的不良發音習慣（maladaptive errors）。通常會一併請耳鼻喉科研判是否置放中耳通氣管以治療耳咽管功能不全。</td></tr><tr><td><b>3 – 5 歲</b></td><td>顎咽閉合不全治療<br>(Treatment of VPI)</td><td>若術後經語言治療仍有嚴重的顎咽閉合不全（hypernasality／鼻音過重），需進行咽瓣手術（pharyngeal flap）或二次語音手術。</td></tr><tr><td><b>4 – 6 歲</b><br>(學齡前)</td><td>第二階段鼻整形<br>(Intermediate Rhinoplasty)<br>＋<br>唇部小修整</td><td><b>目的</b>：在入學前面對同儕壓力前，改善鼻部外觀。<br><b>術式（第 2 階段）</b>：核心在於矯正 LLC 的異常位置與鼻前庭蹼狀攣縮（vestibular webbing）。<br>🚨 <b>考場防雷（N3-21.10）</b>：這個階段「<b>絕對不能動鼻中隔</b>（septal surgery deferred）」以免破壞中面部生長，且「<b>不進行軟骨移植</b>（no cartilage grafting）」。</td></tr><tr><td><b>7 – 10 歲</b><br>(混合齒列期)</td><td>齒槽骨植骨重建<br>(Alveolar Bone Grafting, ABG)</td><td><b>致命考點</b>：時機必須抓在「<b>恆犬齒（permanent canine）萌發之前</b>」！<br><b>目的</b>：關閉殘留的口鼻瘻管、提供萌發犬齒的骨骼支撐，並穩定上頜牙弓的連續性。</td></tr><tr><td><b>青少年期</b></td><td>齒列矯正<br>(Orthodontics)</td><td>進行最終的術前或決定性牙齒矯正，替未來的正頜手術做準備。</td></tr><tr><td><b>骨骼發育成熟</b><br>(女 ~16 歲、男 18+ 歲)</td><td>正頜手術<br>(Orthognathic Surgery)<br>＋<br>第三階段鼻整形<br>(Definitive Septorhinoplasty)</td><td><b>正頜</b>：唇顎裂患者常伴隨嚴重的「中臉發育不全／上頜後縮（midfacial hypoplasia）」，需執行 <b>Le Fort I 上頜前移術</b>，必要時合併下頜手術。<br><b>鼻部（第 3 階段）</b>：此時骨骼已發育成熟，終於可以進行徹底的「<b>開放式鼻中隔鼻整形</b>」，大刀闊斧地處理鼻中隔彎曲、並廣泛使用自體軟骨移植（如肋軟骨）進行精細的結構重建。</td></tr></tbody></table></div>
+  <div class="rel"><b>相關筆記</b><br><a href="crf.html#pharyngeal-arch">咽弓（Pharyngeal arch）衍生物總表</a><a href="crf.html#calnan">Calnan's triad（黏膜下顎裂）</a><a href="crf.html#pierre-robin">Pierre Robin sequence 診斷三聯症</a></div>
+</article>
+<article class="note" id="calnan">
+  <h3><span class="num">05</span>Calnan's triad（黏膜下顎裂）<a class="anchor" href="#calnan" title="複製此段連結">§</a></h3>
+  <div class="subtag">CRF · B 唇顎裂/唇部重建</div>
+  <div class="keyline">zona pellucida、bifid uvula、硬顎後緣可觸摸的凹陷 —— 三項齊備。</div>
+  <ul><li><b>Zona pellucida</b>（軟顎中線透明帶）</li><li><b>Bifid uvula</b>（懸雍垂分岔）</li><li><b>硬顎後緣可觸摸的凹陷</b>（notch of the posterior hard palate）</li></ul>
+  <div class="rel"><b>相關筆記</b><br><a href="crf.html#cleft-timeline">唇顎裂全期治療黃金時程表</a><a href="crf.html#pharyngeal-arch">咽弓（Pharyngeal arch）衍生物總表</a></div>
+</article>
+
+<div class="pager"><a class="nx" href="hnk.html"><span class="lb">下一領域 →</span><span class="nm">頭頸重建</span></a></div>
+<footer>記不住的東西 · 顱顏</footer>
+</div>
+<script>
+(function(){
+ var b=document.createElement('button');b.className='btop';b.innerHTML='↑';b.title='回到頂端';
+ b.onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};document.body.appendChild(b);
+ window.addEventListener('scroll',function(){b.style.display=window.scrollY>420?'block':'none'});
+ var lb=document.createElement('div');lb.id='lb';lb.innerHTML='<img alt="">';document.body.appendChild(lb);
+ lb.onclick=function(){lb.style.display='none'};
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.style.display='none'});
+ document.querySelectorAll('figure img').forEach(function(im){
+   im.onclick=function(){lb.querySelector('img').src=im.src;lb.style.display='flex'};});
+})();
+
+document.querySelectorAll('a.anchor').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var u=location.href.split('#')[0]+a.getAttribute('href');
+    if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){
+      var o=a.textContent;a.textContent='✓';setTimeout(function(){a.textContent=o},900);});}
+  });});
+</script>
+</body></html>

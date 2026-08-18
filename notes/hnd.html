@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="zh-Hant"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2C4A38">
+<title>記不住的東西 · 手外科 / 上肢</title>
+<style>
+:root{--green:#4A7C59;--forest:#2C4A38;--steel:#6B7B8D;--pale:#A8D5B5;--amber:#C99A3B;
+--bg:#F4F6F3;--ink:#22322A;--rightbg:#E9F5EC;--line:#E1E7E0;--card:#fff;--red:#B4483C}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+background:var(--bg);color:var(--ink);line-height:1.68;-webkit-text-size-adjust:100%}
+.wrap{max-width:940px;margin:0 auto;padding:20px 16px 70px}
+a{color:var(--green)}
+header.hd{background:linear-gradient(135deg,#2C4A38,#3E6B4E);color:#fff;border-radius:18px;padding:24px 22px;
+box-shadow:0 6px 22px rgba(44,74,56,.22)}
+header.hd h1{margin:0 0 4px;font-size:22px;letter-spacing:.5px}
+header.hd .sub{opacity:.85;font-size:13.5px}
+header.hd .crumb{font-size:12px;opacity:.8;margin-bottom:10px}
+header.hd .crumb a{color:#DCEFE2;text-decoration:none}
+header.hd .crumb a:hover{text-decoration:underline}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.stat{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:9px 14px;flex:1;min-width:88px}
+.stat b{display:block;font-size:22px;font-weight:800;line-height:1.15}
+.stat span{font-size:11.5px;opacity:.82}
+.hdlinks{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.hdlinks a{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;
+font-size:12.5px;padding:6px 12px;border-radius:20px}
+.hdlinks a:hover{background:rgba(255,255,255,.24)}
+/* search */
+.searchbox{margin:20px 0 6px;position:relative}
+.searchbox input{width:100%;padding:13px 15px 13px 40px;border:1px solid var(--line);border-radius:13px;
+font-size:15px;background:#fff;color:var(--ink);font-family:inherit}
+.searchbox input:focus{outline:none;border-color:var(--pale);box-shadow:0 0 0 3px rgba(168,213,181,.35)}
+.searchbox .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.45;font-size:15px}
+.hint{font-size:11.5px;color:var(--steel);margin:0 0 4px 2px}
+/* sections */
+section{margin-top:24px}
+section h2{font-size:13.5px;color:var(--green);font-weight:800;margin:0 0 11px;padding-left:10px;
+border-left:4px solid var(--pale);letter-spacing:1px;display:flex;align-items:center;gap:8px}
+section h2 .n{color:var(--steel);font-weight:600;font-size:11.5px;letter-spacing:0}
+.grid{display:grid;grid-template-columns:1fr;gap:11px}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+.ncard{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
+text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s,border-color .12s}
+.ncard:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(44,74,56,.13);border-color:var(--pale)}
+.ncard .top{display:flex;align-items:flex-start;gap:10px}
+.badge{flex:none;min-width:42px;height:24px;padding:0 8px;border-radius:8px;background:var(--forest);color:#fff;
+font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px}
+.ncard .ttl{font-weight:800;font-size:15.5px;line-height:1.4;flex:1}
+.ncard .key{font-size:12.5px;color:var(--steel);margin-top:7px;line-height:1.6}
+.ncard .sb{font-size:11px;color:#93A29A;margin-top:6px}
+.noresult{display:none;text-align:center;color:var(--steel);font-size:13px;padding:30px 0}
+/* toc */
+.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:20px}
+.toc b{font-size:12px;color:var(--green);letter-spacing:1px}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc li{margin:3px 0;font-size:13.5px}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+/* note article */
+article.note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;margin-top:18px;
+scroll-margin-top:14px}
+article.note>h3{margin:0;font-size:19px;line-height:1.5;display:block}
+article.note>h3 .num{margin-right:9px}
+@media(max-width:640px){article.note{padding:17px 15px 15px}article.note>h3{font-size:17.5px}}
+article.note>h3 .num{display:inline-block;color:#fff;background:var(--green);font-size:12px;font-weight:800;
+border-radius:7px;padding:1px 8px;vertical-align:2px}
+article.note>h3 a.anchor{font-size:14px;color:#C3CFC7;text-decoration:none;font-weight:400}
+article.note>h3 a.anchor:hover{color:var(--green)}
+.subtag{font-size:11.5px;color:var(--steel);margin-top:7px}
+.keyline{background:var(--rightbg);border:1px solid #D5E7DB;border-radius:11px;padding:10px 13px;
+font-size:13.5px;margin:13px 0 4px;color:#2B5340}
+.keyline b{color:var(--forest)}
+article.note h4{font-size:14.5px;color:var(--forest);margin:20px 0 8px;padding-bottom:5px;border-bottom:1px dashed var(--line)}
+article.note p{margin:11px 0;font-size:14.5px}
+article.note ul,article.note ol{margin:11px 0;padding-left:23px;font-size:14.5px}
+article.note li{margin:5px 0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;border:1px solid var(--line);border-radius:12px;
+position:relative;background:linear-gradient(to right,#fff 30%,rgba(255,255,255,0)),
+linear-gradient(to right,rgba(255,255,255,0),#fff 70%) 100% 0,
+radial-gradient(farthest-side at 0 50%,rgba(44,74,56,.14),rgba(0,0,0,0)),
+radial-gradient(farthest-side at 100% 50%,rgba(44,74,56,.14),rgba(0,0,0,0)) 100% 0;
+background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%;background-attachment:local,local,scroll,scroll}
+.swipe{display:none;font-size:11.5px;color:var(--steel);margin:-8px 0 12px 2px}
+@media(max-width:700px){.swipe.on{display:block}}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;min-width:520px}
+th{background:#EEF4F0;color:var(--forest);font-weight:800;text-align:left;padding:9px 11px;
+border-bottom:2px solid var(--line);font-size:12.5px;white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid #F0F3F1;vertical-align:top;line-height:1.62}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#FBFCFB}
+td:first-child{white-space:nowrap}
+@media(max-width:640px){td:first-child{white-space:normal}}
+.ins{color:#5C6B62;font-size:.94em}
+.co{border-radius:12px;padding:11px 14px;margin:14px 0;font-size:13.8px;line-height:1.68}
+.co.star{background:#FFF8E8;border:1px solid #F0DFB4;border-left:4px solid var(--amber)}
+.co.trap{background:#FDEEEC;border:1px solid #F3D2CD;border-left:4px solid var(--red)}
+.co.note{background:var(--rightbg);border:1px solid #D5E7DB;border-left:4px solid var(--green)}
+.co .lb{display:block;font-size:11px;font-weight:800;letter-spacing:1px;margin-bottom:4px;opacity:.85}
+.co.star .lb{color:#8A6A1E}.co.trap .lb{color:#93372C}.co.note .lb{color:var(--forest)}
+figure{margin:16px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:zoom-in}
+figcaption{font-size:12px;color:var(--steel);margin-top:7px;line-height:1.6}
+.lnk{display:inline-flex;align-items:center;gap:7px;background:var(--rightbg);border:1px solid #D5E7DB;
+border-radius:10px;padding:9px 13px;text-decoration:none;font-size:13.5px;font-weight:700;margin:6px 0}
+.lnk:hover{background:#DDEEE3}
+.rel{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--steel)}
+.rel b{color:var(--green);letter-spacing:1px;font-size:11px}
+.rel a{display:inline-block;background:#F3F7F4;border:1px solid var(--line);border-radius:18px;padding:3px 11px;
+margin:5px 5px 0 0;text-decoration:none;font-size:12.5px}
+.rel a:hover{border-color:var(--pale);background:var(--rightbg)}
+/* nav */
+.pager{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.pager a{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 14px;
+text-decoration:none;color:inherit;font-size:13px}
+.pager a:hover{border-color:var(--pale);box-shadow:0 6px 16px rgba(44,74,56,.1)}
+.pager .lb{display:block;font-size:10.5px;color:var(--steel);letter-spacing:1px;margin-bottom:2px}
+.pager .nm{font-weight:800;color:var(--forest)}
+.pager a.nx{text-align:right}
+.tip{margin-top:24px;font-size:12px;color:var(--steel);background:#fff;border:1px dashed var(--line);
+border-radius:12px;padding:13px 15px;line-height:1.75}
+.tip b{color:var(--green)}
+footer{margin-top:24px;text-align:center;font-size:11px;color:#9AA79E}
+.btop{position:fixed;right:16px;bottom:16px;width:42px;height:42px;border-radius:50%;background:var(--forest);
+color:#fff;border:none;font-size:17px;box-shadow:0 4px 14px rgba(44,74,56,.3);cursor:pointer;display:none;z-index:40}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(20,30,24,.92);display:none;align-items:center;justify-content:center;
+z-index:90;padding:16px;cursor:zoom-out}
+#lb img{max-width:100%;max-height:100%;border-radius:8px}
+@media print{
+ body{background:#fff}.btop,.searchbox,.hdlinks,.pager{display:none!important}
+ article.note{break-inside:avoid;box-shadow:none;border-color:#ccc}
+ header.hd{background:#2C4A38!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style></head><body>
+<div class="wrap">
+<header class="hd">
+  <div class="crumb"><a href="index.html">記不住的東西</a> ／ 手外科 / 上肢</div>
+  <h1>手外科 / 上肢</h1>
+  <div class="sub">HND · 共 9 則易忘點</div>
+  <div class="hdlinks"><a href="index.html">← 筆記索引</a><a href="../hnd.html">HND 題庫 App</a><a href="../index.html">題庫總覽</a></div>
+</header>
+
+<div class="toc"><b>本頁目錄</b><ol><li><a href="#brachial-plexus-atlas">Brachial plexus 圖譜</a></li><li><a href="#triple-nerve-transfer">三重神經轉移（Triple nerve transfers）</a></li><li><a href="#emg-ncs">電生理判讀速查（CMAP / SNAP / Fibs / PSW / MUP）</a></li><li><a href="#scaphoid-humpback">舟狀骨駝背畸形（Humpback deformity）</a></li><li><a href="#claw-hand">Claw hand —— 為什麼擋住 MCP，PIP 就伸得直</a></li><li><a href="#hand-arthritis">手部關節炎分佈與 arthrodesis 角度</a></li><li><a href="#cong-longitudinal">上肢先天縱向缺損圖譜（Radial / Ulnar deficiency）</a></li><li><a href="#clino-campto">Clinodactyly vs Camptodactyly</a></li><li><a href="#fx-deforming">掌骨與指骨骨折的變形方向</a></li></ol></div>
+
+<article class="note" id="brachial-plexus-atlas">
+  <h3><span class="num">01</span>Brachial plexus 圖譜<a class="anchor" href="#brachial-plexus-atlas" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · D 臂神經叢</div>
+  <div class="keyline">外部圖譜連結，臨考前掃一遍走向。</div>
+  <a class="lnk" href="https://radiopaedia.org/cases/brachial-plexus-diagram" target="_blank" rel="noopener">🔗 Radiopaedia · Brachial plexus diagram ↗</a>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#triple-nerve-transfer">三重神經轉移（Triple nerve transfers）</a><a href="hnd.html#emg-ncs">電生理判讀速查（CMAP / SNAP / Fibs / PSW / MUP）</a></div>
+</article>
+<article class="note" id="triple-nerve-transfer">
+  <h3><span class="num">02</span>三重神經轉移（Triple nerve transfers）<a class="anchor" href="#triple-nerve-transfer" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · D 臂神經叢 · E 周邊神經修復/移植</div>
+  <div class="keyline">C5–C6（Erb palsy）的經典策略：CN XI→SSN、三頭肌支→腋神經、雙束轉移重建屈肘。</div>
+  <p>「三重神經轉移（Triple nerve transfers）」是專門用來治療 <b>C5–C6 臂神經叢損傷（Erb palsy）</b> 的經典手術策略，能有效重建<b>肩膀與手肘</b>的關鍵功能。這三項神經轉移具體包含：</p>
+<h4>1. 脊髓副神經 (CN XI) → 肩胛上神經 (Suprascapular nerve)</h4>
+<p>將未受損的脊髓副神經遠端轉接，主要是為了恢復<b>肩膀的穩定度、外展以及外轉</b>功能。</p>
+<ul><li><b>棘上肌（supraspinatus）</b>：負責手臂外展（向外舉起）的<b>起始</b>動作。</li><li><b>棘下肌（infraspinatus）</b>：負責肩關節的<b>外旋</b>（向外轉動手臂）。</li></ul>
+<figure><img src="img/nt-san-ssn.jpg" alt="脊髓副神經 → 肩胛上神經轉移。(A) 損傷後棘上肌／棘下肌失能（紅），斜方肌仍由 CN XI 支配（綠）；(B) 轉接後棘上肌／棘下肌恢復支配。" loading="lazy"><figcaption>脊髓副神經 → 肩胛上神經轉移。(A) 損傷後棘上肌／棘下肌失能（紅），斜方肌仍由 CN XI 支配（綠）；(B) 轉接後棘上肌／棘下肌恢復支配。</figcaption></figure>
+<h4>2. 三頭肌運動神經 → 腋神經 (Axillary nerve)</h4>
+<p>取用橈神經中支配三頭肌（<b>通常是內側頭</b>）的運動神經分支，轉接給腋神經，藉由重新支配<b>三角肌與小圓肌</b>，進一步增強肩膀的<b>外展與外轉</b>力量。</p>
+<figure><img src="img/nt-triceps-axillary.jpg" alt="三頭肌分支 → 腋神經轉移。(A) 三角肌／小圓肌失能（紅）而三頭肌各頭功能完好（綠）；(B) 取內側頭分支轉接至腋神經前支。" loading="lazy"><figcaption>三頭肌分支 → 腋神經轉移。(A) 三角肌／小圓肌失能（紅）而三頭肌各頭功能完好（綠）；(B) 取內側頭分支轉接至腋神經前支。</figcaption></figure>
+<h4>3. 雙束神經轉移 (Double fascicular transfers)</h4>
+<p>從正常運作的<b>尺神經與正中神經</b>內，分離出可犧牲的運動神經束（通常是支配<b>尺側屈腕肌與橈側屈腕肌</b>的部位），轉接給支配<b>肱二頭肌與肱肌</b>的運動神經，藉此恢復強而有力的「<b>手肘彎曲</b>」功能。</p>
+<ul><li>【<b>尺神經運動束支（ulnar fascicle）</b> ➔ 唯一指定修復「<b>肱二頭肌神經（biceps nerve）</b>」】</li><li>【<b>正中神經運動束支（median fascicle）</b> ➔ 唯一指定修復深層的「<b>肱肌神經（brachialis nerve）</b>」】</li></ul>
+<div class="co star"><span class="lb">⭐ 記憶錨點</span>只要患者的尺神經與正中神經<b>皆完好</b>，且有可犧牲的供體神經，臨床上通常會<b>優先選擇雙束神經轉移</b>。因為同時重新支配肱二頭肌與肱肌，理論上能提供更強大且持久的屈肘力量。</div>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#brachial-plexus-atlas">Brachial plexus 圖譜</a><a href="hnd.html#emg-ncs">電生理判讀速查（CMAP / SNAP / Fibs / PSW / MUP）</a></div>
+</article>
+<article class="note" id="emg-ncs">
+  <h3><span class="num">03</span>電生理判讀速查（CMAP / SNAP / Fibs / PSW / MUP）<a class="anchor" href="#emg-ncs" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · D 臂神經叢 · E 周邊神經修復/移植</div>
+  <div class="keyline">根性撕脫時 SNAP 會「騙你」—— 背根神經節在病灶遠端，感覺軸突未變性。</div>
+  <div class="tw"><table><thead><tr><th></th><th>一句話</th><th>好消息還壞消息</th></tr></thead><tbody><tr><td><b>CMAP</b></td><td>還有幾條<b>運動</b>軸突到得了肌肉</td><td>振幅高＝好</td></tr><tr><td><b>SNAP</b></td><td>還有幾條<b>感覺</b>軸突在傳導</td><td>振幅高＝好；⚠ <b>但根性撕脫時它會騙你</b></td></tr><tr><td><b>Fibs</b></td><td>肌肉<b>失去神經</b>了</td><td>壞消息（但 &lt;3 週看不到、&gt;1 年可能消失）</td></tr><tr><td><b>PSW</b></td><td>同 Fibs，同一件事的另一種波形</td><td>壞消息</td></tr><tr><td><b>MUP</b></td><td>有軸突<b>接回</b>肌肉了</td><td>好消息（<b>3 個月</b>是關鍵時點）</td></tr></tbody></table></div>
+<div class="co trap"><span class="lb">🚨 考場地雷</span>⚠ 「感覺喪失但 SNAP 正常」＝ <b>節前（preganglionic）撕脫</b>的經典組合，這是最常被拿來出題的一格。</div>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#triple-nerve-transfer">三重神經轉移（Triple nerve transfers）</a><a href="hnd.html#brachial-plexus-atlas">Brachial plexus 圖譜</a></div>
+</article>
+<article class="note" id="scaphoid-humpback">
+  <h3><span class="num">04</span>舟狀骨駝背畸形（Humpback deformity）<a class="anchor" href="#scaphoid-humpback" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · G 骨折脫位/韌帶/生長板</div>
+  <div class="keyline">掌側路徑 ＋ 髂骨楔形撐開 ＋ 螺絲內固定 —— 一套把生物學與力學綁在一起的公式。</div>
+  <p>天生向<b>掌側屈曲（flexion）</b>，診斷閾值：<b>舟狀骨內角（intrascaphoid angle）&gt; 35°</b> 或 <b>舟月骨角（scapholunate angle）&gt; 15°</b>。</p>
+<div class="co trap"><span class="lb">🚨 考場地雷</span>若在此狀態下<b>直接打入螺絲加壓</b>，會<b>加劇屈曲畸形</b>。</div>
+<p>因此，手術必須採用<b>掌側路徑（volar approach）</b>，並使用<b>結構性自體髂骨骨條（structural iliac crest strut）楔形撐開（wedge open）</b>，以恢復正常解剖長度，抗衡螺絲壓縮力。</p>
+<div class="co star"><span class="lb">⭐ 記憶錨點</span>此「<b>掌側路徑 ＋ 髂骨楔形撐開 ＋ 螺絲內固定</b>」是一套將生物學與力學完美結合的經典重建公式。</div>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#fx-deforming">掌骨與指骨骨折的變形方向</a></div>
+</article>
+<article class="note" id="claw-hand">
+  <h3><span class="num">05</span>Claw hand —— 為什麼擋住 MCP，PIP 就伸得直<a class="anchor" href="#claw-hand" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · C 神經壓迫與轉位</div>
+  <div class="keyline">EDC 的力量從來沒消失，只是被 MCP 過度伸直「吃掉」了。</div>
+  <div class="co star"><span class="lb">⭐ 記憶錨點</span><b>EDC 的伸直力量從來沒有消失，它只是被 MCP 的過度伸直「吃掉」了。堵住 MCP，力量就自動流向 PIP。</b></div>
+<p>只要 <b>MCP 被穩定、不讓它過度伸直</b>，PIP 就可以被外在伸肌腱伸直 —— 這就是 lumbrical bar／Bouvier test 與所有 anti-claw 手術（如 Zancolli capsulodesis、靜態或動態阻擋）背後同一個力學道理。</p>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#fx-deforming">掌骨與指骨骨折的變形方向</a></div>
+</article>
+<article class="note" id="hand-arthritis">
+  <h3><span class="num">06</span>手部關節炎分佈與 arthrodesis 角度<a class="anchor" href="#hand-arthritis" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · J 關節炎</div>
+  <div class="keyline">OA 打兩端、RA 打中間；融合角度 MCP 25–40、PIP 40–55，每指 +5，DIP 幾乎打直。</div>
+  <h4>分佈：誰打哪裡</h4>
+<p><b>OA 打兩端（DIP、CMC）、RA 打中間（MCP、PIP）</b>；<b>Heberden 在遠端</b>（H-D 配對：DIP–Heberden 記「遠」）、<b>Bouchard 在近端</b>（PIP）。</p>
+<h4>Arthrodesis 建議角度</h4>
+<p><b>MCP 從 25–40°、PIP 從 40–55° 起，都是每指 +5°；DIP 幾乎打直（0–15°）。</b>唯一要多背的是 <b>拇指 MCP ＝ 15°</b>。</p>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#clino-campto">Clinodactyly vs Camptodactyly</a></div>
+</article>
+<article class="note" id="cong-longitudinal">
+  <h3><span class="num">07</span>上肢先天縱向缺損圖譜（Radial / Ulnar deficiency）<a class="anchor" href="#cong-longitudinal" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · O 先天</div>
+  <div class="keyline">橈側缺損看拇指與橈骨（Type N–5）；尺側缺損看 anlage 與 radiohumeral synostosis（Type 1–4）。</div>
+  <h4>橈側縱向缺損（Radial longitudinal deficiency）</h4>
+<figure><img src="img/cong-radial-deficiency.jpg" alt="Type N（僅拇指發育不良）→ Type 0（腕骨異常）→ Type 1（遠端橈骨短 2 mm）→ Type 2（遠端橈骨發育不良）→ Type 3（橈骨部分缺失）→ Type " loading="lazy"><figcaption>Type N（僅拇指發育不良）→ Type 0（腕骨異常）→ Type 1（遠端橈骨短 2 mm）→ Type 2（遠端橈骨發育不良）→ Type 3（橈骨部分缺失）→ Type 4（橈骨完全缺失）→ Type 5（橈骨與近端肱骨皆缺失）。</figcaption></figure>
+<h4>尺側縱向缺損（Ulnar longitudinal deficiency）</h4>
+<figure><img src="img/cong-ulnar-deficiency.jpg" alt="Typical 正常對照 → Type 1 → Type 2（可見 anlage 纖維索）→ Type 3 → Type 4（radiohumeral synostosis 橈肱骨" loading="lazy"><figcaption>Typical 正常對照 → Type 1 → Type 2（可見 anlage 纖維索）→ Type 3 → Type 4（radiohumeral synostosis 橈肱骨融合）。</figcaption></figure>
+<div class="co trap"><span class="lb">🚨 考場地雷</span>分級數字愈大不代表功能愈差 —— <b>尺側缺損 Type 4 的橈肱骨融合</b>常被誤認為是「最嚴重」，但真正決定功能的是<b>拇指與手部的狀態</b>。</div>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#clino-campto">Clinodactyly vs Camptodactyly</a></div>
+</article>
+<article class="note" id="clino-campto">
+  <h3><span class="num">08</span>Clinodactyly vs Camptodactyly<a class="anchor" href="#clino-campto" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · O 先天</div>
+  <div class="keyline">Clino 是左右歪（冠狀面），Campto 是彎不直（矢狀面）。</div>
+  <div class="tw"><table><thead><tr><th></th><th>變形方向</th><th>部位</th></tr></thead><tbody><tr><td><b>Clinodactyly</b></td><td><b>橈–尺側偏斜</b>（冠狀面／左右歪）</td><td>常見小指遠端，<b>delta phalanx</b></td></tr><tr><td><b>Camptodactyly</b></td><td><b>前後向屈曲攣縮</b>（矢狀面）</td><td><b>PIP 關節</b>，常見小指</td></tr></tbody></table></div>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#cong-longitudinal">上肢先天縱向缺損圖譜（Radial / Ulnar deficiency）</a></div>
+</article>
+<article class="note" id="fx-deforming">
+  <h3><span class="num">09</span>掌骨與指骨骨折的變形方向<a class="anchor" href="#fx-deforming" title="複製此段連結">§</a></h3>
+  <div class="subtag">HND · G 骨折脫位/韌帶/生長板</div>
+  <div class="keyline">掌骨與 P2 近端 → apex dorsal；P1 與 P2 遠端 → apex volar。記住是「誰拉住哪一塊」。</div>
+  <div class="tw"><table><thead><tr><th>骨折部位</th><th>骨折成角方向（X 光呈現）</th><th>外觀塌陷方向</th><th>核心主導「變形鋼絲」</th></tr></thead><tbody><tr><td><b>掌骨 (Metacarpal)</b></td><td>🔴 <b>Apex Dorsal</b></td><td>掌側塌陷（拳骨凹陷）</td><td><b>骨間肌（interossei）</b>將遠端掌骨頭往<b>掌側</b>拉。</td></tr><tr><td><b>近節指骨 (P1)</b></td><td>🟢 <b>Apex Volar</b></td><td>背側塌陷（PIP 過直）</td><td><b>骨間肌</b>將<b>近端</b>拉往掌側 ＋ <b>central slip</b> 將<b>遠端</b>拉往背側。</td></tr><tr><td><b>中節指骨 (P2) — 近端骨折</b></td><td>🔴 <b>Apex Dorsal</b></td><td>掌側塌陷</td><td><b>Central slip</b> 拉近端往背側 ＋ <b>FDS</b> 拉遠端往掌側。</td></tr><tr><td><b>中節指骨 (P2) — 遠端骨折</b></td><td>🟢 <b>Apex Volar</b></td><td>背側塌陷</td><td><b>FDS</b> 將近端骨折塊死死拉往掌側。</td></tr></tbody></table></div>
+<div class="swipe on">← 表格可左右滑動 →</div>
+<figure><img src="img/fx-deforming-forces.jpg" alt="(A) 掌骨 (B) 近節指骨 (C) 中節指骨近端（幹骺端） (D) 中節指骨遠端 —— 紅色箭頭為主導變形的肌腱牽引方向。" loading="lazy"><figcaption>(A) 掌骨 (B) 近節指骨 (C) 中節指骨近端（幹骺端） (D) 中節指骨遠端 —— 紅色箭頭為主導變形的肌腱牽引方向。</figcaption></figure>
+<div class="co star"><span class="lb">⭐ 記憶錨點</span>判斷邏輯永遠是同一句：<b>先問「哪條肌腱抓住近端、哪條抓住遠端」，成角方向就自動掉出來。</b></div>
+  <div class="rel"><b>相關筆記</b><br><a href="hnd.html#scaphoid-humpback">舟狀骨駝背畸形（Humpback deformity）</a><a href="hnd.html#claw-hand">Claw hand —— 為什麼擋住 MCP，PIP 就伸得直</a></div>
+</article>
+
+<div class="pager"><a class="pv" href="hnk.html"><span class="lb">← 上一領域</span><span class="nm">頭頸重建</span></a><a class="nx" href="bre.html"><span class="lb">下一領域 →</span><span class="nm">乳房</span></a></div>
+<footer>記不住的東西 · 手外科 / 上肢</footer>
+</div>
+<script>
+(function(){
+ var b=document.createElement('button');b.className='btop';b.innerHTML='↑';b.title='回到頂端';
+ b.onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};document.body.appendChild(b);
+ window.addEventListener('scroll',function(){b.style.display=window.scrollY>420?'block':'none'});
+ var lb=document.createElement('div');lb.id='lb';lb.innerHTML='<img alt="">';document.body.appendChild(lb);
+ lb.onclick=function(){lb.style.display='none'};
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.style.display='none'});
+ document.querySelectorAll('figure img').forEach(function(im){
+   im.onclick=function(){lb.querySelector('img').src=im.src;lb.style.display='flex'};});
+})();
+
+document.querySelectorAll('a.anchor').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var u=location.href.split('#')[0]+a.getAttribute('href');
+    if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){
+      var o=a.textContent;a.textContent='✓';setTimeout(function(){a.textContent=o},900);});}
+  });});
+</script>
+</body></html>

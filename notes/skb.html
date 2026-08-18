@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-Hant"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2C4A38">
+<title>記不住的東西 · 皮膚 / 軟組織 / 燒傷</title>
+<style>
+:root{--green:#4A7C59;--forest:#2C4A38;--steel:#6B7B8D;--pale:#A8D5B5;--amber:#C99A3B;
+--bg:#F4F6F3;--ink:#22322A;--rightbg:#E9F5EC;--line:#E1E7E0;--card:#fff;--red:#B4483C}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+background:var(--bg);color:var(--ink);line-height:1.68;-webkit-text-size-adjust:100%}
+.wrap{max-width:940px;margin:0 auto;padding:20px 16px 70px}
+a{color:var(--green)}
+header.hd{background:linear-gradient(135deg,#2C4A38,#3E6B4E);color:#fff;border-radius:18px;padding:24px 22px;
+box-shadow:0 6px 22px rgba(44,74,56,.22)}
+header.hd h1{margin:0 0 4px;font-size:22px;letter-spacing:.5px}
+header.hd .sub{opacity:.85;font-size:13.5px}
+header.hd .crumb{font-size:12px;opacity:.8;margin-bottom:10px}
+header.hd .crumb a{color:#DCEFE2;text-decoration:none}
+header.hd .crumb a:hover{text-decoration:underline}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.stat{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:9px 14px;flex:1;min-width:88px}
+.stat b{display:block;font-size:22px;font-weight:800;line-height:1.15}
+.stat span{font-size:11.5px;opacity:.82}
+.hdlinks{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.hdlinks a{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;
+font-size:12.5px;padding:6px 12px;border-radius:20px}
+.hdlinks a:hover{background:rgba(255,255,255,.24)}
+/* search */
+.searchbox{margin:20px 0 6px;position:relative}
+.searchbox input{width:100%;padding:13px 15px 13px 40px;border:1px solid var(--line);border-radius:13px;
+font-size:15px;background:#fff;color:var(--ink);font-family:inherit}
+.searchbox input:focus{outline:none;border-color:var(--pale);box-shadow:0 0 0 3px rgba(168,213,181,.35)}
+.searchbox .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.45;font-size:15px}
+.hint{font-size:11.5px;color:var(--steel);margin:0 0 4px 2px}
+/* sections */
+section{margin-top:24px}
+section h2{font-size:13.5px;color:var(--green);font-weight:800;margin:0 0 11px;padding-left:10px;
+border-left:4px solid var(--pale);letter-spacing:1px;display:flex;align-items:center;gap:8px}
+section h2 .n{color:var(--steel);font-weight:600;font-size:11.5px;letter-spacing:0}
+.grid{display:grid;grid-template-columns:1fr;gap:11px}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+.ncard{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
+text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s,border-color .12s}
+.ncard:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(44,74,56,.13);border-color:var(--pale)}
+.ncard .top{display:flex;align-items:flex-start;gap:10px}
+.badge{flex:none;min-width:42px;height:24px;padding:0 8px;border-radius:8px;background:var(--forest);color:#fff;
+font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px}
+.ncard .ttl{font-weight:800;font-size:15.5px;line-height:1.4;flex:1}
+.ncard .key{font-size:12.5px;color:var(--steel);margin-top:7px;line-height:1.6}
+.ncard .sb{font-size:11px;color:#93A29A;margin-top:6px}
+.noresult{display:none;text-align:center;color:var(--steel);font-size:13px;padding:30px 0}
+/* toc */
+.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:20px}
+.toc b{font-size:12px;color:var(--green);letter-spacing:1px}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc li{margin:3px 0;font-size:13.5px}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+/* note article */
+article.note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;margin-top:18px;
+scroll-margin-top:14px}
+article.note>h3{margin:0;font-size:19px;line-height:1.5;display:block}
+article.note>h3 .num{margin-right:9px}
+@media(max-width:640px){article.note{padding:17px 15px 15px}article.note>h3{font-size:17.5px}}
+article.note>h3 .num{display:inline-block;color:#fff;background:var(--green);font-size:12px;font-weight:800;
+border-radius:7px;padding:1px 8px;vertical-align:2px}
+article.note>h3 a.anchor{font-size:14px;color:#C3CFC7;text-decoration:none;font-weight:400}
+article.note>h3 a.anchor:hover{color:var(--green)}
+.subtag{font-size:11.5px;color:var(--steel);margin-top:7px}
+.keyline{background:var(--rightbg);border:1px solid #D5E7DB;border-radius:11px;padding:10px 13px;
+font-size:13.5px;margin:13px 0 4px;color:#2B5340}
+.keyline b{color:var(--forest)}
+article.note h4{font-size:14.5px;color:var(--forest);margin:20px 0 8px;padding-bottom:5px;border-bottom:1px dashed var(--line)}
+article.note p{margin:11px 0;font-size:14.5px}
+article.note ul,article.note ol{margin:11px 0;padding-left:23px;font-size:14.5px}
+article.note li{margin:5px 0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;border:1px solid var(--line);border-radius:12px;
+position:relative;background:linear-gradient(to right,#fff 30%,rgba(255,255,255,0)),
+linear-gradient(to right,rgba(255,255,255,0),#fff 70%) 100% 0,
+radial-gradient(farthest-side at 0 50%,rgba(44,74,56,.14),rgba(0,0,0,0)),
+radial-gradient(farthest-side at 100% 50%,rgba(44,74,56,.14),rgba(0,0,0,0)) 100% 0;
+background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%;background-attachment:local,local,scroll,scroll}
+.swipe{display:none;font-size:11.5px;color:var(--steel);margin:-8px 0 12px 2px}
+@media(max-width:700px){.swipe.on{display:block}}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;min-width:520px}
+th{background:#EEF4F0;color:var(--forest);font-weight:800;text-align:left;padding:9px 11px;
+border-bottom:2px solid var(--line);font-size:12.5px;white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid #F0F3F1;vertical-align:top;line-height:1.62}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#FBFCFB}
+td:first-child{white-space:nowrap}
+@media(max-width:640px){td:first-child{white-space:normal}}
+.ins{color:#5C6B62;font-size:.94em}
+.co{border-radius:12px;padding:11px 14px;margin:14px 0;font-size:13.8px;line-height:1.68}
+.co.star{background:#FFF8E8;border:1px solid #F0DFB4;border-left:4px solid var(--amber)}
+.co.trap{background:#FDEEEC;border:1px solid #F3D2CD;border-left:4px solid var(--red)}
+.co.note{background:var(--rightbg);border:1px solid #D5E7DB;border-left:4px solid var(--green)}
+.co .lb{display:block;font-size:11px;font-weight:800;letter-spacing:1px;margin-bottom:4px;opacity:.85}
+.co.star .lb{color:#8A6A1E}.co.trap .lb{color:#93372C}.co.note .lb{color:var(--forest)}
+figure{margin:16px 0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:zoom-in}
+figcaption{font-size:12px;color:var(--steel);margin-top:7px;line-height:1.6}
+.lnk{display:inline-flex;align-items:center;gap:7px;background:var(--rightbg);border:1px solid #D5E7DB;
+border-radius:10px;padding:9px 13px;text-decoration:none;font-size:13.5px;font-weight:700;margin:6px 0}
+.lnk:hover{background:#DDEEE3}
+.rel{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--steel)}
+.rel b{color:var(--green);letter-spacing:1px;font-size:11px}
+.rel a{display:inline-block;background:#F3F7F4;border:1px solid var(--line);border-radius:18px;padding:3px 11px;
+margin:5px 5px 0 0;text-decoration:none;font-size:12.5px}
+.rel a:hover{border-color:var(--pale);background:var(--rightbg)}
+/* nav */
+.pager{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.pager a{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 14px;
+text-decoration:none;color:inherit;font-size:13px}
+.pager a:hover{border-color:var(--pale);box-shadow:0 6px 16px rgba(44,74,56,.1)}
+.pager .lb{display:block;font-size:10.5px;color:var(--steel);letter-spacing:1px;margin-bottom:2px}
+.pager .nm{font-weight:800;color:var(--forest)}
+.pager a.nx{text-align:right}
+.tip{margin-top:24px;font-size:12px;color:var(--steel);background:#fff;border:1px dashed var(--line);
+border-radius:12px;padding:13px 15px;line-height:1.75}
+.tip b{color:var(--green)}
+footer{margin-top:24px;text-align:center;font-size:11px;color:#9AA79E}
+.btop{position:fixed;right:16px;bottom:16px;width:42px;height:42px;border-radius:50%;background:var(--forest);
+color:#fff;border:none;font-size:17px;box-shadow:0 4px 14px rgba(44,74,56,.3);cursor:pointer;display:none;z-index:40}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(20,30,24,.92);display:none;align-items:center;justify-content:center;
+z-index:90;padding:16px;cursor:zoom-out}
+#lb img{max-width:100%;max-height:100%;border-radius:8px}
+@media print{
+ body{background:#fff}.btop,.searchbox,.hdlinks,.pager{display:none!important}
+ article.note{break-inside:avoid;box-shadow:none;border-color:#ccc}
+ header.hd{background:#2C4A38!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style></head><body>
+<div class="wrap">
+<header class="hd">
+  <div class="crumb"><a href="index.html">記不住的東西</a> ／ 皮膚 / 軟組織 / 燒傷</div>
+  <h1>皮膚 / 軟組織 / 燒傷</h1>
+  <div class="sub">SKB · 共 1 則易忘點</div>
+  <div class="hdlinks"><a href="index.html">← 筆記索引</a><a href="../skb.html">SKB 題庫 App</a><a href="../index.html">題庫總覽</a></div>
+</header>
+
+<div class="toc"><b>本頁目錄</b><ol><li><a href="#topical-antimicrobial">局部抗菌劑對照表</a></li></ol></div>
+
+<article class="note" id="topical-antimicrobial">
+  <h3><span class="num">01</span>局部抗菌劑對照表<a class="anchor" href="#topical-antimicrobial" title="複製此段連結">§</a></h3>
+  <div class="subtag">SKB · S1 燒傷評估與復甦</div>
+  <div class="keyline">選藥邏輯全在「穿透力」與「副作用」兩欄；耳鼻軟骨＝Mafenide。</div>
+  <div class="tw"><table><thead><tr><th>藥物</th><th>⭐ 穿透焦痂／軟骨？</th><th>主要副作用</th><th>典型適應症</th></tr></thead><tbody><tr><td><b>Silver sulfadiazine（SSD）</b></td><td>❌ 不穿透</td><td>暫時性<b>白血球低下</b>（可自行恢復，<b>不必停藥</b>）；部分認為延緩上皮化</td><td>最常用的一般燒傷創面</td></tr><tr><td>⭐⭐ <b>Mafenide acetate（Sulfamylon）</b></td><td>✅ <b>能穿透焦痂與軟骨</b></td><td>⚠ <b>碳酸酐酶抑制</b>作用 → <b>代謝性酸中毒</b>；⚠ 塗抹時<b>明顯疼痛</b></td><td>⭐ <b>耳、鼻等軟骨部位</b>；厚焦痂</td></tr><tr><td><b>Silver nitrate 0.5%</b></td><td>❌ 不穿透</td><td>⚠ <b>低鈉血症</b>；染黑衣物與環境</td><td>對 sulfa 過敏者</td></tr><tr><td><b>Nanocrystalline silver（ACTICOAT）</b></td><td>—</td><td>成本</td><td>可留置數日，減少換藥次數與疼痛（Fig 18.13）—— 部分層至全層、大面積、高汙染、免疫低下者</td></tr><tr><td><b>0.5–2% 醋酸〔GS〕</b></td><td>—</td><td>—</td><td>sulfa 過敏的替代</td></tr></tbody></table></div>
+<div class="swipe on">← 表格可左右滑動 →</div>
+<div class="co star"><span class="lb">⭐ 記憶錨點</span>考題最愛的兩組對子：<b>SSD → 白血球低下</b>（不必停藥）、<b>Mafenide → 代謝性酸中毒</b>（碳酸酐酶抑制）；<b>Silver nitrate → 低鈉</b>。三種副作用不能互換。</div>
+  
+</article>
+
+<div class="pager"><a class="pv" href="bre.html"><span class="lb">← 上一領域</span><span class="nm">乳房</span></a><a class="nx" href="bas.html"><span class="lb">下一領域 →</span><span class="nm">基礎</span></a></div>
+<footer>記不住的東西 · 皮膚 / 軟組織 / 燒傷</footer>
+</div>
+<script>
+(function(){
+ var b=document.createElement('button');b.className='btop';b.innerHTML='↑';b.title='回到頂端';
+ b.onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};document.body.appendChild(b);
+ window.addEventListener('scroll',function(){b.style.display=window.scrollY>420?'block':'none'});
+ var lb=document.createElement('div');lb.id='lb';lb.innerHTML='<img alt="">';document.body.appendChild(lb);
+ lb.onclick=function(){lb.style.display='none'};
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.style.display='none'});
+ document.querySelectorAll('figure img').forEach(function(im){
+   im.onclick=function(){lb.querySelector('img').src=im.src;lb.style.display='flex'};});
+})();
+
+document.querySelectorAll('a.anchor').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var u=location.href.split('#')[0]+a.getAttribute('href');
+    if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){
+      var o=a.textContent;a.textContent='✓';setTimeout(function(){a.textContent=o},900);});}
+  });});
+</script>
+</body></html>
