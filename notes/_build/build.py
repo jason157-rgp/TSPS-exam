@@ -54,6 +54,29 @@ font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:c
 .ncard .key{font-size:12.5px;color:var(--steel);margin-top:7px;line-height:1.6}
 .ncard .sb{font-size:11px;color:#93A29A;margin-top:6px}
 .noresult{display:none;text-align:center;color:var(--steel);font-size:13px;padding:30px 0}
+/* toolbar: 黏頂搜尋 + 領域篩選 */
+.toolbar{position:sticky;top:0;z-index:30;background:var(--bg);padding:14px 0 9px;margin-top:6px;
+box-shadow:0 6px 10px -8px rgba(44,74,56,.25)}
+.toolbar .searchbox{margin:0}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:12.5px;
+cursor:pointer;color:var(--ink);font-family:inherit;white-space:nowrap;line-height:1.5}
+.chip:hover{border-color:var(--pale)}
+.chip.on{background:var(--forest);border-color:var(--forest);color:#fff;font-weight:700}
+.chip .c{opacity:.55;font-size:11px;margin-left:5px;font-weight:600}
+.chip.on .c{opacity:.8}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:9px 2px 0;
+font-size:11.5px;color:var(--steel)}
+.meta button{background:none;border:none;color:var(--green);font-size:11.5px;cursor:pointer;
+font-family:inherit;padding:0;text-decoration:underline}
+/* 精簡模式 */
+.grid.compact{gap:6px}
+.compact .ncard{padding:9px 12px;border-radius:10px}
+.compact .ncard:hover{transform:none;box-shadow:0 4px 12px rgba(44,74,56,.1)}
+.compact .ncard .key{display:none}
+.compact .ncard .ttl{font-size:14px;font-weight:700;line-height:1.45}
+.compact .ncard .sb{font-size:10.5px;margin-top:3px}
+.compact .badge{min-width:36px;height:20px;font-size:10px;border-radius:6px}
 /* toc */
 .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:20px}
 .toc b{font-size:12px;color:var(--green);letter-spacing:1px}
@@ -220,6 +243,12 @@ def build_index():
         secs.append("""<section data-dom="%s"><h2>%s <span class="n">%s · %d 則</span></h2>
 <div class="grid">%s</div></section>""" % (d["code"], esc(d["name"]), d["code"], len(ns), "".join(cards)))
 
+    chips = ['<button class="chip" data-dom="ALL" type="button">全部<span class="c">%d</span></button>' % len(NOTES)]
+    for d in DOMAINS:
+        if BY_DOMAIN[d["code"]]:
+            chips.append('<button class="chip" data-dom="%s" type="button">%s<span class="c">%d</span></button>'
+                         % (d["code"], d["code"], len(BY_DOMAIN[d["code"]])))
+
     body = """<header class="hd">
   <h1>%s</h1>
   <div class="sub">%s</div>
@@ -232,9 +261,12 @@ def build_index():
   <div class="hdlinks"><a href="../index.html">← 回題庫總覽</a><a href="../finalsprint.html">最後衝刺</a></div>
 </header>
 
-<div class="searchbox"><span class="ic">🔍</span>
-  <input id="q" type="search" placeholder="搜尋筆記標題、重點、子類…" autocomplete="off"></div>
-<div class="hint">輸入關鍵字即時過濾；點卡片直接跳到該則筆記。</div>
+<div class="toolbar">
+  <div class="searchbox"><span class="ic">🔍</span>
+    <input id="q" type="search" placeholder="搜尋標題、重點、子類…" autocomplete="off"></div>
+  <div class="chips">%s</div>
+  <div class="meta"><span id="cnt"></span><button id="tg" type="button"></button></div>
+</div>
 
 %s
 <div class="noresult" id="nr">沒有符合的筆記。</div>
@@ -248,19 +280,38 @@ def build_index():
         esc(SITE_TITLE), esc(SITE_SUB), len(NOTES), len([d for d in DOMAINS if BY_DOMAIN[d["code"]]]),
         sum(1 for n in NOTES for b in n["blocks"] if b["t"] == "table"),
         sum(1 for n in NOTES for b in n["blocks"] if b["t"] == "img"),
-        "\n".join(secs), esc(SITE_TITLE), len(NOTES))
+        "".join(chips), "\n".join(secs), esc(SITE_TITLE), len(NOTES))
 
     js = """
-var q=document.getElementById('q'),nr=document.getElementById('nr');
-q.addEventListener('input',function(){
+var q=document.getElementById('q'),nr=document.getElementById('nr'),
+    cnt=document.getElementById('cnt'),tg=document.getElementById('tg'),
+    chips=[].slice.call(document.querySelectorAll('.chip')),
+    secs=[].slice.call(document.querySelectorAll('section[data-dom]')),
+    grids=[].slice.call(document.querySelectorAll('.grid')),
+    TOTAL=%d,dom='ALL',compact=true;
+function save(){try{localStorage.setItem('nidx',JSON.stringify({d:dom,c:compact}));}catch(e){}}
+try{var st=JSON.parse(localStorage.getItem('nidx')||'{}');
+    if(st.d)dom=st.d;if(typeof st.c==='boolean')compact=st.c;}catch(e){}
+function apply(){
   var v=q.value.trim().toLowerCase(),hit=0;
-  document.querySelectorAll('section[data-dom]').forEach(function(s){
-    var c=0;
+  secs.forEach(function(s){
+    var inDom=(dom==='ALL'||s.dataset.dom===dom),c=0;
     s.querySelectorAll('.ncard').forEach(function(a){
-      var ok=!v||a.dataset.s.indexOf(v)>-1;a.style.display=ok?'':'none';if(ok)c++;});
+      var ok=inDom&&(!v||a.dataset.s.indexOf(v)>-1);
+      a.style.display=ok?'':'none';if(ok)c++;});
     s.style.display=c?'':'none';hit+=c;});
-  nr.style.display=hit?'none':'block';});
-"""
+  nr.style.display=hit?'none':'block';
+  cnt.textContent=(hit===TOTAL?'全部 '+TOTAL+' 則':'顯示 '+hit+' / '+TOTAL+' 則');
+  grids.forEach(function(g){g.classList.toggle('compact',compact);});
+  tg.textContent=compact?'展開重點 ▾':'收合重點 ▴';
+  chips.forEach(function(c){c.classList.toggle('on',c.dataset.dom===dom);});
+}
+q.addEventListener('input',apply);
+chips.forEach(function(c){c.addEventListener('click',function(){
+  dom=(dom===c.dataset.dom&&dom!=='ALL')?'ALL':c.dataset.dom;save();apply();});});
+tg.addEventListener('click',function(){compact=!compact;save();apply();});
+apply();
+""" % len(NOTES)
     open(os.path.join(OUT, "index.html"), "w", encoding="utf-8").write(
         page(SITE_TITLE + " · 索引", body, js))
 
