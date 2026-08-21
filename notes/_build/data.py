@@ -373,7 +373,7 @@ NOTES = [
    {"t":"p","html":"因此，手術必須採用<b>掌側路徑（volar approach）</b>，並使用<b>結構性自體髂骨骨條（structural iliac crest strut）楔形撐開（wedge open）</b>，以恢復正常解剖長度，抗衡螺絲壓縮力。"},
    {"t":"callout","kind":"star","html":"此「<b>掌側路徑 ＋ 髂骨楔形撐開 ＋ 螺絲內固定</b>」是一套將生物學與力學完美結合的經典重建公式。"},
  ],
- "related": ["fx-deforming"],
+ "related": ["fx-deforming", "disi-visi", "slac-snac"],
 },
 {
  "id": "claw-hand", "domain": "HND", "title": "Claw hand —— 為什麼擋住 MCP，PIP 就伸得直",
@@ -395,7 +395,7 @@ NOTES = [
    {"t":"h","html":"Arthrodesis 建議角度"},
    {"t":"p","html":"<b>MCP 從 25–40°、PIP 從 40–55° 起，都是每指 +5°；DIP 幾乎打直（0–15°）。</b>唯一要多背的是 <b>拇指 MCP ＝ 15°</b>。"},
  ],
- "related": ["clino-campto"],
+ "related": ["clino-campto", "nalebuff-millender"],
 },
 {
  "id": "cong-longitudinal", "domain": "HND", "title": "上肢先天縱向缺損圖譜（Radial / Ulnar deficiency）",
@@ -434,7 +434,7 @@ NOTES = [
    {"t":"img","src":"img/fx-deforming-forces.jpg","cap":"(A) 掌骨 (B) 近節指骨 (C) 中節指骨近端（幹骺端） (D) 中節指骨遠端 —— 紅色箭頭為主導變形的肌腱牽引方向。"},
    {"t":"callout","kind":"star","html":"判斷邏輯永遠是同一句：<b>先問「哪條肌腱抓住近端、哪條抓住遠端」，成角方向就自動掉出來。</b>"},
  ],
- "related": ["scaphoid-humpback", "claw-hand"],
+ "related": ["scaphoid-humpback", "claw-hand", "melone"],
 },
 
 {
@@ -484,6 +484,171 @@ NOTES = [
  "related": ["claw-hand", "emg-ncs", "triple-nerve-transfer"],
 },
 
+{
+ "id": "nalebuff-millender", "domain": "HND", "title": "Nalebuff–Millender 分級（類風濕手指鈕釦孔變形）",
+ "sub": "J 關節炎",
+ "key": "⚠ 與拇指的 Nalebuff I–VI 是兩套分類：拇指看「變形型態」，手指鈕釦孔看「嚴重度」。⭐ 分軸是被動可矯正性，不是 X 光。",
+ "blocks": [
+   {"t":"callout","kind":"trap","html":"⚠ <b>先分清楚：這與拇指的 Nalebuff（I–VI 型）是兩套不同分類。</b>⭐ <b>拇指看「變形型態」；手指鈕釦孔看「嚴重度」。</b>"},
+   {"t":"h","html":"⭐ 軸是什麼"},
+   {"t":"p","html":"三個變數合成<b>一個</b>嚴重度軸："},
+   {"t":"ol","items":[
+     "⭐⭐ <b>PIP 伸展遲滯（extension lag）的度數</b>",
+     "⭐⭐ <b>被動可矯正性（passive correctability）</b> —— <b>這是最關鍵的一項</b>",
+     "⭐ <b>關節面是否已破壞</b>"]},
+   {"t":"callout","kind":"trap","html":"⚠ 注意它<b>不是放射線分級</b> —— ⭐⭐ <b>與 Eaton、K–L 完全不同軸；這是純臨床（理學檢查）分級。</b>"},
+   {"t":"h","html":"⭐ 三期"},
+   {"t":"table","head":["Stage","⭐ PIP extension lag","⭐⭐ 被動矯正","⭐ 關節面"],"rows":[
+     ["⭐ <b>I（mild）</b>","⭐ <b>10–15°</b>","⭐⭐ <b>可完全矯正</b>","完好"],
+     ["⭐ <b>II（moderate）</b>","⭐⭐ <b>30–40°</b>","⭐ <b>仍可被動矯正（supple）</b>，但功能已明顯受損","完好"],
+     ["⚠ <b>III（severe）</b>","⭐ <b>固定屈曲攣縮</b>","⭐⭐ <b>不可矯正（fixed）</b>","⚠ <b>常已破壞</b>"]]},
+   {"t":"callout","kind":"star","html":"⭐ <b>共同特徵</b>：<b>PIP 屈曲 ＋ DIP 過度伸展</b>；⚠ <b>MCP 過度伸展是「代償」，不是原發變形。</b>"},
+ ],
+ "related": ["hand-arthritis"],
+},
+{
+ "id": "melone", "domain": "HND", "title": "Melone 分類（遠端橈骨骨折的四部分與五型）",
+ "sub": "G 骨折脫位/韌帶/生長板",
+ "key": "⭐⭐ 第 3＋4 塊合稱「內側複合體」，Melone 稱之為 cornerstone；五個型別就是看它的狀態。",
+ "blocks": [
+   {"t":"h","html":"⭐⭐ 四個骨塊"},
+   {"t":"table","head":["#","骨塊","⭐ 附著的關鍵韌帶／臨床意義"],"rows":[
+     ["⭐ <b>1</b>","<b>橈骨骨幹（radial shaft）</b>","近端主體，復位的參考基準"],
+     ["⭐⭐ <b>2</b>","<b>橈骨莖突（radial styloid）</b>","⭐ <b>brachioradialis 附著 → 牽拉造成短縮與橈偏</b>；⭐ <b>radioscaphocapitate 與 long radiolunate 韌帶起點</b>"],
+     ["⭐⭐ <b>3</b>","<b>內側複合體 —— 背側內側骨塊</b><br>（dorsal medial／dorsoulnar facet）","⭐ <b>dorsal radioulnar ligament 附著 → 連著 TFCC</b>"],
+     ["⭐⭐ <b>4</b>","<b>內側複合體 —— 掌側內側骨塊</b><br>（palmar medial／volar ulnar corner）","⭐⭐ <b>short radiolunate ＋ volar radioulnar ligament 附著 → 決定腕骨與 DRUJ 穩定</b>"]]},
+   {"t":"callout","kind":"star","html":"⭐⭐ <b>核心概念：第 3 ＋ 第 4 塊合稱「Medial complex（內側複合體）」，Melone 稱之為 “the cornerstone（基石）”。</b>"},
+   {"t":"h","html":"⭐ 五個型別（依內側複合體的狀態）"},
+   {"t":"table","head":["Type","⭐ 特徵","處置"],"rows":[
+     ["⭐ <b>I</b>","<b>穩定，四塊無明顯移位</b>","⭐ <b>閉合復位 ＋ 石膏</b>"],
+     ["⭐ <b>II（“die-punch”）</b>","⭐⭐ <b>內側複合體整塊移位、不穩定</b>；lunate 撞入 lunate facet","⭐ <b>需復位固定</b>；IIa 可復位／IIb 不可復位（需切開）"],
+     ["⭐ <b>III（“spike”）</b>","⭐ <b>II ＋ 橈骨骨幹掌側突出一根尖刺</b>，⚠ <b>可傷及正中神經或屈肌腱</b>","⭐ <b>切開復位</b>"],
+     ["⭐ <b>IV</b>","⭐⭐ <b>內側複合體「分裂」—— 背側與掌側骨塊分離且旋轉</b>","⚠ <b>ORIF，常需雙入路</b>"],
+     ["⚠ <b>V</b>","⭐ <b>爆裂型（explosion）</b>，粉碎嚴重","⭐ <b>外固定 ± 內固定 ± 骨移植</b>"]]},
+   {"t":"callout","kind":"star","html":"⭐⭐ <b>記憶軸：I 穩定 → II 內側整塊移位 → III 加掌側尖刺 → IV 內側裂成兩塊 → V 爆掉。</b>"},
+ ],
+ "related": ["fx-deforming", "fracture-stability"],
+},
+{
+ "id": "disi-visi", "domain": "HND", "title": "DISI／VISI —— 近排腕骨不穩定",
+ "sub": "G 骨折脫位/韌帶/生長板",
+ "key": "⭐ 以 lunate 的傾斜方向命名。SLIL 斷 → 跟三角骨背屈 → DISI；LTIL 斷 → 跟舟狀骨掌屈 → VISI。",
+ "blocks": [
+   {"t":"h","html":"⭐ 定義與命名"},
+   {"t":"p","html":"以 <b>lunate（月狀骨）的傾斜方向</b>命名 —— ⚠ <b>不是 scaphoid，也不是 capitate。</b>"},
+   {"t":"ul","items":[
+     "⭐ <b>DISI ＝ Dorsal Intercalated Segment Instability</b>：<b>lunate 背屈（extended）</b>",
+     "⭐ <b>VISI ＝ Volar（Palmar）Intercalated Segment Instability</b>：<b>lunate 掌屈（flexed）</b>"]},
+   {"t":"h","html":"⭐⭐ 核心機轉：近排腕骨的內在傾向相反"},
+   {"t":"ul","items":[
+     "<b>Scaphoid 天生想「屈曲（flex）」</b> —— 因為它斜跨兩排，遠端受 capitate 的壓力推向掌屈",
+     "<b>Triquetrum 天生想「伸展（extend）」</b> —— 經 hamate 的螺旋關節面",
+     "⭐ <b>Lunate 夾在中間，被兩邊拉扯，靠 SLIL 與 LTIL 維持平衡。</b>"]},
+   {"t":"table","head":["斷掉的韌帶","誰失去約束","⭐ Lunate 跟誰走","結果"],"rows":[
+     ["⭐⭐ <b>SLIL（舟月）</b>","scaphoid 自行屈曲","⭐ <b>跟著 triquetrum 伸展</b>","⭐⭐ <b>DISI</b>"],
+     ["⭐⭐ <b>LTIL（月三角）</b>","triquetrum 自行伸展","⭐ <b>跟著 scaphoid 屈曲</b>","⭐⭐ <b>VISI</b>"]]},
+   {"t":"callout","kind":"star","html":"⭐⭐ <b>一句話記法：「Lunate 跟著還連著的那一邊走。」</b><br><b>SLIL 斷 → 跟三角骨 → 背屈 → DISI｜LTIL 斷 → 跟舟狀骨 → 掌屈 → VISI</b>"},
+   {"t":"h","html":"⭐ 影像判準（必背數字）"},
+   {"t":"table","head":["角度","正常","⭐ DISI","⭐ VISI"],"rows":[
+     ["⭐⭐ <b>Scapholunate angle</b>","<b>30–60°</b>","⭐ <b>&gt;60–70°</b>","⭐ <b>&lt;30°</b>"],
+     ["⭐ <b>Capitolunate angle</b>","<b>&lt;15°</b>","⭐ <b>&gt;15°（背側）</b>","<b>&gt;15°（掌側）</b>"],
+     ["<b>Radiolunate angle</b>","～0°","背屈 &gt;15°","掌屈 &gt;15°"]]},
+   {"t":"h","html":"⭐ 病因對照"},
+   {"t":"table","head":["","⭐ DISI","⭐ VISI"],"rows":[
+     ["<b>核心病灶</b>","⭐⭐ <b>SLIL 斷裂（scapholunate dissociation）</b>","⭐⭐ <b>LTIL 斷裂</b>"],
+     ["<b>常見成因</b>","⭐ <b>FOOSH（伸腕＋尺偏＋旋後）</b>、⭐ <b>舟狀骨不癒合（SNAC）</b>、Kienböck 晚期","⭐ <b>尺側韌帶鬆弛</b>、類風濕、⚠ <b>常見於全身性韌帶鬆弛者（可能是無症狀變異）</b>"],
+     ["<b>盛行率</b>","⭐⭐ <b>遠比 VISI 常見</b>","較少"],
+     ["⚠ <b>關鍵警告</b>","—","⚠⚠ <b>VISI 常是「生理性鬆弛」而非病理</b>，必須有症狀＋動態證據才算"]]},
+   {"t":"h","html":"⭐⭐ Mayfield 進行性腕周脫位（DISI 的機轉來源）"},
+   {"t":"p","html":"外力<b>由橈側往尺側</b>依序破壞："},
+   {"t":"ol","items":[
+     "⭐ <b>Scapholunate 分離</b> → <b>DISI 的起點</b>",
+     "<b>Capitolunate 脫位</b>（perilunate）",
+     "<b>Lunotriquetral 分離</b>",
+     "⭐ <b>Lunate 掌側脫位</b>（⚠ 完全脫出，壓迫正中神經）"]},
+   {"t":"callout","kind":"star","html":"⭐ <b>記憶</b>：<b>由橈至尺、由掌側 space of Poirier 撕開，第 IV 期 lunate 掉進腕隧道。</b>"},
+ ],
+ "related": ["scaphoid-humpback", "slac-snac", "carpal-salvage"],
+},
+{
+ "id": "slac-snac", "domain": "HND", "title": "SLAC vs SNAC —— 兩條路徑、同一個終點",
+ "sub": "G 骨折脫位/韌帶/生長板 · J 關節炎",
+ "key": "⭐ DISI 是共同的中間產物、關節炎是共同終點，差別只在起點（韌帶 vs 骨）。⭐⭐ Radiolunate 幾乎永遠最後才壞。",
+ "blocks": [
+   {"t":"h","html":"⭐ 核心命題"},
+   {"t":"p","html":"⭐ <b>DISI 是「共同的中間產物」，SLAC／SNAC 是「共同的終點」，差別只在「起點」。</b>"},
+   {"t":"ul","items":[
+     "⭐ <b>路徑 A（SLAC）</b>：<b>SLIL 斷裂</b> → scaphoid 失去約束而屈曲、lunate 跟 triquetrum 背屈 → ⭐ <b>DISI</b> → ⚠ <b>舟狀骨遠極與橈骨莖突異常接觸</b> → ⭐⭐ <b>SLAC</b>",
+     "⭐ <b>路徑 B（SNAC）</b>：<b>舟狀骨骨折不癒合</b> → ⚠ <b>舟狀骨從「一塊」變成「兩塊」</b> → 近極跟著 lunate 背屈、遠極跟著 capitate 屈曲 → ⭐ <b>一樣造成 DISI</b>（即 humpback deformity） → 遠極與橈骨莖突異常接觸 → ⭐⭐ <b>SNAC</b>"]},
+   {"t":"callout","kind":"trap","html":"⚠ <b>SNAC 與 DISI 不是「先後」，而是「同時發生的一體兩面」</b> —— <b>骨折不癒合的那一刻，力學就已經斷了，DISI 隨即出現。</b>"},
+   {"t":"h","html":"起點對照"},
+   {"t":"table","head":["","⭐ SLAC","⭐ SNAC"],"rows":[
+     ["<b>起點</b>","⭐⭐ <b>SLIL 斷裂（韌帶）</b>","⭐⭐ <b>舟狀骨不癒合（骨）</b>"],
+     ["<b>舟狀骨本身</b>","⭐ <b>完整，但整塊屈曲</b>","⚠ <b>斷成兩塊，各走各的</b>"],
+     ["<b>DISI</b>","✅","✅"],
+     ["<b>關節炎進展</b>","⭐ <b>完全相同的四期</b>","⭐ <b>相同（僅 stage I 在遠極與莖突之間）</b>"],
+     ["<b>盛行率</b>","⭐⭐ <b>腕退化性關節炎最常見原因</b>","第二"]]},
+   {"t":"h","html":"⭐ 分期對照（最常考的一組）"},
+   {"t":"table","head":["Stage","⭐ SLAC","⭐ SNAC"],"rows":[
+     ["<b>I</b>","舟狀骨<b>近極</b>與橈骨莖突","⭐ <b>舟狀骨「遠極」與橈骨莖突</b>"],
+     ["⭐⭐ <b>II</b>","⭐ <b>整個 scaphoid–radius 關節</b>","⭐ <b>Scaphocapitate 關節</b>"],
+     ["<b>III</b>","<b>Capitolunate</b>","<b>Capitolunate</b>"],
+     ["⚠ <b>IV</b>","⭐ <b>Radiolunate（極罕見）</b>","全腕"]]},
+   {"t":"callout","kind":"trap","html":"⚠ <b>注意 stage II 的差異</b>：<b>SNAC 的第二站是 scaphocapitate</b>（近極仍與 lunate 一起背屈，遠極擠向 capitate）；⭐ <b>SLAC 的第二站是「整個舟橈關節」</b> —— 因為 SLAC 的舟狀骨是完整一塊、整體旋轉，先壞的是它與橈骨的介面。"},
+   {"t":"h","html":"⭐⭐ SNAC 的 Watson–Ballet 四期"},
+   {"t":"table","head":["Stage","⭐ 關節炎位置","治療"],"rows":[
+     ["⭐ <b>I</b>","⭐⭐ <b>舟狀骨「遠極」與橈骨莖突之間</b>","⭐ <b>橈骨莖突切除 ＋ 不癒合處理</b>（骨移植＋內固定，可加血管化骨）"],
+     ["⭐ <b>II</b>","⭐⭐ <b>加上 scaphocapitate 關節</b>","⭐ <b>4CF ＋ 舟狀骨切除</b>；或<b>遠極切除</b>（選擇性）"],
+     ["⭐ <b>III</b>","⭐ <b>加上 capitolunate（lunocapitate）關節</b>","⭐⭐ <b>4CF ＋ 舟狀骨切除</b>；⚠ <b>PRC 禁用</b>"],
+     ["⚠ <b>IV</b>","⭐ <b>全腕（含 radiolunate）</b>","⭐ <b>全腕融合</b>（或全腕關節置換）"]]},
+   {"t":"callout","kind":"star","html":"⭐⭐ <b>共同的解剖鐵律：Lunate 窩（radiolunate 關節）幾乎永遠最後才壞</b> —— 因為 <b>lunate 的關節面與橈骨窩仍維持同心接觸</b>。⚠ <b>這就是所有 salvage 手術（PRC、4CF）能成立的唯一理由。</b>"},
+ ],
+ "related": ["disi-visi", "scaphoid-humpback", "carpal-salvage"],
+},
+{
+ "id": "carpal-salvage", "domain": "HND", "title": "腕骨救援手術 —— 4CF／PRC／STT 對照",
+ "sub": "J 關節炎 · G 骨折脫位/韌帶/生長板",
+ "key": "⚠ 4CF ＝ lunate＋capitate＋hamate＋triquetrum ＋切除舟狀骨（舟狀骨是被「拿掉」，不是被融合進去）。⭐ Capitate 頭壞 → PRC 禁用。",
+ "blocks": [
+   {"t":"h","html":"⚠ 4CF 不是直覺想的那四塊"},
+   {"t":"p","html":"⭐⭐ <b>Four-corner fusion（4CF）＝ 融合 Lunate ＋ Capitate ＋ Hamate ＋ Triquetrum</b>"},
+   {"t":"callout","kind":"star","html":"⭐ <b>記憶：「近排的尺側兩塊（lunate、triquetrum）＋ 遠排的尺側兩塊（capitate、hamate）」＝ 腕骨的尺側四角。</b>"},
+   {"t":"callout","kind":"trap","html":"⚠ <b>而且必須同時做 scaphoid excision（舟狀骨切除）</b> —— ⭐ <b>舟狀骨是被「拿掉」的，不是被融合進去的。</b>"},
+   {"t":"h","html":"為什麼是這四塊"},
+   {"t":"ol","items":[
+     "⭐ <b>切除舟狀骨</b> → 消除舟橈關節的疼痛來源",
+     "⭐ <b>融合尺側四角</b> → 把 lunate 從「屈伸自由的中介段」變成與 capitate 一體 → ⭐⭐ <b>DISI 被永久矯正</b>",
+     "⭐ <b>保留 radiolunate 關節</b> → 腕的屈伸動作由此提供"]},
+   {"t":"p","html":"⭐ <b>術後功能</b>：ROM 約保留 <b>50–60%</b>、握力約 <b>70–80%</b>。"},
+   {"t":"h","html":"⭐ 最容易混淆的是 STT fusion"},
+   {"t":"p","html":"⭐ <b>STT ＝ Scaphoid ＋ Trapezium ＋ Trapezoid</b>（舟、大多角、小多角）—— <b>這才是含「舟狀骨與大多角骨」的那一個。</b><br><b>適應症</b>：⭐ <b>STT 關節炎、或 SLAC 前期需穩定舟狀骨屈曲者</b>。"},
+   {"t":"table","head":["術式","⭐ 涵蓋骨","適應症"],"rows":[
+     ["⭐⭐ <b>4CF</b>","<b>Lunate、Capitate、Hamate、Triquetrum</b>（⚠ <b>＋切除 scaphoid</b>）","⭐ <b>SLAC／SNAC II–III</b>"],
+     ["<b>STT</b>","<b>Scaphoid、Trapezium、Trapezoid</b>","STT 關節炎、舟狀骨旋轉半脫位"],
+     ["<b>SC</b>","Scaphoid ＋ Capitate","舟狀骨不穩定"],
+     ["⭐ <b>PRC</b>","⚠ <b>不是融合</b> —— <b>切除 scaphoid、lunate、triquetrum</b>","⭐⭐ <b>僅 SLAC／SNAC I–II</b>；⚠ <b>III 期禁用（capitate 頭已壞）</b>"]]},
+   {"t":"h","html":"⭐ PRC vs 4CF 對照"},
+   {"t":"table","head":["","⭐ PRC","⭐ 4CF"],"rows":[
+     ["<b>本質</b>","⭐ <b>切除</b>（不融合）","⭐ <b>融合 ＋ 切除舟狀骨</b>"],
+     ["<b>新關節</b>","⭐⭐ <b>Capitate 頭 vs 橈骨月狀窩</b>","保留原本的 radiolunate"],
+     ["⚠ <b>前提</b>","⭐⭐ <b>Capitate 頭必須完好</b>","無此限制"],
+     ["<b>ROM</b>","⭐ <b>較佳</b>（約 60–70%）","約 50–60%"],
+     ["<b>握力</b>","略低","⭐ <b>較佳（70–80%）</b>"],
+     ["<b>不癒合風險</b>","⭐ <b>無</b>","⚠ <b>有</b>（尤其用 K-wire 或 circular plate）"],
+     ["<b>長期</b>","⚠ <b>年輕、勞力者可能較早退化</b>","較耐用"]]},
+   {"t":"callout","kind":"star","html":"⭐ <b>一句話：Capitate 頭好 → PRC（快、無不癒合）；capitate 頭壞 → 只能 4CF。</b>"},
+   {"t":"h","html":"⭐ 治療決策（SLAC／SNAC 共用同一套邏輯）"},
+   {"t":"table","head":["情境","⭐ 處置"],"rows":[
+     ["⭐ <b>不癒合但「尚無關節炎」</b>","⭐⭐ <b>舟狀骨骨移植 ＋ 內固定</b>（近極缺血 → <b>血管化骨移植</b>：1,2-ICSRA、medial femoral condyle）"],
+     ["⭐ <b>Stage I</b>","⭐ <b>橈骨莖突切除 ＋ 處理不癒合</b>"],
+     ["⭐ <b>Stage I–II（capitate 頭完好）</b>","⭐⭐ <b>PRC</b> —— 切除 scaphoid、lunate、triquetrum"],
+     ["⭐ <b>Stage II–III</b>","⭐⭐ <b>4CF ＋ 舟狀骨切除</b>"],
+     ["⚠ <b>Stage III</b>","⚠⚠ <b>PRC 禁用</b>（capitate 頭已有關節炎）"],
+     ["⚠ <b>Stage IV</b>","⭐ <b>全腕融合</b>"]]},
+ ],
+ "related": ["slac-snac", "disi-visi", "hand-arthritis"],
+},
+
 # ─────────────────────────── BRE 乳房 ───────────────────────────
 {
  "id": "bre-fascia", "domain": "BRE", "title": "乳房淺層筋膜系統（Superficial fascial system）",
@@ -523,6 +688,36 @@ NOTES = [
      "<b>Inosculation</b>（血管吻合期）",
      "<b>Revascularization</b>（血管再生期）"]},
  ],
- "related": [],
+ "related": ["fracture-stability"],
 },
+{
+ "id": "fracture-stability", "domain": "BAS", "title": "絕對穩定 vs 相對穩定 —— 骨折固定的核心分軸",
+ "sub": "B 骨癒合與內固定原則",
+ "key": "⭐⭐ 分軸只有一句：「骨折端容不容許微動」。⭐ 絕對穩定＝一期癒合、無骨痂、strain &lt;2%；相對穩定＝二期癒合、有骨痂、strain 2–10%。",
+ "blocks": [
+   {"t":"h","html":"⭐⭐ 核心分軸：「骨折端容不容許微動」"},
+   {"t":"table","head":["","⭐⭐ 絕對穩定（Absolute stability）","⭐⭐ 相對穩定（Relative stability）"],"rows":[
+     ["⭐ <b>骨折端動態</b>","⭐⭐ <b>零位移（no interfragmentary motion）</b>","⭐ <b>容許可控的微動</b>"],
+     ["⭐⭐ <b>癒合方式</b>","⭐⭐ <b>一期骨癒合（primary／direct）</b><br>⚠ <b>無骨痂（no callus）</b>","⭐⭐ <b>二期骨癒合（secondary／indirect）</b><br>⭐ <b>有骨痂</b>"],
+     ["⭐ <b>組織學</b>","⭐ <b>Cutting cone／Haversian remodeling</b> 直接跨越骨折線","⭐ <b>軟骨內骨化：血腫 → 軟骨 → 編織骨 → 板狀骨</b>"],
+     ["⭐ <b>應變（strain）</b>","⭐⭐ <b>&lt;2%</b>","⭐ <b>2–10%</b>"],
+     ["⭐ <b>達成手段</b>","⭐ <b>Lag screw ＋ 加壓鋼板／張力帶</b>","⭐ <b>髓內釘、橋接鋼板、外固定、K-wire、石膏</b>"],
+     ["⭐ <b>適應症</b>","⭐⭐ <b>關節內骨折</b>、⭐ 簡單橫向／斜行骨幹骨折、前臂骨幹","⭐⭐ <b>粉碎性骨折</b>、⭐ 幹骺端、長骨骨幹、兒童"],
+     ["⚠ <b>失敗模式</b>","⚠ <b>鋼板下骨質疏鬆、應力遮蔽、不癒合</b>（若有間隙又無微動）","⚠ <b>過度活動 → 肥厚性不癒合；過度僵硬 → 骨痂不形成</b>"]]},
+   {"t":"h","html":"⭐ 絕對穩定的三種達成方式"},
+   {"t":"ol","items":[
+     "⭐⭐ <b>Lag screw（拉力螺釘）</b> —— ⚠ <b>近側皮質為 gliding hole、遠側為 threaded hole</b>；⭐ <b>螺釘須垂直於骨折面</b>",
+     "⭐ <b>Compression plate</b>（DCP／LC-DCP，偏心鑽孔產生軸向加壓）",
+     "⭐ <b>Tension band</b> —— ⭐ <b>把張力側的牽張力轉換成壓縮力</b>（⚠ 尺骨鷹嘴、髕骨、內踝）"]},
+   {"t":"callout","kind":"star","html":"⭐⭐ <b>Lag screw ＋ neutralization plate</b>：<b>螺釘提供加壓，鋼板保護它不受彎曲、旋轉與剪力</b> —— ⚠ <b>單靠 lag screw 強度不足。</b>"},
+   {"t":"h","html":"⭐ 相對穩定的達成方式"},
+   {"t":"ul","items":[
+     "⭐⭐ <b>髓內釘</b> —— ⭐ <b>負荷分擔（load-sharing）、保留骨膜血供</b>，長骨骨幹首選",
+     "⭐ <b>Bridge plate（橋接鋼板）</b> —— ⚠ <b>跨過粉碎區不碰骨折塊</b>，⭐ <b>MIPO（微創鋼板接骨術）</b>",
+     "⭐ <b>鎖定鋼板（locking plate）</b> —— ⭐ <b>內固定式外固定器（internal fixator）</b>，⚠ <b>不壓迫骨膜、保留血供</b>",
+     "⭐ <b>外固定器</b> —— ⭐ <b>damage control、開放性骨折、嚴重軟組織傷</b>"]},
+ ],
+ "related": ["melone", "fx-deforming"],
+},
+
 ]
