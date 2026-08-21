@@ -46,7 +46,7 @@ NOTES = [
      ["Muenke","中臉發育不良併牙齒擁擠"]]},
    {"t":"callout","kind":"trap","html":"Apert 那一列是最容易被記漏的：它是四者中<b>唯一明列「下顎前突」</b>的 —— ⚠ 但注意，它的 class III <b>同時有下顎前突與上顎發育不良兩個成分</b>，與 Crouzon 的<b>純中臉問題</b>不同。這是一組很好的鑑別考點。"},
  ],
- "related": ["pierre-robin", "tcs-milestones"],
+ "related": ["pierre-robin", "tcs-milestones", "orbital-shift"],
 },
 {
  "id": "pharyngeal-arch", "domain": "CRF", "title": "咽弓（Pharyngeal arch）衍生物總表",
@@ -194,7 +194,68 @@ NOTES = [
      ["術後 6–12 週","重複睡眠檢查"]]},
    {"t":"callout","kind":"trap","html":"⚠ 外耳那兩格最容易對調：<b>植體式（第二選擇）&gt;6 歲</b>、<b>自體（第一選擇）&gt;8 歲</b> —— <b>年紀大的那個才是首選</b>，因為要等肋軟骨量夠。另外 <b>BAHA &gt;4 歲</b>要先把外耳重建的切口位置算進去，順序講反就扣分。"},
  ],
- "related": ["syndrome-occlusion", "cleft-age-thresholds", "pharyngeal-arch"],
+ "related": ["syndrome-occlusion", "cleft-age-thresholds", "pharyngeal-arch", "orbital-shift"],
+},
+
+{
+ "id": "orbital-shift", "domain": "CRF", "title": "Orbital shift 三術式對照（Box-shift／Bipartition／Monobloc）",
+ "sub": "C 顱縫早閉/顱骨 · F 正顎/咬合",
+ "key": "Box-shift 是「平移」、facial bipartition 是「旋轉」；⭐ 只有 box-shift 不改變咬合，只有 monobloc 不矯正眼距過寬。",
+ "blocks": [
+   {"t":"h","html":"層級關係"},
+   {"t":"p","html":"<b>Orbital shift（眼眶移位）</b>底下只有兩個術式："},
+   {"t":"ul","items":[
+     "⭐ <b>Box-shift osteotomy</b> —— 只動眼眶，<b>平移</b>（translation）",
+     "⭐ <b>Facial bipartition</b> —— 連上頜一起動，<b>旋轉</b>（rotation）"]},
+   {"t":"callout","kind":"note","html":"<b>Monobloc 不屬於 orbital shift</b> —— 因為它做的是<b>前徙</b>，不是<b>橫向移位</b>。但考題常把三者放在同一組選項裡比較，所以一起記。"},
+   {"t":"h","html":"三者對照"},
+   {"t":"table","head":["","Box-shift osteotomy","Facial bipartition","Monobloc"],"rows":[
+     ["<b>移動單位</b>","⭐ <b>兩個眼眶各自成「盒」</b>","⭐ <b>左右兩個半臉</b>（眼眶＋上頜連為一體）","額骨＋眼眶＋上頜整塊"],
+     ["<b>運動方式</b>","⭐ <b>向內平移</b><br>（translation）","⭐ <b>繞中線楔形向內旋轉</b><br>（rotation）","⭐ <b>向前前徙</b><br>（advancement）"],
+     ["<b>矯正眼距過寬</b>","✅","✅","❌"],
+     ["<b>矯正中臉後縮</b>","❌","❌","✅"],
+     ["⭐ <b>改變咬合</b>","⭐ <b>不改變</b>","⭐ <b>改變</b>","改變"],
+     ["<b>上頜弓</b>","不動","⭐ <b>可擴張 V 形狹窄弓、關閉前開咬</b>","整塊前移"],
+     ["<b>眼裂軸</b>","不變","⭐ <b>可把下斜眼裂轉正</b>","不變"]]},
+   {"t":"callout","kind":"star","html":"兩個開關就分得完：<b>①「動不動上頜」</b>→ box-shift 不動上頜，所以<b>唯一不改變咬合</b>；<b>②「橫向 vs 前後」</b>→ 橫向的（box-shift、bipartition）矯正<b>眼距過寬</b>，前後的（monobloc）矯正<b>中臉後縮</b>。"},
+   {"t":"callout","kind":"trap","html":"⚠ 只有 <b>facial bipartition</b> 同時具備「矯正眼距過寬」＋「擴張 V 形狹窄上頜弓、關閉前開咬」＋「把下斜眼裂（downslanting palpebral fissure）轉正」三項 —— 這正是它在 Apert 常被選用的理由。"},
+ ],
+ "related": ["syndrome-occlusion", "fibrous-dysplasia", "tcs-milestones"],
+},
+{
+ "id": "fibrous-dysplasia", "domain": "CRF", "title": "Fibrous dysplasia —— 背景數字與 Zone 1–4 處置",
+ "sub": "C 顱縫早閉/顱骨",
+ "key": "⭐ Zone 1 完整切除＋即時骨移植；Zone 3 除非視神經壓迫否則不碰。積極度由「美觀權重 ÷ 手術代價」決定。",
+ "blocks": [
+   {"t":"h","html":"FD 背景數字"},
+   {"t":"ul","items":[
+     "<b>盛行率</b>：約 <b>1/4,000–1/30,000</b>",
+     "<b>分型</b>：⭐ <b>單骨型 80–85%／多骨型 15–25%</b>",
+     "⭐ <b>顱顏侵犯</b>：多骨型 <b>50–100%</b>；單骨型僅 <b>10%</b>",
+     "<b>顱顏好發序</b>：<b>上頜骨 &gt; 下頜骨 &gt; 額 &gt; 蝶 &gt; 篩 &gt; 頂 &gt; 顳 &gt; 枕</b>",
+     "<b>影像三型</b>：pagetoid（混合）／sclerotic（⭐ <b>磨砂玻璃</b>，顱顏最常見）／radiolucent 或 cystic",
+     "<b>症候群</b>：<b>Mazabraud、Jaffe–Lichtenstein、McCune–Albright</b>（⭐ <b>多骨型是症候群的必要條件</b>；MAS 好發女性）",
+     "<b>治療</b>：藥物僅能處理疼痛與減少骨吸收，⭐ <b>主力仍是手術</b>"]},
+   {"t":"callout","kind":"trap","html":"⚠ <b>惡性轉化 0.5–4%</b>（骨肉瘤、纖維肉瘤、軟骨肉瘤）—— ⭐ <b>多骨型</b>與<b>曾照射過的部位</b>風險較高。這也是 FD <b>不做放射治療</b>的原因。"},
+   {"t":"h","html":"四個分區（Zone 1–4）"},
+   {"t":"table","head":["Zone","解剖範圍","⭐ 處置"],"rows":[
+     ["⭐ <b>1</b>","<b>額眶、顴骨、上顎骨上部</b>","⭐⭐ <b>完整切除</b>以降低復發；<b>立即重建，通常用骨移植</b>"],
+     ["<b>2</b>","<b>有頭髮覆蓋的顱骨</b>","⭐ <b>保守</b> —— 削骨／磨骨修飾輪廓"],
+     ["⭐ <b>3</b>","<b>中央顱底、岩乳突、翼骨</b>","⭐⭐ <b>盡量不開</b>；⚠ <b>僅觀察</b>，除非出現症狀（如視神經壓迫造成視力障礙）→ 此時做<b>視神經管減壓</b>"],
+     ["<b>4</b>","<b>含牙骨 —— 上頜齒槽與下頜骨</b>","⭐ <b>保守</b>；切除含牙骨會造成重大功能損害"]]},
+   {"t":"h","html":"⭐ 為什麼「第一區犧牲最大」"},
+   {"t":"p","html":"積極度<b>不是由病灶大小決定</b>，而是由「<b>美觀權重</b>」與「<b>手術代價</b>」的比值決定："},
+   {"t":"table","head":["Zone","美觀重要性","手術代價","→ 結論"],"rows":[
+     ["<b>1</b>","⭐ <b>最高</b>（正面看得見）","<b>低</b>（無重要神經血管、無牙齒）","⭐ <b>全切除</b>"],
+     ["<b>2</b>","低（<b>頭髮遮住</b>）","低","削骨即可"],
+     ["<b>3</b>","低（深部看不見）","⭐ <b>最高</b>（顱底神經血管）","⭐ <b>不動</b>"],
+     ["<b>4</b>","中","⭐ <b>高</b>（牙齒、咬合、下頜功能）","保守"]]},
+   {"t":"callout","kind":"star","html":"⭐ <b>一句話：能看見又切得起的地方就徹底切；看不見或切不起的地方就別碰。</b><br>Zone 1 之所以「犧牲最大」，正因為它是唯一同時滿足「<b>代價低 ＋ 效益高</b>」的區域 —— 原文用詞是 <b>most esthetically apparent area</b>。"},
+   {"t":"h","html":"為什麼要「切乾淨」"},
+   {"t":"p","html":"FD 的病理是 <b>GNAS1 突變（20q13.2-13.3）→ cAMP 活性持續 → 骨形成間葉細胞無法成熟</b>，留下<b>不成熟骨小樑陷在異常纖維組織中、持續代謝卻永遠完成不了重塑</b>。"},
+   {"t":"callout","kind":"star","html":"⭐ 這是「<b>不會自己停止</b>」的病變 → <b>部分切除必然復發</b>。所以 Zone 1 選擇 <b>complete resection ＋ 即時骨移植重建</b>。"},
+ ],
+ "related": ["orbital-shift", "syndrome-occlusion"],
 },
 
 # ─────────────────────────── HNK 頭頸重建 ───────────────────────────
@@ -300,7 +361,7 @@ NOTES = [
      ["<b>MUP</b>","有軸突<b>接回</b>肌肉了","好消息（<b>3 個月</b>是關鍵時點）"]]},
    {"t":"callout","kind":"trap","html":"⚠ 「感覺喪失但 SNAP 正常」＝ <b>節前（preganglionic）撕脫</b>的經典組合，這是最常被拿來出題的一格。"},
  ],
- "related": ["triple-nerve-transfer", "brachial-plexus-atlas"],
+ "related": ["triple-nerve-transfer", "brachial-plexus-atlas", "forearm-flexors"],
 },
 {
  "id": "scaphoid-humpback", "domain": "HND", "title": "舟狀骨駝背畸形（Humpback deformity）",
@@ -322,7 +383,7 @@ NOTES = [
    {"t":"callout","kind":"star","html":"<b>EDC 的伸直力量從來沒有消失，它只是被 MCP 的過度伸直「吃掉」了。堵住 MCP，力量就自動流向 PIP。</b>"},
    {"t":"p","html":"只要 <b>MCP 被穩定、不讓它過度伸直</b>，PIP 就可以被外在伸肌腱伸直 —— 這就是 lumbrical bar／Bouvier test 與所有 anti-claw 手術（如 Zancolli capsulodesis、靜態或動態阻擋）背後同一個力學道理。"},
  ],
- "related": ["fx-deforming"],
+ "related": ["fx-deforming", "forearm-flexors"],
 },
 {
  "id": "hand-arthritis", "domain": "HND", "title": "手部關節炎分佈與 arthrodesis 角度",
@@ -374,6 +435,53 @@ NOTES = [
    {"t":"callout","kind":"star","html":"判斷邏輯永遠是同一句：<b>先問「哪條肌腱抓住近端、哪條抓住遠端」，成角方向就自動掉出來。</b>"},
  ],
  "related": ["scaphoid-humpback", "claw-hand"],
+},
+
+{
+ "id": "forearm-flexors", "domain": "HND", "title": "前臂屈側（掌側）八條肌肉的神經分工",
+ "sub": "A 解剖/生物力學 · C 神經壓迫與轉位",
+ "key": "⭐ 尺神經在前臂只管「一條半」：FCU ＋ FDP 尺側兩指；⚠ FDS 屬正中神經本幹，不是 AIN。",
+ "blocks": [
+   {"t":"h","html":"三層、共八條肌肉"},
+   {"t":"table","head":["層","肌肉","⭐ 神經"],"rows":[
+     ["<b>淺層</b><br><span class='ins'>（起自 medial epicondyle）</span>","<b>Pronator teres</b>","正中"],
+     ["","<b>FCR</b>","正中"],
+     ["","<b>Palmaris longus</b>","正中"],
+     ["","⭐ <b>FCU</b>","⭐⭐ <b>尺神經</b>"],
+     ["<b>中層</b>","⭐ <b>FDS（食、中、環、小指全部）</b>","⭐⭐ <b>正中神經本幹</b><br>（⚠ 非 AIN）"],
+     ["<b>深層</b>","<b>FDP 食指、中指</b>","⭐ <b>AIN</b>"],
+     ["","⭐ <b>FDP 環指、小指</b>","⭐⭐ <b>尺神經</b>"],
+     ["","<b>FPL</b>","⭐ <b>AIN</b>"],
+     ["","<b>Pronator quadratus</b>","⭐ <b>AIN</b>"]]},
+   {"t":"callout","kind":"star","html":"<b>一句話總結：尺神經在前臂只管「一條半」—— FCU ＋ FDP 的尺側兩指。其餘全歸正中神經系統。</b>"},
+   {"t":"h","html":"AIN vs 正中神經本幹的分界（高頻考點）"},
+   {"t":"ul","items":[
+     "⭐ <b>AIN 只管三樣</b>：<b>FPL</b>、<b>FDP（食、中）</b>、<b>pronator quadratus</b>。",
+     "⚠ <b>FDS 是本幹，不是 AIN</b> —— 這是最常錯的一格。",
+     "⭐ <b>AIN 是純運動神經</b>（僅有腕關節的感覺傳入），⚠ 所以 <b>AIN 症候群沒有感覺異常</b>。"]},
+   {"t":"h","html":"分支順序（近端 → 遠端）"},
+   {"t":"ul","items":[
+     "<b>正中神經</b>：pronator teres → FCR → PL → FDS →（<b>穿過 pronator teres 兩頭之間後發出 AIN</b>）→ FPL、FDP(I, M)、PQ",
+     "<b>尺神經</b>：（<b>穿過 FCU 兩頭之間進入前臂</b>）→ FCU → FDP(R, S)"]},
+   {"t":"callout","kind":"star","html":"⭐ <b>兩條神經各自的「入口隧道」剛好是它支配的第一條肌肉</b> —— 正中穿 pronator teres、尺穿 FCU。好記。"},
+   {"t":"h","html":"臨床推論（互補的兩組表現）"},
+   {"t":"table","head":["麻痺部位","運動缺損","⚠ 鑑別要點"],"rows":[
+     ["⭐ <b>孤立 AIN 麻痺</b>","FPL ＋ 食指（±中指）FDP 癱 → ⭐ <b>無法做「OK 手勢」</b>，捏起來變成扁平三角形","⚠ <b>無感覺異常</b>；環、小指 DIP 仍可屈"],
+     ["⭐ <b>高位尺神經麻痺</b>","環、小指 <b>DIP 屈曲喪失</b>、FCU 癱（腕屈曲時偏橈側）","⚠ <b>PIP 屈曲保留</b>（FDS 完好）"],
+     ["⭐ <b>正中神經高位麻痺</b>","<b>Benediction hand</b>（食、中指無法屈）＋ 拇指對掌喪失 ＋ 前臂旋前無力","與腕隧道不同 —— 旋前無力只見於高位"]]},
+   {"t":"callout","kind":"star","html":"⭐ <b>Ulnar paradox</b>：高位損傷因 FDP 也癱，<b>爪狀反而較輕</b>；腕部損傷 FDP 完好 → <b>爪狀更明顯</b>。"},
+   {"t":"h","html":"⚠ 三個變異要知道"},
+   {"t":"ul","items":[
+     "⭐ <b>中指 FDP 的支配浮動</b>：可為 AIN、尺神經或兩者共同。",
+     "⭐ <b>Martin–Gruber anastomosis</b>：前臂內<b>正中（常來自 AIN）→ 尺神經</b>的交通支，約 <b>15–20%</b>；⚠ 會讓尺神經麻痺的表現比預期輕，且干擾神經傳導檢查判讀。",
+     "⭐ <b>FDP 是「單一肌腹、雙重神經支配」</b> —— 橈側 AIN、尺側尺神經，肌腹卻連在一起（<b>quadriga effect</b> 的解剖基礎）。"]},
+   {"t":"h","html":"與其他章節的連結"},
+   {"t":"ul","items":[
+     "⭐ <b>Transradial TMR（Table 40.3）</b>：保留 <b>Median → FCR、FDS</b>（腕屈、指屈）；轉移 <b>Median → AIN</b>、<b>Ulnar → FCU 運動支</b> —— 正好對應各自的原生領地。",
+     "⭐ <b>四肢癱重建（Ch.24）</b>：<b>環指 FDS</b> 是最常用的移植腱與 lasso 材料（正中支配，C6–C7 損傷時常保留）；<b>ECRL→FDP</b> 因共用肌腹而能一次驅動四指。",
+     "⭐ <b>Hunter 分期重建</b>：動力肌選擇 —— 中／環／小指用 <b>FDP 肌群</b>，<b>食指用自己的 FDP</b>（獨立肌腹）。"]},
+ ],
+ "related": ["claw-hand", "emg-ncs", "triple-nerve-transfer"],
 },
 
 # ─────────────────────────── BRE 乳房 ───────────────────────────
