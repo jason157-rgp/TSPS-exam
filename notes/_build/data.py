@@ -32,7 +32,7 @@ NOTES = [
      "<b>上呼吸道阻塞</b>（upper airway obstruction）。"]},
    {"t":"callout","kind":"star","html":"記憶關鍵在「sequence」二字 —— micrognathia 是<b>因</b>，glossoptosis 與 airway obstruction 是被推倒的骨牌。因果順序講錯，這題就沒了。"},
  ],
- "related": ["syndrome-occlusion", "cleft-timeline"],
+ "related": ["syndrome-occlusion", "cleft-timeline", "del22q11"],
 },
 {
  "id": "syndrome-occlusion", "domain": "CRF", "title": "四大顱顏症候群的顎骨與咬合表現",
@@ -46,7 +46,7 @@ NOTES = [
      ["Muenke","中臉發育不良併牙齒擁擠"]]},
    {"t":"callout","kind":"trap","html":"Apert 那一列是最容易被記漏的：它是四者中<b>唯一明列「下顎前突」</b>的 —— ⚠ 但注意，它的 class III <b>同時有下顎前突與上顎發育不良兩個成分</b>，與 Crouzon 的<b>純中臉問題</b>不同。這是一組很好的鑑別考點。"},
  ],
- "related": ["pierre-robin", "tcs-milestones", "orbital-shift"],
+ "related": ["pierre-robin", "tcs-milestones", "orbital-shift", "posterior-vault"],
 },
 {
  "id": "pharyngeal-arch", "domain": "CRF", "title": "咽弓（Pharyngeal arch）衍生物總表",
@@ -108,7 +108,7 @@ NOTES = [
      "<b>Bifid uvula</b>（懸雍垂分岔）",
      "<b>硬顎後緣可觸摸的凹陷</b>（notch of the posterior hard palate）"]},
  ],
- "related": ["cleft-timeline", "pharyngeal-arch"],
+ "related": ["cleft-timeline", "pharyngeal-arch", "del22q11"],
 },
 
 {
@@ -153,7 +153,7 @@ NOTES = [
    {"t":"img","src":"img/cl-mulliken-markings.jpg","cap":"Mulliken 標記法（雙側完全性唇裂）。上、中：術前設計 —— ⭐ 不做 back cut，改以 columellar releasing incision 取得長度；下：修復後外觀。"},
    {"t":"img","src":"img/cl-fisher-markings.jpg","cap":"Fisher anatomic subunit 標記法。上：標準人體測量點編號（measure twice, cut once）；中：據測量點畫出的切口設計（黑＝白唇、紅＝紅唇小三角）；下：縫合完成，⭐ 疤痕落在次單位接縫、僅白唇緣上方一小段橫向。"},
  ],
- "related": ["cleft-timeline", "cleft-age-thresholds", "calnan"],
+ "related": ["cleft-timeline", "cleft-age-thresholds", "calnan", "bcl-dimensions"],
 },
 {
  "id": "cleft-age-thresholds", "domain": "CRF", "title": "唇顎裂治療年齡閾值速查（含出處）",
@@ -258,6 +258,104 @@ NOTES = [
  "related": ["orbital-shift", "syndrome-occlusion"],
 },
 
+{
+ "id": "bcl-dimensions", "domain": "CRF", "title": "雙側唇裂修補的術中尺寸原則（做小／做大）",
+ "sub": "B 唇顎裂/唇部重建",
+ "key": "依生長潛能決定尺寸：會自己長大的現在做小，長不上來的現在做大——術中看起來太窄太翹，才是對的。",
+ "blocks": [
+   {"t":"h","html":"核心邏輯"},
+   {"t":"p","html":"不能照「正常值」做，而要依各部位術後的<b>生長行為</b>預先調整："},
+   {"t":"ul","items":[
+     "<b>會自己長大的 → 現在做小</b>（否則日後過寬過長）",
+     "<b>長不上來的 → 現在做大</b>（否則永遠不足）"]},
+   {"t":"h","html":"三個「做小」的尺寸"},
+   {"t":"table","head":["縮寫","全名","量什麼"],"rows":[
+     ["<b>al–al</b>","alare–alare","<b>鼻翼基部寬度</b>"],
+     ["<b>cphi–cphi</b>","crista philtri inferior 之間","<b>Cupid's bow 兩峰的距離</b>＝人中下端寬度"],
+     ["<b>sn–ls</b>","subnasale–labiale superius","<b>皮膚性上唇高度</b>（人中高度）"]]},
+   {"t":"callout","kind":"trap","html":"這三項術後都會<b>自己變寬變長</b>：上頜與齒槽持續生長把鼻翼基部往外推、外側唇瓣的張力持續作用、疤痕鬆弛後人中變寬、唇隨面中部生長而下降。"},
+   {"t":"p","html":"對應的實作數字：<b>philtral flap 在 hemi-Cupid's bow 處僅 1.5–2 mm、基部 2–3 mm</b>——看起來窄得不合理，正是為了預留變寬。"},
+   {"t":"h","html":"兩個「做大」的尺寸"},
+   {"t":"ul","items":[
+     "<b>Columella length</b>（鼻柱長度）",
+     "<b>Nasal tip projection</b>（鼻尖突出度）"]},
+   {"t":"p","html":"機轉：雙側唇裂的鼻柱先天極短，且由 <b>prolabium 衍生的組織幾乎沒有生長潛能</b>，不會追上正常同齡；下外側軟骨呈張開狀、內側腳短且分離，鼻尖突出度同樣不會自行改善。因此必須在術中就<b>超額建構</b>。"},
+   {"t":"h","html":"Median tubercle 是例外"},
+   {"t":"p","html":"正常兒童的 tubercle 是「長得快」的部位，依通則本該做小。但<b>雙側唇裂修補後長不上來</b>——中央紅唇是由兩側外側唇瓣拼成，而 prolabium 的 vermilion 先天缺乏真正的紅唇結構與體積，所以它破例歸入<b>做大組</b>。"},
+   {"t":"ul","items":[
+     "<b>Manchester repair</b> 保留 prolabial vermilion → vermilion excess、乾燥脫屑、外觀像「貼上去」",
+     "<b>Noordhoff 三角瓣</b>：取外側唇多餘的乾唇組織轉到中央，恢復 tubercle 豐滿度、防 whistling deformity"]},
+   {"t":"h","html":"三個術中百分比"},
+   {"t":"table","head":["部位","術中建構至正常值的"],"rows":[
+     ["⭐ <b>Columella</b>","<b>167%</b>"],
+     ["<b>鼻尖突出度</b>","<b>130%</b>"],
+     ["<b>Median tubercle</b>","<b>155%</b>"]]},
+   {"t":"p","html":"解讀：同齡正常鼻柱長 6 mm，術中就要做到約 10 mm。順序是 <b>columella 167% ＞ tubercle 155% ＞ 鼻尖 130%</b>——超額幅度反映該部位的生長潛能有多差，鼻柱最差。"},
+   {"t":"callout","kind":"note","html":"這三個百分比的原始出處與是否為 Mulliken 系列原值<b>尚未核對</b>，建議與紙本確認後再背。"},
+   {"t":"callout","kind":"star","html":"<b>唇做小、鼻做大、tubercle 做飽。</b>"},
+ ],
+ "related": ["cleft-lip-designs", "cleft-timeline", "cleft-age-thresholds"],
+},
+{
+ "id": "del22q11", "domain": "CRF", "title": "22q11.2 缺失症候群與其顎咽閉鎖不全",
+ "sub": "A 顱顏症候群/畸形 · VPI/顎咽功能",
+ "key": "VPD 是結構＋神經肌肉＋骨架三重成因，所以特別嚴重；術前必須先排除內移到後咽壁正中的內頸動脈。",
+ "blocks": [
+   {"t":"h","html":"基本盤"},
+   {"t":"p","html":"<b>22q11.2DS</b>（DiGeorge／VCFS／Shprintzen／CATCH-22）：<b>TBX1 缺失</b>，neural crest 遷移失敗 → 圓錐幹心臟病、胸腺發育不全（免疫缺損）、低血鈣、<b>submucous cleft palate</b>、傳導性聽損、精神神經疾病。"},
+   {"t":"h","html":"VPD 為何特別嚴重"},
+   {"t":"p","html":"屬 <b>combined type</b>：<b>SMCP（結構）＋ hypotonia（神經肌肉）＋ platybasia 使咽變深（骨架）</b>三者疊加。MRI 見 velum 薄、LVP 短；內視鏡典型為側壁不對稱、張力差、<b>大 gap</b>。手術年齡偏晚——心臟問題、語言遲緩、構音太差做不了 imaging。"},
+   {"t":"callout","kind":"trap","html":"<b>Medially displaced internal carotid arteries</b>：22q11.2DS 的內頸動脈可內移至<b>後咽壁正中</b>，正好是 posterior pharyngeal flap 的切取處。"},
+   {"t":"ol","items":[
+     "術前<b>口內視診後咽壁有無 pulsation</b>",
+     "有疑慮 → <b>MRA 確認</b>（Mitnick 1996；Ross 1996）",
+     "同樣有此風險的症候群：<b>Kabuki</b>",
+     "這是 GS Ch.32 明寫為了「避免 intraoperative catastrophe」的<b>唯一一條術前影像規定</b>"]},
+   {"t":"h","html":"術式選擇"},
+   {"t":"p","html":"首選 <b>posterior pharyngeal flap</b>——大 gap ＋ 側壁不動 ＋ hypotonia，需要的是<b>占位</b>而不是動態。palatal lengthening 結果差；sphincter pharyngoplasty 失敗率高（Losken n=250，revision 12.8%）。"},
+   {"t":"ul","items":[
+     "術前完整內科評估：<b>心、鈣、免疫</b>（因胸腺發育不全，輸血需用照射血品——書外補充）",
+     "<b>tonsil 肥大先切</b>",
+     "<b>不建議 &lt;4 歲</b>做 pharyngoplasty"]},
+   {"t":"h","html":"在 Robin sequence 中的定位"},
+   {"t":"p","html":"syndromic RS 的<b>第二名，約 11%</b>（第一為 Stickler）。聽損型態不同：<b>22q11.2 為傳導性、Stickler 為感音性</b>；兩者的<b>下顎生長潛能皆接近正常</b>。"},
+ ],
+ "related": ["calnan", "pierre-robin", "syndrome-occlusion"],
+},
+{
+ "id": "posterior-vault", "domain": "CRF", "title": "後顱窿擴張三術式（PCVE／PVDO／SAPVE）",
+ "sub": "C 顱縫早閉/顱骨",
+ "key": "三者的體積增加無顯著差異，所以選擇看的是向量需求、頭皮張力與年齡骨質，不是誰擴得多。",
+ "blocks": [
+   {"t":"h","html":"三者是什麼"},
+   {"t":"ol","items":[
+     "<b>PCVE／PCVR</b>（posterior cranial vault expansion／remodeling）＝<b>開放式重塑</b>，靠手術當下移位＋骨板固定，一次到位",
+     "<b>PVDO</b>（posterior vault distraction osteogenesis）＝<b>機械牽張器</b>，逐日擴張",
+     "<b>SAPVE</b>（spring-assisted posterior vault expansion）＝<b>彈簧</b>自動持續推開"]},
+   {"t":"h","html":"比較表"},
+   {"t":"table","head":["軸","PCVE／PCVR","PVDO","SAPVE"],"rows":[
+     ["<b>擴張來源</b>","術中一次搬動骨瓣","外部轉動牽張器","預壓彈簧彈力"],
+     ["⭐ <b>向量</b>","<b>多向量、可做不對稱矯正</b>","<b>單向</b>（硬體限制；GS Table 28.3：內固定無法調向量）","單向，需骨柔軟"],
+     ["<b>關閉張力</b>","骨瓣移位後頭皮張力大","<b>無張力關閉</b>，逐日撐開","低張力"],
+     ["<b>仰臥</b>","骨瓣受壓可能回縮","<b>仰臥穩定</b>（裝置撐住）","可"],
+     ["<b>體積增加</b>","<b>13%／24%</b>","<b>26%／29%</b>（他隊平均 25%；GS：ICV +20–25%）","<b>18%／25%</b>"],
+     ["<b>併發症</b>","<b>14%</b>","<b>33%</b>（系統性回顧平均 30%，範圍 12.5–100%）","<b>11%</b>"],
+     ["<b>第二次手術</b>","不需","需<b>取裝置</b>","需<b>取彈簧</b>"],
+     ["<b>參數</b>","—","latency 1–7 天（多 5–7）／rate 0.5–2 mm/日（多 1）／consolidation 28–156 天（多 2–3 月）；GS：latency 1–3 天、新生兒可 2–3 mm/日","彈簧距中線各 <b>2 cm</b>、約 <b>10 天</b>完成開展"],
+     ["<b>適合</b>","多向量、不對稱、骨較硬","需大容積、要無張力、仰臥","<b>第一年、骨柔軟、對稱</b>"]]},
+   {"t":"callout","kind":"star","html":"兩中心校正生長後，<b>三者體積增加無顯著差異</b>——「誰最能擴」不是選擇依據，<b>向量需求、頭皮張力、年齡骨質</b>才是。"},
+   {"t":"h","html":"機轉與臨床後果"},
+   {"t":"p","html":"DO 的優勢來自 <b>distraction histogenesis</b>——骨、硬膜、頭皮同步延長，因此能拿到最大容積又不需剝離大片骨瓣；代價是裝置本身的感染、脫位與二次手術，構成 33% 併發症的主體。<b>彈簧是「自動化的低速 DO」</b>，力量固定無法調整，所以只適合骨薄可塑的第一年。"},
+   {"t":"p","html":"<b>PVDO 是 syndromic 嬰兒 iICP 的主流第一步</b>；做了 PVDO 仍多需 FOA，但可<b>延後到骨骼更穩定的年齡</b>（Seattle 報告 100% 仍需、CHOP 報告可免——安全答法取中）。"},
+   {"t":"h","html":"三個陷阱"},
+   {"t":"ul","items":[
+     "SAPVE 整體併發症最低（11%），但 <b>Lauritzen 的 syndromic 次族群脫位 25%、EBL 503 mL</b>，遠差於單縫——題目若問「syndromic 用彈簧最安全」是誘答",
+     "PVDO「只能單向」是<b>硬體</b>限制，不是生物學限制",
+     "PVDO 後 <b>ICP 再升高極罕見</b>（GS）"]},
+ ],
+ "related": ["syndrome-occlusion", "orbital-shift", "tcs-milestones"],
+},
+
 # ─────────────────────────── HNK 頭頸重建 ───────────────────────────
 {
  "id": "lamb", "domain": "HNK", "title": "顏面表情肌的深層例外 —— LAMB 口訣",
@@ -346,7 +444,7 @@ NOTES = [
      "【<b>正中神經運動束支（median fascicle）</b> ➔ 唯一指定修復深層的「<b>肱肌神經（brachialis nerve）</b>」】"]},
    {"t":"callout","kind":"star","html":"只要患者的尺神經與正中神經<b>皆完好</b>，且有可犧牲的供體神經，臨床上通常會<b>優先選擇雙束神經轉移</b>。因為同時重新支配肱二頭肌與肱肌，理論上能提供更強大且持久的屈肘力量。"},
  ],
- "related": ["brachial-plexus-atlas", "emg-ncs"],
+ "related": ["brachial-plexus-atlas", "emg-ncs", "tmr"],
 },
 {
  "id": "emg-ncs", "domain": "HND", "title": "電生理判讀速查（CMAP / SNAP / Fibs / PSW / MUP）",
@@ -383,7 +481,7 @@ NOTES = [
    {"t":"callout","kind":"star","html":"<b>EDC 的伸直力量從來沒有消失，它只是被 MCP 的過度伸直「吃掉」了。堵住 MCP，力量就自動流向 PIP。</b>"},
    {"t":"p","html":"只要 <b>MCP 被穩定、不讓它過度伸直</b>，PIP 就可以被外在伸肌腱伸直 —— 這就是 lumbrical bar／Bouvier test 與所有 anti-claw 手術（如 Zancolli capsulodesis、靜態或動態阻擋）背後同一個力學道理。"},
  ],
- "related": ["fx-deforming", "forearm-flexors"],
+ "related": ["fx-deforming", "forearm-flexors", "icsht"],
 },
 {
  "id": "hand-arthritis", "domain": "HND", "title": "手部關節炎分佈與 arthrodesis 角度",
@@ -481,7 +579,7 @@ NOTES = [
      "<b>四肢癱重建（Ch.24）</b>：<b>環指 FDS</b> 是最常用的移植腱與 lasso 材料（正中支配，C6–C7 損傷時常保留）；<b>ECRL→FDP</b> 因共用肌腹而能一次驅動四指。",
      "<b>Hunter 分期重建</b>：動力肌選擇 —— 中／環／小指用 <b>FDP 肌群</b>，<b>食指用自己的 FDP</b>（獨立肌腹）。"]},
  ],
- "related": ["claw-hand", "emg-ncs", "triple-nerve-transfer"],
+ "related": ["claw-hand", "emg-ncs", "triple-nerve-transfer", "icsht", "tmr"],
 },
 
 {
@@ -649,6 +747,101 @@ NOTES = [
  "related": ["slac-snac", "disi-visi", "hand-arthritis"],
 },
 
+{
+ "id": "icsht", "domain": "HND", "title": "ICSHT 四肢癱手部分級（Group 0–9）與重建序列",
+ "sub": "四肢癱與肌腱轉位",
+ "key": "組別數字＝肘以下可用的 MRC ≥4 肌肉往遠端再多一條；ECRL 在 Group 2 是唯一腕伸肌不可動，到 Group 3 才被釋放。",
+ "blocks": [
+   {"t":"h","html":"分級的意義"},
+   {"t":"p","html":"每往上一組，代表<b>肘以下多一條 MRC ≥4 可供轉位的肌肉</b>，重建策略隨之改變。"},
+   {"t":"table","head":["Group","新增的肌肉","重建重點"],"rows":[
+     ["<b>0</b>","<b>肘以下無 MRC ≥4 的肌肉</b>","神經轉位時代已非全無：<b>brachialis 分支 → 腕伸肌</b>；肘伸展走 <b>deltoid-to-triceps</b>"],
+     ["<b>1</b>","<b>BR</b>","<b>BR→ECRB</b> 重建伸腕。⚠ <b>肘伸展必須先重建</b>，否則 BR 起點在肘上、<b>excursion 不足，成效不佳</b>"],
+     ["⭐ <b>2</b>","<b>＋ECRL</b>","腕會橈偏，原因是 <b>ECU 無力、缺乏尺側對抗</b>，不是 ECRL 太強。<b>ECRL 此時是唯一腕伸肌 → 絕不可犧牲</b>；改以 <b>BR→FPL</b> 救主動捏握"],
+     ["<b>3</b>","<b>＋ECRB</b>","<b>ECRB 止於第三掌骨基部＝正中伸腕</b>，ECRL 因此變成可犧牲 → <b>ECRL→FDP</b> 救抓握"],
+     ["<b>4</b>","<b>＋PT</b>","<b>PT→FPL</b> 為典型用法，把 BR 釋放去做別的；代價是<b>前臂旋前力量下降</b>"],
+     ["⭐ <b>5</b>","<b>＋FCR</b>","<b>伸腕＝抓握、屈腕＝放開</b>；<b>FCR 是唯一的主動屈腕肌</b>，切掉就只能靠重力放手 → 留著放大 tenodesis"],
+     ["<b>6／7</b>","6：＋指伸肌（EDC）<br>7：＋拇伸肌（EPL）","<b>自己會張手</b>，不必再做 supinator→PIN 或 EPL 腱固定；重心轉向拇指"],
+     ["<b>8／9</b>","8：部分指屈肌<br>9：僅缺內在肌","手會爪起來 → 內在肌重建（兩型處置不同，見下）"],
+     ["<b>X</b>","例外組","不符上述任一者"]]},
+   {"t":"callout","kind":"note","html":"Group 6／7 的 opponensplasty 供體與滑車各家做法不一；<b>Neligan Ch.24 的序列裡寫的是「拇指 CMC 融合」而非 opponensplasty</b>。"},
+   {"t":"h","html":"Group 8 與 9 必須分開"},
+   {"t":"table","head":["","Group 8","Group 9"],"rows":[
+     ["<b>狀態</b>","<b>部分指屈肌</b>（屈曲不完整、cascade 不齊）","<b>只缺內在肌</b>"],
+     ["<b>處置</b>","<b>先加強屈曲</b>：FDP side-to-side 縫合統一 cascade ＋ 內在肌重建","<b>單純內在肌重建</b>；⚠ <b>應強烈考慮不開刀</b>——這群人本來就很有功能"]]},
+   {"t":"h","html":"Zancolli lasso vs House"},
+   {"t":"table","head":["","Zancolli lasso","House"],"rows":[
+     ["<b>動作</b>","<b>只屈 MCP</b>（防過度伸展）","<b>屈 MCP ＋ 伸 IP</b>"],
+     ["<b>材料</b>","<b>原位癱瘓的 FDS</b>，環繞 A1 遠緣／A2 近緣縫回自己","<b>游離移植腱</b>（PL 或環指 FDS）剖兩條，止於側束＋中央束"],
+     ["<b>張力</b>","神經中立位時 MCP 近全屈","<b>MCP 60°／IP 全伸</b>"]]},
+   {"t":"callout","kind":"star","html":"「彈開 PIP」的機轉：<b>擋住 MCP 過度伸展 → 外在伸肌的力量被迫下傳到 IP → PIP 伸開</b>。這是 lasso 的<b>間接效果</b>；House 才是直接同時做屈 MCP 與伸 IP 兩件事。"},
+   {"t":"h","html":"貫穿全表的三條鐵律"},
+   {"t":"ol","items":[
+     "永遠保留<b>一條強力腕／指伸肌 ＋ 一條腕／指屈肌</b>",
+     "<b>供體肌必須 MRC ≥4</b>——因為轉位後會掉一級",
+     "<b>Supinator→PIN 與 biceps-to-triceps 同臂互斥</b>（旋後會歸零）→ 要做前者，肘伸展改走 <b>deltoid-to-triceps</b>"]},
+   {"t":"h","html":"單期 grip-release 的順序（Group 3–5）"},
+   {"t":"p","html":"split FPL→EPL（或 EPL shortening）→ 拇指 CMC 融合 → 內在肌替代（lasso 或 House）→ BR→FPL → ECRL→FDP →（若未做 supinator→PIN）EPL 改道腱固定 ＋ ECU tenodesis"},
+   {"t":"callout","kind":"trap","html":"<b>ECRL→FDP 的張力必須在內在肌穩定「之後」才調。</b>"},
+   {"t":"h","html":"分組口訣"},
+   {"t":"p","html":"<b>G0</b> 無兵可用（靠神經轉位）｜<b>G1</b> BR 救伸腕（先修肘）｜<b>G2</b> ECRL 是獨苗不可動，BR 去救捏｜<b>G3</b> ECRB 到位，ECRL 解放去救抓｜<b>G4</b> PT 加入，選擇變多｜<b>G5</b> FCR 留著放手用｜<b>G6–7</b> 會張手了，重心轉拇指｜<b>G8</b> 補屈曲＋內在肌｜<b>G9</b> 只缺內在肌，先想清楚要不要開"},
+ ],
+ "related": ["forearm-flexors", "claw-hand", "tmr"],
+},
+{
+ "id": "tmr", "domain": "HND", "title": "TMR 兩張表（Transhumeral 40.2 vs Transradial 40.3）",
+ "sub": "E 周邊神經修復/移植 · TMR/義肢介面",
+ "key": "Transhumeral 做 TMR 是為了重建控制訊號，transradial 做它主要是止神經瘤痛——這一句決定了兩表所有差異。",
+ "blocks": [
+   {"t":"h","html":"兩張表最根本的差異"},
+   {"t":"table","head":["","Transhumeral（40.2）","Transradial（40.3）"],"rows":[
+     ["⭐ <b>TMR 的目的</b>","<b>重建控制</b>（手張／閉訊號已不存在）","<b>神經瘤止痛</b>（原文：usually performed for neuroma control, as opposed to prosthetic control）"],
+     ["<b>必要性</b>","<b>必需</b>","<b>加分</b>"],
+     ["<b>保留</b>","2 條","3 條"],
+     ["<b>轉位</b>","3 條（全為運動）","5 條（其中 <b>3 條為純感覺、零訊號</b>）"]]},
+   {"t":"callout","kind":"star","html":"關鍵理由：<b>transradial 的屈伸肌群還在，天生就有 open／close 訊號</b>，所以 TMR 對它是加分而非必需。"},
+   {"t":"h","html":"Table 40.2 Transhumeral —— 三個轉位"},
+   {"t":"table","head":["#","供體神經","受體運動支","肌肉","義肢訊號"],"rows":[
+     ["<b>1</b>","<b>Median nerve</b>","肌皮神經運動支","<b>Biceps short（medial）head</b>","<b>Hand close</b>"],
+     ["<b>2</b>","<b>Radial nerve</b>（遠端斷端）","橈神經運動支","<b>Lateral head of triceps</b>","<b>Hand open</b>"],
+     ["<b>3</b>","<b>Ulnar nerve</b>","—","<b>Brachialis</b>","附加抓握型態"]]},
+   {"t":"h","html":"兩個「必須保留」"},
+   {"t":"table","head":["原生神經","肌肉","保留的功能"],"rows":[
+     ["<b>Musculocutaneous</b>","<b>Biceps long（lateral）head</b>","<b>Elbow flexion</b>"],
+     ["<b>Radial</b>","<b>Triceps long ＋ medial heads</b>","<b>Elbow extension</b>"]]},
+   {"t":"callout","kind":"star","html":"設計原理：<b>每塊大肌肉都被「切成兩半」——一半換新功能、一半守舊功能。</b>"},
+   {"t":"callout","kind":"trap","html":"若把<b>整條三頭肌</b>都去神經接上遠端橈神經 → <b>肘伸展與手張開變成同一個訊號</b>，義肢無法分辨。"},
+   {"t":"h","html":"術中辨識與操作要點"},
+   {"t":"ol","items":[
+     "<b>刺激器是關鍵</b>：遠端橈神經刺激<b>無反應</b>（前臂肌肉已不存在），通往 lateral head 的運動支<b>強力收縮</b>——這一組對比就是辨識依據",
+     "<b>橈神經傷後直徑會變粗</b>，且比正中、尺神經更明顯",
+     "Lateral head 運動支解剖：<b>直徑 2–3 mm｜平均 2.5 條｜距肩峰後外側尖端平均 21.6 cm（範圍 11–29）</b>",
+     "<b>Long head 的運動支自橈神經很近端發出，通常看不到</b>——這正是它「不必動也動不到」的解剖理由",
+     "<b>訊號分離</b>：以先前掀起的 adipofascial flap 墊在 long 與 lateral head 之間；現代 pattern recognition 義肢已使此步驟較不重要",
+     "<b>入路</b>：三頭肌兩頭比二頭肌難分，<b>從近端（緊鄰三角肌處）往遠端剝離最好找</b>"]},
+   {"t":"h","html":"Table 40.3 Transradial —— 運動兩條（各接自家門牌）"},
+   {"t":"table","head":["供體","受體","肌肉","訊號"],"rows":[
+     ["<b>Median</b>","<b>AIN</b>","FPL、FDP（食、中指）","<b>拇指對掌</b>"],
+     ["<b>Ulnar</b>（±dorsal branch）","<b>FCU 運動支</b>","FCU","<b>手指外展</b>"]]},
+   {"t":"h","html":"感覺三條（純止痛，接哪都行）"},
+   {"t":"table","head":["供體","受體肌肉","訊號"],"rows":[
+     ["<b>Superficial radial</b>","Brachioradialis 或 FDS","N/A（sensory only）"],
+     ["<b>LABC</b>","FCR","N/A"],
+     ["<b>MABC</b>","FCU","N/A"]]},
+   {"t":"callout","kind":"note","html":"原文對感覺轉位的立場是「<b>no set algorithm is followed</b>」——只做最容易、剝離最少、移動最短的那一種。真正重要的只有三件事：<b>切回健康 fascicle、無張力吻合、接到附近的運動支或去神經肌肉</b>。"},
+   {"t":"h","html":"三個「必須保留」（一屈一伸不能動）"},
+   {"t":"table","head":["神經","肌肉","功能"],"rows":[
+     ["<b>Radial</b>","<b>ECRL、ECRB</b>","<b>腕伸展</b>"],
+     ["<b>PIN</b>","<b>ECU、EDC、EIP、EDM、EPL、APL</b>","<b>腕伸展、手張開</b>"],
+     ["<b>Median</b>","<b>FCR、FDS</b>","<b>腕屈曲、指屈曲</b>"]]},
+   {"t":"p","html":"原則：<b>必須保留一條強力的腕／指屈肌 ＋ 一條強力的腕／指伸肌</b>，才能驅動標準肌電義肢。"},
+   {"t":"h","html":"標的選擇三原則"},
+   {"t":"p","html":"⭐ <b>① 淺（superficial）｜② 寬（broad）｜③ 功能可被取代（redundant function）</b>"},
+   {"t":"p","html":"這解釋了為何控制用選 <b>palmaris longus 或 FCR</b> 而不是深層肌肉——訊號要讀得到，肌肉必須夠淺夠寬。配套技術：<b>移除皮下脂肪可降低肌肉與皮膚間的阻抗</b> → 提高訊號振幅、減少 cross-talk。"},
+ ],
+ "related": ["forearm-flexors", "triple-nerve-transfer", "icsht"],
+},
+
 # ─────────────────────────── BRE 乳房 ───────────────────────────
 {
  "id": "bre-fascia", "domain": "BRE", "title": "乳房淺層筋膜系統（Superficial fascial system）",
@@ -673,6 +866,45 @@ NOTES = [
      ["<b>Nanocrystalline silver（ACTICOAT）</b>","—","成本","可留置數日，減少換藥次數與疼痛（Fig 18.13）—— 部分層至全層、大面積、高汙染、免疫低下者"],
      ["<b>0.5–2% 醋酸〔GS〕</b>","—","—","sulfa 過敏的替代"]]},
    {"t":"callout","kind":"star","html":"考題最愛的兩組對子：<b>SSD → 白血球低下</b>（不必停藥）、<b>Mafenide → 代謝性酸中毒</b>（碳酸酐酶抑制）；<b>Silver nitrate → 低鈉</b>。三種副作用不能互換。"},
+ ],
+ "related": [],
+},
+
+{
+ "id": "laser-wavelengths", "domain": "SKB", "title": "雷射波長與標的 chromophore",
+ "sub": "雷射與能量儀器",
+ "key": "短波打血打色、長波打水，700–1100 nm 是除毛與刺青的地盤；穿透最深的是 Nd:YAG 1064。",
+ "blocks": [
+   {"t":"h","html":"一條波長軸、三個 chromophore 接力"},
+   {"t":"table","head":["波段","nm","主要 chromophore","用途"],"rows":[
+     ["<b>可見光</b>","400–700","<b>oxyHb ＋ melanin</b>","血管、色素"],
+     ["<b>NIR</b>","700–1100","<b>melanin ＋ deoxyHb</b>","除毛、刺青"],
+     ["<b>MIR／FIR</b>","&gt;1100（至 10,600）","<b>水</b>","磨皮／飛梭"]]},
+   {"t":"p","html":"分界點的理由：<b>melanin 吸收自 300–720 漸降</b>、<b>oxyHb 峰在 418／542／577</b>；<b>&gt;1100 之後水接手，而且越長吸越多</b>。這也解釋了為何<b>穿透最深＝Nd:YAG 1064</b>——再長就被水吃掉。"},
+   {"t":"h","html":"記憶表（波長由短到長）"},
+   {"t":"table","head":["口訣","介質","nm","打什麼","一句話記它"],"rows":[
+     ["<b>阿</b>","Argon","488／514","oxyHb、melanin","老古董藍綠光，現已少用"],
+     ["<b>I</b>","IPL","515／560／650 濾片","oxyHb、melanin","⚠ <b>不是雷射</b>；515 打色素、560–590 打血管；像寬光手電筒加濾鏡"],
+     ["<b>K</b>","KTP","532","oxyHb、色素、<b>紅黃刺青</b>","<b>532 ＝ 1064 ÷ 2</b> 倍頻；紅黃刺青唯一解"],
+     ["<b>P</b>","PDL","595","oxyHb","<b>血管黃金標準</b>：PWS、血管瘤潰瘍、紅疤；代價＝<b>紫斑 1–2 週</b>"],
+     ["<b>R</b>","Ruby","694","melanin、藍綠黑刺青","<b>第一台雷射（1960）</b>，紅寶石 ≈ 700"],
+     ["<b>A</b>","Alexandrite","755","melanin、藍綠黑刺青、deoxyHb","<b>除毛主力</b>；7-5-5"],
+     ["<b>T</b>","Ti:sapphire","785","刺青","僅在 Table 21.2 出現，藍綠刺青"],
+     ["<b>D</b>","Diode","800／810","melanin、deoxyHb","除毛；8 字頭"],
+     ["⭐ <b>N</b>","Nd:YAG","1064","melanin 極弱、刺青、deoxyHb","<b>深色皮膚萬用</b>：除毛、血管、黑藍紫白棕刺青；<b>穿透最深</b>"],
+     ["—","Nd:YAG 1320","1320","水","非剝脫的老前輩"],
+     ["<b>E</b>","Er:glass","1550","水","<b>2003 第一台 fractional</b>，非剝脫飛梭"],
+     ["<b>T</b>","Thulium","1927","水","打 DEJ 的淺色素／melasma；不打 melanin 所以 PIH 低"],
+     ["<b>E</b>","Er:YAG","2940","水峰","<b>水親和力是 CO₂ 的 10–15 倍</b> → 低 fluence 即剝脫、殘熱 5–10 μm、每 J/cm² 去 3–4 μm"],
+     ["<b>C</b>","CO₂","10,600","水","磨皮祖師，深皺紋、rhinophyma；疤／色素風險最高"]]},
+   {"t":"callout","kind":"star","html":"序列口訣：<b>阿 I K P R A T D N — E T E C</b><br>（Argon、IPL、KTP、PDL、Ruby、Alexandrite、Ti:sapphire、Diode、Nd:YAG ／ Er:glass、Thulium、Er:YAG、CO₂）<br>前九個是<b>顏色段</b>（打血打色打毛），後四個是<b>水段</b>。"},
+   {"t":"h","html":"數字的記憶鉤"},
+   {"t":"ol","items":[
+     "<b>532 × 2 ＝ 1064</b>：KTP 就是 Nd:YAG 的倍頻，記一個等於記兩個",
+     "<b>除毛四兄弟 694／755／810／1064</b>：都落在 600–1100「melanin 還吸、水還沒吸」的窗口；<b>膚色越深往右移</b>（Nd:YAG）",
+     "<b>刺青顏色＝互補色原理</b>：墨吸收互補色光 → 紅黃墨用<b>綠光 532</b>；藍綠墨用<b>紅光 694／755／785</b>；黑墨什麼都吸，<b>1064 最深</b>",
+     "<b>水的三個峰 1480／2940／10,600</b>：飛梭（1440–1550）、Er:YAG、CO₂ 各踩一個峰",
+     "年份：<b>1960</b> Maiman ruby｜<b>1983</b> Anderson–Parrish SPT｜<b>2003</b> fractional 元年（1550）"]},
  ],
  "related": [],
 },
