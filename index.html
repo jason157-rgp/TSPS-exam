@@ -163,7 +163,7 @@ const META={"AES":{"file":"AES美容整外_考古題複習App_aes_all_v3.html","
     if(now>exam) exam=new Date(yr+1,8,8);
     const days=Math.ceil((exam-now)/864e5);
     const el=document.getElementById('countdown').querySelector('span');
-    el.innerHTML='距考試（約 9/8）還有 <b style="color:#FBE7B6;font-size:15px">'+days+'</b> 天 · 緩衝週 9/9–9/16';
+    el.innerHTML='距考試（約 9/8）還有 <b style="color:#FBE7B6;font-size:15px">'+days+'</b> 天';
   }catch(e){}
 })();
 // best-effort progress read (same-origin localStorage)
