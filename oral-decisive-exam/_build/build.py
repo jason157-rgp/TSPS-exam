@@ -153,6 +153,19 @@ SCHEDULE_ROWS = [
 ]
 
 
+# 2026/09/05 實際是星期六，原文誤植為（五）（已與作者確認）。
+# 改成佔位符而不是直接寫死「六」，日期若再調整，星期會自己跟著對。
+EXAM_WEEKDAY_TYPO = "2026/09/05（五）"
+EXAM_WEEKDAY_FIXED = "2026/09/05（{{W}}）"
+
+
+def patch_exam_weekday(sec):
+    if EXAM_WEEKDAY_TYPO not in sec["html"]:
+        sys.exit("[build] 找不到要更正的考試日星期標示")
+    for field in ("html", "text"):
+        sec[field] = sec[field].replace(EXAM_WEEKDAY_TYPO, EXAM_WEEKDAY_FIXED)
+
+
 def patch_schedule(sec):
     """把倒數天數換成即時計算，「讀哪裡」欄換成可點的跳轉。"""
     rows = []
@@ -556,8 +569,13 @@ const DAYS = Math.max(0, Math.ceil((EXAM - new Date())/86400000));
   const m = document.getElementById('cdmini'); if(m) m.textContent = 'D-' + DAYS;
 })();
 
-/* 內文裡的 {{D}} 一律換成當下的剩餘天數 */
-function live(t){ return (t==null?'':String(t)).replace(/\{\{D\}\}/g, DAYS); }
+/* 考試日的星期，由考試日算出（+08:00），不寫死 */
+const EXAM_W = '日一二三四五六'[new Date(EXAM.getTime() + 8*3600000).getUTCDay()];
+
+/* 內文佔位符：{{D}} 剩餘天數、{{W}} 考試日星期 */
+function live(t){
+  return (t==null?'':String(t)).replace(/\{\{D\}\}/g, DAYS).replace(/\{\{W\}\}/g, EXAM_W);
+}
 
 /* 考前第 n 天是哪一天（以考試日的 +08:00 為準，不受讀者時區影響） */
 function examDate(n){
@@ -716,7 +734,8 @@ def main():
     dropped = set(IDX_SECTIONS)
     sections = [s for s in sections if s["id"] not in dropped]
 
-    # 2) 讀書進度表：倒數即時化、「讀哪裡」變成跳轉
+    # 2) 卷首考試日的星期更正、讀書進度表倒數即時化、「讀哪裡」變成跳轉
+    patch_exam_weekday(by_id["s1"])
     patch_schedule(by_id["s2"])
 
     # 2) 領域 / 章號 / 關卡性質
