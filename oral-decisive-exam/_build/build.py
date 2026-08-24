@@ -123,6 +123,58 @@ IDX_OVERRIDE = {
 }
 MATCH_THRESHOLD = 3
 
+# ------------------------------------------------- 讀書進度表（s2）重寫
+
+# 「讀哪裡」欄指名的頁面
+SCHEDULE_LINKS = {
+    "索引": "s9",
+    "Ch.A": "s27", "Ch.B": "s34", "Ch.C": "s43",
+    "Ch.D": "s51", "Ch.E": "s57",
+    "見第三節": "s4",
+}
+
+
+def _chip(label):
+    return f'<button type="button" class="goto" data-go="{SCHEDULE_LINKS[label]}">{label}</button>'
+
+
+# (D 高, D 低, 做什麼, 讀哪裡)。天數相對考試日，日期由前端依考試日算出。
+SCHEDULE_ROWS = [
+    (12, 9, "先讀「押題 Top 25」＋ 衝突裁決總表，把 20 個必背數字背起來",
+     _chip("索引")),
+    (8, 4, "<strong>2025 年 15 站</strong>逐關讀，每關讀完<strong>闔上檔案自己講一遍</strong>",
+     "／".join(_chip(c) for c in ("Ch.A", "Ch.B", "Ch.C"))),
+    (3, 2, "歷年核心考官（題庫沿用率最高的一批）",
+     "／".join(_chip(c) for c in ("Ch.D", "Ch.E"))),
+    (1, 1, "只讀每章末的「速記卡」＋ 衝突裁決總表＋ 態度救命句",
+     _chip("索引")),
+    (0, 0, "簡歷與手術紀錄本、證件、身分證",
+     _chip("見第三節")),
+]
+
+
+def patch_schedule(sec):
+    """把倒數天數換成即時計算，「讀哪裡」欄換成可點的跳轉。"""
+    rows = []
+    for hi, lo, what, where in SCHEDULE_ROWS:
+        label = "當天" if hi == 0 else (f"D-{hi}" if hi == lo else f"D-{hi} ～ D-{lo}")
+        rows.append(
+            f'<tr data-dhi="{hi}" data-dlo="{lo}">\n'
+            f'<td><strong>{label}</strong><span class="dr"></span></td>\n'
+            f'<td>{what}</td>\n'
+            f'<td>{where}</td>\n'
+            f'</tr>'
+        )
+    table = (
+        '<table class="sched">\n'
+        '<thead>\n<tr>\n<th>天數</th>\n<th>做什麼</th>\n<th>讀哪裡</th>\n</tr>\n</thead>\n'
+        '<tbody>\n' + "\n".join(rows) + '\n</tbody>\n</table>'
+    )
+    tail = sec["html"][sec["html"].index("</table>") + len("</table>"):]
+    sec["html"] = table + tail
+    sec["title"] = re.sub(r"剩\s*\d+\s*天", "剩 {{D}} 天", sec["title"])
+    sec["text"] = re.sub(r"剩\s*\d+\s*天", "剩 {{D}} 天", sec["text"])
+
 
 # ---------------------------------------------------------------- 小工具
 
@@ -494,7 +546,60 @@ function indexPanel(){
 function show(id, scroll){""",
         js, "indexPanel")
 
-    # 9) 全域跳轉委派（含 view 內所有 data-go）
+    # 9) 倒數改成全域可用，並提供 {{D}} 代換與考試日回推
+    js = sub_once(
+        r"\(function\(\)\{\n  const exam = new Date\('2026-09-05T08:00:00\+08:00'\);.*?\n\}\)\(\);",
+        lambda m: r"""const EXAM = new Date('2026-09-05T08:00:00+08:00');
+const DAYS = Math.max(0, Math.ceil((EXAM - new Date())/86400000));
+(function(){
+  document.getElementById('cd').textContent = DAYS;
+  const m = document.getElementById('cdmini'); if(m) m.textContent = 'D-' + DAYS;
+})();
+
+/* 內文裡的 {{D}} 一律換成當下的剩餘天數 */
+function live(t){ return (t==null?'':String(t)).replace(/\{\{D\}\}/g, DAYS); }
+
+/* 考前第 n 天是哪一天（以考試日的 +08:00 為準，不受讀者時區影響） */
+function examDate(n){
+  const t = new Date(EXAM.getTime() - n*86400000 + 8*3600000);
+  return (t.getUTCMonth()+1)+'/'+t.getUTCDate()+'（'+'日一二三四五六'[t.getUTCDay()]+'）';
+}
+(function(){ const e=document.getElementById('cddate'); if(e) e.textContent=examDate(0); })();
+
+/* 進度表：填上實際日期，並標出現在落在哪一段 */
+function wireSchedule(art){
+  art.querySelectorAll('tr[data-dhi]').forEach(tr=>{
+    const hi=+tr.getAttribute('data-dhi'), lo=+tr.getAttribute('data-dlo');
+    const dr=tr.querySelector('.dr');
+    if(dr) dr.textContent = hi===lo ? examDate(hi) : examDate(hi)+' – '+examDate(lo);
+    if(DAYS<=hi && DAYS>=lo){
+      tr.classList.add('now');
+      const cell=tr.querySelector('td');
+      if(cell){ const b=document.createElement('span'); b.className='nowtag'; b.textContent='現在'; cell.appendChild(b); }
+    }
+  });
+}""",
+        js, "countdown")
+
+    for pat, rep, what in [
+        (r"nm\.textContent=s\.title;", "nm.textContent=live(s.title);", "nav title"),
+        (r"h1\.textContent=s\.title;", "h1.textContent=live(s.title);", "article title"),
+        (r"art\.innerHTML=s\.html;", "art.innerHTML=live(s.html);", "article html"),
+        (r"document\.createTextNode\(s2\.title\)", "document.createTextNode(live(s2.title))", "pager"),
+        (r"\(s\.title\+' '\+\(s\.headline\|\|''\)\+' '\+s\.text\)",
+         "live(s.title+' '+(s.headline||'')+' '+s.text)", "search haystack"),
+        (r"esc\(h\.s\.title\)", "esc(live(h.s.title))", "search title"),
+        (r"const src=h\.s\.text,", "const src=live(h.s.text),", "search snippet"),
+        (r"\+t\.title\.replace\('　','／'\)", "+live(t.title).replace('　','／')", "xlink label"),
+    ]:
+        js = sub_once(pat, rep, js, what)
+
+    js = sub_once(
+        r"(  view\.appendChild\(art\);)",
+        lambda m: "  wireSchedule(art);\n" + m.group(1),
+        js, "schedule wiring")
+
+    # 10) 全域跳轉委派（含 view 內所有 data-go）
     js = sub_once(
         r"syncAxisUI\(\);\nshow\(S\[0\]\.id\);",
         lambda m: r"""view.addEventListener('click', e=>{
@@ -556,6 +661,20 @@ EXTRA_CSS = """
 .exchip.plain{cursor:default; opacity:.75}
 .irloc{font-size:13px; color:var(--ink-2); flex:1; min-width:0}
 
+/* ---- 讀書進度表 ---- */
+.sched td:first-child{white-space:nowrap}
+.sched .dr{display:block; font-family:var(--mono); font-size:10.5px; font-weight:400;
+  color:var(--muted); letter-spacing:.02em; margin-top:2px}
+.sched tr.now td{background:var(--accent-soft)}
+.sched tr.now td:first-child strong{color:var(--accent-ink)}
+.nowtag{display:inline-block; margin-left:7px; padding:1px 6px; border-radius:20px;
+  background:var(--accent); color:var(--on-accent);
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; vertical-align:2px}
+.goto{font-family:var(--mono); font-size:12.5px; line-height:1.5; padding:2px 7px;
+  border-radius:5px; border:1px solid var(--rule); background:var(--surface-2);
+  color:var(--accent-ink); cursor:pointer}
+.goto:hover{border-color:var(--accent); background:var(--accent-soft)}
+
 /* ---- 全書交叉參照 ---- */
 .jump{font:inherit; font-size:inherit; color:var(--accent-ink); background:none;
   border:0; border-bottom:1px solid var(--accent); padding:0; cursor:pointer;
@@ -596,6 +715,9 @@ def main():
 
     dropped = set(IDX_SECTIONS)
     sections = [s for s in sections if s["id"] not in dropped]
+
+    # 2) 讀書進度表：倒數即時化、「讀哪裡」變成跳轉
+    patch_schedule(by_id["s2"])
 
     # 2) 領域 / 章號 / 關卡性質
     chapter_of, group_of = {}, {}
@@ -666,6 +788,12 @@ def main():
     if not js_m:
         sys.exit("[build] 找不到主程式")
     html = html[:js_m.start(2)] + patch_js(js_m.group(2), rows_json) + html[js_m.end(2):]
+
+    # 側欄的考試日改成由考試日算出，避免與內文各處的星期標示各說各話
+    if '天後口試　·　9/5（五）' not in html:
+        sys.exit("[build] 找不到側欄倒數的日期標示")
+    html = html.replace('天後口試　·　9/5（五）',
+                        '天後口試　·　<span id="cddate">—</span>', 1)
 
     html = html.replace("</style>\n<style>", "</style>\n<style>", 1)
     last_style = html.rfind("</style>")
