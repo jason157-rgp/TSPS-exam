@@ -617,7 +617,59 @@ function wireSchedule(art){
         lambda m: "  wireSchedule(art);\n" + m.group(1),
         js, "schedule wiring")
 
-    # 10) 全域跳轉委派（含 view 內所有 data-go）
+    # 10) 上一頁：接上瀏覽器 history，順便讓每一節有自己的網址
+    js = sub_once(
+        r"(function show\(id, scroll\)\{)",
+        lambda m: r"""let histDepth = 0;        /* 目前疊了幾層站內歷史，0 代表沒得退 */
+let histLast = null;      /* 最後一次寫進歷史的節，避免重繪時灌爆歷史 */
+let histQuiet = false;    /* 由 popstate 觸發的 show()，不要再寫歷史 */
+
+function pushHistory(id){
+  if(histQuiet || id===histLast) return;
+  const first = histLast===null;
+  const st = {id: id, axis: axis, depth: first ? 0 : histDepth+1};
+  try{
+    if(first) history.replaceState(st, '', '#'+id);
+    else history.pushState(st, '', '#'+id);
+  }catch(e){ return; }   /* file:// 之類不給改網址時，靜靜略過 */
+  histDepth = st.depth;
+  histLast = id;
+}
+
+window.addEventListener('popstate', e=>{
+  const st = e.state;
+  const id = (st && st.id) || decodeURIComponent((location.hash||'').slice(1));
+  if(!byId[id]) return;
+  histQuiet = true;
+  histDepth = (st && typeof st.depth==='number') ? st.depth : 0;
+  histLast = id;
+  if(st && st.axis && st.axis!==axis){ axis = st.axis; syncAxisUI(); }
+  show(id);
+  histQuiet = false;
+});
+
+""" + m.group(1),
+        js, "history helpers")
+
+    js = sub_once(
+        r"(  current = id;\n)",
+        lambda m: m.group(1) + "  pushHistory(id);\n",
+        js, "push on navigate")
+
+    js = sub_once(
+        r"(  view\.innerHTML='';\n  const head=document\.createElement\('header'\))",
+        lambda m: r"""  view.innerHTML='';
+  if(histDepth>0){
+    const bar=document.createElement('div'); bar.className='backbar';
+    const bb=document.createElement('button'); bb.type='button'; bb.className='backbtn';
+    bb.appendChild(document.createTextNode('← 返回'));
+    bb.addEventListener('click', ()=>history.back());
+    bar.appendChild(bb); view.appendChild(bar);
+  }
+  const head=document.createElement('header')""",
+        js, "back bar")
+
+    # 11) 全域跳轉委派（含 view 內所有 data-go）
     js = sub_once(
         r"syncAxisUI\(\);\nshow\(S\[0\]\.id\);",
         lambda m: r"""view.addEventListener('click', e=>{
@@ -633,6 +685,16 @@ function wireSchedule(art){
 syncAxisUI();
 show(S[0].id);""",
         js, "data-go delegation")
+
+    # 12) 開場：網址帶著節代號就直接開那一節（必須排在委派修補之後）
+    js = sub_once(
+        r"syncAxisUI\(\);\nshow\(S\[0\]\.id\);",
+        lambda m: r"""syncAxisUI();
+(function(){
+  const want = decodeURIComponent((location.hash||'').slice(1));
+  show(byId[want] ? want : S[0].id);
+})();""",
+        js, "boot from hash")
 
     return js
 
@@ -678,6 +740,13 @@ EXTRA_CSS = """
 .exchip:hover{border-color:var(--accent); color:var(--accent-ink); background:var(--accent-soft)}
 .exchip.plain{cursor:default; opacity:.75}
 .irloc{font-size:13px; color:var(--ink-2); flex:1; min-width:0}
+
+/* ---- 上一頁 ---- */
+.backbar{margin:0 0 14px}
+.backbtn{font:inherit; font-size:12.5px; line-height:1.5; padding:4px 11px 4px 9px;
+  border-radius:20px; border:1px solid var(--rule); background:var(--surface);
+  color:var(--ink-2); cursor:pointer}
+.backbtn:hover{border-color:var(--accent); color:var(--accent-ink); background:var(--accent-soft)}
 
 /* ---- 讀書進度表 ---- */
 .sched td:first-child{white-space:nowrap}

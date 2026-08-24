@@ -233,6 +233,13 @@ img{max-width:100%}
 .exchip.plain{cursor:default; opacity:.75}
 .irloc{font-size:13px; color:var(--ink-2); flex:1; min-width:0}
 
+/* ---- 上一頁 ---- */
+.backbar{margin:0 0 14px}
+.backbtn{font:inherit; font-size:12.5px; line-height:1.5; padding:4px 11px 4px 9px;
+  border-radius:20px; border:1px solid var(--rule); background:var(--surface);
+  color:var(--ink-2); cursor:pointer}
+.backbtn:hover{border-color:var(--accent); color:var(--accent-ink); background:var(--accent-soft)}
+
 /* ---- 讀書進度表 ---- */
 .sched td:first-child{white-space:nowrap}
 .sched .dr{display:block; font-family:var(--mono); font-size:10.5px; font-weight:400;
@@ -572,15 +579,51 @@ function indexPanel(){
   return box;
 }
 
+let histDepth = 0;        /* 目前疊了幾層站內歷史，0 代表沒得退 */
+let histLast = null;      /* 最後一次寫進歷史的節，避免重繪時灌爆歷史 */
+let histQuiet = false;    /* 由 popstate 觸發的 show()，不要再寫歷史 */
+
+function pushHistory(id){
+  if(histQuiet || id===histLast) return;
+  const first = histLast===null;
+  const st = {id: id, axis: axis, depth: first ? 0 : histDepth+1};
+  try{
+    if(first) history.replaceState(st, '', '#'+id);
+    else history.pushState(st, '', '#'+id);
+  }catch(e){ return; }   /* file:// 之類不給改網址時，靜靜略過 */
+  histDepth = st.depth;
+  histLast = id;
+}
+
+window.addEventListener('popstate', e=>{
+  const st = e.state;
+  const id = (st && st.id) || decodeURIComponent((location.hash||'').slice(1));
+  if(!byId[id]) return;
+  histQuiet = true;
+  histDepth = (st && typeof st.depth==='number') ? st.depth : 0;
+  histLast = id;
+  if(st && st.axis && st.axis!==axis){ axis = st.axis; syncAxisUI(); }
+  show(id);
+  histQuiet = false;
+});
+
 function show(id, scroll){
   const s = byId[id]; if(!s) return;
   if(!inAxis(s)){ axis = s.axis==='topic'?'topic':'examiner'; syncAxisUI(); }
   current = id;
+  pushHistory(id);
   const list = S.filter(visible);
   const i = list.findIndex(x=>x.id===id);
   const prev = i>0?list[i-1]:null, next = (i>=0 && i<list.length-1)?list[i+1]:null;
 
   view.innerHTML='';
+  if(histDepth>0){
+    const bar=document.createElement('div'); bar.className='backbar';
+    const bb=document.createElement('button'); bb.type='button'; bb.className='backbtn';
+    bb.appendChild(document.createTextNode('← 返回'));
+    bb.addEventListener('click', ()=>history.back());
+    bar.appendChild(bb); view.appendChild(bar);
+  }
   const head=document.createElement('header'); head.className='arthead';
   const crumb=document.createElement('div'); crumb.className='crumb'; crumb.textContent=groupLabel(gkey(s));
   const h1=document.createElement('h1'); h1.textContent=live(s.title);
@@ -707,7 +750,10 @@ view.addEventListener('click', e=>{
 });
 
 syncAxisUI();
-show(S[0].id);
+(function(){
+  const want = decodeURIComponent((location.hash||'').slice(1));
+  show(byId[want] ? want : S[0].id);
+})();
 })();
 </script>
 </body>
