@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事實查核與缺口</title>
+<style>body{max-width:52rem;margin:0 auto;padding:2rem 1.2rem;line-height:1.75;
+font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:#141a18}
+h1{font-size:1.5rem;line-height:1.35} h2{font-size:1.15rem;margin-top:2rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.94rem}
+th,td{border:1px solid #dce3e0;padding:.4rem .6rem;text-align:left;vertical-align:top}
+th{background:#eef2f0}
+code{background:#eef2f0;padding:.1rem .3rem;border-radius:3px}
+blockquote{margin:1rem 0;padding-left:1rem;border-left:3px solid #0f6b5c}
+.meta{color:#66736f;font-size:.9rem}
+nav.bc{margin:0 0 1.5rem;font-size:.9rem}</style>
+</head>
+<body>
+<h1>事實查核與缺口</h1>
+<p class="meta">6 節・12k 字</p>
+<nav class="bc"><a href="index.html">回目錄</a></nav>
+<h2 id="s76">事實查核報告（2026/08/24）</h2>
+<p class="meta">事實查核</p>
+<p><strong>受查檔案</strong>：<code>ch_2025A.md</code>／<code>ch_2025B.md</code>／<code>ch_2025C.md</code>／<code>ch_hist_D.md</code>／<code>ch_hist_E.md</code>（約 600 KB，5,327 行）
+<strong>查核方法</strong>：以 Grep 抽出所有含數字、公式、指引名稱、藥物劑量、分類分期的行，逐項比對現行指引（NCCN V1.2026、AJCC 8th、CDC/ACIP、ATLS 11th、NPIAP 2016、ISL、Fontaine/Rutherford）與關鍵試驗原文（MSLT-II、DeCOG-SLT、Léauté-Labrèze NEJM）。
+<strong>總評</strong>：手冊整體的醫學品質<strong>遠高於一般考古共筆</strong>，「衝突並列 → 先分層再給數字」的作答策略是正確的方法論，且多處已主動現代化（MSLT-II 後的 CLND、propranolol 一線、benign neglect、NPIAP 用語）。以下僅列出<strong>會被考官抓錯</strong>的硬事實。</p>
+<hr />
+<h2 id="s77">一、需要修正的（🔴 高風險：講出去會被抓錯）</h2>
+<p class="meta">事實查核</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>檔案</th>
+<th>原文</th>
+<th>問題</th>
+<th>正確說法</th>
+<th>依據</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>ch_2025A.md:830-831, 837, 1079</code><br><code>ch_hist_D.md:308</code><br><code>ch_2025C.md:369</code></td>
+<td>「Area H＝面具區…任何大小都算高風險；Area M＝頰、額、頭皮、頸、脛前——≥10 mm 才算高風險；Area L＝軀幹四肢——≥20 mm」→ 結論「malar 屬 Area M，&lt;10 mm 且無高風險因子 → low risk → 取 4 mm」</td>
+<td><strong>兩層錯</strong>：<br>(a) 舊版 NCCN 的 Area H 低風險門檻是「<strong>&lt;6 mm</strong>」，不是「任何大小」——手冊把新舊版混成一個不存在的版本；<br>(b) <strong>NCCN Basal Cell Skin Cancer V1.2026 已完全捨棄 H/M/L 分區系統</strong>。依現行版本，<strong>頰部（頭頸）BCC 不論大小一律 high risk</strong>，手冊的核心答案「malar &lt;10 mm 是低風險、取 4 mm」在現行指引下是錯的。</td>
+<td>「依 <strong>NCCN V1.2026</strong>，risk table 已改用解剖描述而非 H/M/L 分區：<strong>頭、頸、手、足、脛前、肛門生殖器 —— 不論大小皆為 high risk</strong>；<strong>軀幹與四肢 ≥2 cm 為 high risk</strong>。<br>→ <strong>malar BCC 屬頭頸部，一律 high risk，首選 Mohs 或 PDEMA</strong>；若無法執行，採較寬切除＋冰凍/永久切片，<strong>並延遲重建</strong>。<br>→ <strong>4 mm 只適用於軀幹四肢 &lt;2 cm 的 low-risk BCC</strong>（Wolf &amp; Zitelli，95% clearance）。」<br>⭐ 補一句「舊版 NCCN 用 Area H/M/L（6/10/20 mm），新版已簡化」——<strong>主動說出版本更迭，是這一題唯一能拉開差距的地方</strong>。</td>
+<td>NCCN Basal Cell Skin Cancer V1.2026；JCAD 全球 NMSC margin 指引回顧</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>ch_2025B.md:941</code><br><code>ch_hist_E.md:782</code></td>
+<td>B: 「PT → ECRB｜FCR 或 FCU → EDC｜PL → EPL。（這是 Boyes／standard 的組合。）」<br>E: Boyes 欄位寫「FDS(ring) → EDC；FDS(middle) → EIP + EPL」</td>
+<td><strong>兩處都錯，且兩檔互相矛盾。</strong><br>(a) B:941 把 FCU/FCR transfer 冠上「Boyes」之名 —— <strong>Boyes 指的是 superficialis (FDS) transfer，不是這一組</strong>；<br>(b) E:782 把 Boyes 的<strong>中指與環指 FDS 對調</strong>。</td>
+<td><strong>三套要分清楚：</strong><br>・<strong>Standard（FCU）transfer</strong>：PT→ECRB｜<strong>FCU</strong>→EDC｜PL→EPL<br>・<strong>FCR transfer（Brand，現代較偏好）</strong>：PT→ECRB｜<strong>FCR</strong>→EDC｜PL→EPL<br>・<strong>Boyes superficialis transfer</strong>：PT→ECRB｜<strong>FDS(中指/long)→EDC</strong>｜<strong>FDS(環指/ring)→EIP + EPL</strong>｜FCR→APL + EPB<br>⭐ 手冊 <code>ch_hist_E.md:785</code>「保留 FCU、改用 FCR 較符合現代觀念」是<strong>正確且加分</strong>的，保留。</td>
+<td>Hand Surgery Resource;（Clinical Gate）Green's 系列 radial nerve palsy 章節</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>ch_hist_D.md:706</code></td>
+<td>「⑪ Giant / large congenital melanocytic nevus …〔考生回憶・109 考官版本〕「<strong>&gt; 40 cm、&gt; 3 個、young age，13 歲以前有 70% 變成 melanoma</strong>」」</td>
+<td><strong>把「發生的 melanoma 中約 50–70% 出現在青春期前」誤讀成「70% 會惡性化」</strong>，數量級差了 20 倍以上。手冊雖標為〔考生回憶〕但<strong>未加註更正</strong>，考生照唸必被抓。</td>
+<td>「Giant CMN 的終身惡性轉化風險約 2–5%（系統性回顧多落在 0.7–2.9%）；但一旦發生，約 50–70% 出現在第一個十年／青春期前，所以早期追蹤與家長衛教特別重要。高風險特徵：投射直徑 &gt;40 cm（尤其軀幹中軸／後背）、衛星病灶多、合併 neurocutaneous melanosis。」</td>
+<td>Krengel et al., Br J Dermatol 2006；Vourc'h-Jourdain 2013 系統性回顧；Scard, JEADV 2023</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>ch_2025C.md:14, 451, 468, 1103</code></td>
+<td>「<strong>ABCDE 細項</strong>」；「輸液〔ATLS 第 10 版（2018）〕：<strong>先給 1 L 溫的平衡晶體液</strong>（⚠ 第 9 版是 2 L；ATLS 已於近年推出第 11 版，若考官引用不同數字，以他的版本為準）」</td>
+<td><strong>ATLS 11th edition（2025 年 7 月上線）已經發布，而且改的正是這兩點</strong>，手冊仍以第 10 版為主答案、把 11 版放在括號當保險。2026/9 的口試若考官用新版，這一站會整段落後。</td>
+<td>「依 ATLS 11th edition（2025）：<br>① primary survey 已改為 xABCDE —— 「x」＝先控制致命性外出血（exsanguinating external hemorrhage），優先於 airway；<br>② 復甦改為 blood-first —— 盡量減少晶體液作為 bridging fluid，早期啟動大量輸血，用 1:1:1 均衡成分輸血或 low-titer O 陰性全血；<br>③ TXA 於受傷 3 小時內：1 g bolus + 1 g infusion（TBI 可用 2 g bolus）。」<br>⭐ 作答策略：先講 xABCDE 並說明「x」的內容，再補「第 10 版起始為 1 L 溫晶體液，第 11 版已改為儘早給血」。</td>
+<td>ACS ATLS 11 官方頁；J Acute Care Resusc 2026「ATLS 11th Edition Key Changes」</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>ch_hist_D.md:511, 516, 518</code><br><code>ch_2025A.md:1001</code></td>
+<td>「兩者的數字都是 6.5 cm，但參考點不同」；「Erb's point —— 自 tragus 往下約 6.5 cm，位於 SCM 後緣的中點」；A: 「McKinney's point —— 外耳道（tragus）下方 6.5 cm」</td>
+<td><strong>Erb's point 沒有「距 tragus 6.5 cm」這個定義</strong>，這個數字是 McKinney 的，手冊把它同時掛到兩個名詞上並宣稱「兩者數字都是 6.5 cm」，屬自創。另外 A:1001 把 <strong>tragus 與外耳道畫等號</strong>（McKinney 原文量的是<strong>骨性外耳道的下緣</strong>）。</td>
+<td>「・<strong>McKinney's point（McKinney &amp; Katrana 1980）</strong>：<strong>自骨性外耳道（EAC）下緣沿 SCM 表面往下 6.5 cm</strong>，great auricular nerve 在此橫跨 SCM 中段 —— 這是<strong>拉皮文獻專用</strong>的定位點。<br>・<strong>Erb's point（punctum nervosum）</strong>：<strong>SCM 後緣的中點</strong>，是<strong>頸叢四條皮支共同穿出深筋膜</strong>之處 —— <strong>以解剖界標定義，不以距 tragus 的公分數定義</strong>。」<br>⭐ 只要不要說「Erb's point 距 tragus 6.5 cm」，其餘（GAN 來自 C2–C3、頸叢最大皮支、走在 SCM 表面、EJV 後方約 1 cm、拉皮最常受傷的神經、可當 nerve graft donor）<strong>全部正確，保留</strong>。</td>
+<td>McKinney &amp; Katrana, Plast Reconstr Surg 1980；Plastic Surgery Key「Great Auricular Nerve」章</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="s78">二、需要加註但不算錯的（🟠）</h2>
+<p class="meta">事實查核</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>檔案</th>
+<th>原文</th>
+<th>加註內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td><code>ch_2025A.md:833</code></td>
+<td>「〔課本〕Wolf &amp; Zitelli 1987：…morpheaform 型需要 13–15 mm 才能達到 95%」</td>
+<td><strong>出處誤植。</strong> Wolf &amp; Zitelli 1987 研究的是<strong>直徑 &lt;2 cm 的 non-morpheaform BCC</strong>（4 mm→95%、3 mm→85%），<strong>沒有 morpheaform 的數據</strong>。<strong>13–15 mm 是英國 BAD 指引對 morphoeic BCC 的建議</strong>（源自 Salasche 系列）。前半段可放心引用，後半段請改口為「英國 BAD 指引建議 morphoeic BCC 用 ≥13–15 mm」。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>ch_hist_E.md:407</code></td>
+<td>「電傷合併肌紅蛋白尿 2 mL/kg/hr 且尿液鹼化到 pH &gt; 8」</td>
+<td>pH &gt; 8 不是主流目標。 橫紋肌溶解/肌紅蛋白尿的鹼化目標一般引用 urine pH ≥ 6.5（部分教材寫 &gt;6.0 或 ~7.0）；追到 pH 8 有代謝性鹼中毒與低血鈣的風險。建議改為「維持尿量 1–2 mL/kg/hr（成人約 75–100 mL/hr）；必要時 bicarbonate 鹼化尿液（目標 pH ≥ 6.5）、考慮 mannitol；同時警戒 compartment syndrome 與高血鉀」。尿量目標本身（成人 0.5、兒童 1.0、電傷 1–2 mL/kg/hr）正確。</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>ch_2025A.md:847</code></td>
+<td>「SCC 有轉移風險（尤其耳、唇、免疫抑制、<strong>&gt;2 cm、&gt;2 mm 深</strong>、perineural）」</td>
+<td><strong>2 mm 不是指引門檻。</strong> NCCN 的 <strong>very-high-risk</strong> 深度門檻是「<strong>&gt;6 mm 或侵犯超過皮下脂肪</strong>」，AJCC 8th cSCC 的 T3 也用 <strong>6 mm</strong>。<strong>2 mm 出自 Brantsch et al., Lancet Oncol 2008</strong>（厚度 &gt;2 mm 開始出現轉移）。可以講，但要<strong>說明出處</strong>，不要當成 NCCN 門檻報。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>全檔（<code>ch_2025A/B/C</code>、<code>ch_hist_D</code>）</td>
+<td>手冊多處給了 BCC 的 4 mm，但五份檔案中沒有任何一處給出 SCC 的 low-risk margin 數字</td>
+<td>這是一個空缺，不是錯誤，但很容易被追問。請補：「NCCN low-risk cSCC：standard excision 4–6 mm 臨床邊界（Brodland &amp; Zitelli，4 mm→95% clearance）；high-risk / very-high-risk cSCC：首選 Mohs 或 PDEMA」。BCC 與 SCC 一起問是常見的連環題。</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>ch_2025C.md:139-141</code><br><code>ch_2025A.md:1054</code></td>
+<td>「版本 A：Mild <strong>1–2 mm</strong>／Moderate <strong>2–3 mm</strong>／Severe <strong>≥4 mm</strong>」</td>
+<td><strong>這個版本本身有 3–4 mm 的空隙</strong>（3 mm 到 4 mm 之間無歸屬），被追問會很難看。建議直接改用<strong>標準的 Beard 分級</strong>：<strong>mild ≤2 mm／moderate 3 mm／severe ≥4 mm</strong>（無空隙），再說「另有教科書把 moderate 寫成 2–4 mm，數字各版本不同」。手冊「主動聲明版本差異」的策略正確，<strong>但至少主答案要用一個沒有邏輯漏洞的版本</strong>。</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>ch_2025A.md:610</code></td>
+<td>「Braden：六個構面、分數 6–23、閾值 16、敏感度 74%／特異度 68%」</td>
+<td><strong>閾值 16 是「中度風險」的分界，不是「有無風險」的分界。</strong> 廣泛使用的是 <strong>≤18 = at risk</strong>，再分層：<strong>15–16 中度、13–14 高度、≤12 極高度</strong>。敏感度/特異度各研究差異極大（meta-analysis 常見 ~57%/68%），建議<strong>只講分層、不報敏感度數字</strong>。「量表優於臨床判斷、但使用量表本身未被證實能降低發生率」這句<strong>正確且高分</strong>，保留。</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>ch_hist_D.md:297-298</code></td>
+<td>「① Nodular type（<strong>約 60%</strong>）② Superficial type（<strong>約 30%</strong>）」</td>
+<td>文獻範圍較寬（nodular 50–80%、superficial 10–30%）。<strong>講「最常見／次常見」比報死數字安全</strong>，若要報數字請說「約六成／約三成」並加「文獻範圍不一」。</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>ch_2025B.md:271</code></td>
+<td>Cold ischemia time：「心 4｜肺 4–6｜<strong>肝 6–10</strong>｜胰 12–18｜腸 6–12｜腎 24 小時」</td>
+<td>肝臟現行多引用 <strong>8–12 小時</strong>（理想 &lt;8）。整體數量級正確，屬 ⚠ 推測題的骨架，被追問時說「各中心與保存液不同」即可。</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>ch_2025A.md:34</code> vs <code>ch_2025C.md:80</code></td>
+<td>下瞼板高度：A「<strong>3.5–5 mm</strong>」／C「<strong>約 4 mm</strong>」</td>
+<td>內部不一致但相容（4 mm 落在 3.5–5 mm 內）。統一講「上瞼板 8–12 mm（記 10 mm）、下瞼板約 4 mm（3.5–5 mm）」即可。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="s79">三、確認正確、可安心使用的關鍵數字（✅ 精簡表）</h2>
+<p class="meta">事實查核</p>
+<h3>皮膚腫瘤</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>手冊數字</th>
+<th>查核結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Melanoma safe margin</td>
+<td>in situ <strong>0.5–1.0 cm</strong>／≤1.0 mm <strong>1 cm</strong>／&gt;1–2 mm <strong>1–2 cm</strong>／&gt;2 mm <strong>2 cm</strong></td>
+<td>✅ 完全符合現行 NCCN Cutaneous Melanoma</td>
+</tr>
+<tr>
+<td>AJCC 8th 改動</td>
+<td>T1 切點由 1.0 → 0.8 mm；mitotic rate 已自 T 分期移除</td>
+<td>✅ 正確</td>
+</tr>
+<tr>
+<td>SLNB 適應症</td>
+<td>T1a 不常規／T1b 討論後施行／T2 以上提供</td>
+<td>✅ 正確</td>
+</tr>
+<tr>
+<td>SLN 陽性後</td>
+<td>MSLT-II + DeCOG-SLT：CLND 不改善 melanoma-specific survival、淋巴水腫顯著增加 → 改為 nodal basin ultrasound surveillance ＋ 系統性輔助治療</td>
+<td>✅ 正確（MSLT-II, NEJM 2017）。<strong>這是全手冊最亮的一段，務必講出來</strong></td>
+</tr>
+<tr>
+<td>Biopsy</td>
+<td>excisional（1–3 mm narrow margin，全層）；大病灶用 incisional/punch；<strong>絕不 shave</strong></td>
+<td>✅ 正確</td>
+</tr>
+<tr>
+<td>BCC low-risk margin 的數字本身</td>
+<td>4 mm → 約 95% clearance</td>
+<td>✅ 數字正確（Wolf &amp; Zitelli 1987）；<strong>但適用範圍已被 🔴#1 收窄</strong></td>
+</tr>
+<tr>
+<td>Marjolin's ulcer</td>
+<td>比一般 SCC aggressive、LN(+) 與轉移率高、術前需 staging、骨/神經血管侵犯考慮截肢</td>
+<td>✅ 正確</td>
+</tr>
+</tbody>
+</table>
+<h3>眼整形</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>手冊數字</th>
+<th>查核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MRD1 / MRD2 / 瞼裂</td>
+<td>4–5 mm ／ 約 5 mm ／ 9–12 mm</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Levator function</td>
+<td>正常 &gt;10 mm；good ≥8／fair 5–7／poor ≤4</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>上瞼板高度</td>
+<td><strong>8–12 mm</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Müller's muscle 抬升量</td>
+<td><strong>約 2 mm</strong>（交感神經支配 → Horner 只造成輕度 ptosis）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>上眼皮七層</td>
+<td>Skin／Orbicularis／Tarsus+Septum／Preaponeurotic fat／Levator aponeurosis／Müller／Conjunctiva</td>
+<td>✅（並主動補「另有教科書合併 retractor 寫成六層」＝加分）</td>
+</tr>
+<tr>
+<td>Hering's law + central caudal subnucleus + masking phenomenon</td>
+<td>全段機轉正確</td>
+<td>✅ 本次查核中學理最扎實的一節</td>
+</tr>
+</tbody>
+</table>
+<h3>局部皮瓣幾何</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>手冊數字</th>
+<th>查核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Z-plasty 延長率</td>
+<td>30°→25%｜45°→50%｜60°→75%｜75°→100%｜90°→120%；60° 為實務標準</td>
+<td>✅ 全對</td>
+</tr>
+<tr>
+<td>Bilobed</td>
+<td>Zitelli 每瓣 45–50°、總 90–100°；原始 Esser 90+90=180°</td>
+<td>✅ 正確</td>
+</tr>
+<tr>
+<td>Rhomboid / Limberg</td>
+<td>內角 <strong>60° 與 120°</strong>、四邊等長、四種設計方向</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Paramedian forehead flap</td>
+<td>supratrochlear artery、蒂寬 <strong>1.2–1.5 cm</strong>；鼻部次單位 <strong>9 個</strong></td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3>燒傷與小兒</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>手冊數字</th>
+<th>查核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parkland</td>
+<td>4 mL × kg × %TBSA（LR），半量前 8 小時</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ABLS/ABA「2-3-4」共識</td>
+<td>成人/青少年 ≥14 歲 <strong>2</strong>、兒童 &lt;14 歲 <strong>3</strong>、電傷 <strong>4</strong> mL/kg/%TBSA</td>
+<td>✅ 現行</td>
+</tr>
+<tr>
+<td>Galveston</td>
+<td>5000 mL/m² burned + 2000 mL/m² total BSA；第二個 24 小時 3750 + 1500</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Cincinnati</td>
+<td>4 mL/kg/%TBSA + 1500 mL/m² total BSA</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>4-2-1 rule</td>
+<td>前 10 kg 4／次 10 kg 2／&gt;20 kg 1 mL/kg/hr；<strong>≤2 歲或 ≤30 kg 用 D5LR</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>尿量目標</td>
+<td>成人 <strong>0.5（趨近 1）</strong>／兒童 <strong>1.0</strong>／電傷 1–2 mL/kg/hr</td>
+<td>✅（鹼化 pH 見 🟠#7）</td>
+</tr>
+<tr>
+<td>Palm method</td>
+<td>手掌＋五指 ＝ 1% TBSA（單掌 0.5%）；一度不計入 TBSA</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>復甦啟動門檻</td>
+<td>成人 &gt;20%／兒童 ≥15%／嬰兒 ≥10% TBSA</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ABA burn center referral criteria</td>
+<td>partial thickness &gt;10%、臉手腳會陰關節、任何三度、電/化學/吸入、兒童無小兒照護能力之醫院、疑似兒虐</td>
+<td>✅ 完整</td>
+</tr>
+<tr>
+<td>Early excision &amp; grafting</td>
+<td>48–72 小時內、最遲一週</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>台灣兒虐通報</td>
+<td><strong>24 小時內</strong>（兒童及少年福利與權益保障法）</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3>手外科與周邊神經</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>手冊數字</th>
+<th>查核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>神經再生速度</td>
+<td>1 mm/day ＝ 1 inch/month；motor endplate 12–18 個月不可逆</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>前臂→內在肌 20–30 cm ÷ 1 mm/day ＝ <strong>8–12 個月</strong></td>
+<td>算式正確</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Ulnar paradox</td>
+<td>高位病灶 claw 反而輕（FDP 一併癱瘓）；恢復期 claw 反而變明顯</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Bouvier maneuver</td>
+<td>陽性＝simple claw → static / Zancolli lasso；陰性＝complex → dynamic transfer</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Tendon transfer 原則</td>
+<td>donor ≥M4（transfer 後掉一級）、amplitude（腕 25–33／伸指 50／屈指 70 mm）、直線牽引、一腱一功能、協同肌、可犧牲</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>缺血時間</td>
+<td>手指 warm 12 h／cold 24 h；含肌肉肢體 warm 6 h／cold 12 h；jejunum 僅 2 h</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Intrinsic-plus 副木</td>
+<td>wrist <strong>20–30° ext</strong>、MP <strong>70–90° flex</strong>、IP full ext、拇指外展對掌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>六個背側腔室</td>
+<td>1 APL+EPB／2 ECRL+ECRB／3 EPL／4 EDC+EIP／5 EDM／6 ECU</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>水蛭</td>
+<td>必須合併預防性抗生素對抗 <strong>Aeromonas hydrophila</strong>（ciprofloxacin 或第三代 cephalosporin）</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3>血管、淋巴與傷口</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>手冊數字</th>
+<th>查核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fontaine</td>
+<td><strong>IIa &gt;200 m／IIb &lt;200 m</strong>；III rest pain；IV tissue loss</td>
+<td>✅ 「200 公尺」這個答案正確</td>
+</tr>
+<tr>
+<td>Fontaine III–IV ＝ Rutherford 4–6 ＝ <strong>CLTI</strong></td>
+<td>✅</td>
+<td></td>
+</tr>
+<tr>
+<td>ABI</td>
+<td><strong>&gt;1.3 不可信 → TBI/TcPO₂</strong>；0.9–1.3 正常；0.4–0.7 中度；<strong>&lt;0.4 重度</strong>；壓迫治療 <strong>&lt;0.5 禁忌</strong>、0.5–0.8 低壓迫、&gt;0.8 可高壓迫（30–40 mmHg）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISL 分期</td>
+<td><strong>只有 0 / I / II / III</strong>（IV→Cheng、V→Campisi）</td>
+<td>✅ 這個「陷阱防守」是對的</td>
+</tr>
+<tr>
+<td>ICG DB 分期</td>
+<td>linear → splash → stardust → diffuse（Yamamoto）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>NPIAP 2016</td>
+<td>正式用語 <strong>pressure injury</strong>；Stage 1 non-blanchable erythema；Stage 4 定義；Unstageable；DTPI；<strong>癒合中不倒退分期</strong>；足跟乾燥穩定焦痂不移除</td>
+<td>✅ 全部符合現行 NPIAP</td>
+</tr>
+<tr>
+<td>NPWT</td>
+<td><strong>−80 至 −125 mmHg 連續</strong>、48–72 小時更換；機轉不含「降低細菌量」</td>
+<td>✅（含正確的陷阱提醒）</td>
+</tr>
+<tr>
+<td>TXA</td>
+<td><strong>受傷 3 小時內</strong>（CRASH-2）</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3>顱顏、血管異常、其他</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>手冊數字／說法</th>
+<th>查核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>破傷風</td>
+<td>clean minor ≥10 年 → 疫苗；all other ≥5 年 → 疫苗；未完成 3 劑 + dirty → 疫苗＋TIG 250 IU IM（不同部位、不同針具）；免疫低下者 dirty wound 不論接種史給 TIG</td>
+<td>✅ 完全符合 CDC/ACIP，<strong>且台灣疾管署一致</strong></td>
+</tr>
+<tr>
+<td>Infantile hemangioma 一線</td>
+<td><strong>口服 propranolol 1–3 mg/kg/day 分 2–3 次（常用 2）</strong>；口服 steroid（prednisolone 2–3 mg/kg/day）<strong>退居二線</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Léauté-Labrèze NEJM RCT</td>
+<td>3 mg/kg/day × 6 個月，成功率 60% vs 安慰劑 4%</td>
+<td>✅ 數字與試驗設計均正確</td>
+</tr>
+<tr>
+<td>「steroid 無效」的處理</td>
+<td>手冊明確指出<strong>「無效」是錯的、正確是「仍有效但非一線」</strong>，並教考生不要主動糾正考官</td>
+<td>✅ 處理得非常好，這一段是模範</td>
+</tr>
+<tr>
+<td>Kasabach-Merritt</td>
+<td>只見於 KHE 與 tufted angioma，不見於 infantile hemangioma</td>
+<td>✅ 經典陷阱防守正確</td>
+</tr>
+<tr>
+<td>GLUT-1</td>
+<td><strong>僅 infantile hemangioma 陽性</strong>（RICH/NICH 與所有 malformation 陰性）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>髁突骨折</td>
+<td>兒童、及成人無移位且咬合正常者 → benign neglect（軟食、短期或不用 IMF、早期功能運動）；成人若咬合不正／升支高度喪失／開口偏移 → 現代更傾向 ORIF</td>
+<td>✅ 完全符合現代觀念，且正是專案指定要現代化的那一題</td>
+</tr>
+<tr>
+<td>Le Fort vs ZMC</td>
+<td>三型 Le Fort 都通過 pterygoid plate，ZMC 不累及翼板、不直接影響咬合</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Panorex</td>
+<td>評估下顎骨折最佳單一平片，但<strong>最易漏髁突與 symphysis</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>White-eyed blowout</td>
+<td>兒童 trapdoor＋肌肉嵌頓＋oculocardiac reflex → <strong>24–48 小時內急開</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Gustilo IIIc</td>
+<td><strong>＝需要血管重建</strong>（不是「血管有損傷就算」）</td>
+<td>✅ 定義精準</td>
+</tr>
+<tr>
+<td>骨缺損</td>
+<td>≤5–6 cm 非血管化骨移植；&gt;6 cm 血管化骨瓣（腓骨最長約 26 cm）或 Masquelet（間隔 6–8 週）</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="s80">四、無法查證／需考生自行確認</h2>
+<p class="meta">事實查核</p>
+<ol>
+<li><strong>所有〔考生回憶〕內容本身</strong>——考官原話、當年題目、給分反應，本質不可查證（依指示未查）。手冊已一律標註來源層級（〔考生回憶〕／〔課本〕／〔指引〕／⚠ 推測），<strong>這個標註習慣是手冊最大的優點，請不要在改稿時拿掉</strong>。</li>
+<li><strong>《Grabb &amp; Smith 9e》與《Neligan 5e》的逐頁原文</strong>——無電子全文可比對。凡手冊自行標為「兩書衝突並列」的項目，<strong>無法逐一核實，但作答策略正確</strong>，包括：
+   - albumin 3.5 vs 3.25 vs &gt;3、prealbumin 15 vs 20、HbA1c &lt;6% vs ≤7.5%（<code>ch_2025A.md:623-624</code>）
+   - 糖尿病足 ABI 判準 Neligan「&lt;1」vs GS「≤0.90」（<code>ch_2025A.md:560</code>）
+   - 壓瘡皮瓣選擇：Neligan 機轉論 vs GS 引 Kuo 2014「三種皮瓣復發率無差異」（<code>ch_2025A.md:771</code>）
+   - GS 9e 獨有的第七類 mucosal membrane pressure injury（<code>ch_2025A.md:600</code>）
+   - GS 以「Stage 4 壓瘡組織學證實骨髓炎僅 17–46%」推翻 probe-to-bone（<code>ch_2025A.md:634</code>）</li>
+<li><strong>未能核到原始出處的統計數字</strong>（不代表錯，但被追問「哪來的」會答不出來）：
+   - 坐骨壓瘡 <strong>total ischiectomy 復發 3% vs partial 38%</strong>（<code>ch_2025A.md:795, 774</code>）
+   - 已照射術野重建失敗率 <strong>義乳 33.7% / hybrid 6.9% / 自體 2.1%</strong>（<code>ch_2025C.md:909, 1109</code>）
+   - CTS <strong>pillar pain 發生率可達 68%</strong>（<code>ch_2025B.md:519</code>）
+   - 好發部位 <strong>薦骨 28–36% &gt; 足跟 23–30% &gt; 坐骨 17–20%</strong>（<code>ch_2025A.md:611</code>）
+   - LYMPHA/ILR <strong>至少降低 50% 發生率</strong>（<code>ch_2025C.md:742</code>）；乳癌相關淋巴水腫 ALND 20–50%／SLNB 3–25%（<code>ch_2025C.md:768</code>）
+   - <strong>de Quervain 的 APL/EPB septum 35–45%</strong>（<code>ch_2025B.md:527</code>）
+   - transverse cervical artery <strong>可用率 92%</strong>、ALT <strong>78% 有一支以上穿支</strong>（<code>ch_2025A.md:274</code>）</li>
+<li><strong>單一機構／個人偏好</strong>，無法也不必查證：北榮 tumescent 配方（<code>ch_hist_E.md:899</code>）、董光義「擴張器至少多 40%」（<code>ch_2025C.md:933</code>）、邱浩遠「primary repair with wrist flexion 40°」（<code>ch_2025B.md:640</code>）、楊教授「Galveston 才是標準答案」（<code>ch_hist_E.md:402</code>）、陳宏基偏好 jejunum／Neligan Ch.13 作者偏好 ALT（<code>ch_2025B.md:254</code>）。這些<strong>本來就是「順著考官走」的題目</strong>，手冊的處理方式正確。</li>
+<li><strong>2026 年考官名單與題目漂移的推測</strong>（<code>ch_2025A.md:1035</code>、<code>ch_hist_E.md:215, 710</code> 等所有 ⚠ 推測段落）——依定義不可查證，手冊已誠實標記。</li>
+</ol>
+<hr />
+<h2 id="s81">附：改稿優先順序建議</h2>
+<p class="meta">事實查核</p>
+<table>
+<thead>
+<tr>
+<th>優先度</th>
+<th>項目</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P0</strong></td>
+<td>🔴#1 NCCN BCC 分區</td>
+<td>這是<strong>兩位以上考官共用</strong>的題目（董光義 malar、陳理維 alar、簡守信 post-auricular），且手冊把它當成核心必背表格，錯誤會重複命中</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td>🔴#4 ATLS 11 版</td>
+<td>李書欣關<strong>整站以 ATLS 為骨架</strong>，primary survey 從 ABCDE 改成 xABCDE 是「第一句話就露餡」的層級</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>🔴#2 Boyes transfer</td>
+<td>手外科考官（賴瑞斌、陳理維、姜良叡）都可能問；且<strong>兩份檔案互相矛盾</strong>，考生自己會背亂</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>🔴#3 Giant CMN 70%</td>
+<td>林煌基的「premalignant lesion 清單題」明說「講越多越好」，這一項一定會被講出來</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>🔴#5 Erb's point、🟠#6 Wolf &amp; Zitelli 誤植、🟠#9 補 SCC margin</td>
+<td>屬追問層級，但都是一句話就能修好的</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td>其餘 🟠</td>
+<td>加註即可，不必改寫</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
