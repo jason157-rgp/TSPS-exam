@@ -123,6 +123,24 @@ IDX_OVERRIDE = {
 }
 MATCH_THRESHOLD = 3
 
+# ------------------------------------------------------------ 標題與名詞
+
+# 手冊自稱「第二部押題排行榜」，但切節時「第二部」這個標題掉了，
+# 只剩兩個看不出是什麼的孤兒節。補回與第一部、第三部一致的稱呼。
+SECTION_RENAMES = {
+    "s22": "第二部｜2026 押題 Top 25 · 排序邏輯",
+    "s23": "第二部｜2026 押題 Top 25 · 排行榜（25 題）",
+}
+
+# 全書提到這些名詞時直接可跳。長的排前面，避免被短的先吃掉。
+TERM_LINKS = [
+    ("押題排行榜", "s23"),
+    ("押題 Top 25", "s23"),
+    ("押題排行", "s23"),
+    ("押題榜", "s23"),
+    ("衝突裁決總表", "s24"),
+]
+
 # ------------------------------------------------- 讀書進度表（s2）重寫
 
 # 「讀哪裡」欄指名的頁面
@@ -231,12 +249,16 @@ def build_linkifier(sections):
         if s["axis"] == "examiner":
             names[s["title"].split("　")[-1]] = s["id"]
 
+    terms = "|".join(re.escape(t) for t, _ in TERM_LINKS)
+    term_target = dict(TERM_LINKS)
+
     pattern = re.compile(
         r"〔(?P<nm>[^〕]{1,8})〕"
         r"|(?P<a>[A-E])\s*章\s*§\s*(?P<an>\d+)"
         r"|(?P<b>[A-E])\s*§\s*(?P<bn>\d+)"
         r"|(?P<c>[A-E])\s*章\s*(?P<cn>\d+)(?:-(?P<cs>\d+))?"
         r"|(?P<d>[A-E])\s*章"
+        r"|(?P<t>" + terms + r")"
     )
 
     def by_number(ch, n, sub):
@@ -252,11 +274,14 @@ def build_linkifier(sections):
     def jump(target, label):
         return f'<button type="button" class="jump" data-go="{target}">{label}</button>'
 
-    def repl(m):
+    def repl(m, skip=None):
         raw = m.group(0)
         if m.group("nm") is not None:
             tid = names.get(m.group("nm"))
             return f"〔{jump(tid, m.group('nm'))}〕" if tid else raw
+        if m.group("t"):
+            tid = term_target[m.group("t")]
+            return raw if tid == skip else jump(tid, raw)
         if m.group("a"):
             tid = by_number(m.group("a"), int(m.group("an")), None)
         elif m.group("b"):
@@ -267,8 +292,9 @@ def build_linkifier(sections):
             tid = CH_HEAD.get(m.group("d"))
         return jump(tid, raw) if tid else raw
 
-    def linkify(html):
-        return pattern.sub(repl, html)
+    def linkify(html, skip=None):
+        """skip：正在處理的節，避免名詞連到自己身上。"""
+        return pattern.sub(lambda m: repl(m, skip), html)
 
     return linkify, names
 
@@ -807,6 +833,12 @@ def main():
     patch_exam_weekday(by_id["s1"])
     patch_schedule(by_id["s2"])
 
+    # 補回掉失的「第二部」標題（第一部、第三部都在，只有它沒有）
+    for sid, title in SECTION_RENAMES.items():
+        if sid not in by_id:
+            sys.exit(f"[build] 要改名的節不存在：{sid}")
+        by_id[sid]["title"] = title
+
     # 2) 領域 / 章號 / 關卡性質
     chapter_of, group_of = {}, {}
     for gid, letter, _label, ids in CHAPTERS:
@@ -837,7 +869,7 @@ def main():
         if s["axis"] == "topic" and doms:
             s["gTo"] = doms[0]
         # 交叉參照連結化（索引各列已在上面處理過）
-        s["html"] = linkify(s["html"])
+        s["html"] = linkify(s["html"], skip=s["id"])
 
     order = {k: i for i, (k, _) in enumerate(DOMAINS)}
 
