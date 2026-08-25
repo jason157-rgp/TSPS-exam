@@ -22,6 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import restructure as R  # noqa: E402
+import plain as P  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_build" / "source.html"
@@ -938,12 +939,26 @@ def main():
 
     OUT.write_text(html, encoding="utf-8")
 
+    # 純文字版：同一份資料另外產出靜態 HTML，供不執行 JS 的抓取工具讀取
+    import datetime
+    days = max(0, (P.EXAM - datetime.date.today()).days)
+    n_sec, n_bundle = P.emit(
+        sections, rows, ROOT / "plain",
+        group_label=lambda g: dict(
+            [("start", "開始這裡"), ("index", "押題・索引・衝突裁決"),
+             ("notes", "各章速記卡與附錄"), ("check", "事實查核與缺口")]
+            + [(k, v) for k, v in DOMAINS]
+            + [(gid, label) for gid, _l, label, _ids in CHAPTERS]).get(g, g),
+        dom_label=lambda d: DOMAIN_LABEL.get(d, d),
+        days=days)
+
     linked = sum(1 for r in rows if r["go"])
     ex_linked = sum(1 for r in rows for e in r["ex"] if e["id"])
     ex_total = sum(len(r["ex"]) for r in rows)
     print(f"[build] 寫出 {OUT}  ({OUT.stat().st_size/1024/1024:.2f} MB)")
     print(f"[build] 節數 {len(sections)}（原 {len(sections)+len(dropped)}，第一部 11 節併為 1）")
     print(f"[build] 索引 {len(rows)} 列：主題可跳轉 {linked}，考官名牌 {ex_linked}/{ex_total}")
+    print(f"[build] 純文字版：plain/ 共 {n_sec} 節頁 + {n_bundle} 份合輯 + 目錄")
     print(f"[build] 結構修復：還原表格 {fix['tables']} 張（{fix['table_rows']} 列）、"
           f"清單 {fix['items']} 項、粗體降噪 {fix['debolded']} 塊")
     if unmatched:
