@@ -14,10 +14,14 @@
 
 重跑： python3 _build/build.py
 """
+import collections
 import json
 import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import restructure as R  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_build" / "source.html"
@@ -767,6 +771,12 @@ EXTRA_CSS = """
 .exchip.plain{cursor:default; opacity:.75}
 .irloc{font-size:13px; color:var(--ink-2); flex:1; min-width:0}
 
+/* ---- 還原後的編號清單（保留作者原本的 ①②③／1. 標記）---- */
+article ul.marked{list-style:none; padding-left:1.7em}
+article ul.marked>li{text-indent:-1.7em}
+article ul.marked ul.marked{padding-left:1.7em; margin-top:5px}
+.mk{color:var(--accent-ink); font-weight:600; font-variant-numeric:tabular-nums}
+
 /* ---- 上一頁 ---- */
 .backbar{margin:0 0 14px}
 .backbtn{font:inherit; font-size:12.5px; line-height:1.5; padding:4px 11px 4px 9px;
@@ -846,6 +856,7 @@ def main():
             chapter_of[sid] = letter
             group_of[sid] = gid
 
+    fix = collections.Counter()
     for s in sections:
         doms, stations = [], []
         if s["axis"] == "topic":
@@ -868,7 +879,13 @@ def main():
         s["gTo"] = s["group"]
         if s["axis"] == "topic" and doms:
             s["gTo"] = doms[0]
-        # 交叉參照連結化（索引各列已在上面處理過）
+        # 段落結構修復（表格／清單／編號）→ 粗體降噪 → 交叉參照連結化。
+        # 前兩步只動標記不動字，最後以指紋比對確認一字未失。
+        before = R.fingerprint(s["html"])
+        s["html"] = R.restructure(s["html"], fix)
+        s["html"] = R.denoise_bold(s["html"], fix)
+        if R.fingerprint(s["html"]) != before:
+            sys.exit(f"[build] 結構修復動到了內容：{s['id']}")
         s["html"] = linkify(s["html"], skip=s["id"])
 
     order = {k: i for i, (k, _) in enumerate(DOMAINS)}
@@ -927,6 +944,8 @@ def main():
     print(f"[build] 寫出 {OUT}  ({OUT.stat().st_size/1024/1024:.2f} MB)")
     print(f"[build] 節數 {len(sections)}（原 {len(sections)+len(dropped)}，第一部 11 節併為 1）")
     print(f"[build] 索引 {len(rows)} 列：主題可跳轉 {linked}，考官名牌 {ex_linked}/{ex_total}")
+    print(f"[build] 結構修復：還原表格 {fix['tables']} 張（{fix['table_rows']} 列）、"
+          f"清單 {fix['items']} 項、粗體降噪 {fix['debolded']} 塊")
     if unmatched:
         print(f"[build] 無對應主題節（維持純文字）{len(unmatched)} 列：")
         for u in unmatched:
