@@ -23,6 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import restructure as R  # noqa: E402
 import plain as P  # noqa: E402
+import mdsource as MD  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_build" / "source.html"
@@ -825,6 +826,14 @@ def main():
     sections = json.loads(m.group(2))
     by_id = {s["id"]: s for s in sections}
 
+    # 以校訂版 markdown 取代各節內容（框架不動：代號、順序、metadata 全部沿用）
+    md_dir = ROOT / "_build" / "md"
+    md_stats, md_report = ({}, {"missing_files": [], "unmatched_titles": []})
+    if md_dir.is_dir():
+        md_stats, md_report = MD.apply(sections, md_dir)
+        if md_report["unmatched_titles"]:
+            sys.exit(f"[build] markdown 標題對不上網站節：{md_report['unmatched_titles'][:3]}")
+
     linkify, names = build_linkifier(sections)
 
     # 1) 第一部 → 結構化索引
@@ -959,6 +968,13 @@ def main():
     print(f"[build] 節數 {len(sections)}（原 {len(sections)+len(dropped)}，第一部 11 節併為 1）")
     print(f"[build] 索引 {len(rows)} 列：主題可跳轉 {linked}，考官名牌 {ex_linked}/{ex_total}")
     print(f"[build] 純文字版：plain/ 共 {n_sec} 節頁 + {n_bundle} 份合輯 + 目錄")
+    if md_stats:
+        before = sum(a for a, _ in md_stats.values())
+        after = sum(b for _, b in md_stats.values())
+        print(f"[build] 內容換版：{len(md_stats)} 節改用校訂版 markdown"
+              f"（{before//1000}k → {after//1000}k 字，{(after-before)/before*100:+.1f}%）")
+        if md_report["missing_files"]:
+            print(f"[build]   缺少來源檔，維持原內容：{md_report['missing_files']}")
     print(f"[build] 結構修復：還原表格 {fix['tables']} 張（{fix['table_rows']} 列）、"
           f"清單 {fix['items']} 項、粗體降噪 {fix['debolded']} 塊")
     if unmatched:
