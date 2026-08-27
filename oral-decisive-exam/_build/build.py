@@ -736,6 +736,25 @@ function stamp(ms){
 }
 
 let curNote=null;   /* 目前畫面上的筆記框，同步回來時就地更新，不重繪整頁 */
+let curRead=null;   /* 目前畫面上的已讀按鈕，同上 */
+
+function renderProgress(){
+  const el=document.getElementById('progress');
+  if(!el) return;
+  el.innerHTML='';
+  const done=readCount(), left=S.length-done;
+  const t=document.createElement('span'); t.className='ptext';
+  t.textContent = left ? ('未讀 '+left+' / '+S.length) : ('全部讀完了 · '+S.length+' 節');
+  const b=document.createElement('button'); b.type='button'; b.className='ponly';
+  b.textContent='只看未讀';
+  b.setAttribute('aria-pressed', onlyUnread?'true':'false');
+  b.addEventListener('click',()=>{
+    onlyUnread=!onlyUnread;
+    try{ localStorage.setItem('psoral.onlyunread', onlyUnread?'1':''); }catch(e){}
+    renderProgress(); renderNav();
+  });
+  el.appendChild(t); el.appendChild(b);
+}
 
 function notePanel(s){
   const box=document.createElement('section'); box.className='notebox';
@@ -798,7 +817,7 @@ function importNotes(file, done){
       if(!old){ notes[id]=n; add++; }
       else if((n.u||0) > (old.u||0)){ notes[id]=n; upd++; }   /* 較新的勝出 */
     });
-    saveNotes(); renderNav(); show(current, false);
+    saveNotes(); renderNav(); renderProgress(); show(current, false);
     done(null, '匯入 '+add+' 則、更新 '+upd+' 則');
   };
   r.readAsText(file);
@@ -819,13 +838,13 @@ async function deriveKey(pass){
 let syncBusy=false, syncTimer=null;
 function syncSay(msg){ const e=document.getElementById('syncstat'); if(e) e.textContent=msg; }
 
-function mergeIn(incoming){
+function mergeMapIn(target, incoming){
   let touched=false;
   Object.keys(incoming||{}).forEach(id=>{
     const n=incoming[id];
-    if(!n || typeof n.t!=='string') return;
-    const old=notes[id];
-    if(!old || (n.u||0)>(old.u||0)){ notes[id]=n; touched=true; }
+    if(!n || typeof n!=='object') return;
+    const old=target[id];
+    if(!old || (n.u||0)>(old.u||0)){ target[id]=n; touched=true; }
   });
   return touched;
 }
@@ -836,19 +855,25 @@ async function syncNow(){
   try{
     const res=await fetch(sync.url+'?k='+sync.key, {
       method:'PUT', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({notes:notes})
+      body: JSON.stringify({notes:notes, read:read})
     });
     if(!res.ok) throw new Error('HTTP '+res.status);
     const data=await res.json();
-    if(mergeIn(data.notes)){
-      saveNotes(); renderNav();
+    const gotNotes=mergeMapIn(notes, data.notes);
+    /* 舊版 Worker 不回傳 read，這時保留本機的就好 */
+    const gotRead = data.read ? mergeMapIn(read, data.read) : false;
+    if(gotNotes) saveNotes();
+    if(gotRead) saveRead();
+    if(gotNotes || gotRead){
+      renderNav(); renderProgress();
       /* 就地更新目前開著的筆記框，正在打字時不動它 */
-      if(curNote && document.activeElement!==curNote.ta){
+      if(gotNotes && curNote && document.activeElement!==curNote.ta){
         const n=notes[curNote.id];
         const v=(n && n.t) ? n.t : '';
         if(curNote.ta.value!==v){ curNote.ta.value=v; curNote.grow(); }
         curNote.mark();
       }
+      if(gotRead && curRead) curRead.refresh();
     }
     syncSay('已同步 '+stamp(Date.now()));
   }catch(e){
@@ -877,12 +902,47 @@ let histDepth = 0;""",
 
     # 導覽上標出哪些節寫過筆記
     js = sub_once(
-        r"(      const dot=document\.createElement\('span'\); dot\.className='dot'\+\(read\[s\.id\]\?' on':''\); b\.appendChild\(dot\);)",
-        lambda m: m.group(1) + (
-            "\n      if(hasNote(s.id)){ const nm=document.createElement('span');"
-            " nm.className='hasnote'; nm.textContent='✎'; nm.title='這一節有筆記';"
-            " b.appendChild(nm); }"),
-        js, "nav note marker")
+        r"      const dot=document\.createElement\('span'\); dot\.className='dot'\+\(read\[s\.id\]\?' on':''\); b\.appendChild\(dot\);",
+        ("      const dot=document.createElement('span'); dot.className='dot'+(isRead(s.id)?' on':'');"
+         " b.appendChild(dot);\n"
+         "      if(hasNote(s.id)){ const nm=document.createElement('span');"
+         " nm.className='hasnote'; nm.textContent='✎'; nm.title='這一節有筆記';"
+         " b.appendChild(nm); }"),
+        js, "nav read/note marker")
+
+    # 已讀：加上時間戳才能跨裝置合併；舊格式 {id:true} 就地升級
+    js = sub_once(
+        r"try\{ read = JSON\.parse\(localStorage\.getItem\('psoral\.read'\)\|\|'\{\}'\); \}catch\(e\)\{ read = \{\}; \}",
+        lambda m: r"""try{ read = JSON.parse(localStorage.getItem('psoral.read')||'{}'); }catch(e){ read = {}; }
+Object.keys(read).forEach(id=>{                     /* 舊格式 {id:true} 升級 */
+  if(read[id]===true) read[id]={r:1,u:0};
+  else if(!read[id] || typeof read[id]!=='object') delete read[id];
+});
+function isRead(id){ return !!(read[id] && read[id].r); }
+function readCount(){ return Object.keys(read).filter(id=>isRead(id)).length; }
+let onlyUnread=false;
+try{ onlyUnread = !!localStorage.getItem('psoral.onlyunread'); }catch(e){}""",
+        js, "read model")
+
+    js = sub_once(
+        r"const setRb=\(\)=>\{ const on=!!read\[s\.id\];",
+        "const setRb=()=>{ const on=isRead(s.id);",
+        js, "read button state")
+
+    js = sub_once(
+        r"rb\.addEventListener\('click',\(\)=>\{ read\[s\.id\]=!read\[s\.id\]; if\(!read\[s\.id\]\) delete read\[s\.id\]; saveRead\(\); setRb\(\); renderNav\(\); \}\);",
+        ("rb.addEventListener('click',()=>{\n"
+         "    read[s.id]={r: isRead(s.id)?0:1, u: Date.now()};   /* 取消也留時間戳，才不會被舊資料復活 */\n"
+         "    saveRead(); setRb(); renderNav(); renderProgress(); scheduleSync();\n"
+         "  });\n"
+         "  curRead={id:s.id, refresh:setRb};"),
+        js, "read toggle")
+
+    # 只看未讀
+    js = sub_once(
+        r"(  const ds = s\.domains\|\|\[\];)",
+        lambda m: ("  if(onlyUnread && isRead(s.id) && s.id!==current) return false;\n" + m.group(1)),
+        js, "unread filter")
 
     # 側欄工具列
     js = sub_once(
@@ -958,6 +1018,7 @@ let histDepth = 0;""",
     js = sub_once(
         r"syncAxisUI\(\);\nshow\(S\[0\]\.id\);",
         lambda m: r"""syncAxisUI();
+renderProgress();
 (function(){
   const want = decodeURIComponent((location.hash||'').slice(1));
   show(byId[want] ? want : S[0].id);
@@ -1014,6 +1075,14 @@ article ul.marked{list-style:none; padding-left:1.7em}
 article ul.marked>li{text-indent:-1.7em}
 article ul.marked ul.marked{padding-left:1.7em; margin-top:5px}
 .mk{color:var(--accent-ink); font-weight:600; font-variant-numeric:tabular-nums}
+
+/* ---- 閱讀進度 ---- */
+.progress{display:flex; align-items:center; gap:8px; margin:8px 0 0}
+.progress .ptext{font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-right:auto}
+.ponly{font:inherit; font-size:11.5px; line-height:1.4; padding:3px 9px; border-radius:20px;
+  border:1px solid var(--rule); background:var(--surface); color:var(--ink-2); cursor:pointer}
+.ponly:hover{border-color:var(--accent); color:var(--accent-ink)}
+.ponly[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
 
 /* ---- 筆記 ---- */
 .tools{display:flex; align-items:center; gap:6px; margin:9px 0 0; flex-wrap:wrap}
@@ -1211,7 +1280,9 @@ def main():
     if '<div class="hint" id="stat"></div>' not in html:
         sys.exit("[build] 找不到側欄統計列，無法插入筆記工具列")
     html = html.replace('<div class="hint" id="stat"></div>',
-                        '<div class="hint" id="stat"></div>\n      <div class="tools" id="tools"></div>', 1)
+                        '<div class="hint" id="stat"></div>\n'
+                        '      <div class="progress" id="progress"></div>\n'
+                        '      <div class="tools" id="tools"></div>', 1)
 
     html = html.replace('天後口試　·　9/5（五）',
                         '天後口試　·　<span id="cddate">—</span>', 1)

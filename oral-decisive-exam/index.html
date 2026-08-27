@@ -239,6 +239,14 @@ article ul.marked>li{text-indent:-1.7em}
 article ul.marked ul.marked{padding-left:1.7em; margin-top:5px}
 .mk{color:var(--accent-ink); font-weight:600; font-variant-numeric:tabular-nums}
 
+/* ---- 閱讀進度 ---- */
+.progress{display:flex; align-items:center; gap:8px; margin:8px 0 0}
+.progress .ptext{font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-right:auto}
+.ponly{font:inherit; font-size:11.5px; line-height:1.4; padding:3px 9px; border-radius:20px;
+  border:1px solid var(--rule); background:var(--surface); color:var(--ink-2); cursor:pointer}
+.ponly:hover{border-color:var(--accent); color:var(--accent-ink)}
+.ponly[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+
 /* ---- 筆記 ---- */
 .tools{display:flex; align-items:center; gap:6px; margin:9px 0 0; flex-wrap:wrap}
 .tools .ncount{font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-right:auto}
@@ -335,6 +343,7 @@ article .jump{font-weight:600}
         <input id="q" type="search" placeholder="搜尋題目、考官、關鍵字…" autocomplete="off">
       </div>
       <div class="hint" id="stat"></div>
+      <div class="progress" id="progress"></div>
       <div class="tools" id="tools"></div>
     </div>
 
@@ -392,6 +401,14 @@ function domLabel(d){ const f=DOMAINS.find(x=>x[0]===d); return f?f[1]:d; }
 
 let read = {};
 try{ read = JSON.parse(localStorage.getItem('psoral.read')||'{}'); }catch(e){ read = {}; }
+Object.keys(read).forEach(id=>{                     /* 舊格式 {id:true} 升級 */
+  if(read[id]===true) read[id]={r:1,u:0};
+  else if(!read[id] || typeof read[id]!=='object') delete read[id];
+});
+function isRead(id){ return !!(read[id] && read[id].r); }
+function readCount(){ return Object.keys(read).filter(id=>isRead(id)).length; }
+let onlyUnread=false;
+try{ onlyUnread = !!localStorage.getItem('psoral.onlyunread'); }catch(e){}
 function saveRead(){ try{ localStorage.setItem('psoral.read', JSON.stringify(read)); }catch(e){} }
 try{ const a = localStorage.getItem('psoral.axis'); if(a==='topic') axis='topic'; }catch(e){}
 
@@ -471,6 +488,7 @@ function renderChips(){
 function inAxis(s){ return s.axis==='both' || s.axis===axis; }
 function visible(s){
   if(!inAxis(s)) return false;
+  if(onlyUnread && isRead(s.id) && s.id!==current) return false;
   const ds = s.domains||[];
   if(activeDom.size && ds.length && !ds.some(d=>activeDom.has(d))) return false;
   if(axis==='topic' && activeLv.size && s.axis==='topic' && !activeLv.has(s.level)) return false;
@@ -503,7 +521,7 @@ function renderNav(){
       } else {
         const nm=document.createElement('span'); nm.className='nm'; nm.textContent=live(s.title); b.appendChild(nm);
       }
-      const dot=document.createElement('span'); dot.className='dot'+(read[s.id]?' on':''); b.appendChild(dot);
+      const dot=document.createElement('span'); dot.className='dot'+(isRead(s.id)?' on':''); b.appendChild(dot);
       if(hasNote(s.id)){ const nm=document.createElement('span'); nm.className='hasnote'; nm.textContent='✎'; nm.title='這一節有筆記'; b.appendChild(nm); }
       if(s.id===current) b.setAttribute('aria-current','true');
       b.addEventListener('click',()=>{ show(s.id); closeNav(); });
@@ -635,6 +653,25 @@ function stamp(ms){
 }
 
 let curNote=null;   /* 目前畫面上的筆記框，同步回來時就地更新，不重繪整頁 */
+let curRead=null;   /* 目前畫面上的已讀按鈕，同上 */
+
+function renderProgress(){
+  const el=document.getElementById('progress');
+  if(!el) return;
+  el.innerHTML='';
+  const done=readCount(), left=S.length-done;
+  const t=document.createElement('span'); t.className='ptext';
+  t.textContent = left ? ('未讀 '+left+' / '+S.length) : ('全部讀完了 · '+S.length+' 節');
+  const b=document.createElement('button'); b.type='button'; b.className='ponly';
+  b.textContent='只看未讀';
+  b.setAttribute('aria-pressed', onlyUnread?'true':'false');
+  b.addEventListener('click',()=>{
+    onlyUnread=!onlyUnread;
+    try{ localStorage.setItem('psoral.onlyunread', onlyUnread?'1':''); }catch(e){}
+    renderProgress(); renderNav();
+  });
+  el.appendChild(t); el.appendChild(b);
+}
 
 function notePanel(s){
   const box=document.createElement('section'); box.className='notebox';
@@ -697,7 +734,7 @@ function importNotes(file, done){
       if(!old){ notes[id]=n; add++; }
       else if((n.u||0) > (old.u||0)){ notes[id]=n; upd++; }   /* 較新的勝出 */
     });
-    saveNotes(); renderNav(); show(current, false);
+    saveNotes(); renderNav(); renderProgress(); show(current, false);
     done(null, '匯入 '+add+' 則、更新 '+upd+' 則');
   };
   r.readAsText(file);
@@ -718,13 +755,13 @@ async function deriveKey(pass){
 let syncBusy=false, syncTimer=null;
 function syncSay(msg){ const e=document.getElementById('syncstat'); if(e) e.textContent=msg; }
 
-function mergeIn(incoming){
+function mergeMapIn(target, incoming){
   let touched=false;
   Object.keys(incoming||{}).forEach(id=>{
     const n=incoming[id];
-    if(!n || typeof n.t!=='string') return;
-    const old=notes[id];
-    if(!old || (n.u||0)>(old.u||0)){ notes[id]=n; touched=true; }
+    if(!n || typeof n!=='object') return;
+    const old=target[id];
+    if(!old || (n.u||0)>(old.u||0)){ target[id]=n; touched=true; }
   });
   return touched;
 }
@@ -735,19 +772,25 @@ async function syncNow(){
   try{
     const res=await fetch(sync.url+'?k='+sync.key, {
       method:'PUT', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({notes:notes})
+      body: JSON.stringify({notes:notes, read:read})
     });
     if(!res.ok) throw new Error('HTTP '+res.status);
     const data=await res.json();
-    if(mergeIn(data.notes)){
-      saveNotes(); renderNav();
+    const gotNotes=mergeMapIn(notes, data.notes);
+    /* 舊版 Worker 不回傳 read，這時保留本機的就好 */
+    const gotRead = data.read ? mergeMapIn(read, data.read) : false;
+    if(gotNotes) saveNotes();
+    if(gotRead) saveRead();
+    if(gotNotes || gotRead){
+      renderNav(); renderProgress();
       /* 就地更新目前開著的筆記框，正在打字時不動它 */
-      if(curNote && document.activeElement!==curNote.ta){
+      if(gotNotes && curNote && document.activeElement!==curNote.ta){
         const n=notes[curNote.id];
         const v=(n && n.t) ? n.t : '';
         if(curNote.ta.value!==v){ curNote.ta.value=v; curNote.grow(); }
         curNote.mark();
       }
+      if(gotRead && curRead) curRead.refresh();
     }
     syncSay('已同步 '+stamp(Date.now()));
   }catch(e){
@@ -822,9 +865,13 @@ function show(id, scroll){
   (s.domains||[]).forEach(dv=>{ const t=document.createElement('span'); t.className='tag dom'; t.textContent=domLabel(dv); meta.appendChild(t); });
   if(s.sub){ const t=document.createElement('span'); t.className='tag'; t.textContent=s.sub; meta.appendChild(t); }
   const rb=document.createElement('button'); rb.className='readbtn'; rb.type='button';
-  const setRb=()=>{ const on=!!read[s.id]; rb.setAttribute('aria-pressed',on?'true':'false'); rb.textContent=on?'✓ 已讀':'標記已讀'; };
+  const setRb=()=>{ const on=isRead(s.id); rb.setAttribute('aria-pressed',on?'true':'false'); rb.textContent=on?'✓ 已讀':'標記已讀'; };
   setRb();
-  rb.addEventListener('click',()=>{ read[s.id]=!read[s.id]; if(!read[s.id]) delete read[s.id]; saveRead(); setRb(); renderNav(); });
+  rb.addEventListener('click',()=>{
+    read[s.id]={r: isRead(s.id)?0:1, u: Date.now()};   /* 取消也留時間戳，才不會被舊資料復活 */
+    saveRead(); setRb(); renderNav(); renderProgress(); scheduleSync();
+  });
+  curRead={id:s.id, refresh:setRb};
   meta.appendChild(rb); head.appendChild(meta); view.appendChild(head);
 
   const strip = xlinkStrip(s); if(strip) view.appendChild(strip);
@@ -1003,6 +1050,7 @@ view.addEventListener('click', e=>{
 });
 
 syncAxisUI();
+renderProgress();
 (function(){
   const want = decodeURIComponent((location.hash||'').slice(1));
   show(byId[want] ? want : S[0].id);
