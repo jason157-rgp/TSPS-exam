@@ -727,12 +727,15 @@ function saveNotes(){
   try{ localStorage.setItem('psoral.notes', JSON.stringify(notes)); return true; }
   catch(e){ return false; }   /* 無痕模式或空間滿了 */
 }
-function noteCount(){ return Object.keys(notes).length; }
+function noteCount(){ return Object.keys(notes).filter(k=>notes[k] && notes[k].t).length; }
+function hasNote(id){ return !!(notes[id] && notes[id].t); }
 function stamp(ms){
   const d=new Date(ms);
   const p=n=>String(n).padStart(2,'0');
   return p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
 }
+
+let curNote=null;   /* 目前畫面上的筆記框，同步回來時就地更新，不重繪整頁 */
 
 function notePanel(s){
   const box=document.createElement('section'); box.className='notebox';
@@ -744,9 +747,9 @@ function notePanel(s){
   ta.className='note'; ta.rows=3; ta.spellcheck=false;
   ta.placeholder='寫下你自己的講法、口訣、老師說過的話…（自動儲存）';
   const cur=notes[s.id];
-  ta.value = cur ? cur.t : '';
+  ta.value = (cur && cur.t) ? cur.t : '';
   const grow=()=>{ ta.style.height='auto'; ta.style.height=Math.max(72, ta.scrollHeight)+'px'; };
-  const mark=()=>{ st.textContent = notes[s.id] ? '已儲存 '+stamp(notes[s.id].u) : ''; };
+  const mark=()=>{ st.textContent = hasNote(s.id) ? '已儲存 '+stamp(notes[s.id].u) : ''; };
   mark();
 
   let timer;
@@ -756,15 +759,17 @@ function notePanel(s){
     clearTimeout(timer);
     timer=setTimeout(()=>{
       const v=ta.value.trim();
-      if(v) notes[s.id]={t:ta.value, u:Date.now()};
-      else delete notes[s.id];
+      /* 刪除留成空字串的墓碑，否則同步時會被別台裝置的舊資料復活 */
+      notes[s.id]={t: v ? ta.value : '', u: Date.now()};
       st.textContent = saveNotes() ? (v ? '已儲存 '+stamp(Date.now()) : '') : '⚠ 無法儲存（無痕模式？）';
       renderNav();
+      scheduleSync();
     }, 400);
   });
   ta.addEventListener('blur',()=>{ clearTimeout(timer); ta.dispatchEvent(new Event('input')); });
   box.appendChild(ta);
   setTimeout(grow,0);
+  curNote={id:s.id, ta:ta, mark:mark, grow:grow};
   return box;
 }
 
@@ -799,6 +804,69 @@ function importNotes(file, done){
   r.readAsText(file);
 }
 
+/* ---------- 跨裝置同步（Cloudflare Worker，選用）---------- */
+let sync={url:'', key:'', on:false};
+try{ sync=Object.assign(sync, JSON.parse(localStorage.getItem('psoral.sync')||'{}')); }catch(e){}
+function saveSyncCfg(){ try{ localStorage.setItem('psoral.sync', JSON.stringify(sync)); }catch(e){} }
+
+/* 密語不出瀏覽器，只把 SHA-256 當成存取金鑰送上去 */
+async function deriveKey(pass){
+  const buf=new TextEncoder().encode('psoral|'+pass);
+  const h=await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+let syncBusy=false, syncTimer=null;
+function syncSay(msg){ const e=document.getElementById('syncstat'); if(e) e.textContent=msg; }
+
+function mergeIn(incoming){
+  let touched=false;
+  Object.keys(incoming||{}).forEach(id=>{
+    const n=incoming[id];
+    if(!n || typeof n.t!=='string') return;
+    const old=notes[id];
+    if(!old || (n.u||0)>(old.u||0)){ notes[id]=n; touched=true; }
+  });
+  return touched;
+}
+
+async function syncNow(){
+  if(!sync.on || !sync.url || !sync.key || syncBusy) return;
+  syncBusy=true; syncSay('同步中…');
+  try{
+    const res=await fetch(sync.url+'?k='+sync.key, {
+      method:'PUT', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({notes:notes})
+    });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    if(mergeIn(data.notes)){
+      saveNotes(); renderNav();
+      /* 就地更新目前開著的筆記框，正在打字時不動它 */
+      if(curNote && document.activeElement!==curNote.ta){
+        const n=notes[curNote.id];
+        const v=(n && n.t) ? n.t : '';
+        if(curNote.ta.value!==v){ curNote.ta.value=v; curNote.grow(); }
+        curNote.mark();
+      }
+    }
+    syncSay('已同步 '+stamp(Date.now()));
+  }catch(e){
+    syncSay('離線，稍後重試');
+  }finally{ syncBusy=false; }
+}
+
+function scheduleSync(){
+  if(!sync.on) return;
+  clearTimeout(syncTimer);
+  syncTimer=setTimeout(syncNow, 800);
+}
+
+if(sync.on){
+  setInterval(()=>{ if(!document.hidden) syncNow(); }, 30000);
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) syncNow(); });
+}
+
 let histDepth = 0;""",
         js, "notes core")
 
@@ -811,7 +879,7 @@ let histDepth = 0;""",
     js = sub_once(
         r"(      const dot=document\.createElement\('span'\); dot\.className='dot'\+\(read\[s\.id\]\?' on':''\); b\.appendChild\(dot\);)",
         lambda m: m.group(1) + (
-            "\n      if(notes[s.id]){ const nm=document.createElement('span');"
+            "\n      if(hasNote(s.id)){ const nm=document.createElement('span');"
             " nm.className='hasnote'; nm.textContent='✎'; nm.title='這一節有筆記';"
             " b.appendChild(nm); }"),
         js, "nav note marker")
@@ -823,7 +891,7 @@ let histDepth = 0;""",
   const bar=document.getElementById('tools');
   if(!bar) return;
   const n=document.createElement('span'); n.className='ncount';
-  const sync=()=>{ const c=noteCount(); n.textContent = c ? c+' 則筆記' : '尚無筆記'; };
+  const sync2=()=>{ const c=noteCount(); n.textContent = c ? c+' 則筆記' : '尚無筆記'; };
   const ex=document.createElement('button'); ex.type='button'; ex.textContent='匯出';
   ex.addEventListener('click',exportNotes);
   const im=document.createElement('button'); im.type='button'; im.textContent='匯入';
@@ -834,10 +902,53 @@ let histDepth = 0;""",
     if(!fi.files || !fi.files[0]) return;
     importNotes(fi.files[0],(err,msg)=>{ n.textContent = err ? '⚠ '+err : msg; fi.value=''; });
   });
-  bar.appendChild(n); bar.appendChild(ex); bar.appendChild(im); bar.appendChild(fi);
-  sync();
+  const sy=document.createElement('button'); sy.type='button'; sy.textContent='同步';
+  bar.appendChild(n); bar.appendChild(ex); bar.appendChild(im); bar.appendChild(sy); bar.appendChild(fi);
+
+  /* 同步設定面板 */
+  const panel=document.createElement('div'); panel.className='syncpanel'; panel.hidden=true;
+  const st=document.createElement('div'); st.className='syncstat'; st.id='syncstat';
+  const u=document.createElement('input'); u.type='url'; u.placeholder='Worker 網址';
+  const k=document.createElement('input'); k.type='password'; k.placeholder='通關密語';
+  const row=document.createElement('div'); row.className='syncbtns';
+  const go=document.createElement('button'); go.type='button';
+  const off=document.createElement('button'); off.type='button'; off.textContent='停用';
+  row.appendChild(go); row.appendChild(off);
+  panel.appendChild(u); panel.appendChild(k); panel.appendChild(row); panel.appendChild(st);
+  bar.parentNode.insertBefore(panel, bar.nextSibling);
+
+  const paint=()=>{
+    u.value=sync.url||''; go.textContent = sync.on ? '重新連線' : '啟用';
+    off.hidden = !sync.on;
+    st.textContent = sync.on ? '同步已開啟' : '目前只存在這台裝置';
+  };
+  paint();
+  sy.addEventListener('click',()=>{ panel.hidden=!panel.hidden; if(!panel.hidden) paint(); });
+  go.addEventListener('click', async ()=>{
+    let url=(u.value||'').trim().replace(/\/+$/,'');
+    const pass=(k.value||'').trim();
+    const local=/^(https?:\/\/)?(127\.0\.0\.1|localhost)(:\d+)?$/i.test(url);
+    if(url && !/^https?:\/\//i.test(url)) url='https://'+url;   /* 少打 https:// 就補上 */
+    if(!local && !/^https:\/\/[^\s]+\.[^\s]+/.test(url)){
+      st.textContent='網址看起來不對，應該像 https://xxx.workers.dev'; return;
+    }
+    if(pass.length<4){ st.textContent='密語太短，至少 4 個字'; return; }
+    st.textContent='連線中…';
+    try{
+      sync.url=url; sync.key=await deriveKey(pass); sync.on=true;
+      saveSyncCfg(); k.value='';
+      await syncNow();
+      paint(); sync2();
+    }catch(e){ st.textContent='連不上，檢查網址是否正確'; }
+  });
+  off.addEventListener('click',()=>{
+    sync.on=false; saveSyncCfg(); paint();
+    st.textContent='已停用，筆記仍留在這台裝置';
+  });
+
+  sync2();
   const origSave=saveNotes;
-  saveNotes=function(){ const ok=origSave(); sync(); return ok; };
+  saveNotes=function(){ const ok=origSave(); sync2(); return ok; };
 })();
 
 """ + m.group(1),
@@ -922,6 +1033,20 @@ textarea.note:focus{outline:none; border-color:var(--accent);
   box-shadow:0 0 0 3px var(--accent-soft)}
 textarea.note::placeholder{color:var(--muted)}
 .hasnote{flex:none; margin-left:5px; font-size:11px; color:var(--accent)}
+
+/* ---- 同步設定 ---- */
+.syncpanel{margin:9px 0 0; padding:11px 12px; border:1px solid var(--rule);
+  border-radius:9px; background:var(--surface)}
+.syncpanel input{display:block; width:100%; box-sizing:border-box; margin:0 0 7px;
+  font:inherit; font-size:12px; padding:6px 9px; border:1px solid var(--rule);
+  border-radius:6px; background:var(--ground); color:var(--ink)}
+.syncpanel input:focus{outline:none; border-color:var(--accent)}
+.syncbtns{display:flex; gap:6px}
+.syncbtns button{font:inherit; font-size:11.5px; padding:4px 11px; border-radius:20px;
+  border:1px solid var(--rule); background:var(--surface); color:var(--ink-2); cursor:pointer}
+.syncbtns button:first-child{border-color:var(--accent); color:var(--on-accent);
+  background:var(--accent)}
+.syncstat{font-family:var(--mono); font-size:10px; color:var(--muted); margin:8px 0 0}
 
 /* ---- 上一頁 ---- */
 .backbar{margin:0 0 14px}
