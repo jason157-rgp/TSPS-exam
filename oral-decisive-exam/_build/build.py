@@ -718,7 +718,132 @@ syncAxisUI();
 show(S[0].id);""",
         js, "data-go delegation")
 
-    # 12) 開場：網址帶著節代號就直接開那一節（必須排在委派修補之後）
+    # 12) 每篇文章下的筆記（自動儲存），以及匯出／匯入
+    js = sub_once(
+        r"(let histDepth = 0;)",
+        lambda m: r"""let notes = {};
+try{ notes = JSON.parse(localStorage.getItem('psoral.notes')||'{}'); }catch(e){ notes = {}; }
+function saveNotes(){
+  try{ localStorage.setItem('psoral.notes', JSON.stringify(notes)); return true; }
+  catch(e){ return false; }   /* 無痕模式或空間滿了 */
+}
+function noteCount(){ return Object.keys(notes).length; }
+function stamp(ms){
+  const d=new Date(ms);
+  const p=n=>String(n).padStart(2,'0');
+  return p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+}
+
+function notePanel(s){
+  const box=document.createElement('section'); box.className='notebox';
+  const h=document.createElement('h2'); h.textContent='我的筆記';
+  const st=document.createElement('span'); st.className='nstat'; h.appendChild(st);
+  box.appendChild(h);
+
+  const ta=document.createElement('textarea');
+  ta.className='note'; ta.rows=3; ta.spellcheck=false;
+  ta.placeholder='寫下你自己的講法、口訣、老師說過的話…（自動儲存）';
+  const cur=notes[s.id];
+  ta.value = cur ? cur.t : '';
+  const grow=()=>{ ta.style.height='auto'; ta.style.height=Math.max(72, ta.scrollHeight)+'px'; };
+  const mark=()=>{ st.textContent = notes[s.id] ? '已儲存 '+stamp(notes[s.id].u) : ''; };
+  mark();
+
+  let timer;
+  ta.addEventListener('input',()=>{
+    grow();
+    st.textContent='輸入中…';
+    clearTimeout(timer);
+    timer=setTimeout(()=>{
+      const v=ta.value.trim();
+      if(v) notes[s.id]={t:ta.value, u:Date.now()};
+      else delete notes[s.id];
+      st.textContent = saveNotes() ? (v ? '已儲存 '+stamp(Date.now()) : '') : '⚠ 無法儲存（無痕模式？）';
+      renderNav();
+    }, 400);
+  });
+  ta.addEventListener('blur',()=>{ clearTimeout(timer); ta.dispatchEvent(new Event('input')); });
+  box.appendChild(ta);
+  setTimeout(grow,0);
+  return box;
+}
+
+/* 匯出／匯入：目前跨裝置要靠這個搬 */
+function exportNotes(){
+  const payload={kind:'psoral.notes', at:new Date().toISOString(), notes:notes};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='口試筆記-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },0);
+}
+function importNotes(file, done){
+  const r=new FileReader();
+  r.onload=()=>{
+    let data;
+    try{ data=JSON.parse(r.result); }catch(e){ done('讀不懂這個檔案'); return; }
+    const inc=(data && data.notes) || (data && data.kind ? null : data);
+    if(!inc || typeof inc!=='object'){ done('檔案裡沒有筆記'); return; }
+    let add=0, upd=0;
+    Object.keys(inc).forEach(id=>{
+      const n=inc[id];
+      if(!n || typeof n.t!=='string') return;
+      const old=notes[id];
+      if(!old){ notes[id]=n; add++; }
+      else if((n.u||0) > (old.u||0)){ notes[id]=n; upd++; }   /* 較新的勝出 */
+    });
+    saveNotes(); renderNav(); show(current, false);
+    done(null, '匯入 '+add+' 則、更新 '+upd+' 則');
+  };
+  r.readAsText(file);
+}
+
+let histDepth = 0;""",
+        js, "notes core")
+
+    js = sub_once(
+        r"(  const pager=document\.createElement\('div'\); pager\.className='pager';)",
+        lambda m: "  view.appendChild(notePanel(s));\n\n" + m.group(1),
+        js, "note panel mount")
+
+    # 導覽上標出哪些節寫過筆記
+    js = sub_once(
+        r"(      const dot=document\.createElement\('span'\); dot\.className='dot'\+\(read\[s\.id\]\?' on':''\); b\.appendChild\(dot\);)",
+        lambda m: m.group(1) + (
+            "\n      if(notes[s.id]){ const nm=document.createElement('span');"
+            " nm.className='hasnote'; nm.textContent='✎'; nm.title='這一節有筆記';"
+            " b.appendChild(nm); }"),
+        js, "nav note marker")
+
+    # 側欄工具列
+    js = sub_once(
+        r"(stat\.textContent = S\.length\+' 節　·　')",
+        lambda m: r"""(function(){
+  const bar=document.getElementById('tools');
+  if(!bar) return;
+  const n=document.createElement('span'); n.className='ncount';
+  const sync=()=>{ const c=noteCount(); n.textContent = c ? c+' 則筆記' : '尚無筆記'; };
+  const ex=document.createElement('button'); ex.type='button'; ex.textContent='匯出';
+  ex.addEventListener('click',exportNotes);
+  const im=document.createElement('button'); im.type='button'; im.textContent='匯入';
+  const fi=document.createElement('input'); fi.type='file'; fi.accept='application/json,.json';
+  fi.style.display='none';
+  im.addEventListener('click',()=>fi.click());
+  fi.addEventListener('change',()=>{
+    if(!fi.files || !fi.files[0]) return;
+    importNotes(fi.files[0],(err,msg)=>{ n.textContent = err ? '⚠ '+err : msg; fi.value=''; });
+  });
+  bar.appendChild(n); bar.appendChild(ex); bar.appendChild(im); bar.appendChild(fi);
+  sync();
+  const origSave=saveNotes;
+  saveNotes=function(){ const ok=origSave(); sync(); return ok; };
+})();
+
+""" + m.group(1),
+        js, "notes toolbar")
+
+    # 13) 開場：網址帶著節代號就直接開那一節（必須排在委派修補之後）
     js = sub_once(
         r"syncAxisUI\(\);\nshow\(S\[0\]\.id\);",
         lambda m: r"""syncAxisUI();
@@ -778,6 +903,25 @@ article ul.marked{list-style:none; padding-left:1.7em}
 article ul.marked>li{text-indent:-1.7em}
 article ul.marked ul.marked{padding-left:1.7em; margin-top:5px}
 .mk{color:var(--accent-ink); font-weight:600; font-variant-numeric:tabular-nums}
+
+/* ---- 筆記 ---- */
+.tools{display:flex; align-items:center; gap:6px; margin:9px 0 0; flex-wrap:wrap}
+.tools .ncount{font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-right:auto}
+.tools button{font:inherit; font-size:11.5px; line-height:1.4; padding:3px 9px; border-radius:20px;
+  border:1px solid var(--rule); background:var(--surface); color:var(--ink-2); cursor:pointer}
+.tools button:hover{border-color:var(--accent); color:var(--accent-ink); background:var(--accent-soft)}
+.notebox{margin:26px 0 6px; padding:15px 16px; border:1px solid var(--rule);
+  border-radius:10px; background:var(--surface-2)}
+.notebox h2{font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); margin:0 0 9px; display:flex; align-items:baseline; gap:9px; font-weight:500}
+.notebox .nstat{font-size:9.5px; letter-spacing:.06em; color:var(--ok); text-transform:none}
+textarea.note{display:block; width:100%; box-sizing:border-box; min-height:72px; resize:vertical;
+  font:inherit; font-size:15px; line-height:1.75; color:var(--ink);
+  background:var(--surface); border:1px solid var(--rule); border-radius:7px; padding:10px 12px}
+textarea.note:focus{outline:none; border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-soft)}
+textarea.note::placeholder{color:var(--muted)}
+.hasnote{flex:none; margin-left:5px; font-size:11px; color:var(--accent)}
 
 /* ---- 上一頁 ---- */
 .backbar{margin:0 0 14px}
@@ -939,6 +1083,11 @@ def main():
     # 側欄的考試日改成由考試日算出，避免與內文各處的星期標示各說各話
     if '天後口試　·　9/5（五）' not in html:
         sys.exit("[build] 找不到側欄倒數的日期標示")
+    if '<div class="hint" id="stat"></div>' not in html:
+        sys.exit("[build] 找不到側欄統計列，無法插入筆記工具列")
+    html = html.replace('<div class="hint" id="stat"></div>',
+                        '<div class="hint" id="stat"></div>\n      <div class="tools" id="tools"></div>', 1)
+
     html = html.replace('天後口試　·　9/5（五）',
                         '天後口試　·　<span id="cddate">—</span>', 1)
 
