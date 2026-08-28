@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EP07 顱顏第一場：外傷評估與眼眶</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="index.html">← 12 集語音課程</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>EP07　顱顏第一場：外傷評估與眼眶</h1>
+<p class="sub">9 題　·　約 12k 字　·　朗讀約 48 分鐘</p>
+<nav class="qnav"><b>本集題目</b><ol><li><a href="#q1">偏鄉急診凌晨來一位車禍病人，右臉腫脹、右上肢無力、頸圈已經套上，你怎麼開始？</a></li><li><a href="#q2">這個病人腹部有壓痛，我們這裡沒有 CT，你要用什麼檢查？要掃哪裡？</a></li><li><a href="#q3">顏面骨要照哪幾個 view？各看什麼？</a></li><li><a href="#q4">這張照片你看到什麼？接下來怎麼處理？</a></li><li><a href="#q5">那你要怎麼 approach？各種切口的優缺點是什麼？</a></li><li><a href="#q6">一個小孩，眼睛不紅不腫，可是一直吐、心跳很慢，往上看不太上去。你想到什麼？什麼…</a></li><li><a href="#q7">眶底手術後的晚上，值班醫師打電話說病人眼睛劇痛、看不見了。你怎麼辦？</a></li><li><a href="#q8">orbital floor 你要墊什麼？</a></li><li><a href="#q9">頭部外傷 11 天，右眉內側有一道未癒合的撕裂傷，右眼不腫，可是完全張不開，C…</a></li></ol></nav>
+<section class="intro">
+<p>本集會練九題：外傷病人的第一線評估、FAST 的四個位置、顏面骨的四個 X 光 view 與 CT 判讀、眶底爆裂性骨折的全流程、眶底與下眼瞼三種入路的比較、白眼爆裂與肌肉嵌頓的時間窗、術後劇痛失明的球後出血、眶底重建的材料選擇，最後是上眶裂症候群與眶尖症候群。</p>
+<p>先記住三句貫穿全集的話。第一，這一集有兩個時間窗會直接決定你的成績：白眼爆裂是受傷後 8 小時，球後出血是 60 到 100 分鐘。第二，ATLS 已經走到第 11 版，primary survey 是 xABCDE，不是 ABCDE，開場第一句話就分高下。第三，顱顏外傷站有一半是流程題，考官要看的是你的 thinking process，不是你多快喊出診斷。</p>
+<p>考場情報也先給你。高醫李書欣這一關是清單題不是思辨題，贏在完整；他會把筆電推給你要你自己捲 CT，題幹已經給了頸圈，忘記排 C-spine 就是最大的地雷。陳天牧會掏手機秀 raccoon eye 的照片，不要一看到就喊 blow-out fracture，他要的是 ATLS 到理學檢查到 CT 的流程；他也不愛在眶底放東西，真要放偏好 Medpor，不喜歡 titanium mesh。李經維喜歡反問「這麼快就做 CT 嗎」，不要跳級檢查。</p>
+<p>準備好了嗎？我們開始。</p>
+</section>
+<section class="q" id="q1">
+<h2>第一題</h2>
+<p class="ask">考官問：偏鄉急診凌晨來一位車禍病人，右臉腫脹、右上肢無力、頸圈已經套上，你怎麼開始？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>第一句話這樣講：「報告老師，這是一位多重外傷病人，我會依 ATLS 的架構、以 primary survey 開始，邊評估邊處置，也就是 treat as you go；因為已經上了頸圈，我全程假設有頸椎損傷。」</p>
+<p>接著馬上補這一句，這是拉開差距的關鍵：依 ATLS 第 11 版，也就是 2025 年的版本，primary survey 已經改成 xABCDE。最前面的 x 是 exsanguinating external hemorrhage，先控制致命性的外出血，順位在 airway 之前；看到會致命的外出血就直接壓迫、上止血帶、用止血敷料，做完 x 才依序進 A 到 E。理由要講得出來：可壓迫的致命外出血在數分鐘內就會致死，而且處置不需要任何器械，所以被提到最前面。</p>
+<p>然後逐項走。A 是 airway with cervical spine protection：先跟病人講話，能清楚回答就代表氣道通暢、呼吸可、腦灌流可；檢查口咽異物、斷牙、血塊、嘔吐物，聽 stridor、看 hoarseness；處置用 jaw thrust，不做 head tilt，因為要保護頸椎。顏面外傷有三個特殊考量要主動講：第一，顏面中段骨折本身就會塌陷氣道；第二，嚴重中臉骨折或 NOE 骨折疑似顱底骨折時，禁用鼻胃管與鼻咽氣道；第三，Le Fort 骨折合併大出血或需要長期氣道保護，就走 definitive airway，插管困難則 cricothyroidotomy。</p>
+<p>B 是 breathing：視、聽、扣、觸，加 pulse oximetry 與高流量氧氣。在 B 就要當場處理掉的致命傷有四個：tension pneumothorax，不等 X 光立刻針刺或指式減壓；open pneumothorax 用三邊敷料；massive hemothorax；還有 flail chest 合併肺挫傷。</p>
+<p>C 是 circulation with hemorrhage control：出血找五個地方，口訣是 blood on the floor and four more，也就是體外、胸腔、腹腔、後腹腔與骨盆、長骨。打兩條 16 到 18 號以上的大口徑周邊靜脈，同時送 type and cross、血氣、乳酸。復甦的觀念第 11 版已經改成 blood-first：盡量減少晶體液、只當 bridging fluid，早期啟動大量輸血，用接近 1 比 1 比 1 的 RBC、FFP、血小板，或低效價 O 陰性全血 LTOWB。舊版並列一句就好：第 10 版起始是 1 公升溫的平衡晶體液，第 9 版是 2 公升。TXA 要在受傷 3 小時內給，1 公克 bolus 加 1 公克 infusion，TBI 可用 2 公克 bolus。全程警戒 lethal triad，也就是低體溫、酸中毒、凝血病變，所以要主動保溫、輸溫的液體。</p>
+<p>D 是 disability：GCS 拆成睜眼 4 分、語言 5 分、運動 6 分，加瞳孔與對光、四肢運動感覺、血糖。E 是 exposure：完全脫衣、含 log roll 看背面，立刻蓋回保溫毯。</p>
+<p>題幹的兩個鉤子一定要咬住。右上肢無力，答頸椎損傷或臂神經叢損傷優先，完整記錄皮節分佈的感覺與肌力分級，並鑑別顱內病灶；頸圈已經套上，就一定要排 C-spine，正位、側位、齒突開口位，或依規則直接做頸椎 CT。另外一句：穩定才進 CT，不穩定的病人不進 CT 室。</p>
+<p>這一題的地雷是：忘記排 C-spine，這是李書欣這一關最大的失分點，題幹已經明示了。第二個地雷是第一句話還在講 ABCDE。如果考官用 ABCDE 的框架提問，順著他走，只補一句「第 10 版以前出血控制放在 C，第 11 版把它獨立提到最前面」，不要當場糾正考官。</p>
+</section>
+<section class="q" id="q2">
+<h2>第二題</h2>
+<p class="ask">考官問：這個病人腹部有壓痛，我們這裡沒有 CT，你要用什麼檢查？要掃哪裡？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>先講目的再講位置，這樣才不像背書：FAST 的目的不是診斷器官損傷，而是回答一個問題，腹腔或心包裡有沒有游離液體，用來決定血行動力學不穩定的病人要不要直接進開刀房。</p>
+<p>四個標準位置，一個都不能少。第一，心包，也就是 subxiphoid 或 subcostal view，看 pericardial effusion 與心包填塞。第二，右上腹，Morison's pouch，也就是 hepatorenal recess，這是仰臥病人最容易積液、最敏感的位置，順帶看右側胸腔與橫膈上方。第三，左上腹，脾周與 splenorenal recess，包含脾腎隱窩與脾臟橫膈之間。第四，骨盆的 suprapubic view，男性看 rectovesical pouch，女性看 rectouterine pouch，也就是 Douglas pouch。</p>
+<p>再加 e-FAST 的兩個延伸位置：雙側前胸壁，看有沒有氣胸，找 lung sliding 消失與 barcode sign。</p>
+<p>限制要主動講出來才加分。第一，無法可靠偵測後腹腔出血與空腔臟器破裂；第二，大約要 200 毫升以上液體才容易看到，這一句是記憶點、課本找不到明確出處，被追問時不要硬掰；第三，肥胖、皮下氣腫、腸氣會嚴重干擾；第四，陰性不能排除損傷。</p>
+<p>最後給分流：穩定的病人仍然應該做 CT；不穩定加 FAST 陽性，直接開刀；不穩定但 FAST 陰性，就要去找其他出血源，骨盆、胸腔、後腹腔，DPL 現在已經很少用。</p>
+<p>這一題的地雷是：只講 Morison's pouch 跟 Douglas pouch 兩個位置。2025 年的考生回憶原文就只記了這兩個，四個位置全講完再補 e-FAST，才是滿分。</p>
+</section>
+<section class="q" id="q3">
+<h2>第三題</h2>
+<p class="ask">考官問：顏面骨要照哪幾個 view？各看什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>四個 view，每一個都要配上「看什麼」。</p>
+<p>第一，Caldwell view，是後前位的 PA，OML 與底片垂直，射線由後往前向足側傾斜約 15 度，看額竇、篩竇、眶上緣、眶內側壁、NOE 區與 frontozygomatic suture。</p>
+<p>第二，Lateral view，看額竇的前後壁、鼻骨側面、上顎竇後壁與蝶鞍，順帶初判頸椎連續性。</p>
+<p>第三，Water's view，正式名稱是 occipitomental view，這是顏面外傷最重要的單一 view。姿勢一定要講，只講名字等於白答：下巴與鼻尖靠向底片、鼻尖離片大約 2 到 3 公分，OML 與底片夾角約 37 度，中央射線垂直穿出於 acanthion；而且必須立姿或坐姿的直立位，才看得到上顎竇的液平面。它看眶下緣、眶底、teardrop sign，也就是眶內容物疝入上顎竇、上顎竇積血的 air-fluid level、眶內氣腫、顴骨體與 ZM buttress、還有鼻中膈。判讀沿著 Dolan's lines 逐條看連續性，形狀像大象的頭跟耳朵。</p>
+<p>第四，Submentovertex view，也就是頦頂位，俗稱 jug-handle view，頸部極度後仰、射線由頦下往顱頂，主要看顴弓，另外可看下顎骨體、髁突位置與顱底翼板。</p>
+<p>講完四個 view，立刻補這一句：同時要排 C-spine，頸椎正位、側位、齒突開口位，或依規則直接做頸椎 CT。</p>
+<p>再補兩句現代化的話。第一，Panorex 是評估下顎骨折、尤其髁突與角部的最佳單一平片，但它最容易漏掉的正好也是髁突與 symphysis 區。第二，在有電腦斷層的醫院，診斷標準已經是 maxillofacial CT，包含軸狀、冠狀、矢狀重組加 3D 重組；平片用於沒有 CT 的偏鄉與初步篩檢。</p>
+<p>如果考官把筆電推給你，要你自己捲 CT，就邊捲邊講。軸狀看顴弓的連續性與內陷、ZMC 的四個接合、特別是眶外側壁的 zygomaticosphenoid suture 在蝶骨大翼處對合得好不好，還有上顎竇前壁與後外側壁、翼板；翼板骨折就要想 Le Fort。冠狀看眶底缺損的大小與位置、有沒有 teardrop sign，還有最關鍵的一項：inferior rectus 的形狀，正常是扁平或橢圓，變成圓形就是 rounding，是 entrapment 的重要影像徵象。矢狀看眶底缺損的前後範圍，以及後方還有沒有可靠的骨性後緣，也就是 posterior ledge，那是放置植入物的支點。最後收斂成一句診斷。</p>
+<p>這一題的地雷有三個：講不出 submentovertex 的用途；忘記 C-spine；還有李經維式的反問「這麼快就做 CT 嗎」。偏鄉情境要先答 Water's view 作初篩，再補一句 CT 是標準，不要跳級檢查。另外，四個 view 的角度細節屬於放射科教材與考場慣例，是記憶點、不是課本明文，被追問出處時不要硬掰。</p>
+<p>小結一下前三題。你要帶走的是三條主線：第一，開場講 xABCDE，出血優先於氣道，復甦是 blood-first；第二，沒有 CT 就用 FAST，四個位置加兩個延伸，陰性不能排除損傷；第三，四個 view 各有各的目標，Water's 要講姿勢、submentovertex 看顴弓，講完永遠補一句 C-spine。三題共用一個精神：完整度就是分數。</p>
+</section>
+<section class="q" id="q4">
+<h2>第四題</h2>
+<p class="ask">考官問：這張照片你看到什麼？接下來怎麼處理？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>先描述再診斷：「我看到的是右側 periorbital ecchymosis 合併 subconjunctival hemorrhage 與 eyelid swelling，也就是俗稱的 raccoon eye。」</p>
+<p>然後立刻踩煞車，這一句是這題的靈魂：「但我不會直接跳到 blow-out fracture 的診斷。這是外傷病人，第一步是 ATLS。」問受傷機轉與能量、有沒有意識喪失，完成 primary survey，固定頸椎、排除顱內出血與其他致命傷，再進 secondary survey。</p>
+<p>生命徵象穩定後，眼科相關的理學檢查依序六項。第一，visual acuity，最重要也最常被忘記，任何眼周外傷都必須先記錄視力。第二，瞳孔大小與對光反射，含 RAPD，用來排除 traumatic optic neuropathy。第三，眼外肌六個方向，特別注意 up-gaze 有沒有受限，並問複視及其方向。第四，眼球位置，有沒有 enophthalmos 或 exophthalmos，必要時用 Hertel exophthalmometer 量，兩眼差超過 2 毫米有臨床意義。第五，V2 也就是 infraorbital nerve 分佈的麻木。第六，咬合與 trismus，因為 raccoon eye 常合併 ZMC 或 Le Fort 骨折。</p>
+<p>影像用 facial bone CT，特別看冠狀與矢狀，評估眶底缺損範圍、有沒有軟組織 herniation、inferior rectus 有沒有 rounding；傳統上也照 Water's view。</p>
+<p>手術適應症只有三條，逐條報。第一，diplopia 來自眼外肌或相關軟組織的 incarceration，用主動運動受限或 forced duction test 證實，並以 CT 佐證。第二，extensive fracture，超過 orbital wall 的 50% 且有移位，不重建 orbital volume 就會造成 enophthalmos。第三，急性的 enophthalmos 或 exophthalmos，由移位的眶壁骨片造成。</p>
+<p>請注意，不要再講成五條。visual acuity deficit 不是手術適應症，那是視神經病變的評估軸；blow-in fracture 是骨折型態不是適應症，它指的是眶壁向內移位造成 orbital volume 減少，典型侵犯 orbital roof 與 lateral orbital wall。</p>
+<p>量化門檻補上去：眶底缺損大於 2 平方公分，或超過眶底的 50%；enophthalmos 兩眼差大於 2 毫米；複視在 primary gaze 或 down gaze 持續超過兩週未改善。然後收一句加分句：這些影像門檻並不總是可靠，所以我仍以臨床，也就是 forced duction 與 globe position 為主。</p>
+<p>時機分兩支。成人沒有嵌頓的，先觀察 1 到 2 週，等腫消退後重新評估眼外肌與 enophthalmos 再決定，因為急性期的複視常常只是眼周腫脹、肌肉挫傷或血腫。唯一的急症例外是小兒的 white-eyed blowout，下一題就會專門練。</p>
+<p>這一題的加分句是把術後最緊急的併發症主動帶出來：retrobulbar hemorrhage，劇痛加視力喪失加 proptosis，床邊立刻做 lateral canthotomy 加 inferior cantholysis。地雷有兩個：一看到照片就喊 blow-out fracture；還有在考場報章節與頁碼，舊版手冊登錄的章次是錯的，報出來等於報錯出處，直接報內容就好。</p>
+</section>
+<section class="q" id="q5">
+<h2>第五題</h2>
+<p class="ask">考官問：那你要怎麼 approach？各種切口的優缺點是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>這一題的贏法是不要等考官糾正，主動先講首選：「我的選擇是 transconjunctival incision 加 lateral canthotomy，走 preseptal plane。」</p>
+<p>然後逐條比較。第一，infraorbital incision，直接切在眶下緣，優點是暴露直接、下眼瞼位置異常與 ectropion 的發生率最低，缺點是疤痕最明顯，而且容易造成下眼瞼淋巴水腫。第二，subciliary incision，做 skin-muscle flap，優點是疤痕最不明顯、藏在睫毛下、視野好，缺點是 lid retraction、scleral show 與 ectropion 的發生率最高。第三，subtarsal，也就是 mid-lid variation，外翻比 subciliary 少，但疤痕在瞳孔外側比較明顯、術後水腫也較多。第四，transconjunctival，除非加做 lateral canthotomy 否則完全沒有皮膚疤痕，下眼瞼併發症最少，缺點是單獨使用時視野比較侷限，尤其外側。另外還有一條 endoscopic transmaxillary approach，經 gingivobuccal sulcus 由上顎竇往上頂復位，體表無疤，適合單純的 floor blow-out。</p>
+<p>兩個 plane 一定要分清楚。Preseptal 是切開結膜後，在 orbital septum 的前方、orbicularis 的後方下行，一路走到 arcus marginalis，也就是眶緣骨膜與 septum 的交會處，再切開骨膜進入眶底；優點是脂肪不會一直跑出來擋視野、septum 保持完整、術後下瞼攣縮較少，缺點是層次要找得準、剝離距離較長。Retroseptal 是切開結膜後直接穿過 septum 進入眶脂肪，路徑最短最快，缺點是脂肪立刻脫出擋住視野，而且 septum 破口理論上與日後 lid retraction 有關。陳天牧教授要聽的版本是 preseptal。</p>
+<p>視野不夠怎麼辦？加做 lateral canthotomy 加 inferior cantholysis，可以大幅延伸外側視野，結束時用可吸收線把 canthus 縫回並確認 canthal 高度。</p>
+<p>李書欣會從 ZMC 的四個接合反推入路，原則一句話就好：以暴露我要固定的那個接合處為原則。各接合的入路留到下一集。</p>
+<p>這一題的加分句是：先做了 canthotomy，萬一術後發生 retrobulbar hemorrhage，等於已經先減壓了。陳天牧聽到會很得意。地雷是：答 subciliary 然後跟考官辯。每年只要有人答 subciliary，他就會回一句「就都是 transcutaneous 麻」，然後開始推銷 transconjunctival。主動先講，你就贏了。</p>
+</section>
+<section class="q" id="q6">
+<h2>第六題</h2>
+<p class="ask">考官問：一個小孩，眼睛不紅不腫，可是一直吐、心跳很慢，往上看不太上去。你想到什麼？什麼時候開刀？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>診斷是小兒的 white-eyed blowout，也就是 trapdoor fracture，合併 oculocardiac reflex。</p>
+<p>機轉先講：小孩的骨頭彈性大，是 greenstick，骨折會像活門一樣回彈，把眼外肌與眶周脂肪緊緊夾住。所以外觀可以幾乎不腫、不瘀青，沒有 subconjunctival ecchymosis，這就是「白眼」名稱的由來，很容易被誤判為輕傷；但卻有嚴重的 up-gaze 限制、劇烈的噁心嘔吐，以及 oculocardiac reflex 造成的心搏過緩甚至暈厥。肌肉被卡住會缺血，有肌肉壞死與永久性複視的風險；肌肉整條掉進竇裡的極端表現叫 missing muscle syndrome。</p>
+<p>現在講這一集最重要的一個數字。處置：這是急症，應該以受傷後 8 小時內 release 為目標，最遲不超過 24 小時，而不是等腫消。請把 8 小時這個數字刻進去。如果考官引用「24 到 48 小時」，順著他答，並補一句「文獻上也有 24 到 48 小時的說法，但現行的標準時間窗是 8 小時」。舊版手冊曾經背書 24 到 48 小時正確，那個敘述已經更正，不可以再用。</p>
+<p>順著把肌肉問題一次講完，這是同一題的兩種問法。最常被 entrap 的是 inferior rectus muscle，機轉是 trapdoor，表現是 up-gaze 受限的複視，冠狀 CT 上看到它由扁平變圓，也就是 rounding。而手術 approach 時最容易醫源性傷到、也是眶底前緣唯一起源於眶底的肌肉，是 inferior oblique muscle，傷到會無法向內、向上看。這一句要並列講，並明講「entrapment 與 injury 是兩件事」，這樣兩種答案卡的考官都不會扣你分。注意，「inferior oblique 是唯一起源於眶底的肌肉」這一句是記憶點、非課本明文，被追問時不要硬掰。</p>
+<p>怎麼確認是不是真的 entrapment？forced duction test，麻醉下用鑷子夾住結膜與肌腱附著處被動轉動眼球，轉不動就是機械性限制；再加冠狀 CT 看 inferior rectus rounding 與軟組織疝出。</p>
+<p>為什麼小孩要急開、大人可以等？小孩是 greenstick trapdoor，骨片回彈把肌肉夾死造成缺血；大人多為粉碎型缺損，肌肉是疝出而不是被夾死，急性期複視常來自腫脹與挫傷。</p>
+<p>這一題的地雷是：只講 inferior rectus 或只講 inferior oblique；還有把時間窗講成 24 到 48 小時。這是本卷風險最高的一項，8 小時。</p>
+<p>小結一下第四到第六題。三題其實是同一條敘事線：看到 raccoon eye 先走 ATLS 不要喊診斷，理學檢查六項以視力打頭，手術適應症只有三條、不是五條；入路主動端出 transconjunctival 加 canthotomy、走 preseptal；而小兒白眼爆裂是唯一的急症，8 小時。成人可以等 1 到 2 週，小孩不能等，這一組對比考官最愛問。</p>
+</section>
+<section class="q" id="q7">
+<h2>第七題</h2>
+<p class="ask">考官問：眶底手術後的晚上，值班醫師打電話說病人眼睛劇痛、看不見了。你怎麼辦？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>這一題要秒答，不要先講「我去看一下」。標準開場：「這是 retrobulbar hemorrhage，我要立刻做床邊的 lateral canthotomy 加 inferior cantholysis。」</p>
+<p>機轉：眶內出血造成 orbital compartment syndrome。眼眶是一個由骨壁與前方 septum 圍成的封閉腔室，出血讓眶內壓急速上升，壓迫視神經與其血供，尤其是供應視神經的後睫狀動脈。硬數字在這裡：眶內壓升高只要持續 60 到 100 分鐘就會造成永久性視力喪失。這個數字正好支撐「不能等 CT、不能等排刀房」。</p>
+<p>典型三徵：劇烈疼痛、進行性視力喪失、proptosis。理學檢查：眼球硬如石頭的 tense globe、RAPD、眼壓升高、眼外肌受限、結膜水腫。</p>
+<p>處置四步，必須在床邊立刻進行。第一，立刻拆除敷料與眼罩、抬高床頭。第二，床邊局部麻醉下做 lateral canthotomy 加 inferior cantholysis，這是決定性的動作：先橫向切開外眥大約 1 公分到眶緣，再往下鉤住並剪斷 lateral canthal tendon 的下腳；判斷有沒有做到位的標準是，下眼瞼要能被輕鬆拉離眼球。第三，輔助降壓，靜脈 mannitol、acetazolamide、steroid。第四，同時通知眼科會診，並準備手術室探查止血、必要時移除植入物。</p>
+<p>要不要先照 CT？不能等影像，這是臨床診斷的急症，先減壓、後影像。</p>
+<p>如果考官從下眼皮成形術的角度切入：這是下眼瞼成形術最嚴重的併發症，術前停抗凝血劑、控制血壓，術中確實止血、不要盲目切除脂肪後就放手，術後不要遮住雙眼以便及早發現視力變化。其他併發症是 scleral show、lid retraction、ectropion，術前用 snap-back test 與 lower lid distraction test 篩檢下瞼鬆弛，鬆弛者同時做 canthopexy 或 tarsal strip。</p>
+<p>這一題的地雷是：只做 canthotomy 不做 cantholysis，這是最常見的失敗原因。最致命的答案是「先給止痛藥觀察」。加分句還是那一句：這也是我在眶底手術一開始就做 lateral canthotomy 的理由，等於預先減壓。</p>
+</section>
+<section class="q" id="q8">
+<h2>第八題</h2>
+<p class="ask">考官問：orbital floor 你要墊什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>第一句話不要急著報材料名稱，先講這一句：缺損不大的時候，我其實不一定要放東西，把碎骨片鋪一鋪、確實復位就好，因為放異物有感染、extrusion、慢性沾黏與複視的風險。門檻是：缺損小於 2 平方公分、未超過眶底的 50%，而且沒有 enophthalmos、沒有 entrapment，可以觀察；大於 2 平方公分或超過 50% 才傾向重建，並補一句「這些影像門檻不總是可靠，仍要合併臨床判斷」。</p>
+<p>若必須重建，給五個選項與取捨。第一，Medpor，也就是 porous polyethylene，多孔可長入組織、可修剪、成本低、不易移位，缺點是塑形受限、只能貼合前半部。第二，titanium mesh，強度最好、可塑形、能長期支撐大缺損，缺點是較厚、日後取出困難、影響後續影像判讀，邊緣銳利可能刺激軟組織。第三，calvarial bone graft，也就是顱骨骨移植，自體、無異物反應、感染耐受性最好，特別適合大缺損與感染風險高的病人，缺點是取骨時間、供區併發症與吸收率不可預測。第四，resorbable plate 或 PDS sheet，適合小缺損與小兒、不影響生長，但支撐力隨降解下降。第五，patient-specific implant 加 3D 列印術前規劃，適合延遲重建、大範圍或多壁缺損，以及 enophthalmos 矯正。</p>
+<p>比材料更會被追問的是技術點：一定要找到後方完整的骨緣，也就是 posterior ledge，當作支點，否則植入物會往後滑入眶尖，有壓迫視神經的風險；放好後做 forced duction test 確認眼球活動自由，並注意不要過度矯正造成 exophthalmos。</p>
+<p>考官情報要用上。陳天牧不愛在眶底放東西，他的說法是「沾黏病人會一直煩你」；真要放，他近年偏好 Medpor，不喜歡 titanium mesh、覺得太厚。他的按鈕是 skull bone graft 與 3D 列印，你先提他會很開心。他要聽的理由請背起來：orbital cavity 是 cone shape，用 bone graft 才墊得到最後面，Medpor 的形狀只能墊到前半部，bone graft 要切成小片小片的才墊得到後面。追問 calvarial bone 從哪裡取？答 parietal 區，矢狀縫外側 2 公分、冠狀縫以後，避開矢狀竇，取 outer table，也就是 split calvarial graft。而陳志豪的研究主軸是 PSI，把材料題導向 PSI 與 VSP 會加分。</p>
+<p>這一題的作答策略一句話：先給決策軸，缺損大小、感染風險、年齡、急性或延遲，再說「我們醫院的做法是」，這樣不論考官心中偏好哪一種材料，你都答在裡面。</p>
+</section>
+<section class="q" id="q9">
+<h2>第九題</h2>
+<p class="ask">考官問：頭部外傷 11 天，右眉內側有一道未癒合的撕裂傷，右眼不腫，可是完全張不開，CT 只有輕微的 orbital floor fracture。你的診斷是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>答案是 superior orbital fissure syndrome，上眶裂症候群。關鍵線索就是「眼睛不腫卻完全張不開」，不是眼皮的問題，是眶裂的問題。</p>
+<p>解剖基礎：superior orbital fissure 裡通過第三對腦神經 oculomotor、第四對 trochlear、第六對 abducens、第五對第一分支 V1 的三個分支，也就是 lacrimal、frontal、nasociliary，以及 superior ophthalmic vein。骨折碎片或血腫壓迫這個裂孔就造成此症候群。</p>
+<p>臨床表現：ptosis，因為第三對腦神經的上支支配 levator；complete ophthalmoplegia；fixed dilated pupil，因為副交感受損；前額與角膜感覺喪失；還有 proptosis。</p>
+<p>鑑別的關鍵一句話：如果再加上視力喪失，也就是第二對腦神經受累，就升級成 orbital apex syndrome，眶尖症候群，因為視神經管與眶裂在眶尖交會，預後較差、需要更積極處理。跟 traumatic optic neuropathy 的區分也是同一個軸：看有沒有 RAPD 與視力下降，單純 SOFS 視力是保留的。</p>
+<p>治療分三支講。第一支，急性期或術後由眶內血腫造成的 SOFS 或眶尖症候群，緊急眶部探查減壓，重新打開眶周切口，或直接做 lateral canthotomy 加 cantholysis。第二支，有明確可移除的壓迫性骨片，手術移除。第三支，也就是本題這種陳舊性、無壓迫、視力正常的，以保守治療為主。陳天牧本人的說法是：不用治療，連 steroid 和 mannitol 都不用，大約 2 到 3 個月會自行恢復；但術前要先跟病人與家屬說明不一定百分之百恢復。課本的立場則是：若合併視力惡化、或有明確可移除的壓迫性骨片或血腫，就要考慮 high-dose steroid 與手術減壓。</p>
+<p>作答時先講保守、再講例外，兩邊都涵蓋，這樣考官版與課本版都不會扣你分。</p>
+<p>這一題的地雷是：答「外傷性 aponeurosis 斷裂」或「眼皮腫」。這兩個答案會直接被打槍。</p>
+<p>最後 60 秒，複誦必背數字，跟著我唸。</p>
+<p>白眼爆裂與肌肉嵌頓，受傷後 8 小時內 release，最遲不超過 24 小時。球後出血，眶內壓升高持續 60 到 100 分鐘就永久失明。TXA，受傷 3 小時內 1 公克 bolus 加 1 公克 infusion，TBI 可用 2 公克 bolus。復甦是 blood-first，晶體液只當 bridging。</p>
+<p>眶底手術適應症三條，不是五條。缺損門檻大於 2 平方公分或超過眶底 50%。Enophthalmos 兩眼差大於 2 毫米。複視持續超過 2 週。成人無嵌頓觀察 1 到 2 週。Water's view，鼻尖離片 2 到 3 公分、OML 與底片 37 度、必須直立位；Caldwell 向足側 15 度。FAST 四個位置加 e-FAST 兩個。</p>
+<p>再唸三句地雷句。第一，題幹給了頸圈就一定要排 C-spine。第二，看到 raccoon eye 不要直接喊 blow-out fracture，先走 ATLS。第三，只做 canthotomy 不做 cantholysis 等於沒做。</p>
+<p class="next">下一集我們練顱顏第二場：顏面骨折與顏面神經。從 ZMC 的四腳架與四個接合開始，走過全顏面骨折的重建順序、下顎骨折與髁突的 benign neglect、Le Fort、NOE 與額竇，再到外傷後下眼瞼瘢痕性外翻、鼻淚管損傷、外傷後顏面神經麻痺與顏面神經解剖，最後收在患者專屬植入物與虛擬手術規劃。第八集見。</p>
+</section>
+<div class="pager"><a href="ep06.html">← 上一集</a><a href="ep08.html" class="r">下一集 →</a></div>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

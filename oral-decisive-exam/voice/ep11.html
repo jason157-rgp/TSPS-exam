@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EP11 燒傷、慢性傷口與血管異常</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="index.html">← 12 集語音課程</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>EP11　燒傷、慢性傷口與血管異常</h1>
+<p class="sub">10 題　·　約 9k 字　·　朗讀約 36 分鐘</p>
+<nav class="qnav"><b>本集題目</b><ol><li><a href="#q1">一位 80 公斤的成人，二度到三度燒傷 TBSA 百分之 40，你要怎麼給輸液？</a></li><li><a href="#q2">小兒燒傷的輸液跟大人有什麼不同？公式是什麼？</a></li><li><a href="#q3">小兒燒傷的體表面積要怎麼估？什麼時候要轉燒傷中心？</a></li><li><a href="#q4">這位燒傷病人什麼時候該開刀清創？什麼時候要做 escharotomy？</a></li><li><a href="#q5">一位高壓電傷的病人，尿液是可樂色，你怎麼處理？</a></li><li><a href="#q6">這是一位臥床老人的薦部壓瘡照片，這是第幾期？你的評估項目有哪些？</a></li><li><a href="#q7">這個薦部壓瘡清創之後，有哪些治療方式？可不可以直接縫合？</a></li><li><a href="#q8">這幾張小腿傷口的照片，哪一個最像 venous ulcer？為什麼其他不是？</a></li><li><a href="#q9">這個病人 20 年前這裡曾經燒傷，傷口一直不癒合，切片是 SCC，這是什麼？要…</a></li><li><a href="#q10">這個嬰兒臉上的紅色病灶是什麼？血管腫瘤跟血管畸形怎麼分？要怎麼治療？</a></li></ol></nav>
+<section class="intro">
+<p>本集練十題：成人與小兒燒傷輸液、TBSA 估算與轉診、燒傷深度與 escharotomy、電傷、壓瘡分期與 Braden scale、壓瘡的重建階梯、慢性傷口三方鑑別、Marjolin ulcer，最後是 ISSVA 與嬰兒血管瘤。</p>
+<p>先記住三句話。第一，公式算出來的不是目標，是起點，之後每小時要依尿量滴定。第二，壓瘡的重點從來不是選哪個皮瓣，營養不良、床墊不對、又有未診斷骨髓炎的病人，什麼技巧都會失敗。第三，久治不癒的傷口就要想惡性轉化，超過 3 個月就切片。</p>
+<p>準備好了嗎？我們開始。</p>
+</section>
+<section class="q" id="q1">
+<h2>第一題</h2>
+<p class="ask">考官問：一位 80 公斤的成人，二度到三度燒傷 TBSA 百分之 40，你要怎麼給輸液？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。結論先講：公式算出來的是起點不是目標，之後每小時依尿量滴定。啟動門檻是成人 TBSA 超過百分之 20、兒童百分之 15、嬰兒百分之 10；面積只計二度以上，一度紅斑不計入，這是最常見的高估來源。</p>
+<p>公式要主動說版本。經典的 Parkland formula 是 4 毫升乘以公斤乘以百分之 TBSA 的 Lactated Ringer's，前 8 小時給一半、後 16 小時給另一半，從受傷時刻起算，院前已給的要扣掉。現行 ABLS 共識是 2、3、4：成人與 13 歲以上 2 毫升、12 歲以下 3 毫升另加維持速率的 D5LR、電傷不分年齡 4 毫升，下修就是為了對抗 fluid creep。用 Lactated Ringer's 是因為大量 normal saline 會造成高氯性代謝性酸中毒。</p>
+<p>尿量目標：成人每公斤每小時 0.5 毫升、偏好接近 1，兒童 1，電傷 1 到 2；單一中心靜脈壓或血壓不可靠。最後主動講 fluid creep：實際給的量遠超過公式預測，後果是腹腔與四肢腔室症候群、燒傷深度加深、肺水腫、眼窩腔室症候群造成失明；對策是每小時滴定、允許下修速率。</p>
+<p class="trap">地雷或加分句：地雷是把公式的數字當成一定要灌完的目標，以及忘記從受傷時刻起算。考官情報：馬偕董光義以燒傷為本業，走總論路線，從面積深度、轉診、Parkland 問到吸入性傷害與壓力衣。</p>
+</section>
+<section class="q" id="q2">
+<h2>第二題</h2>
+<p class="ask">考官問：小兒燒傷的輸液跟大人有什麼不同？公式是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。三個差異：量相對更多、必須額外併行含糖的維持液、尿量目標更高。</p>
+<p>主答體表面積版的 Galveston formula：第一個 24 小時等於 5000 毫升乘以燒傷體表面積平方公尺，加上 2000 毫升乘以全身體表面積平方公尺，一半在前 8 小時給完。這一點課本找不到明確出處，被追問時不要硬掰，就說臨床上一般這樣處理。為什麼用體表面積當分母？因為兒童的體表面積與體重不成比例，用它當分母才反映得出真正的滲漏面積。</p>
+<p>維持液用 4、2、1 rule：前 10 公斤每小時每公斤 4 毫升、次 10 公斤 2 毫升、超過 20 公斤的部分 1 毫升；兩歲以下或 30 公斤以下用 D5LR。關鍵是兩者相加不是取大者，而且兩條線分開輸注，因為復甦液依尿量滴定不含糖、維持液含糖且不參與滴定。尿量目標 1。</p>
+<p>小孩為什麼要更多水：體表面積對體重比高，嬰兒約成人的 2 到 3 倍，這是最根本的原因；另外皮膚薄燒得更深、腎臟濃縮能力未成熟。氣道補一句：兒童環狀軟骨處是最窄點，依 Poiseuille 定律阻力與半徑四次方成反比，同樣 1 毫米黏膜水腫，成人阻力上升約 1.5 倍、嬰兒可達 16 倍，所以吸入性傷害時插管門檻要更低更早。</p>
+<p class="trap">地雷或加分句：地雷是只講體重版。考官情報：楊瑞永問過這題，考生答體重版，教授說「算你對，但這個比較不準」。加分句是小兒要比大人多驗血糖，因為低血糖在已插管鎮靜的病人身上幾乎沒有表現。</p>
+</section>
+<section class="q" id="q3">
+<h2>第三題</h2>
+<p class="ask">考官問：小兒燒傷的體表面積要怎麼估？什麼時候要轉燒傷中心？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。結論先講：rule of nines 不能直接用在兒童，因為兒童頭部佔比遠大於成人、下肢遠小於成人；正確工具是依年齡分段的 Lund–Browder chart。Palmar method 用於零散片狀燒傷，病人自己的手掌約百分之 1 TBSA。</p>
+<p>必背的變化規律：未滿 1 歲的嬰兒，頭與頸合計百分之 18、每一條下肢百分之 14。年齡每增加 1 歲，頭部減少百分之 1、兩條下肢各增加百分之 0.5，到大約 10 歲達到成人比例，也就是頭百分之 9、每條腿百分之 18。兩個高估來源要主動講：把一度紅斑算進去，以及憑目視估算不用圖表；而且深度會演變，24 到 48 小時後要重新評估。</p>
+<p>轉燒傷中心的指徵：partial thickness 超過百分之 10 TBSA；臉、手、腳、生殖器、會陰與主要關節的燒傷；任何三度燒傷；電傷、化學灼傷與吸入性損傷；共病影響預後或合併外傷者；兒童在沒有小兒照護能力的醫院；以及懷疑兒虐。</p>
+<p class="trap">地雷或加分句：地雷是直接背成人 rule of nines，還有把每條下肢講成百分之 13，那是錯的。考官情報：楊瑞永 107 年問的就是這一題，他要 Lund–Browder 加上隨年齡的換算規律。</p>
+</section>
+<section class="sum">
+<h2>小結</h2>
+<p>這三題是同一條線：先算對面積，才算得對水。面積只計二度以上、兒童一定用 Lund–Browder；公式只是起點，真正的終點是每小時尿量。小兒的三個差異是量更多、維持液另外加而且含糖、尿量目標更高。</p>
+</section>
+<section class="q" id="q4">
+<h2>第四題</h2>
+<p class="ask">考官問：這位燒傷病人什麼時候該開刀清創？什麼時候要做 escharotomy？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。深度先判。表淺二度粉紅濕潤、有水泡、按壓泛白、非常痛，2 週內自癒。深二度斑駁的紅白相間或蠟白、泛白緩慢、痛覺減弱，要 3 週以上而且必留肥厚性疤痕，應該手術。三度是皮革樣或焦黑、無痛覺，必定切除植皮。核心是三週規則。</p>
+<p>時機是 early excision and grafting，指引寫傷後數日內、最遲 10 天內完成；理由是減少 burn wound sepsis 與高代謝反應、降低死亡率。切除方式上，tangential excision 疤痕較好但出血多，fascial excision 出血少、適合極大面積或不穩定者。</p>
+<p>Escharotomy 的適應症是環狀的深二度或三度燒傷造成遠端灌流不足，也就是脈搏或 Doppler 訊號消失、末梢冰冷蒼白、被動伸展疼痛；環狀胸壁燒傷造成通氣壓力上升；頸部環狀燒傷壓迫氣道。切線沿肢體內外側中軸線縱行切開全層焦痂到未燒傷的皮下脂肪、並延伸超過焦痂邊緣；胸壁走鎖骨中線兩側縱切，必要時肋弓下橫切連成 chevron；手指腳趾沿 midaxial 線鬆開。床邊即可做，不要等脈搏消失，做完用 Doppler 確認。Escharotomy 不等於 fasciotomy：電傷、極深熱傷、合併擠壓傷、或減壓後壓力仍高者要做 fasciotomy，壓力梯度超過 30 毫米汞柱就是指徵。</p>
+<p class="trap">地雷或加分句：eschar 底下的出血有兩種語境一定要區分。清創當下削到點狀出血，是削到健康組織的終點，是好事；未經處理的焦痂底下自己出現出血、變色或變黑綠色，是 invasive infection 的警訊，要立刻清創。考官情報：楊瑞永的原話是「小朋友不要等到 systemic infection 才動手清創」，答「等界線清楚再說」就死定了。</p>
+</section>
+<section class="q" id="q5">
+<h2>第五題</h2>
+<p class="ask">考官問：一位高壓電傷的病人，尿液是可樂色，你怎麼處理？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。一句話定位：電傷是表面小、深部大，入口出口只是冰山一角。第一件事是切斷電源、再走 ATLS；電傷本質是外傷，要 survey 墜落傷與脊椎損傷。</p>
+<p>輸液用 4 毫升乘公斤乘百分之 TBSA，因為體表面積完全低估了受損組織量，電流沿阻抗最低的血管、神經、肌肉行進，深部肌肉壞死釋出的肌紅蛋白需要更多液體沖洗腎小管。橫紋肌溶解怎麼認：尿色如濃茶、試紙 blood 陽性但顯微鏡下沒有紅血球、CK 上升。處理是尿量拉到每公斤每小時 1 到 2 毫升、成人約每小時 75 到 100 毫升，直到尿色轉清再降回 0.5。必要時用 bicarbonate 鹼化尿液，課本目標是尿液 pH 維持在 8 以上，以減少蛋白在腎集尿管內聚集；若併用 mannitol 甚至要滴定到 9 以上；一般臨床則取 6.5 到 7.0，要注意代謝性鹼中毒與低血鈣。</p>
+<p>其他併發症：高壓電或經胸電流會造成心律不整，有意識喪失或心電圖異常者要監測 24 小時；遲發性脊髓病變預後差；白內障可在數月後才出現；四肢要低門檻做 fasciotomy。</p>
+<p class="trap">地雷或加分句：加分是順帶一句化學灼傷，立即大量清水沖洗至少 20 到 30 分鐘、不要找中和劑，鹼比酸嚴重。考官情報：楊瑞永這關的地雷是反過來的，不要主動否定尿液 pH 大於 8 這個數字，那正是現行課本原文，要先講它、再補臨床常取 6.5 到 7.0。</p>
+</section>
+<section class="q" id="q6">
+<h2>第六題</h2>
+<p class="ask">考官問：這是一位臥床老人的薦部壓瘡照片，這是第幾期？你的評估項目有哪些？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。鐵律是先描述再分期，並主動問一句「有沒有到骨頭？」依 NPIAP 2016，正式用語是 pressure injury，不再用 pressure ulcer。第一期是壓不退色的紅斑；第二期是部分皮層缺損、真皮外露；第三期看得到皮下脂肪，但沒有筋膜、肌腱或骨頭外露；第四期是暴露或可觸及筋膜、肌肉、肌腱或骨頭。另有 Unstageable 與 Deep Tissue Pressure Injury，再補兩條附加定義：醫材相關壓傷依一般分期分，黏膜壓傷不分期。原則句是 exposed bone is sufficient but not necessary to define a stage four pressure sore，只要肌肉或肌腱外露就已經是第四期；癒合中的壓瘡也不會倒退分期。</p>
+<p>評估分四塊。全身：共病與糖化血色素、周邊動脈疾病、腎功能，還有最重要的可矯正因子營養，白蛋白至少 3.5、prealbumin 至少 15，並先排除其他感染 focus。局部：大小、undermining、有沒有滑液囊、骨頭是否外露，取培養要取深部組織。骨髓炎：第四期壓瘡中組織學證實骨髓炎只有百分之 17 到 46，所以 probe-to-bone 在壓瘡不可靠；篩檢用 Lewis criteria，白血球加紅血球沉降速率加兩個方向 X 光，一項陽性即可診斷；gold standard 是開放式骨切片，抗生素 6 週。照護環境：問家屬多久翻一次身、用什麼床墊、大小便與進食怎麼處理。</p>
+<p>Braden scale：六個構面、6 到 23 分，低分等於高風險；課本以 16 分為壓瘡發生的閾值，臨床再往下分層，15 到 18 輕度、13 到 14 中度、10 到 12 高度、9 分以下極高度。高分句是量表優於臨床判斷，但沒有證據顯示用量表就能降低發生率。</p>
+<p class="trap">地雷或加分句：地雷是用 pressure ulcer 舊名詞、或只講手術不講評估與術後照顧。考官情報：三總曾元生會先給一張不清楚的薦部照片再問評估項目；家屬問有沒有神藥時，他的原話是「沒有神藥，就是要翻身」。</p>
+</section>
+<section class="sum">
+<h2>小結</h2>
+<p>這三題把燒傷急性期收尾、接上壓瘡。開刀的門檻記三週規則，減壓的門檻記環狀焦痂加遠端灌流不足，而 escharotomy 不等於 fasciotomy，電傷就是必須升階的情境。壓瘡則反過來，先把病人優化好再談手術。</p>
+</section>
+<section class="q" id="q7">
+<h2>第七題</h2>
+<p class="ask">考官問：這個薦部壓瘡清創之後，有哪些治療方式？可不可以直接縫合？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。一定要從階梯最底層講起，讓 primary closure 自然出現在清單裡。</p>
+<p>第零階是非手術基礎：減壓、每 2 小時翻身加氣墊床、營養支持、控制感染與骨髓炎、處理失禁與痙攣。第一階是次級癒合加換藥。第二階是直接縫合：清創之後如果張力允許、周圍皮膚品質好、減壓與營養可以配合，直接縫合是合理而有效的選項；我會把兩側皮下游離讓縫線無張力對合、縫線放在承壓區之外，並加上 closed-incision NPWT，一般連續 5 到 7 天。這個天數課本找不到明確出處，被追問時不要硬掰，就說臨床上一般這樣處理。</p>
+<p>第三階是 NPWT 過渡。NPWT 的機轉四項：macrodeformation 收縮傷口、microdeformation 牽張刺激增生、移除滲液與水腫、促進肉芽與改善灌流；降低細菌量不是公認機轉，這是最常見的送分陷阱。參數是連續負壓 100 到 125 毫米汞柱、48 到 72 小時換一次。六大禁忌：未清創的壞死組織、外露的血管器官肌腱與神經、惡性傷口、未探明的瘻管、未治療的骨髓炎、活動性出血。</p>
+<p>第四階是局部皮瓣，keystone、雙側 V–Y、rotation，設計簡單又保留日後選項。第五階是區域性肌皮瓣，薦部定式是臀大肌肌皮旋轉皮瓣，血供 superior gluteal artery，在梨狀肌正上方辨識，rotation 加 V–Y 可關到 12 公分；穿支型是 SGAP，保留臀大肌與再手術選項；坐骨用 V–Y hamstring advancement。七大原則：完整滑液囊切除、徹底骨突切除、填補死腔、設計比需要的更大、縫線放在承壓區外、供區必要時植皮、避免侵犯日後需要的皮瓣領域。</p>
+<p class="trap">地雷或加分句：本卷最明確的地雷就是說「這個不能 primary closure」，絕對不要講；次要地雷是一開口就跳到複雜皮瓣。考官情報：曾元生真正想問的就是可不可以直接縫合，他會秀出自己 primary closure 加 ciNPWT 的照片，這時真誠說「我學到了」就好。</p>
+</section>
+<section class="q" id="q8">
+<h2>第八題</h2>
+<p class="ask">考官問：這幾張小腿傷口的照片，哪一個最像 venous ulcer？為什麼其他不是？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。先描述再結論，一定要用排除法，講四個面向：位置、傷口形態、周圍皮膚、旁證。</p>
+<p>位置上 venous ulcer 在 gaiter area，也就是小腿下三分之一到腳踝，內踝上方最典型，因為對應到 Cockett 穿通枝；動脈性好發在腳趾尖、外踝與受壓點；糖尿病神經病變潰瘍在蹠骨頭下方等承重點。形態上 venous ulcer 淺、邊緣平緩、有紅色肉芽、滲液多；動脈性是 punched-out，整齊、深、乾、基底蒼白。最關鍵的是周圍皮膚：hemosiderin 棕色色素沉著、lipodermatosclerosis 造成的倒香檳瓶腿、象牙白色的 atrophie blanche 與靜脈曲張水腫；動脈側則是萎縮發亮、無毛、冰冷、dependent rubor。旁證最實用的一句是：venous ulcer 抬腳會舒服，arterial ulcer 垂腳才舒服。</p>
+<p>PAOD 的 6P 要背出來：Pain、Pallor、Pulselessness、Paresthesia、Paralysis、Poikilothermia，第六個有些版本寫 Perishing cold；而且要主動說明，嚴格說 6P 描述的是急性肢體缺血，慢性 PAOD 看的是間歇性跛行與休息痛。</p>
+<p>ABI 判準用 0.9，0.9 以下就是周邊動脈疾病、0.4 以下是重度。糖尿病與洗腎病人的血管鈣化會讓 ABI 假性偏高，超過 1.3 不可信，要改測 toe-brachial index 或 TcPO2；課本以 TcPO2 小於 40 毫米汞柱為灌流不良，臨床上小於 30 幾乎不可能癒合。壓迫治療的門檻是 ABI 大於 0.8 可標準高壓迫、0.5 到 0.8 只能低壓迫、小於 0.5 是禁忌。糖尿病足要神經、缺血、感染三軸分開評估，神經用 10 公克 monofilament；治療是 TIME 加三件事，血流重建永遠優先於任何皮瓣、減壓以全接觸式石膏 TCC 為黃金標準、血糖與營養控制。</p>
+<p class="trap">地雷或加分句：加分點是主動提 mixed ulcer 與壓迫前必量 ABI，因為壓迫是 venous ulcer 的基石，但在動脈阻塞的病人身上可能造成肢體壞死。考官情報：高雄長庚謝青華這關是全場最高風險的一站，他會一直質疑你的答案，地雷是答不出為什麼其他張不是。</p>
+</section>
+<section class="q" id="q9">
+<h2>第九題</h2>
+<p class="ask">考官問：這個病人 20 年前這裡曾經燒傷，傷口一直不癒合，切片是 SCC，這是什麼？要怎麼處理？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。診斷先講：這是 Marjolin's ulcer，慢性傷口或燒傷疤痕上的惡性轉化。最典型的前身是燒傷疤痕，其他有慢性骨髓炎的竇道、壓瘡與慢性靜脈潰瘍。從最初的傷口到診斷平均約 29 年，坊間常引 25 到 30 年。組織型別絕大多數是 squamous cell carcinoma。</p>
+<p>核心得分點是它比一般 SCC 更 aggressive，所以術前一定要 staging：診斷時已有淋巴結轉移者高達百分之 32、遠端轉移者百分之 27；沒有 staging 就做 wide excision，等於在一個可能已經全身性的疾病上做局部手術。臨床警訊：久治不癒超過 3 個月、突然變大或變硬、邊緣外翻或呈菜花狀、基底增生性肉芽、惡臭。切片要多點、深部，而且包含病灶與正常皮膚的交界。</p>
+<p>手術是 wide local excision。Marjolin 屬於高風險的皮膚鱗狀細胞癌，切緣用 high-risk cSCC 標準：大於 6 毫米，沒有 Mohs 時取 6 到 10 毫米，深度切到深筋膜。淋巴結臨床或影像陽性就廓清；臨床陰性但屬 very high-risk 者，指引建議在切除之前先做前哨淋巴結切片，而且要做前哨就該延後重建。重建等切緣乾淨再做；若肌腱或骨外露，植皮會失敗、需要皮瓣。高風險者考慮術後放射線治療，但放射線本身又會造成傷口不癒。</p>
+<p class="trap">地雷或加分句：地雷是只講「這是 SCC，做 wide excision」而不提 staging；另外切緣 1 到 2 公分是 Merkel cell carcinoma 的建議，被誤植到 Marjolin。考官情報：新光林育賢這題是三段式病程題，從慢性傷口走到 Marjolin 再到放療後不癒，第一段不要就把話講完；義大鄭勝峯的原則是切勿一下子就自由皮瓣。</p>
+</section>
+<section class="sum">
+<h2>小結</h2>
+<p>這三題是慢性傷口的主線：先靠位置、形態、周圍皮膚與旁證分清楚是靜脈、動脈還是糖尿病足，再用 ABI 決定能不能壓迫、要不要先血行重建，最後守住久治不癒就是惡性這一句。壓瘡與慢性傷口的共同精神是：先解決病因與宿主，再談任何皮瓣。</p>
+</section>
+<section class="q" id="q10">
+<h2>第十題</h2>
+<p class="ask">考官問：這個嬰兒臉上的紅色病灶是什麼？血管腫瘤跟血管畸形怎麼分？要怎麼治療？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案。ISSVA 二分法的分界點是內皮細胞有沒有增生，這句要在 5 秒內講出來。</p>
+<p>血管腫瘤是內皮細胞的增生性病變、會經歷生長期：良性的有 infantile hemangioma 與 congenital hemangioma 的 RICH、NICH；局部侵襲性的是 Kaposiform hemangioendothelioma 與 tufted angioma，只有這兩者會併發 Kasabach-Merritt phenomenon，絕不要掛到 infantile hemangioma 上。血管畸形則是內皮細胞沒有增生的先天結構異常，出生時就存在、等比例成長、不會消退；依成分分成 capillary、lymphatic、venous、arteriovenous，依血流分成慢流的前三者與快流的動靜脈型。三個最快的鑑別點是出生時有沒有、會不會消退、以及 GLUT-1 只有 infantile hemangioma 陽性。這一點課本找不到明確出處，被追問時不要硬掰，就說臨床上一般這樣處理。</p>
+<p>自然史照現代版講：出生時沒有或只有 precursor，生後 2 到 4 週出現，八成的生長在 5 個月內完成，12 個月之後開始消退，3.5 歲之後不再顯著改善，所以手術安排在 3 到 4 歲。治療適應症是危及生命或功能、眼周影響視軸、潰瘍出血與快速長大。一線是口服 propranolol，典型劑量每公斤每天 2 毫克，範圍 1 到 3 毫克分 2 到 3 次；淺表小病灶可以先用外用 timolol。口服類固醇退居二線，失敗或有禁忌者給 prednisone 每公斤每天 3 毫克。副作用是題目的一部分，至少三項：低血糖最需要衛教，機轉是抑制肝醣分解與糖質新生、又掩蓋低血糖症狀，所以要餵食後給藥、生病或禁食時停藥；再來是心搏過緩與低血壓，還有支氣管痙攣；節段型大面積臉部病灶要先排除 PHACE syndrome。</p>
+<p>治療上：venous malformation 柔軟可壓縮、體位相關，MRI 是 gold standard、硬化治療一線；port-wine stain 用染料雷射、越早越好，V1 加減 V2 分布合併眼部異常要想 Sturge-Weber；AVM 一線是栓塞，結紮供養動脈是禁忌。</p>
+<p class="trap">地雷或加分句：加分句是摸得到 thrill、聽得到 bruit 就要往 AVM 想，不是 VM；跟家長則講「這個瘤會自己消，但視力不會自己回來」。考官情報：國泰蒲啟明每位考生都被問這題，原句就是「診斷？治療？副作用？」，地雷是說一線是口服類固醇，或講了 propranolol 卻講不出副作用。</p>
+</section>
+<section class="recap">
+<h2>必背數字快速複習</h2>
+<p>啟動復甦門檻，成人百分之 20、兒童百分之 15、嬰兒百分之 10。Parkland 是 4 毫升乘公斤乘百分之 TBSA、前 8 小時給一半、從受傷時刻起算；ABLS 共識成人 2、兒童 3、電傷 4。尿量成人 0.5、兒童 1、電傷 1 到 2。嬰兒頭頸百分之 18、每條下肢百分之 14，每長 1 歲頭減 1、腿各加 0.5，10 歲時頭 9、腿 18。三週規則加上 fasciotomy 壓力梯度 30 毫米汞柱。電傷尿液鹼化課本目標 pH 大於 8、併用 mannitol 大於 9、臨床取 6.5 到 7.0。Braden 6 到 23 分、閾值 16，15 到 18 輕度、13 到 14 中度、10 到 12 高度、9 以下極高度；白蛋白 3.5、prealbumin 15。NPWT 負壓 100 到 125 毫米汞柱、48 到 72 小時換、ciNPWT 5 到 7 天。ABI 判準 0.9、大於 1.3 不可信，TcPO2 課本 40、臨床 30，壓迫門檻 0.8 與 0.5。Marjolin 潛伏期平均 29 年、切緣 6 到 10 毫米、淋巴結轉移百分之 32、遠端轉移百分之 27。Propranolol 每公斤每天 2 毫克、類固醇 3 毫克；血管瘤 5 個月完成八成生長、12 個月開始消退、3.5 歲不再改善。</p>
+<p class="next">下一集我們練皮膚腫瘤、皮瓣幾何與臨場應答。</p>
+</section>
+<div class="pager"><a href="ep10.html">← 上一集</a><a href="ep12.html" class="r">下一集 →</a></div>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

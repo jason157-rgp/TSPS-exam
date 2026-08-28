@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EP05 手外科第三場：斷指再植與壓砸手</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="index.html">← 12 集語音課程</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>EP05　手外科第三場：斷指再植與壓砸手</h1>
+<p class="sub">8 題　·　約 10k 字　·　朗讀約 40 分鐘</p>
+<nav class="qnav"><b>本集題目</b><ol><li><a href="#q1">這是四隻斷指的照片，加上 X 光，是 cutting injury。你要怎麼做？</a></li><li><a href="#q2">多指斷指，你的接合順序是什麼？</a></li><li><a href="#q3">每一隻手指的 dominant digital artery 在哪一側？你接幾…</a></li><li><a href="#q4">這隻手接完了，術後的血循怎麼看？</a></li><li><a href="#q5">這是一隻 crush hand，食指血循很差。tendon 是好的，那個關節內…</a></li><li><a href="#q6">這是一個戒指撕脫傷，你怎麼分類？</a></li><li><a href="#q7">這隻手清創完剩下這樣，接下來怎麼辦？</a></li><li><a href="#q8">這個病人你要做 pollicization 還是 toe-to-hand？</a></li></ol></nav>
+<section class="intro">
+<p>本集會練八題：這隻手指還能不能接、多指斷指的接合順序、優勢指動脈與靜脈的比例、術後血循的判讀、壓砸手的評估與 ligamentotaxis、戒指撕脫傷的分類、殘缺手的 basic hand 四要素，最後是 pollicization 跟 toe-to-hand 怎麼選。</p>
+<p>先記住一句貫穿全集的話：這一集幾乎每一題都從一張照片開始，而每一張照片的第一個評分點不是「你會怎麼接」，是「你先描述了沒有」。看到圖就急著講怎麼接，是本集第一地雷。</p>
+<p>考場情報先講三句。第一，成大潘信誠這一關沒有聊天，他直接把四隻斷指的照片加 X 光丟在你面前，問「你要怎麼做」，所以前 30 秒必須精準有效率。第二，奇美邱浩遠院長也不聊天、直接看圖，而且有操作題的傳統，會把自己的手借你做理學檢查，還會檢查你摸的位置對不對；他問「確定嗎、真的嗎」的時候不要改答案，改成補理由。第三，邱浩遠明確不喜歡 Suzuki frame，114 年兩位考生都踩到這個地雷。</p>
+<p>準備好了嗎？我們開始。</p>
+</section>
+<section class="q" id="q1">
+<h2>第一題</h2>
+<p class="ask">考官問：這是四隻斷指的照片，加上 X 光，是 cutting injury。你要怎麼做？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案分三段：描述與機轉、適應症、缺血時間。</p>
+<p>第一段，描述與機轉，大約 40 秒。「報告老師，我先描述我看到的。這是一位多指斷指的病人，受傷機轉是切割傷——這一點很重要，因為 sharp cutting 的 crush zone 小、血管內膜損傷範圍侷限，再植成功率遠高於壓砸或撕脫傷。X 光上骨頭斷面相對整齊、沒有明顯粉碎、也沒有多節段骨折，這也支持是 sharp injury。」急診處置同步進行：ATLS 排除其他致命傷；問受傷時間、斷指怎麼保存、慣用手、職業、年齡、抽菸史、共病、破傷風。斷指的正確保存方式是用濕紗布包好、裝進乾淨塑膠袋、再放進含冰水的容器；絕對不可以直接泡在水裡，也不可以直接接觸冰塊。同時抽血、備血、打抗生素、通知顯微團隊。</p>
+<p>第二段，適應症。絕對適應症有六項：第一，拇指，任何節段。第二，多指斷指。第三，經手掌、腕部或前臂的斷肢。第四，任何小孩的斷指。第五，腕部與前臂的 sharp amputation。第六，這一項最常被漏掉——單指但斷面在 FDS 止點以遠。相對禁忌是嚴重壓砸或撕脫、多節段損傷、缺血時間過長、嚴重污染、全身狀況不穩、嚴重共病或抽菸、無法配合復健。</p>
+<p>這裡有一個現代化的更新要主動講。單指 zone 2 斷離傳統上列為相對禁忌，因為肌腱在腱鞘內滑動、沾黏與僵硬機率極高；但現代文獻已經挑戰這個觀點——單指再植的功能並不比 revision amputation 差，所以不建議直接做 completion amputation。而拇指是例外中的例外，任何節段都要接。</p>
+<p>第三段，缺血時間，必背。手指沒有大塊肌肉、耐受度好：溫缺血 6 到 12 小時、冷缺血 24 小時，加分句是文獻有冷缺血 94 小時仍成功再植的報告。含肌肉的大肢體兩版並列：一版溫缺血 6 小時、冷缺血 12 小時，另一版更嚴格是 4 小時與 8 小時；主答講「大肢體我抓 4 到 6 小時溫缺血為警戒線」最安全。對照組是 jejunum flap 只有 2 小時，所有游離組織中最短。</p>
+<p>這一題的地雷是：看到圖跳過描述、直接講怎麼接。加分句是——被問到小孩的斷指接不接，答「任何小孩的斷指都是絕對適應症，因為兒童的神經再生能力與皮質可塑性遠優於成人，殘缺對他一生的影響也更大」。</p>
+</section>
+<section class="q" id="q2">
+<h2>第二題</h2>
+<p class="ask">考官問：多指斷指，你的接合順序是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案的第一句話就要定調：「報告老師，接的順序有兩派，我兩種都會講，然後說明我的選擇。」這一題沒有標準答案，考的是你能不能把取捨講成邏輯。</p>
+<p>第一派，功能優先的 digit by digit。依手指的功能重要性決定先後，成大的做法是拇指、中指、環指、食指、小指。邏輯是：拇指佔全手功能大約四成到一半，絕對優先；中指與環指提供 power grip 與掌弓的穩定；食指如果品質不好，反而是可以取捨、甚至拿來做 heterotopic replantation 移到更重要位置的那一根；小指最後。這一派的好處是——萬一途中時間不夠、病人狀況變差、或血管品質不佳而必須放棄，被放棄的一定是最不重要的那一根。</p>
+<p>第二派，structure by structure, not digit by digit。精神是同一個構造四根一次做完，而不是一根做完再做下一根。好處是大幅縮短總手術時間與總 ischemia time，整台刀只需要翻手兩次，而且同一種操作連續做，可以固定顯微鏡倍率與心智模式。成大流程以「手翻最少次」為原則：一個 tourniquet time 內把四指構造全部標記好，全部釘骨、必要時 shortening 0.5 公分，全部 flexor，翻手，全部 extensor，接全部 dorsal vein，翻手，接全部 artery，跨過 crush zone 就毫不猶豫用 vein graft，最後接 nerve、關傷口。整體精神是 deep to superficial。</p>
+<p>然後給你的選擇：「以 structure by structure 為主軸，但在每一個構造之內，仍然按照功能重要性的順序去做。這樣兩個原則就不衝突了。」</p>
+<p>追問一定會來：先接動脈還是先接靜脈？這裡兩本教科書立場相反，必須並列，而且不要冠錯出處。版本 A 是：骨頭、flexor、extensor、vein、nerve、artery，動脈最後接，理由是避免出血弄髒視野、妨礙後續操作；奇美邱浩遠院長的個人偏好幾乎就是這一版，他的順序是骨頭、flexor、extensor、vein、artery、nerve。版本 B 是：骨頭、flexor、artery、nerve、extensor、dorsal vein，動脈先接，理由是放開之後可以看到哪一條靜脈有 outflow、比較好挑。考場講法是：「不變的原則是先固定骨頭、再修肌腱、最後做顯微吻合；動靜脈孰先兩派都有道理，我自己是我們醫院的做法。」這樣不會踩到任何一位考官的偏好。</p>
+<p>這一題的地雷是：只講 digit by digit、一根接完再接下一根，而完全不知道有 structure by structure 這一派。謝式洲要的加分句是——「順序的原則是先建立骨架、再處理背側，因為背側不需翻手，最後恢復血流」，講原則比背順序更重要。</p>
+</section>
+<section class="q" id="q3">
+<h2>第三題</h2>
+<p class="ask">考官問：每一隻手指的 dominant digital artery 在哪一側？你接幾條動脈、幾條靜脈？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>這是潘信誠關唯一的純記憶題，答不出來直接失分。</p>
+<p>第一，優勢指動脈。拇指尺側，食指尺側，中指兩側相近但尺側較常見，環指橈側，小指橈側。記法是——邊緣手指的優勢動脈都朝向手的中軸：拇指與食指朝尺側，環指與小指朝橈側，中指居中所以兩側差不多。加分的生理解釋：拇指與食指的橈側是捏握時的受壓面，優勢動脈長在尺側才不會被反覆壓迫；小指的尺側是手放桌面時的接觸面，所以優勢動脈在橈側。補充一句，斷面較 proximal 的拇指可以直接接 princeps pollicis artery。</p>
+<p>第二，動靜脈的比例。原則是靜脈修補的條數要多於動脈的條數；動脈方面要盡最大努力把橈側與尺側兩條 digital artery 都接起來。1A 比 2V 是好記的口訣，但它不是教科書寫出來的比例式；被追問時改講「靜脈數要多於動脈數」。理由要講出來：手指再植失敗最主要的原因是靜脈鬱血，不是動脈栓塞——靜脈壁薄、低壓、容易血栓，而且單一靜脈的輸出量往往跟不上一條動脈的輸入量。</p>
+<p>如果真的接不到靜脈，artery-only replantation 的配套有三項：第一，拔除指甲或做小切口，用 heparin 紗布持續放血，失血量可觀，要準備輸血；第二，醫用水蛭，一定要合併預防性抗生素對抗 Aeromonas hydrophila，這是水蛭腸道的共生菌，首選 ciprofloxacin 或第三代 cephalosporin；第三，把斷指的另一條 digital artery 接到近端靜脈當 outflow，也就是 arteriovenous shunting。</p>
+<p>第三，什麼時候用 vein graft。四個適應症：撕脫或壓砸傷、切除到健康血管後有 gap；不想再做 bone shortening，尤其斷面靠近關節；看到 ribbon sign 或 red line sign；還有最重要的一項——只要吻合口跨過 crush zone。技術上，用在動脈必須反轉方向以避開靜脈瓣，用在靜脈則不必；供區以前臂遠端掌側的 superficial vein 最好，口徑 1 到 2 毫米，跟 digital artery 最匹配。</p>
+<p>這一題的地雷有兩個。第一，只講「1a1v 就夠了」。第二，完全不提 vein graft，那是潘信誠的追問點。另外要分清楚兩個 sign：ribbon sign 是血管被抽拉之後呈捲曲的緞帶狀，像禮物上捲起的緞帶；red line sign 是「皮膚上」沿著血管走行的一條瘀血線，代表血管到皮膚的小分支被扯斷、有明顯的撕脫成分——它不是血管外壁上的紅線，這一點很多人講錯。兩者都代表內膜已經受傷，必須切除到明顯正常的內膜。</p>
+<p>小結一下前三題。斷指這一組帶走三個骨架：先描述、再定位、才講計畫；接合順序兩派並列，然後說明取捨；優勢動脈的側別跟「靜脈多於動脈」是硬知識點，沒有推理空間。三個必背數字：手指溫缺血 6 到 12 小時、冷缺血 24 小時；大肢體警戒線 4 到 6 小時；jejunum 只有 2 小時。</p>
+</section>
+<section class="q" id="q4">
+<h2>第四題</h2>
+<p class="ask">考官問：這隻手接完了，術後的血循怎麼看？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>這是邱浩遠的題目，而且他要你把七到八項逐一講出來，不能只講顏色跟溫度。</p>
+<p>第一，顏色。粉紅色正常；蒼白發白代表動脈灌流不足；紫藍色代表靜脈鬱血。</p>
+<p>第二，溫度。跟相鄰的正常手指比較，溫差超過 2 度 C 有意義。</p>
+<p>第三，capillary refill。正常大約 2 秒。這裡是最常被誤判的一格——過快反而代表靜脈鬱血，門檻要抓「小於 1 秒」，典型的描述是紫脹加上 capillary refill 小於 1 秒；延長或消失才是動脈問題。</p>
+<p>第四，turgor，也就是飽滿度。飽脹是鬱血，塌陷萎縮是缺血。</p>
+<p>第五，pinprick test，這是最實用的一項。鮮紅色的血在 2 秒內慢慢滲出，代表血流正常；不出血、延遲、或顏色淡，代表動脈灌流不足；快速湧出暗紫色的血，代表靜脈鬱血。</p>
+<p>第六，digital Allen test，分別壓住該指兩側的 digital artery，逐一放開比較。</p>
+<p>第七，手持式都卜勒，8 到 10 MHz，加上 pulse oximetry。第八，客觀量化可以用 digital brachial index。</p>
+<p>環境跟藥物：室溫 25 度 C 以上、患肢抬高到心臟高度、嚴格禁菸禁咖啡因，尼古丁是最強的血管收縮劑。藥物是 aspirin 最常用，heparin 用於撕脫傷、vein graft、多次重接這些高風險個案；但要加一句，這些藥的實證支持有限，照護品質遠比藥物重要。</p>
+<p>監測時程：前 72 小時是黃金期，每小時記錄顏色、溫度、turgor、capillary refill、pinprick。判讀就記兩串：蒼白、冰冷、refill 延長、針扎不出血，是動脈栓塞；紫脹、refill 過快、針扎湧出暗紫血，是靜脈鬱血。處置：懷疑血栓就直接回開刀房 exploration。靜脈鬱血可以先鬆開繃帶跟部分縫線、放低、放血；動脈問題一律回開刀房。</p>
+<p>這一題的地雷是把 capillary refill 講反。加分句是 free flap 的通則：venous congestion 遠多於 arterial，大約 2 比 1，而且 re-exploration 越早搶救率越高，6 小時內最高。不過提醒一句，「2 比 1」跟「6 小時」在課本找不到明確出處，講的時候用「文獻報告」帶過，不要硬掰成課本明文。</p>
+</section>
+<section class="q" id="q5">
+<h2>第五題</h2>
+<p class="ask">考官問：這是一隻 crush hand，食指血循很差。tendon 是好的，那個關節內粉碎性骨折你要怎麼處理？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>評估先講機轉：這是 crush injury，跟切割傷完全不同——壓砸傷的血管與軟組織損傷是「節段性」的，範圍大於外觀所見。然後按五個系統清點：第一，皮膚與軟組織，撕脫範圍、有無 degloving、組織活性、缺損面積；第二，骨骼與關節，影像照 AP、lateral、oblique 三個 view；第三，肌腱，分別測 FDS 跟 FDP，病人不合作就看 tenodesis effect；第四，神經，每一隻手指的兩側 digital nerve 都要分開測，做 static 與 moving 2-point discrimination，正常指腹 static 小於 6 毫米；第五，血循，就是上一題那七到八項。同時警覺 compartment syndrome，急診就移除所有戒指、抬高患肢。</p>
+<p>骨折的處理是這一關真正的設計目的。只講 ORIF 等於沒答到。理由要先鋪：這是 crush injury，軟組織條件很差，該指血循本來就不好；為了 ORIF 做大範圍剝離會犧牲僅存的骨膜血循，讓整根手指陷入危險；而且關節面已經粉碎，逐塊固定幾乎不可能。</p>
+<p>所以我選擇 ligamentotaxis，韌帶牽引復位。原理是：利用完好的 collateral ligament 與 volar plate 作為軟組織鉸鏈，在持續的軸向牽引下，把附著在這些韌帶上的關節面碎片「間接」拉回原位。這是 indirect reduction，最大的好處是不需要打開關節、不破壞血循。</p>
+<p>具體做法選 traction K-pin 加 dynamic splint：在遠端橫穿一根克氏鋼針，用彎成弓形的 outrigger 加橡皮筋提供持續軸向牽引。最大優點是牽引與活動可以並存，病人在牽引狀態下就可以開始保護性的主動與被動活動。</p>
+<p>現在講地雷。推薦 Suzuki frame 是邱浩遠 114 年最明確的地雷，兩位考生都踩到。他的理由是製作不容易，而且一旦成形牽引向量就很難再調整。安全的講法是：把 traction K-pin 加 dynamic splint 講成第一順位，理由是向量隨時可調，只要換橡皮筋或調整 outrigger 角度；Suzuki frame 可以完全不提，或者只用一句「另一個常見選項是 Suzuki frame，但我偏好 K-pin 加 dynamic splint，因為向量比較好調整」帶過。</p>
+<p>追問會問限制：ligamentotaxis 依賴完好的 collateral ligament 與 volar plate 當鉸鏈，對於沒有韌帶附著的碎片，例如中央塌陷的 die-punch 碎片，是無效的，那些需要直接復位。另一個追問是清創要不要一次做完：crush injury 的核心觀念是 serial debridement，第一次只切明確壞死的組織，可疑的留到 48 小時 second-look 再判斷，因為 zone of injury 會自己 declare；同時盡量保留骨骼長度，每一公分都是未來重建的本錢。</p>
+<p>副木要擺在安全位，也就是 intrinsic-plus 或 James position：腕伸 20 到 30 度、MCP 屈曲 70 到 90 度、IP 完全伸直、拇指外展對掌。理由是把 MCP 的 collateral ligament 跟 IP 的 volar plate 都固定在最長的位置。</p>
+</section>
+<section class="q" id="q6">
+<h2>第六題</h2>
+<p class="ask">考官問：這是一個戒指撕脫傷，你怎麼分類？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>先講 Urbaniak 分類，三級。Class 1 是循環尚足夠，只有軟組織損傷。Class 2 是循環不足、需要 revascularization。Class 3 是完全撕脫、也就是 complete degloving，或者完全截肢。</p>
+<p>接下來是這一題最容易講錯的地方——Kay，也就是 Adani 修訂的分類，級數跟代號全部都不一樣，一定要記牢。Class 1 是循環足夠。Class 2 是不完全撕脫、動脈或靜脈循環不足，但「沒有」骨骼損傷；細分成 2a 是只有動脈不足，2v 是只有靜脈不足。Class 3 是循環不足「而且」合併骨折或關節損傷。Class 4 才是完全 degloving 或完全截肢。</p>
+<p>三句話記法，請跟我唸一次：骨骼受傷就升級為 Class 3；靜脈不足是 2v，沒有 2c 這一型；完全截肢是 Class 4，不是 3。</p>
+<p>處理：Class 1 保守或清創縫合。Class 2 積極 revascularization，而且常常需要 vein graft，因為撕脫傷的血管內膜受損範圍遠超過肉眼所見。至於完全撕脫或完全截肢那一級，要用現代數據——不要脫口就說「傳統建議 revision amputation」。早期系列報告的存活率是 43%，但近期統合分析顯示手指撕脫性截肢再植的存活率已經達到 78%，成功再植後平均 TAM 是 174 度。講法是：過去因成功率低而傾向 revision amputation，但現代文獻的存活率與功能結果已明顯改善，尤其拇指或多指時應積極嘗試；仍須事先溝通可能需要多次手術與長期復健。</p>
+<p>撕脫傷的鐵律再講一次：看到 ribbon sign 或 red line sign 就代表內膜已受傷，必須切除到明顯正常的內膜。追問「為什麼撕脫傷成功率低這麼多」，答四點：血管損傷多節段而且遠超外觀、神經同樣被抽拉而長段損傷、肌腱常自肌肉肌腱交界處撕脫、皮膚 degloving 造成覆蓋不足。</p>
+<p>小結第二段。第四到第六題三個關鍵句：capillary refill 過快是鬱血、不是正常；壓砸手的骨折答案是 ligamentotaxis，不是 ORIF，而且首選 traction K-pin 加 dynamic splint；Kay 分類骨頭一受傷就升 Class 3、完全截肢是 Class 4。</p>
+</section>
+<section class="q" id="q7">
+<h2>第七題</h2>
+<p class="ask">考官問：這隻手清創完剩下這樣，接下來怎麼辦？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>第一句話要說出那個詞：「報告老師，這是一隻 mutilated hand。」義大鄭勝峯明確要聽到這個詞。然後用萬用骨架：先建立重建目標，再逐項檢視。</p>
+<p>Basic hand，也就是功能性手的四個要素。第一，穩定且無痛的手腕，這是所有手部功能的基座。第二，可對掌且有感覺的拇指，拇指佔手部功能的一半。第三，足夠深且寬的第一指蹼，沒有指蹼就沒有 span grasp。第四，至少兩根可以對到拇指的手指。加分句是：粗重工作者以尺側手指的 power grip 為主，文書工作者橈側手指同樣重要，因為需要 fine pinch，重建目標要依病人職業調整。</p>
+<p>逐項檢視之後分兩步走：先求存活與覆蓋，把外露的骨頭蓋起來、保留現有骨骼長度、等軟組織穩定；再求重建功能，重建拇指與捏合。</p>
+<p>拇指重建的階梯依缺損 level 分三段。第一，遠端缺損、CMC 與長度都保留的，軟組織覆蓋就夠：Moberg volar advancement flap，這是拇指專用的，標準版平均推進只有 0.7 公分，要推到 1.5 公分需要 O'Brien modification——這個數字請記牢，不要含糊講成「可以推 1 到 2 公分」。另外還有 FDMA 也就是 kite flap、cross-finger flap。第二，中段缺損、拇指過短但 CMC joint 與 thenar 完好的，做 phalangization 或 web deepening 加骨延長，或者 osteoplastic reconstruction，也就是髂骨骨移植加 groin flap 加 neurovascular island flap。第三，近端缺損、thenar 功能已喪失的，走 pollicization 或 toe-to-hand transfer。</p>
+<p>軟組織覆蓋要遵守 reconstruction ladder：local，然後 regional，包括 reverse radial forearm flap、posterior interosseous artery flap、pedicled groin flap，最後才是 free flap。鄭勝峯的通則要背下來：「切勿一下子就 CT、MRI；重建遵守 reconstruction ladder，絕對不可一下子就自由皮瓣。」謝式洲問「可以用什麼 flap 蓋」的時候，他想聽 regional flap，不是 free flap。選 reverse radial forearm flap 之前一定要先做 Allen test。</p>
+<p>這一題的加分句來自江原正：被問到「這隻手功能剩多少」，重點不是算術，要說「雖然數字上還有四成左右，但因為沒有可對掌的拇指，這隻手實際上無法做任何 pinch 或 grasp，功能上接近 0」。</p>
+</section>
+<section class="q" id="q8">
+<h2>第八題</h2>
+<p class="ask">考官問：這個病人你要做 pollicization 還是 toe-to-hand？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>Pollicization 的優點是不需顯微吻合、一次完成、感覺與活動度好；代價是少一根手指，所以適合那一根本來就沒有功能、或已經毀損的情況。傳統用食指，也就是 Buck-Gramcko 的做法，但食指已毀損時可以用任何一根仍有良好神經血管束與關節的手指——謝式洲 109 年那一題的最終答案就是取環指做 pollicization。</p>
+<p>Toe-to-hand transfer 的優點是不犧牲手上任何一根手指、可以提供指甲與比較接近的外觀；代價是需要顯微吻合、有足部供區病態，而且需要 thenar 與 CMC joint 完好。</p>
+<p>追問「這麼遠距離的 pollicization 會遇到什麼問題」，答五點。第一，也是最重要的，神經血管束長度不足——digital nerve 與 artery 必須從 common digital 分叉處往近端做 interfascicular dissection，才能得到足夠的旋轉長度而不造成張力；neurovascular pedicle 是限制轉位距離的第一因素。第二，靜脈回流，背側靜脈網必須連同皮橋一起保留。第三，相鄰指的血流犧牲，常需結紮一側 digital artery，要先確認另一側動脈通暢。第四，轉位後的擺位：pronation 大約 120 到 160 度、palmar abduction 大約 40 度，並把 metacarpal head 重塑成新的 trapezium。第五，肌肉重新命名，interossei 重建為新的 abductor 與 adductor pollicis，EIP 接 EPL、EDC 接 APL。</p>
+<p>被問到功能能回復多少，安全講法是：「文獻上 pollicization 後的手部功能可恢復到正常的五到七成，但更重要的是它把一隻不能捏東西的手，變成一隻可以捏東西的手，這個質變比百分比更有意義。」提醒一句，五到七成這個百分比在課本找不到明確出處，用「文獻上」這個措辭，不要硬掰。</p>
+<p>最後一個常見追問：合併 median 與 ulnar 神經損傷時先重建什麼？依 basic hand 的優先序：拇指的對掌與感覺、對指的 key pinch、手指屈曲的動力、最後是感覺重建，尤其拇指尺側與食指橈側，那是 pinch 的接觸面。所以 opponensplasty 是第一優先，這是李經維 107 年的考點。</p>
+<p>小結第三段。殘缺手這一組，記住一個開場詞跟一組骨架：開場說「這是一隻 mutilated hand」，骨架是 basic hand 四要素——穩定手腕、對掌拇指、第一指蹼、兩根手指。然後遵守 reconstruction ladder，先覆蓋再重建功能。</p>
+<p>最後 60 秒，我們複誦這一集的必背數字，請跟著我唸。</p>
+<p>缺血時間：手指溫缺血 6 到 12 小時、冷缺血 24 小時。大肢體警戒線 4 到 6 小時溫缺血。jejunum flap 只有 2 小時。</p>
+<p>優勢指動脈：拇指尺側、食指尺側、中指尺側較常見、環指橈側、小指橈側。邊緣手指朝向手的中軸。</p>
+<p>動靜脈：靜脈要多於動脈，口訣是 1A 比 2V，但那不是課本的比例式。</p>
+<p>血循：溫差超過 2 度 C 有意義。capillary refill 正常 2 秒，小於 1 秒是鬱血。前 72 小時每小時監測。</p>
+<p>Bone shortening 大約 0.5 公分。副木安全位：腕伸 20 到 30 度、MCP 屈 70 到 90 度、IP 伸直。</p>
+<p>復健時程：骨頭與神經 2 週、屈肌腱 3 週、伸肌腱 4 週；單純 sharp laceration 加 4 股以上縫合則走 early protected motion。</p>
+<p>Kay 分類：骨骼受傷升 Class 3、靜脈不足是 2v、完全截肢是 Class 4。撕脫性截肢再植存活率 78%，平均 TAM 174 度。</p>
+<p>Moberg 推進平均 0.7 公分，要 1.5 公分需要 O'Brien modification。2-point discrimination 正常指腹 static 小於 6 毫米。</p>
+<p>好，第五集結束。下一集我們練手外科第四場：伸肌機轉的三個變形、Jersey finger 與 Leddy–Packer、掌腱膜攣縮症，以及邱浩遠會借你手做的那一組理學檢查操作題。</p>
+</section>
+<div class="pager"><a href="ep04.html">← 上一集</a><a href="ep06.html" class="r">下一集 →</a></div>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

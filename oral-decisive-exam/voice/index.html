@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12 集語音課程</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="../index.html">← 回作戰室</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>12 集語音課程</h1>
+<p class="sub">12 集　·　107 題　·　全部聽完約 8 小時 25 分</p>
+<div class="howto">
+<h2>用 Safari 朗讀</h2>
+<ol>
+<li>先到「設定 → 輔助使用 → 朗讀內容」，打開<b>朗讀螢幕</b>，順便把速度調到你聽得舒服的位置。</li>
+<li>打開任何一集，<b>從螢幕最上緣往下滑兩指</b>，就會從頭開始唸。</li>
+<li>浮動控制列可以暫停、加速、跳段落。想從某一題開始，先點那一題再兩指下滑。</li>
+<li>畫面上的 <b>⏸ 停 3 秒</b> 是留給你自己作答的，唸到那裡會停一下。想改成把「停頓」兩個字唸出來，按上面的「停頓：靜音」切換。</li>
+</ol>
+<p>這 12 集是逐字稿原文，沒有改寫。</p>
+</div>
+<ul class="eps"><li><a href="ep01.html"><span class="n">EP01</span><span class="t">眼整形，上半場：上眼皮解剖</span><span class="m">8 題　·　朗讀約 35 分鐘</span></a></li><li><a href="ep02.html"><span class="n">EP02</span><span class="t">眼整形，下半場：Ptosis 全套</span><span class="m">7 題　·　朗讀約 36 分鐘</span></a></li><li><a href="ep03.html"><span class="n">EP03</span><span class="t">手外科上半場：尺神經</span><span class="m">8 題　·　朗讀約 39 分鐘</span></a></li><li><a href="ep04.html"><span class="n">EP04</span><span class="t">手外科下半場：正中神經與橈神經</span><span class="m">9 題　·　朗讀約 42 分鐘</span></a></li><li><a href="ep05.html"><span class="n">EP05</span><span class="t">手外科第三場：斷指再植與壓砸手</span><span class="m">8 題　·　朗讀約 40 分鐘</span></a></li><li><a href="ep06.html"><span class="n">EP06</span><span class="t">手外科第四場：肌腱、掌腱膜攣縮症與操作題</span><span class="m">10 題　·　朗讀約 57 分鐘</span></a></li><li><a href="ep07.html"><span class="n">EP07</span><span class="t">顱顏第一場：外傷評估與眼眶</span><span class="m">9 題　·　朗讀約 48 分鐘</span></a></li><li><a href="ep08.html"><span class="n">EP08</span><span class="t">顱顏第二場：顏面骨折與顏面神經</span><span class="m">10 題　·　朗讀約 60 分鐘</span></a></li><li><a href="ep09.html"><span class="n">EP09</span><span class="t">顯微重建第一場：頭頸重建與皮瓣原則</span><span class="m">9 題　·　朗讀約 38 分鐘</span></a></li><li><a href="ep10.html"><span class="n">EP10</span><span class="t">顯微重建之二，乳房重建與淋巴水腫</span><span class="m">9 題　·　朗讀約 35 分鐘</span></a></li><li><a href="ep11.html"><span class="n">EP11</span><span class="t">燒傷、慢性傷口與血管異常</span><span class="m">10 題　·　朗讀約 36 分鐘</span></a></li><li><a href="ep12.html"><span class="n">EP12</span><span class="t">皮膚腫瘤、皮瓣幾何與臨場應答，總複習集</span><span class="m">10 題　·　朗讀約 41 分鐘</span></a></li></ul>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

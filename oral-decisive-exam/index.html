@@ -194,6 +194,19 @@ html{color-scheme:light dark}
 :root[data-theme="dark"]{color-scheme:dark}
 img{max-width:100%}
 
+/* ---- 側欄：語音課程入口 ---- */
+.voicelink{display:flex; align-items:center; gap:9px; margin:10px 0 0;
+  padding:9px 11px; border-radius:9px; text-decoration:none;
+  background:var(--accent); color:var(--on-accent);
+  box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.voicelink:hover{filter:brightness(1.08)}
+.voicelink .vi{flex:none; font-size:11px; line-height:1;
+  width:20px; height:20px; border-radius:50%; display:grid; place-items:center;
+  background:rgba(255,255,255,.22)}
+.voicelink .vt{font-size:12.5px; font-weight:600; letter-spacing:.01em}
+.voicelink .vs{font-family:var(--mono); font-size:9.5px; opacity:.82;
+  margin-left:auto; text-align:right; line-height:1.3}
+
 /* ---- 統一篩選器 ---- */
 .chipset{margin:0 0 10px}
 .chipset:last-child{margin-bottom:0}
@@ -343,6 +356,7 @@ article .jump{font-weight:600}
         <input id="q" type="search" placeholder="搜尋題目、考官、關鍵字…" autocomplete="off">
       </div>
       <div class="hint" id="stat"></div>
+      <a class="voicelink" href="voice/index.html"><span class="vi">▶</span><span class="vt">12 集語音課程</span><span class="vs">用 Safari 朗讀・107 題</span></a>
       <div class="progress" id="progress"></div>
       <div class="tools" id="tools"></div>
     </div>

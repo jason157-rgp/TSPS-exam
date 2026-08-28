@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import restructure as R  # noqa: E402
 import plain as P  # noqa: E402
 import mdsource as MD  # noqa: E402
+import voice as V  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_build" / "source.html"
@@ -1031,6 +1032,19 @@ renderProgress();
 # ---------------------------------------------------------------- CSS
 
 EXTRA_CSS = """
+/* ---- 側欄：語音課程入口 ---- */
+.voicelink{display:flex; align-items:center; gap:9px; margin:10px 0 0;
+  padding:9px 11px; border-radius:9px; text-decoration:none;
+  background:var(--accent); color:var(--on-accent);
+  box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.voicelink:hover{filter:brightness(1.08)}
+.voicelink .vi{flex:none; font-size:11px; line-height:1;
+  width:20px; height:20px; border-radius:50%; display:grid; place-items:center;
+  background:rgba(255,255,255,.22)}
+.voicelink .vt{font-size:12.5px; font-weight:600; letter-spacing:.01em}
+.voicelink .vs{font-family:var(--mono); font-size:9.5px; opacity:.82;
+  margin-left:auto; text-align:right; line-height:1.3}
+
 /* ---- 統一篩選器 ---- */
 .chipset{margin:0 0 10px}
 .chipset:last-child{margin-bottom:0}
@@ -1281,6 +1295,10 @@ def main():
         sys.exit("[build] 找不到側欄統計列，無法插入筆記工具列")
     html = html.replace('<div class="hint" id="stat"></div>',
                         '<div class="hint" id="stat"></div>\n'
+                        '      <a class="voicelink" href="voice/index.html">'
+                        '<span class="vi">▶</span>'
+                        '<span class="vt">12 集語音課程</span>'
+                        '<span class="vs">用 Safari 朗讀・107 題</span></a>\n'
                         '      <div class="progress" id="progress"></div>\n'
                         '      <div class="tools" id="tools"></div>', 1)
 
@@ -1306,6 +1324,8 @@ def main():
         dom_label=lambda d: DOMAIN_LABEL.get(d, d),
         days=days)
 
+    n_ep, n_q = V.emit(ROOT / "_build" / "scripts", ROOT / "voice")
+
     linked = sum(1 for r in rows if r["go"])
     ex_linked = sum(1 for r in rows for e in r["ex"] if e["id"])
     ex_total = sum(len(r["ex"]) for r in rows)
@@ -1313,6 +1333,7 @@ def main():
     print(f"[build] 節數 {len(sections)}（原 {len(sections)+len(dropped)}，第一部 11 節併為 1）")
     print(f"[build] 索引 {len(rows)} 列：主題可跳轉 {linked}，考官名牌 {ex_linked}/{ex_total}")
     print(f"[build] 純文字版：plain/ 共 {n_sec} 節頁 + {n_bundle} 份合輯 + 目錄")
+    print(f"[build] 語音課程：voice/ 共 {n_ep} 集、{n_q} 題")
     if md_stats:
         before = sum(a for a, _ in md_stats.values())
         after = sum(b for _, b in md_stats.values())

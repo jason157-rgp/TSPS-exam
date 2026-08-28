@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EP01 眼整形，上半場：上眼皮解剖</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="index.html">← 12 集語音課程</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>EP01　眼整形，上半場：上眼皮解剖</h1>
+<p class="sub">8 題　·　約 9k 字　·　朗讀約 35 分鐘</p>
+<nav class="qnav"><b>本集題目</b><ol><li><a href="#q1">上眼皮有哪些構造？請把所有的構造都講出來。</a></li><li><a href="#q2">好，那我一層一層問你。第三層要補什麼？什麼是 conjoint tendon？…</a></li><li><a href="#q3">歐美人和亞洲人的上眼皮構造差在哪裡？為什麼會形成這種差異？</a></li><li><a href="#q4">那你說說雙眼皮怎麼開？為什麼有人開完褶會消失？</a></li><li><a href="#q5">那下眼瞼的層次呢？跟上眼皮差在哪裡？</a></li><li><a href="#q6">Whitnall's ligament 是什麼？Lockwood's 呢？內外…</a></li><li><a href="#q7">淚膜有幾層？淚道怎麼走？眼窩上裂通過什麼？</a></li><li><a href="#q8">這位病人的眼袋照片，你怎麼評估？什麼是 tear trough？malar m…</a></li></ol></nav>
+<section class="intro">
+<p>本集會練八題，包括上眼皮的七層構造、七層背完之後的追問彈藥、東西方上眼皮的差異與機轉、雙眼皮怎麼開、下眼瞼的解剖、眼周的兩條懸吊韌帶與內外眥韌帶、淚液淚道與眼窩上裂，最後是眼周老化的三個名詞：tear trough、malar mound 與 festoon。眼整形是投資報酬率最高的一卷，押題排行榜第一名的上眼皮解剖加東西方差異，就在本集裡面。準備好了嗎？我們開始。</p>
+</section>
+<section class="q" id="q1">
+<h2>第一題</h2>
+<p class="ask">考官問：上眼皮有哪些構造？請把所有的構造都講出來。</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。報告老師，教科書多用 anterior lamella 與 posterior lamella 兩層來描述，重建時也常用三層；我用由前到後的逐層講法把構造報完整。第一層，skin and subcutaneous tissue，全身最薄的皮膚，不到 1 毫米，幾乎沒有皮下脂肪。第二層，orbicularis oculi muscle，分成 pretarsal、preseptal、orbital 三部分，由顏面神經支配。第三層，fibrous layer，也就是 tarsus 加上 orbital septum。第四層，preaponeurotic fat pad，也叫 retroseptal fat。第五層，levator aponeurosis。第六層，Müller's muscle。第七層，conjunctiva。</p>
+<p>如果考官要你每一層都補一句，記住這幾個重點。皮膚：全身最薄、幾乎沒有皮下脂肪，所以血循極好、癒合快、疤痕不明顯，是全臉最能容忍全層植皮的位置，但也最容易水腫。Orbicularis：pretarsal 與 preseptal 負責不自主眨眼，orbital 負責用力閉眼。</p>
+<p>這一題的地雷是：背到一半卡住。這題考的是流暢度，不是知識量，中間停頓比講錯一層更傷。蒲啟明在國泰這一關是拿 Neligan 的上眼皮側面圖當填空題問的，他要聽的就是像唸課文一樣一口氣由外而內背完。所以這七個名詞，你要練到閉著眼睛也能連著唸出來。另外兩個考場情報要記住：高榮的陳理維是清單型考官，他的計分點是清單能不能完整倒出來，而且答太快只會換來更多題，所以要答慢一點、答滿；國泰的呂旭彥那一關壓力比較小，顧問明講考試方向以眼周整形為主，那一關你可以主動把解剖講深、講滿。</p>
+</section>
+<section class="q" id="q2">
+<h2>第二題</h2>
+<p class="ask">考官問：好，那我一層一層問你。第三層要補什麼？什麼是 conjoint tendon？為什麼有人說是六層？外側那團粉紅色的是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。第三層是 tarsus 加 orbital septum。上瞼板高度約 8 到 12 毫米，一般記 10 毫米，厚約 2 毫米；下瞼板中央約 4 毫米，文獻寫 3.5 到 5 毫米。Orbital septum 起自眶緣的 arcus marginalis，往下與 levator aponeurosis 會合。臨床意義是：septum 前面的感染是 preseptal cellulitis，門診抗生素就好；一旦穿過 septum 就是 orbital cellulitis，那是急症。</p>
+<p>被問到 conjoint tendon 的時候，講現象、不要執著名詞：orbital septum 在瞼板上方與 levator aponeurosis 沾黏會合，兩者結合形成的吊帶把 orbital fat 兜住；越過這個附著點以後還會繼續往睫毛緣延伸。這裡要提醒你，conjoint tendon 這個名詞課本上找不到明確出處，被追問時不要硬掰，考官用這個詞你就順著他用。同樣的，submuscular areolar tissue 這個名詞也一樣，被追問時不要硬掰。</p>
+<p>被問到為什麼有人說六層，你就答：有些教科書把 levator aponeurosis 與 Müller's muscle 合稱 lid retractors，或者另外把 submuscular areolar tissue 獨立成一層，所以會數成六層或不同的七層。我選這一版，是因為它對得上手術層次，MMCR 切的就是 Müller's muscle 加結膜這兩層。</p>
+<p>外側那團粉紅色的，是 lacrimal gland，不是脂肪。上眼皮只有 medial 也就是 nasal，跟 central 兩個脂肪墊，medial 顏色較白，central 較黃。術中看到外側飽滿的粉紅色組織，要先確認是不是 prolapsed lacrimal gland，處理方式是懸吊回眶緣，不是切除，切除會造成乾眼。</p>
+<p>第五層與第六層也要能補。Levator palpebrae superioris 由動眼神經的上支支配，肌腹約 40 毫米，在 Whitnall's ligament 下方轉為腱膜，腱膜化的起點大約在瞼板上緣 8 到 10 毫米處，主要止於瞼板前面的上三分之一，另有纖維穿過 orbicularis 走向真皮，這一支的多寡就是東西方差異的核心。要注意腱膜長 14 到 20 毫米這個數字查不到課本出處，不要報。Müller's muscle 是交感神經支配的平滑肌，起自 levator 的下表面、止於瞼板上緣，只提供 1 到 2 毫米的抬升，這一句同時解釋兩件事：Horner's syndrome 為什麼只造成輕度下垂，以及 phenylephrine test 陽性為什麼可以做 MMCR。還有一個容易講錯的位置：上瞼的 superior marginal vascular arcade 走在 Müller's muscle 的表面、levator aponeurosis 的底下，就在瞼板上緣，後路手術在這一區要仔細剝離與縫合以免血腫。不要說它在 Müller's 與結膜之間。</p>
+<p>這一題的加分句是：preaponeurotic fat 的正下方就是 levator aponeurosis，這是術中找腱膜最可靠的 landmark。這句話主動講出來，等於告訴考官你是開過刀的人。地雷則是：兩個版本混著背，第三層到第六層一定會自相矛盾。</p>
+</section>
+<section class="q" id="q3">
+<h2>第三題</h2>
+<p class="ask">考官問：歐美人和亞洲人的上眼皮構造差在哪裡？為什麼會形成這種差異？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。報告老師，差異可以歸到三個解剖層次，根本原因是 levator aponeurosis 的止點，跟 orbital septum 的會合點，高低不同。</p>
+<p>第一，levator aponeurosis 往真皮的止點。西方人有一群纖維穿過 orbicularis 插入接近真皮的位置，而且位置比較高，所以睜眼時皮膚被往內拉，形成清楚的 supratarsal crease，一般在睫毛緣上 6 到 8 毫米，女性約 7 到 8 毫米，男性約 6 到 7 毫米。東方人的這些纖維一樣存在，但附著較弱、較少、位置較低，所以褶較不明顯，或者沒有褶。這裡有一個地雷：不要說東方人沒有皮膚止點。</p>
+<p>第二，也是核心機轉，orbital septum 與 aponeurosis 的會合高度。西方人在瞼板上緣較高的位置就會合，等於在上方築了一道牆，preaponeurotic fat 下不來。東方人會合點比較低，甚至低於瞼板上緣、比較靠近睫毛，於是脂肪可以下降到 pretarsal 區。這就是泡泡眼的解剖來源，也是東方人一切開上眼皮就看到脂肪的原因。</p>
+<p>第三，其他因素。東方人上瞼板較短較窄，皮下脂肪與 ROOF 較厚，眼窩較淺，眉弓突出度較低；大約一半的人有 epicanthal fold，外眥比內眥高。</p>
+<p>臨床意義收尾一定要講：亞洲人做重瞼術不能只是把皮膚縫在一起，必須處理脂肪，並在瞼板上緣建立確實的皮膚對 aponeurosis 的固定點，否則褶會消失或變淺。我跟病人解釋時會說，我們不是在畫一條線，是在幫你重建一個西方人天生就有的 aponeurosis-to-skin 附著點，這也解釋了為什麼埋線容易鬆掉、切開法比較持久。</p>
+<p>這一題最大的地雷是：只講東方人比較腫的現象，不講機轉。蒲啟明的追問原文就是四個字，為什麼會這樣。答案必須落在止點高低跟會合點高低，不然等於零分。</p>
+<p>休息一下。剛才那三題的共同點是：考官要的不是名詞，是層次跟因果。七層是流暢度、追問是深度、東西方差異是機轉。這三題連起來，就是蒲啟明那一關的完整劇本。</p>
+</section>
+<section class="q" id="q4">
+<h2>第四題</h2>
+<p class="ask">考官問：那你說說雙眼皮怎麼開？為什麼有人開完褶會消失？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。術式分三大類。第一，縫線法，也就是埋線或 DST，適合皮膚薄、脂肪少、年輕、沒有皮膚鬆弛的人，可逆、恢復快，但容易鬆脫消失。第二，部分切開法，是折衷方案，可以局部處理脂肪。第三，全切開法，適合皮膚鬆弛、脂肪厚、需要同時處理 ptosis 的人，最持久。</p>
+<p>全切開的步驟：設計時亞洲人的下切線一般定在閉眼時睫毛緣上 6 到 8 毫米，睜眼後可見的褶大約 1.5 到 3 毫米，依瞼板高度與病人期待調整，並先用探針動態確認高度跟弧度；術前一定要評估有沒有 ptosis、眉毛代償跟皮膚鬆弛。手術是切開皮膚，去除一小條 pretarsal orbicularis，打開 orbital septum 顯露 preaponeurotic fat，酌量修整，不要過度切除，否則會造成 sunken eye 與 A-frame deformity；接著顯露 levator aponeurosis 在瞼板上緣的止點，把下切緣的真皮固定到 aponeurosis 或瞼板上緣，通常 3 到 5 針，最後關皮。併發症是不對稱、褶消失或變淺、褶太高、多重褶、術後 ptosis、乾眼與疤痕增生，其中褶太高最難修。</p>
+<p>為什麼開完褶會消失？三個原因。第一，固定點沒有真正抓到 aponeurosis 或瞼板，只縫到 orbicularis 或皮下。第二，脂肪處理不足，pretarsal 區還是飽滿，把褶頂掉。第三，合併未矯正的 ptosis，眼皮抬不起來，褶就折不出來。第三點最常被漏掉。</p>
+<p>這一題的加分句是：主動區分閉眼的設計高度跟睜眼的可見高度。文獻上的數字之所以有落差，是因為量的東西不一樣。你主動說明是哪一種量法，這是這題少數能拉開差距的地方。</p>
+</section>
+<section class="q" id="q5">
+<h2>第五題</h2>
+<p class="ask">考官問：那下眼瞼的層次呢？跟上眼皮差在哪裡？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。下眼瞼跟上眼皮一一對應：皮膚、orbicularis oculi、tarsus 加 septum、retroseptal fat pads、lower lid retractor、conjunctiva。三個關鍵差異。</p>
+<p>差異一，下瞼板只有約 4 毫米，文獻 3.5 到 5 毫米，遠低於上瞼板的 10 毫米。矮而弱，水平方向的支撐主要來自 canthal tendon 而不是瞼板本身，所以下眼瞼手術最怕的併發症是外翻與退縮。</p>
+<p>差異二，下眼皮有三個脂肪墊，medial、central、lateral，不是兩個；而且 medial 跟 central 之間由 inferior oblique muscle 分隔。這條肌肉是下眼瞼手術最容易醫源性損傷的結構。記法就是四個字：上二下三，而且上眼皮外側是淚腺。</p>
+<p>差異三，下瞼的 retractor 是 capsulopalpebral fascia 加 inferior tarsal muscle。Capsulopalpebral fascia 源自 inferior rectus 的筋膜，向前分成兩葉包繞 inferior oblique，再匯合成 Lockwood's ligament，止於瞼板下緣；inferior tarsal muscle 則是 Müller's 的下瞼對應物，一樣交感神經支配。這一層鬆脫或斷裂就是 involutional entropion 的機轉；被疤痕往下拉，就是 lower lid retraction 與 scleral show 的機轉。</p>
+<p>一句話總結對應關係：上眼皮的 levator aponeurosis 加 Müller's，等於下眼皮的 capsulopalpebral fascia 加 inferior tarsal muscle；上眼皮的 Whitnall's，等於下眼皮的 Lockwood's。</p>
+<p>加分對照句：下眼瞼成形術最容易傷到的是 inferior oblique，上眼皮成形術最容易傷到的是 superior oblique。</p>
+</section>
+<section class="q" id="q6">
+<h2>第六題</h2>
+<p class="ask">考官問：Whitnall's ligament 是什麼？Lockwood's 呢？內外眥韌帶附著在哪裡？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。Whitnall's ligament，又叫 superior transverse ligament，是上眼瞼的懸吊與滑車系統，內側附著於 trochlea 跟 superior oblique 的滑車區，外側附著於淚腺囊與眶外側壁。功能是把 levator 由後往前的水平拉力，轉折成垂直的提瞼力量。這裡有一個必考的追問：它是支點，是 fulcrum，不是動力來源，動力永遠是 levator 的肌腹。手術意義是 Whitnall's sling，也就是 super-maximal levator resection，用在 levator function 極差但不想做 frontalis sling 的病人。要注意 Whitnall's sling 這個講法在課本上找不到明確出處，被追問時不要硬掰，不要說它是課本上的選項。</p>
+<p>Lockwood's ligament 是下眼瞼與眼球的懸吊吊床，由 inferior rectus 與 inferior oblique 的筋膜融合而成，橫跨眶底，內外側附著在 canthal tendon 區。最常考的一句臨床意義是：正因為有 Lockwood's ligament，眶底骨折即使缺損不小，眼球也未必立刻下沉；反過來說，Lockwood 一旦鬆脫或被切斷，就會出現明顯的 hypoglobus 與 enophthalmos。</p>
+<p>Medial canthal tendon 分前腳跟後腳，前腳附著於前淚嵴，後腳附著於後淚嵴，中間包夾 lacrimal sac；淚囊的泵浦作用就靠 orbicularis 的 lacrimal part 隨眨眼擠壓。NOE 骨折的核心就是 MCT 跟骨塊的關係，也就是 Markowitz 一到三型；正常 intercanthal distance 是 30 到 34 毫米。要記得區分：telecanthus 是軟組織與韌帶的問題，hypertelorism 是骨性的眶距過寬。</p>
+<p>Lateral canthal tendon 附著於 Whitnall's tubercle，位置在 lateral orbital rim 的內側面，深部約 2 毫米。手術意義是：做 lateral canthotomy 加 cantholysis 剪斷的是 LCT 的 inferior crus；做 canthopexy 或 canthoplasty 時一定要固定回眶緣的內側面，固定到外側面會讓眼角外翻、看起來很假。</p>
+<p>這一題的定位要講清楚：這些不是獨立題，是七層題跟 ptosis 題的追問彈藥庫。前面背得再流暢，被問到任一個名詞答不出來，都會被折價。</p>
+<p>休息一下。剛才這三題的共同點是：全部都可以用一個對稱表來記。上下對稱、前後對稱、內外對稱。Whitnall 對 Lockwood，levator aponeurosis 對 capsulopalpebral fascia，Müller's 對 inferior tarsal muscle，上二下三。把對稱背起來，比一條一條背省一半力氣。</p>
+</section>
+<section class="q" id="q7">
+<h2>第七題</h2>
+<p class="ask">考官問：淚膜有幾層？淚道怎麼走？眼窩上裂通過什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。淚膜三層，由外而內：外層 lipid，來自 Meibomian gland，功能是防蒸發；中層 aqueous，來自 lacrimal gland，含 lysozyme、lactoferrin 與 IgA；內層 mucin，來自結膜的 goblet cell，讓淚膜貼附角膜。</p>
+<p>淚道路徑：punctum，到 canaliculus，上下各一匯成 common canaliculus，到 lacrimal sac，再到 nasolacrimal duct，開口在 inferior meatus，也就是下鼻道，在下鼻甲下方，由 Hasner's valve 覆蓋。臨床上有一個經典題：ZMC 或 NOE 骨折術後，病人用力閉眼時內眥流出白色分泌物，那是 regurgitation test 陽性，代表 nasolacrimal duct 阻塞合併慢性 dacryocystitis 或 mucocele，治療是 dacryocystorhinostomy，簡稱 DCR。</p>
+<p>Superior orbital fissure 通過的是：CN 三、CN 四、CN 六，加上 CN V1 的三個分支 lacrimal、frontal、nasociliary，還有 superior ophthalmic vein。壓迫就是 superior orbital fissure syndrome，表現是 ptosis 加上完全的 ophthalmoplegia、fixed dilated pupil、前額與角膜感覺喪失；再加上視力喪失，也就是 CN 二受損，就升級成 orbital apex syndrome。</p>
+<p>順便補一組送分的對照：Horner's syndrome 是 miosis 加輕度 ptosis 加同側 anhidrosis，因為癱掉的只是 Müller's，只貢獻 1 到 2 毫米，所以 levator function 正常；CN 三 palsy 則是重度 ptosis 加 mydriasis 加眼球 down and out。兩者的瞳孔方向完全相反，這一組對比一定要能脫口而出。</p>
+<p>這一題的加分句是：水平瞼裂長度不要主動報。被問到才說成人約 28 到 30 毫米，BPES 的 blepharophimosis 就是這個數字明顯縮短。這個數字課本上找不到明確出處，被追問時不要硬掰。</p>
+</section>
+<section class="q" id="q8">
+<h2>第八題</h2>
+<p class="ask">考官問：這位病人的眼袋照片，你怎麼評估？什麼是 tear trough？malar mound 跟 festoon 又是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。報告老師，我會先做分層評估，看眼袋、眶緣與顴部三個區域的相對關係，並做 snap test 與 lower lid distraction test 評估下瞼的鬆弛度，因為下瞼板矮而弱，術前沒有測張力，術後就容易外翻。</p>
+<p>Tear trough 是內下方眶緣的凹溝。解剖上是 tear trough ligament，也就是 orbicularis retaining ligament 的內側延伸，把皮膚繫在眶緣骨膜上。上方的脂肪膨出、下方被韌帶繫住，就形成眼袋加上一條溝的雙重輪廓。所以現代眼袋手術的重點是跨過眶緣，把脂肪鋪進 tear trough，做 arcus marginalis release 加 fat repositioning，而不是單純把脂肪切掉；切太多只會換來 hollow eye。</p>
+<p>Malar mound 是顴部的軟組織與液體堆積形成的隆起，位置在 orbicularis retaining ligament 下方；festoon 則是鬆弛的 orbicularis 本身形成的懸垂皺褶。這兩個都不是眼袋，單純做眼袋手術不會改善，術前一定要分清楚並且告知病人，否則術後一定有糾紛。</p>
+<p>再補一個高分點：下眼瞼的血液供應來自 marginal arcade 與 peripheral arcade，是外頸系統的 facial 與 angular artery，跟內頸系統的 ophthalmic artery 的吻合。這個內外頸吻合，就是為什麼眼周注射填充物有失明風險，機轉是逆行栓塞到 ophthalmic artery。至於血管弓距離瞼緣幾公分這種數字，課本上找不到明確出處，被追問時不要硬掰。</p>
+<p>這一題的加分句是：主動把這不是眼袋講出來。呂旭彥那一關的關鍵字組是 transconjunctival 對 subciliary、arcus marginalis release、fat repositioning、canthopexy，能把這幾個詞串成一句決策，就贏了。</p>
+<p>好，本集結束前，用 60 秒複誦本集必背的數字，一個一個唸，跟著我唸一遍。</p>
+<p>上瞼板高度 8 到 12 毫米，記 10 毫米，厚約 2 毫米。</p>
+<p>下瞼板約 4 毫米，文獻 3.5 到 5 毫米。</p>
+<p>上眼皮脂肪墊 2 個，下眼皮 3 個，上二下三，上眼皮外側是淚腺。</p>
+<p>Müller's muscle 只貢獻 1 到 2 毫米的抬升。</p>
+<p>Levator 肌腹約 40 毫米，腱膜化的起點大約在瞼板上緣 8 到 10 毫米處。</p>
+<p>西方人天生的重瞼褶在睫毛緣上 6 到 8 毫米，女性 7 到 8，男性 6 到 7。</p>
+<p>亞洲人重瞼手術的下切線，閉眼時睫毛緣上 6 到 8 毫米，睜眼後可見褶 1.5 到 3 毫米。</p>
+<p>重瞼固定 3 到 5 針。</p>
+<p>正常 intercanthal distance 30 到 34 毫米。</p>
+<p>Lateral canthal tendon 固定在 Whitnall's tubercle，眶外側緣內側面深部約 2 毫米。</p>
+<p>水平瞼裂約 28 到 30 毫米，被問到才講。</p>
+<p>張眼是 levator palpebrae superioris，動眼神經上支；閉眼是 orbicularis oculi，顏面神經。張眼 CN 三、閉眼 CN 七。</p>
+<p class="next">下一集我們練 ptosis 全套：問診、MRD、levator function 的量法與分級、分類、嚴重度、四個術式的決策、Hering's law，還有 2025 年三位考生都抽到的單側 ptosis 魔王題。那一集是整個眼整形分數的重心，別跳過。我們下集見。</p>
+</section>
+<div class="pager"><a href="ep02.html" class="r">下一集 →</a></div>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

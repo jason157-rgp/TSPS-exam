@@ -1,0 +1,181 @@
+第三集，手外科上半場：尺神經。
+
+本集會練八題：高位與低位尺神經損傷怎麼分、爪形手的機轉與「為什麼修補後三個月才出現」、尺神經六大徵象、Bouvier test 與 simple 對 complicated claw、爪形手的四層治療階梯、動態肌腱轉移要轉哪一條、cubital tunnel 對 Guyon's canal，最後是 AIN 轉尺神經運動支。
+
+先記住一句貫穿全集的話：尺神經這一關，所有題目最後都收在同一個地方——軸突每天長 1 毫米，運動終板只能等 12 到 18 個月；時間還夠，做神經手術；時間過了，只能做肌腱手術。
+
+考場情報先講三句。第一，這一關的主場是林口長庚的林有德教授，他開場會自己說「我專做手外科」，然後連珠炮式快問快答，一題答完立刻下一題，沒有喘息空間。前面考生留下的原話是「建議考生可以回答慢一點」——因為 8 分鐘是固定的，答太快只會被問到更多題、失分機會更多。所以你要練的不只是內容，還有節奏：每一題主動補一句機轉，把時間用滿。第二，高榮的陳理維教授愛出影片題，規則是描述在前、診斷在後，嘴巴先講出診斷就會被抓著一路電。第三，奇美的邱浩遠院長會問「確定嗎、真的嗎」，那時候不要改答案，改成補理由。
+
+準備好了嗎？我們開始。
+
+第一題。考官問：前臂受過傷的病人，現在懷疑尺神經損傷，你要怎麼分高位跟低位？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案是這樣。報告老師，最簡單、最快的單一鑑別點，是檢查無名指與小指「背側」的皮膚感覺。
+
+機轉要講出來。尺神經的 dorsal cutaneous branch 在腕橫紋近端大約 5 到 10 公分處就分出來了，走在 FCU 的深面繞到手的背側，支配手背尺側半以及環指、小指的背側皮膚。關鍵是——它不進入 Guyon's canal。所以背側感覺有缺損，病灶就在這個分支的近端，是 high lesion，像 cubital tunnel 或前臂的尺神經損傷；背側感覺完全正常、只有掌側麻，就是 low lesion，在 Guyon's canal。同理，palmar cutaneous branch 也在腕部近端分出，所以腕部的病灶也不影響 hypothenar 掌面的感覺。
+
+接著把四項對照講一遍。第一，手背尺側感覺：高位喪失、低位正常，這是最快的鑑別點。第二，FCU 與環指小指的 FDP：高位無力、低位正常，測法是固定 PIP 測 DIP 屈曲。第三，clawing 的嚴重度：高位反而比較不明顯、低位比較明顯。第四，掌側尺側一隻半手指的感覺：兩者都可能喪失。
+
+最後補加分句，也就是 ulnar paradox。位置越高的損傷，claw 反而越不明顯。原因是高位損傷連環指、小指的 FDP 都一起癱瘓，IP 沒有屈曲的力量，反而彎不起來；低位損傷時 FDP 完好，IP 的屈曲力量還在，claw 就特別明顯。臨床意義是：神經恢復的時候 FDP 會先長回來，病人的 claw 看起來反而變嚴重——那不是惡化，那是恢復的過程。
+
+這一題的地雷是：課本多寫 5 到 8 公分，邱浩遠那一關記的是 8 到 10 公分。他問「確定嗎」的時候不要改答案，改成補理由——就說重點不是那個數字，而是它在 Guyon's canal 之前就分出去了，所以我才能用它來區分高低位。
+
+第二題。考官問：前臂尺神經損傷，repair 之後三個月出現 claw hand，請用病理機轉解釋。
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案分兩層，第一層是 claw hand 本身，第二層才是真正的考點——三個月這個時間點。
+
+第一層。正常的內在肌，也就是 lumbricals 加 interossei，走在 MCP 關節的「掌側」、卻走在 IP 關節的「背側」，經由 lateral band 併入 extensor mechanism。所以它們同時做兩件事：屈曲 MCP、伸直 IP。尺神經麻痺之後，第三、第四 lumbrical 與全部的 interossei 失去功能，對環指與小指來說，MCP 的屈曲力量沒有了、IP 的伸直力量也沒有了。於是沒有被拮抗的 EDC 在 MCP 造成 hyperextension，沒有被拮抗的 FDS 與 FDP 在 IP 造成 flexion，這就是 intrinsic minus hand，也就是 claw hand，徵象名稱叫 Duchenne sign。
+
+這裡有一個惡性循環一定要講：MCP 一旦過度伸直，extensor 的力量就被消耗在 MCP 這個關節上、傳不到遠端的 IP，於是 IP 更伸不直、變形更嚴重。另外，食指與中指不會 claw，因為第一、第二 lumbrical 仍然由 median nerve 支配。
+
+第二層，為什麼是三個月。神經修補後軸突再生的速度大約 1 毫米一天，也就是一個月一英吋。從前臂的修補處到手部的內在肌距離大約 20 到 30 公分，算下來是 7 到 10 個月，再加上大約 1 個月的潛伏期，實際上要 8 到 11 個月軸突才會抵達。所以三個月的時候，內在肌其實還完全處在去神經狀態、而且已經開始萎縮；但外在肌——EDC、FDS，還有 FDP 橈側那兩條——本來就沒受損或已經先恢復了。內在肌與外在肌的力量失衡，變形就顯現出來。另外一個實務因素是：術後前幾週手被副木固定、關節不太活動，三個月時副木早就拆了、病人開始積極用手，這時變形才被注意到。
+
+結論句要講：術後三個月出現 claw hand 不代表手術失敗，而是內在肌的再神經化還沒到達的必然現象。這時候最重要的處置是用 anti-claw splint 擋住 MCP 的過度伸直，並且積極做被動運動，預防 PIP 形成固定的屈曲攣縮——因為一旦 PIP 攣縮固定，後面所有的神經或肌腱重建都會失敗。
+
+這一題有兩個地雷。第一，只答「因為神經還沒長回來」不夠，林有德要的是那個算式，你要當場算給他聽。第二，忘記講「預防 PIP 攣縮」也是他明列的失分點。給病人的加分句是：現在的變形是暫時的，但如果關節僵掉了，就會變成永久的。
+
+第三題。考官問：把尺神經的徵象講一遍，而且要邊做邊講機轉。
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案是六個徵象，只講名字一定會被追問，所以每一個都要黏上機轉。
+
+第一，Froment's sign：用拇指與食指的側面捏紙時，拇指的 IP 關節屈曲。機轉是 adductor pollicis 與第一背側骨間肌無力，病人改用 median、也就是 AIN 支配的 FPL 來代償，所以 IP 彎起來。第二，Jeanne's sign：同一個動作時拇指的 MCP 過度伸直。機轉是 adductor 無力讓 MCP 不穩，EPL 代償造成 MCP hyperextension，常常跟 Froment 併存。第三，Wartenberg's sign：小指持續外展、無法跟環指併攏。機轉是尺神經支配的第三 palmar interosseous 負責內收小指，它無力了，而橈神經支配的 EDM 有外展作用、失去對抗。第四，Duchenne's sign：環指與小指 MCP 過度伸直加上 IP 屈曲，這就是 clawing 本身。第五，André-Thomas sign：病人想用掌屈手腕的 tenodesis 效應去把手指伸直，結果反而讓 claw 更嚴重。這一個兩本教科書都有明列，優先背它。第六，Masse's sign：掌弓變平、小指掌骨無法下沉，機轉是 opponens digiti minimi 與 hypothenar 群無力萎縮。另外還可以補一個 Pitres-Testut sign：無法把中指向兩側偏移、做不出金字塔手勢，代表 interossei 無力。
+
+Masse 這一個要加一句保護自己的話：兩本教科書全文都查不到 Masse 這個字，它是臨床常用的說法，課本找不到明確出處，被追問時不要硬掰，就說這是臨床上常見的稱呼。同樣的還有 Egawa test 等於夾紙這個講法，也查不到明文，兩指相交叉的正式名稱是 crossed fingers sign。
+
+最後補一句指標肌：第一背側骨間肌是最容易目視、也最不會被其他神經代償的指標肌，萎縮時第一指蹼背側會凹陷，是 ulnar palsy 最早、最明顯的視覺徵象。
+
+這一題的地雷是：影片題看到小指外展，不要立刻喊 ulnar nerve injury。正確的次序是先描述動作 5 秒，再說「這個表現最符合 interosseous muscle 的無力，我第一個懷疑 ulnar nerve；但若合併 thenar 萎縮與拇指對掌困難，就要一併考慮 median nerve 的合併損傷」——這樣兩份答案卡你都涵蓋到了。
+
+小結一下。到這裡三題，你其實只用了三把鑰匙：手背尺側的感覺分高低位、lumbrical 走在 MCP 掌側 IP 背側解釋整個 claw、還有 1 毫米一天這個速度解釋三個月。接下來三題，全部都是「怎麼治療」。
+
+第四題。考官問：Bouvier maneuver 怎麼做？它在測什麼？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案。報告老師，在做任何 tendon transfer 之前，我一定先做 Bouvier maneuver 來分類。做法是：檢查者擋住 MCP 的過度伸直，也就是把 MCP 被動屈曲固定住，然後請病人主動伸直 PIP 與 DIP。
+
+判讀跟臨床決策才是考點。能主動伸直，叫 simple claw、或 supple claw，Bouvier 陽性，代表 extensor mechanism 本身是完好的，變形純粹來自 MCP 失去屈曲的拮抗。這種病人，我的 transfer 只需要在 MCP 產生屈曲就好，可以插到 A1 或 A2 pulley、或者插到 proximal phalanx，不需要插到 lateral band，也可以走靜態的做法。擋住 MCP 之後 IP 仍然伸不直，叫 complicated claw、complex claw，Bouvier 陰性，代表 extensor mechanism 已經失效或有續發攣縮，必須把 transfer 一路插到 lateral band，才能同時提供 IP 的伸直力量，這就要走動態的 modified Stiles-Bunnell 或 Brand。
+
+背後的原理要講：擋住 MCP 等於人工替代了 intrinsic 在 MCP 的屈曲作用，此時 extensor 的力量不再被消耗在 MCP 這個關節上，就能傳遞到遠端的 IP。所以病人能不能伸直 IP，測的其實是 extensor mechanism 的完整性。
+
+一句話定位它：它不是診斷工具，是術式分流器，決定 transfer 要不要動到 IP 的伸直機制。
+
+這一題的地雷是：Bouvier 陰性不一定就是 extensor 壞掉，要先排除 PIP 已經形成固定的屈曲攣縮——攣縮的關節是 tendon transfer 的絕對禁忌，要先復健把被動活動度做回來，再談手術。
+
+第五題。考官問：claw hand 怎麼治療？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案是四層，順序不能跳。
+
+第一層，保守治療，這一層永遠不能跳過。anti-claw splint，也就是 lumbrical bar 或 figure-of-eight splint，作用是阻擋 MCP 過度伸直，讓 extensor 的力量能傳遞到 IP，同時也是功能性輔具。它最重要的目的是預防 PIP 形成固定的屈曲攣縮，再加上積極的被動運動與 hand therapy。
+
+第二層，神經層次。壓迫性病變做 in situ decompression 或 anterior transposition；斷裂就做無張力的 primary epineurial repair；有缺損就用自體 nerve graft，以 sural nerve 為主。
+
+第三層，神經轉移，適用於損傷位置太近端、軸突來不及在終板退化之前抵達的病人。標準組合是 AIN 的末端接到 ulnar nerve 的 deep motor branch，做 supercharge end-to-side，時機是受傷後 6 到 12 個月內、越早越好。
+
+第四層才是肌腱轉移，適用於超過 12 到 18 個月、內在肌已經不可逆萎縮的病人，而且要先做 Bouvier maneuver 分類。
+
+這一題最大的地雷，是一開口就講 tendon transfer——邱浩遠明列過這一點。他的原題是「腕部掌側割傷兩三個月後出現 claw hand」，才兩個月，重點是 nerve exploration 加上修補或移植，不是 tendon transfer。順序永遠是保守、神經、神經轉移、肌腱轉移。另外有一個策略上的分水嶺要記住：受傷未滿 12 個月，先提 nerve transfer 再談 tendon transfer；超過 12 到 18 個月，直接走 tendon transfer，因為終板已經不可逆了。
+
+第六題。考官問：dynamic 的話可以轉哪一條肌腱？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案，最常用的 donor 是 FDS，三個選項要分清楚。
+
+第一，Zancolli lasso procedure，第一順位。把 FDS 從 A1 pulley 的近端拉出來，繞過 A1 pulley 之後折回來縫到自己身上，形成一個套索。收縮的時候拉緊 A1 pulley，直接在 MCP 產生屈曲。優點是手術簡單、不需要肌腱移植、不必進到手指裡面，適用於 Bouvier 陽性的 simple claw。
+
+第二，modified Stiles-Bunnell。取中指或環指的 FDS，縱向分成數束，經過 lumbrical canal 插到環指與小指的橈側 lateral band，同時提供 MCP 屈曲與 IP 伸直，適用於 Bouvier 陰性的 complex claw。注意 FDS 取太多會造成 donor 手指的 swan neck deformity，所以要保留 FDS 在中節指骨的部分止點。
+
+第三，Brand transfer，也就是 EF4T 或 EE4T，用 ECRL 或 ECRB 加上肌腱移植，經過 intermetacarpal space 或背側繞到 lateral band。
+
+靜態的做法是 Zancolli volar plate capsulodesis 或 MCP volar tenodesis，單純阻擋 MCP 過度伸直，適用於 Bouvier 陽性、活動需求不高的病人。
+
+還有三個常常一起問的 transfer 順便背起來。矯正 Froment's sign 的拇指內收無力，用 ECRB 加肌腱移植接到 adductor pollicis。矯正 Wartenberg's sign 的小指持續外展，用 EDM 的尺側半條接到小指的 A1 或 A2 pulley，或者縫到橈側的 collateral ligament。矯正食指外展無力，用 EIP 接到第一背側骨間肌。至於高位損傷造成的環指、小指 FDP 無力，就把它側縫到中指的 FDP。
+
+這一題的加分句是：合併 median 加 ulnar 損傷的時候，重建順序依 basic hand 的優先序——拇指對掌與感覺、key pinch、屈指動力、最後是感覺重建，所以 opponensplasty 是第一優先。
+
+小結一下。第四到第六題其實是一條線：Bouvier 決定插不插 lateral band，時間決定做神經還是做肌腱，而不管做哪一種，關節活動度沒有保住，全部都會失敗。剩下兩題，我們回到壓迫與神經轉移。
+
+第七題。考官問：cubital tunnel syndrome 跟 Guyon's canal syndrome 怎麼區別？治療怎麼排？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案分三段：解剖、分區、治療。
+
+Cubital tunnel 的邊界：內側是 medial epicondyle、外側是 olecranon、底部是 MCL 的後斜束與關節囊、頂部是 Osborne's ligament，也就是 cubital tunnel retinaculum，加上 FCU 兩頭之間的腱膜弓。屈肘的時候 tunnel 容積下降、內壓上升，所以症狀常常在屈肘睡覺時最嚴重。由近到遠五個壓迫點必背：第一，Arcade of Struthers；第二，medial intermuscular septum；第三，medial epicondyle 這一段的 Osborne's ligament；第四，FCU 兩頭之間；第五，deep flexor-pronator aponeurosis。
+
+Guyon's canal 的邊界：橈側是 hook of hamate、尺側是 pisiform，底部是 transverse carpal ligament 與 pisohamate ligament，頂部是 volar carpal ligament 與 palmaris brevis。三分區要背：Zone 1 在分叉之前，運動加感覺都受影響，常見原因是 ganglion 或骨折；Zone 2 是 deep motor branch，純運動，典型原因是 hook of hamate 骨折或 ganglion；Zone 3 是 superficial sensory branch，純感覺，典型原因是 ulnar artery thrombosis，也就是 hypothenar hammer syndrome。這個三分區常被稱作 Gross-Gelberman 分類，人名可以講，但課本找不到明確出處，被追問時不要硬掰，分數在內容不在人名。
+
+治療階梯，這是本題的評分關鍵。第一，保守：避免長時間屈肘與肘部壓迫、夜間伸肘副木、活動調整、NSAID，觀察 3 個月。第二，in situ simple decompression。第三，anterior transposition。第四，medial epicondylectomy。第五，只有在已經有明顯肌肉萎縮、去神經時間長的時候，才加做 AIN 轉 ulnar deep motor branch 的 supercharge end-to-side。
+
+加分的 EBM：多篇隨機試驗與 Cochrane 統合分析顯示，simple decompression 與 anterior transposition 在 cubital tunnel syndrome 的療效沒有顯著差異，而 simple decompression 併發症較少、手術較單純，所以現在的趨勢傾向 simple decompression，除非有肘關節不穩定、神經半脫位、或先前手術失敗。
+
+這一題的地雷，是陳理維明確打槍過的一句話：他說「不知道為什麼大家治療都只講 nerve transfer，應該是要先做 neurolysis 和 anterior transposition」。所以一律從保守與減壓講起，nerve transfer 只放在「已有明顯萎縮」這個條件之後。
+
+第八題。考官問：尺神經運動功能可以做什麼 nerve transfer？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案。報告老師，標準組合是把 AIN 的末端，也就是支配 pronator quadratus 的那一支，轉接到 ulnar nerve 的 deep motor branch。
+
+技術細節。在 pronator quadratus 下方切斷 AIN，在前臂遠段到中段、dorsal cutaneous branch 分出點以遠的位置，先做 internal neurolysis 把 ulnar nerve 的 motor fascicle 與 sensory fascicle 分開。這裡有一個一定要講對的解剖：在這個層面，motor fascicle 位於「尺側」、main sensory 位於「橈側」，尺神經由內側往橈側的排列是 sensory、motor、sensory，橈側的感覺部大約佔六成、內側的運動部大約四成。分開之後再把 AIN 的末端接到 motor fascicle 上。不要背幾公分這種死數字，改講解剖關係。
+
+吻合型式看近端會不會恢復。近端已經完全斷裂、不預期自行恢復，做 end-to-end；近端仍在再生、或屬於不預期完全恢復的部分損傷，做 supercharge end-to-side。單純的 neurapraxia 會完全自行恢復，不適用。
+
+SETS 的概念叫 babysitter：在近端修補的軸突還沒長到手部之前，先由 AIN 提供軸突去「養」運動終板，讓終板不要在等待期間退化死掉；等近端的軸突終於抵達，終板還活著，就還能被重新接管。
+
+為什麼 donor 選 AIN，三個理由。第一，距離：它的末端支就在腕部附近，位置緊鄰受贈的 ulnar nerve。第二，犧牲代價極小：犧牲 pronator quadratus 之後，前臂旋前的主力 pronator teres 仍然完好。第三，軸突數目匹配：文獻報告兩者相近，AIN 到 PQ 的分支大約 900 到 1000 條，deep motor branch 大約 1000 到 1200 條——這組數字是文獻報告、不是課本明文，被追問時就說「文獻報告兩者相近」，不要硬掰出處。
+
+時機是受傷後 6 到 12 個月內、越早越好；超過 12 到 18 個月，運動終板已經不可逆退化，任何神經手術都無效，只能做肌腱轉移。感覺的部分也可以做：把 median nerve 的第三 common digital nerve 用 end-to-side 接到 ulnar nerve 的 sensory branch，恢復小指與環指尺側的保護性感覺。
+
+最後把 nerve transfer 的五大原則收尾：第一，donor 要純運動、功能可犧牲；第二，越靠近 target 越好，因為縮短再生距離；第三，donor 與 recipient 最好有協同性，有助於術後再學習；第四，時間窗，運動終板大約 12 到 18 個月不可逆；第五，end-to-side supercharge 可以用來保住終板。
+
+這一題的地雷是：只答術式名字、不會講時機與機轉。林有德這三題是一條邏輯鏈——先問再生速度，再問 AIN 最末端的肌肉，再問可以做什麼 nerve transfer。問到 AIN 最末端肌肉的時候，千萬不要只答 pronator quadratus 三個字就停，立刻補三個臨床意義：它是 AIN 最末端分支，所以 AIN syndrome 的 EMG 上 PQ 的異常最敏感；正因為在最末端、位置就在腕部，所以是 nerve transfer 最理想的 donor；犧牲代價極小。
+
+好，本集結束前，用 60 秒複誦本集必背的數字，一個一個唸，跟著我唸一遍。
+
+Dorsal cutaneous branch 在腕橫紋近端 5 到 10 公分分出，課本多寫 5 到 8 公分，考生回憶版是 8 到 10 公分。
+軸突再生速度 1 毫米一天，等於一個月一英吋。
+前臂修補處到手內在肌 20 到 30 公分，除下來 7 到 10 個月，加 1 個月潛伏期，實際 8 到 11 個月。
+運動終板 12 到 18 個月不可逆，這是神經手術與肌腱手術的分水嶺。
+Nerve transfer 的時機：受傷後 6 到 12 個月內、越早越好。
+尺神經的 motor fascicle 在尺側、sensory 在橈側，感覺約六成、運動約四成。
+AIN 到 PQ 約 900 到 1000 條軸突，ulnar deep motor branch 約 1000 到 1200 條，這是文獻報告不是課本明文。
+Cubital tunnel 五個壓迫點：Arcade of Struthers、medial intermuscular septum、Osborne's ligament、FCU 兩頭之間、deep flexor-pronator aponeurosis。
+Guyon's canal 三區：Zone 1 運動加感覺、Zone 2 純運動、Zone 3 純感覺。
+Cubital tunnel 保守觀察 3 個月再考慮手術。
+尺神經損傷造成 14.5 條內在肌無力，那個 0.5 是 flexor pollicis brevis 只有深頭受 ulnar 支配。
+
+下一集我們練手外科下半場：正中神經與橈神經。內容包括正中神經的支配清單、手內在肌的完整清單、腕隧道對 AIN 對 pronator syndrome 的鑑別、拇指對掌與 opponensplasty、垂腕與 PIN syndrome、橈神經麻痺的三套肌腱轉移組合，還有周邊神經損傷的分級與修補原則。在那之前，今天這八題請至少再走一遍，特別是 8 到 11 個月那個算式，還有「保守、神經、神經轉移、肌腱轉移」這個順序。我們下集見。

@@ -1,0 +1,250 @@
+第八集，顱顏第二場：顏面骨折與顏面神經。
+
+本集會練十題：ZMC 的四腳架與四個接合、全顏面骨折的重建順序、下顎骨折與髁突的 benign neglect、Le Fort 三型、NOE 與額竇骨折、外傷後下眼瞼瘢痕性外翻的重建、鼻淚管損傷與阻塞、外傷後顏面神經麻痺、顏面神經的解剖與分枝，最後是患者專屬植入物與虛擬手術規劃。
+
+先記住三句貫穿全集的話。第一，顏面骨折的復位原則永遠是同一句：先建立可靠的參考點，再依序恢復臉部的寬度、高度、前突度。第二，這一集有三個「不要」：不要說 tripod、不要只背一種重建順序、不要說轉給眼科。第三，只要考官問到「所有參考點都壞掉了怎麼辦」，你的答案是虛擬手術規劃，用健側鏡像把參考點還給你。
+
+考場情報。新光林育賢 2025 年抽籤直球問 panfacial 的重建順序，只背一組順序而不知道有爭議，會被追問打回。李經維 107 年的四號題公認最恐怖：雙側下顎 body fracture 加缺牙，只講 MMF 加 arch bar 就停住一定被追問；他的專長是 CAD/CAM 做正顎手術，主動端出 3D 列印是加分牌；而他問鼻淚管那題時，有考生小聲說「轉給眼科」，被念了一句「就是轉給其他科，所以你們才都不會開」。陳天牧的 109 年照片題會要求當場畫圖，練到 20 秒能畫出來。
+
+準備好了嗎？我們開始。
+
+
+第一題。考官問：這張 CT 你自己捲，說出診斷，然後告訴我要固定哪些地方。
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+診斷先講：右側 zygomaticomaxillary complex fracture，也就是 ZMC fracture，舊稱 tripod fracture，其實是 tetrapod、四個接合，因為顴弓那一個接合常被遺忘。主動說出這個名詞更迭就是加分。
+
+臨床表現：顴骨扁平與顏面不對稱、眶周瘀青與 subconjunctival hemorrhage 而且後界看不到、眶下神經 V2 的感覺喪失、眶下緣與 ZF 處摸得到 step-off、還有開口受限的 trismus。trismus 的機轉一定要講：內陷的顴弓壓迫 coronoid process，那是機械性阻擋，不是咬合改變。合併眶底骨折時再加複視與 enophthalmos。
+
+四個接合請背熟。第一，zygomaticofrontal suture，位置在眶外緣。第二，zygomaticomaxillary buttress，是上顎竇的前外側支柱，決定臉部的垂直高度。第三，zygomaticosphenoid suture，在眶外側壁、與蝶骨大翼相接，這一個最重要，它是判斷復位是否正確的最佳指標，因為它是三維方向上最敏感的對合面。第四，zygomaticotemporal suture，也就是顴弓。
+
+跟 Le Fort 怎麼區分？看有沒有累及翼板：三型 Le Fort 都會通過 pterygoid plate 而且影響咬合，ZMC 不累及翼板，也不直接影響咬合。
+
+分類可以講 Knight and North 六型，依移位與旋轉；還有 Zingg 分型，A 是單一成分、B 是完整四點骨折、C 是粉碎。但這兩套在兩本主要教科書正文都沒有描述，是記憶點、不是課本明文，講可以，不要說是課本寫的。
+
+固定原則：兩點固定，也就是 ZF 加 ZM buttress，最常用；三點再加眶下緣，用於較不穩定者；四點再加顴弓，需要 coronal 切口，用於嚴重粉碎、需要精確恢復臉部寬度與顴骨前突度者。顴弓要不要開 coronal？要區分 reduction 與 fixation：顴弓的復位可以經口內的 Keen、Dingman 撬子，或 Gillies temporal approach 完成；顴弓通常不上固定物，只有複雜粉碎必須上鋼板時才非 coronal 不可。Gillies 的層次也備好：切口在顳部髮際內，切過 temporoparietal fascia 與 deep temporal fascia，在顳肌表面推進，避開顏面神經額枝。
+
+各接合的入路，原則就是暴露我要固定的那個接合處。ZF suture 走 lateral eyebrow 或上眼皮重瞼切口；ZM buttress 走口內 maxillary vestibular 切口，留 5 毫米以上黏膜袖口；眶下緣與眶底走 transconjunctival，必要時加 lateral canthotomy。
+
+時機：最好在受傷後 2 週內，超過 2 週會形成 preliminary callus，需要 osteotomy 才能復位。
+
+這一題的地雷是：講成 tripod、忘記 zygomaticosphenoid suture、以及用外觀判斷復位夠不夠。收尾用這句結構句：顏面骨折的復位原則是先建立可靠的參考點，再依序恢復臉寬、高度、前突；顴弓決定寬度與前突、ZM buttress 決定垂直高度、ZS suture 是驗證三維復位的最佳窗口。
+
+
+第二題。考官問：Panfacial fracture 要怎麼處理？重建順序是什麼？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+這題的高分結構是三段：先講原則，再講爭議，最後給現代主流。
+
+定義先給：panfacial fracture 是同時侵犯上面部的額骨與額竇、中面部的眶鼻上顎顴骨、與下面部的下顎，至少兩到三個區域的複合性骨折。因為所有可以互相參照的解剖標記都同時被破壞了，所以核心問題不是「怎麼固定」，而是「我要從哪一個還可靠的參考點開始」。
+
+第一原則，先救命再救臉。依 ATLS 完成 primary survey，氣道最優先，因為中臉骨折、口底血腫、雙側下顎骨折後的舌根後墜都會塌陷氣道；多數 panfacial 需要氣管切開或 submental intubation，因為既要口內咬合、又要固定鼻部，經口插管會擋住咬合、經鼻插管在中臉與顱底骨折是禁忌。控制出血用前後鼻腔填塞，無效則做血管栓塞，主要出血來源是 internal maxillary artery。手術通常在生命徵象穩定、腦壓可控後的 24 小時到 2 週內進行，超過 2 到 3 週骨頭開始癒合，復位會非常困難。
+
+第二原則，完整暴露。coronal 切口處理上面部、眶外側壁與顴弓，下眼瞼入路處理眶緣與眶底，口內上下齒槽溝切口處理上下顎，必要時利用既有的撕裂傷。沒有充分暴露就談不上正確復位。
+
+第三原則，四個維度：臉部寬度、臉部高度、前後投影、咬合關係。臉部寬度最容易被做壞、也最難補救，panfacial 最常見的醫源性畸形就是臉變太寬、太扁。決定寬度的關鍵是顴弓，要恢復它的弧度而不是把它拉直，還有下顎的髁突間距與升支角度。
+
+第四原則是順序，兩組軸線、四個名詞，全部都要講出來。垂直軸線：bottom-up 是先從下顎開始、用咬合建立整個顏面的基座，再往上；top-down 是先從最穩定的顱骨與額骨帶開始，往下重建到咬合。水平軸線：outside-in 是先固定周邊相對完整的支柱，額骨帶、顴弓、下顎升支與角部，把臉的外框定出來，再處理中央的鼻、NOE 與上顎；inside-out 是先從中央的咬合與顎部開始，再往周邊擴散。
+
+爭議與演變：早期 Gruss 與 Manson 的年代主張 top-down、outside-in，因為顱骨與額骨帶是最不會動的參考點；後來鐘擺盪向 bottom-up、inside-out，因為咬合是顏面唯一可以被病人自己驗證的功能性參考點，這也帶動了髁突骨折在 panfacial 中被更積極 ORIF。現代主流是：有一派明確寫出各種順序之間沒有強力證據顯示誰優於誰，真正的原則是從你手上最可靠、最完整的那一段骨頭開始，把已知擴展到未知。但要知道版本差異：另一本主教科書至今仍教 top-down、outside-in，若考官手上是那一版，順著他走。不要把「沒有固定順序」掛在兩本書的共同名下。
+
+最後給你自己的執行版本，bottom-up 加 outside-in 混合，七步：第一，復位固定下顎，含髁突與升支，恢復下顎寬度與後臉高度。第二，用 MMF 或 arch bar 建立咬合，當中面部的模板。第三，固定中臉的垂直支柱，ZM 與 nasomaxillary buttress。第四，顴骨與顴弓復位，用 ZS suture 驗證。第五，骨架穩定之後才做眶底與眶壁重建。第六，NOE 與鼻部，transnasal wiring 的鉤點要在後上方。第七，軟組織再懸吊，這一步最常被忘記：內外眥韌帶、SMAS 與骨膜、mentalis 都要再懸吊，否則會出現 witch's chin。
+
+兩個追問先備好。下顎也粉碎到不能當參考怎麼辦？改走 top-down，從額骨帶與顱底這個不會動的參考出發，或用虛擬手術規劃以健側鏡像產生參考。上顎也有 palate fracture 怎麼辦？先建立上顎 arch width 的穩定，用 palatal plate 或 splint、transpalatal 固定，上顎穩定之後它才能成為下顎復位的基準，改變順序，而不是多加一塊板子。
+
+後遺症一併準備：臉變寬變扁、眼球內陷、咬合不正、鞍鼻、telecanthus、軟組織下垂。現代輔助留到第十題一起講。
+
+
+第三題。考官問：雙側下顎 body fracture，口內牙齒上下錯位，而且這個病人有缺牙。你要怎麼處理？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+這是李經維 107 年公認最恐怖的一題。
+
+評估先講：malocclusion，病人自己說「咬起來怪怪的」是最敏感的指標，即使外觀看不出來也要相信病人；再加 step deformity、疼痛、開口受限、下唇麻，那是 inferior alveolar nerve；口內可見牙齦撕裂與 mobile segment、口底血腫。影像用 Panorex 加 facial bone CT with 3D reconstruction。這裡要主動講一句安全：雙側 body fracture 屬於 unstable pattern，suprahyoid 肌群會把中間的 segment 往下後拉，有 airway compromise 的風險。
+
+核心原則是 occlusion first：先恢復咬合，再做骨折固定。第一步建立 maxillomandibular fixation，標準是上下顎放 Erich arch bar 加 26 號鋼絲，或用 IMF screw、hybrid arch bar。MMF 綁多久？不超過 4 到 6 週，否則有顳顎關節僵直的風險。
+
+固定用 Champy's principle，張力帶理論。mental foramen 前方，也就是 symphysis 與 parasymphysis，有 torsional force，需要上下兩支 miniplate，間距大於 5 毫米；mental foramen 後方到 angle 只有上緣的張力，上緣一支 Champy plate 就是 functionally stable；subcondylar 用兩支 miniplate 或 condylar plate；粉碎或缺損則用 load-bearing reconstruction plate。注意「兩支間距大於 5 毫米」是記憶點、非課本明文。
+
+現在講缺牙的難題，這是他一定會追問的地方。arch bar 必須靠足夠數量且穩固的牙齒作 anchorage 與力學分散；當齒列有缺損或全無牙，arch bar 會鬆脫、無法傳遞力量，也沒有可靠的咬合面可以對位。這時要做 splint，但兩種 splint 一定要分開講，它們不是同一個東西。第一，Gunning splint 是義齒型咬合板，用病人自己的假牙或製作類假牙的壓克力 splint，替代缺失的牙列、提供咬合面，讓無牙病人也能執行 MMF。第二，lingual splint 是貼合下顎齒槽骨舌側面的壓克力 splint，以 circummandibular wire 固定，維持下顎 arch 的寬度與弧形基準，防止雙側 body fracture 造成的 lingual splaying。
+
+製作步驟五步：取上下顎印模，灌石膏模型做 model surgery，把骨折 segment 在模型上復位到正確的 arch form 與咬合，依模型製作壓克力 splint，術中就位以 circummandibular wire 或螺絲固定，再配合 ORIF。
+
+現代立場一定要補上：無牙下顎，尤其中度到重度萎縮，以 load-bearing reconstruction plate 固定為主，必要時一期植骨，不要只停在 splint。
+
+再追問：如果合併 palate fracture，還能做 lingual splint 嗎？不行。理由一句話：因為沒有一個基準點可以去對咬合。完整版是：lingual splint 的參考基準是完整的上顎 arch 與咬合面，當上顎本身有 palatal split，上顎 arch 的寬度與位置本身就是浮動、不可信的，用一個不穩定的基準去對位另一個不穩定的結構，怎麼做都是錯的。正解不是加一塊板子，而是改變順序：先把 palatal fracture 復位、用 palatal plate 或 transpalatal 固定，恢復上顎 arch width，上顎穩定之後才能成為下顎復位的基準，也就是由上而下建立參考。李經維本人的結語是：有些醫院 routine 做 lingual splint，但這種合併上下顎骨折的，最後結果一定不好。
+
+加分牌主動端出來：用 CT 做虛擬手術規劃，在電腦上把上下顎 segment 一起虛擬復位，3D 列印出 patient-specific occlusal splint 與 cutting、positioning guide，甚至 patient-specific plate，不再依賴一個已經破碎的解剖基準，而是回到病人受傷前的原始 arch form。
+
+最後補一句關創注意事項：symphysis 入路關創時要把 mentalis 重新懸吊，否則會 witch's chin。
+
+
+小結一下前三題。三題其實是同一條邏輯：ZMC 教你「參考點是 ZS suture」；panfacial 教你「參考點壞掉時怎麼重新建立」；下顎缺牙加 palate fracture 教你「參考點不可信時要改變順序，而不是多加固定物」。只要抓住「參考點」這三個字，這三題就是同一題。
+
+
+第四題。考官問：髁突骨折你要保守還是開刀？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+這一題不要只答一邊，兩邊的適用範疇都要講出來，這正是現代化的關鍵題。
+
+保守，也就是 benign neglect 的適用範圍：第一，兒童的髁突骨折，因為髁突是生長中心、改建潛能極強，關節內損傷一律保守；第二，成人無明顯移位、咬合正常者。做法是軟食、短期或不使用 IMF、早期功能運動與密切追蹤，目的是避免長期固定造成關節僵直與生長干擾。補一個具體數字：高位或關節內骨折即使做閉鎖復位，IMF 也不超過 14 天，之後早期活動。
+
+ORIF 的適用範圍：成人髁突基部骨折合併咬合不正、下顎升支高度喪失、開口偏移，雙側髁突骨折合併前開咬，或在 panfacial 中需要靠髁突恢復後臉高度與下顎寬度者。量化門檻可以加分：髁突軸角度大於 30 度、fracture gap 大於 4 毫米、lateral override 合併升支縮短。
+
+EBM 的底氣講這一句：開放與閉鎖復位在 6 個月時有差異，但 2 年後沒有顯著差異。這句話拿來支撐保守分流最有力。
+
+收尾金句：benign neglect 不是不管，而是以功能為終點的積極追蹤；咬合與開口一旦跑掉，就要改走 ORIF。
+
+這一題的地雷是：只答「保守」或只答「開刀」。現在的考官要看的是分流，不是立場。
+
+
+第五題。考官問：Le Fort 三型怎麼分？NOE 跟額竇骨折又怎麼看？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+Le Fort 先講三型。Le Fort I，又叫 Guerin fracture、horizontal fracture，是上顎齒槽骨段與上顎骨體分離，骨折線橫過梨狀孔下方、上顎竇前外側壁與翼板；臨床上做上顎搖動測試時，只有齒槽段會動、鼻根不動。Le Fort II 是 pyramidal fracture，骨折線經鼻額縫、眶內側壁與眶底、眶下緣、ZM buttress、翼板；搖動時鼻根跟著動，常見腦脊髓液鼻漏與眶下神經麻木。Le Fort III 是 craniofacial disjunction，經鼻額縫、眶內側壁、眶底、ZF suture、顴弓、翼板，整個顏面與顱底分離；搖動時整個中臉連顴骨一起動。
+
+一句必背：三型都會通過 pterygoid plate，這是與 ZMC 骨折最大的區別。palate fracture 方面，palatal split 幾乎都伴隨 Le Fort I 級的上顎骨折，要當成複合型處理；medial pterygoid 會把齒槽骨段往下外拉，臨床上出現第三類咬合、anterior open bite、臼齒早接觸。不要講成「一定合併」的絕對句。
+
+NOE fracture 用 Markowitz 分型，第一型到第三型，依據是內眥韌帶與骨塊的關係：第一型是單一大骨塊、韌帶附著完整；第二型是粉碎但韌帶仍附著在可辨識的骨片上；第三型是粉碎且韌帶自骨片撕脫，必須做 transnasal wiring。檢查用 bowstring test，向外牽拉眼角同時觸診內眥韌帶在骨面的附著點有沒有鬆動，再加 bimanual palpation，一手器械經鼻內、一手在內眥外觸診。名詞要分清楚：telecanthus 是內眥間距過寬但骨性眶距正常，是軟組織與韌帶的問題；hypertelorism 是骨性眶距真的變寬，多為先天。外傷後絕大多數是 telecanthus。正常 intercanthal distance 一般引用 30 到 34 毫米，但這是記憶點、非課本明文，被問就說「一般引用 30 到 34 毫米，實際以與健側對照為準」。治療要點：transnasal wiring 的鉤點必須在淚囊窩的後上方，放太前面會把內眥拉向前下，外觀反而更差。
+
+額竇骨折看三件事：前壁、後壁、還有 fronto-nasal duct，也就是 outflow tract。duct 是否受損是決定術式的關鍵。duct 完整、只有前壁移位，就復位固定；duct 受損，做 obliteration，徹底去除黏膜後填塞；後壁粉碎、硬腦膜破損或有腦脊髓液漏，做 cranialization，也就是顱腔化：移除後壁與所有黏膜、封閉 nasofrontal duct、以 pericranial flap 隔開顱腔與鼻腔。晚期併發症要記得：多年後眉上出現腫塊，想 fronto-ethmoidal mucocele 或 mucopyocele，處理是 cranialization 或 marsupialization；也可能出現腦膜炎與腦膿瘍。
+
+
+第六題。考官問：這是一位陳舊外傷後嚴重疤痕造成的下眼瞼外翻，release 之後從皮膚一路到骨頭都是缺損。你怎麼重建？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+先把金句講出來，陳天牧聽到會很高興：在臉上重建要捨遠求近。
+
+然後拆層次：把 defect 拆成 posterior lamella，也就是結膜與黏膜，跟 anterior lamella，也就是皮膚與皮下，分層重建，而且順序上先做後層。
+
+後層用 hard palate mucoperiosteal graft 當 spacer graft。理由是它同時提供黏膜襯裡與結構支撐，厚度與韌性接近 tarsus，而且供區讓它二期癒合就好，不需另外處理。量小的時候 buccal mucosa 也可以，但缺乏支撐力，也可以用耳軟骨。這一組合是記憶點、非課本明文。
+
+前層為什麼不能植皮？因為 scar release 之後，眶下緣附近直接就是骨頭外露、沒有血管化的 bed；即使勉強植皮也量不夠，而且極容易再攣縮復發。所以必須用 local flap，我的選擇是 nasolabial flap。設計要講得出來：取 cephalad-based，也就是 reverse 的 distal nasolabial flap，pivot point 設在靠近 medial canthus 的上方，是 high pivot point，沿著 nasolabial fold 取瓣，可以取得很長的皮瓣，厚度、顏色與質地都跟下眼瞼相配，供區順著皺褶關起來其實不難看。陳天牧 109 年會要求當場畫圖，要練到 20 秒能畫出來。
+
+最後一步是張力：做 snap-back test 與 lower lid distraction test，如果下瞼的水平張力仍然不足，加做 canthopexy 或 lateral canthoplasty，也就是 tarsal strip 支撐，否則會再度外翻。術後用 frost suture 或暫時性 tarsorrhaphy 維持過度矯正，再加副木、壓力治療、矽膠片與長期追蹤。
+
+六個會被當場打槍的答案請記住，一個都不要講：全層植皮，他會說「切開後直接到骨頭、沒辦法植皮」；脂肪或真皮脂肪移植，他說「沒辦法」；上眼皮的 Fricke flap，「那太薄了」；Mustardé cheek flap，「要翻很大、疤不好看」；forehead 或 Juri flap，「會帶到頭髮」；free flap，「不考慮不考慮」。
+
+但要注意分岔。陳宏基 2025 年從燒傷後的 ectropion 問同一個重建問題，他的答案是鬆解加植皮就夠，因為大多數燒傷性 ectropion 只是前層皮膚不足、底下仍有健康軟組織。所以判準不是哪個答案對，而是「release 之後底下是什麼」：有血循良好的床就植皮，直接是骨頭或反覆攣縮就走 local flap。先講這個判準再給答案，兩位考官都不會扣你分。
+
+
+小結一下第四到第六題。髁突骨折要給分流不要給立場；Le Fort 記住三型都過翼板、NOE 記住 Markowitz 看的是內眥韌帶、額竇記住 outflow tract 決定術式；下眼瞼外翻記住兩句話，「捨遠求近」跟「release 之後底下是什麼」。
+
+
+第七題。考官問：這位病人 zygomatic fracture 開完刀回診，說用力閉眼的時候，眼睛內側會擠出白色的分泌物。你的診斷是什麼？怎麼治療？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+這個表現是內眥處用力閉眼時有 mucopurulent regurgitation，也就是 lacrimal sac 的 regurgitation test 陽性。診斷是 nasolacrimal duct obstruction 或 injury，合併慢性淚囊炎或 lacrimal sac mucocele。加分句先給：只要壓 sac 有 regurgitation，阻塞一定在 sac 以下，也就是 NLD level，這是決定要不要做 DCR 的關鍵理學檢查。
+
+解剖路徑要背出來：淚液由上下各一的 lacrimal punctum，進入上下 canaliculus，每條約 8 到 10 毫米，先垂直 2 毫米再水平走；匯成 common canaliculus，經 valve of Rosenmüller 進入 lacrimal sac，sac 位於前後 lacrimal crest 圍成的 lacrimal fossa；再往下是 nasolacrimal duct，長約 12 到 18 毫米的骨性管道，往下、後、外走；開口在 inferior meatus，也就是下鼻甲下方的外側壁，開口處有 valve of Hasner。這些長度是記憶點、非課本明文。
+
+分泌物的成分他會追問。正常淚膜是三層：外層 lipid，來自 Meibomian gland，防蒸發；中層 aqueous，來自淚腺，含 lysozyme、lactoferrin、IgA 與電解質；內層 mucin，來自結膜的 goblet cell，讓淚膜貼附角膜。但本例壓出來的白色濃稠分泌物不是單純淚液，而是滯留在 sac 內的 mucin 加上脫落上皮、白血球與細菌，也就是 mucopurulent discharge；用力閉眼時 orbicularis 的 lacrimal part 擠壓 sac，就逆流回 punctum。白色分泌物一定是感染嗎？不一定，單純阻塞形成的 mucocele 內容物可以是無菌黏液，繼發細菌感染才叫 dacryocystitis，以有沒有紅腫熱痛與發燒來區分；急性 dacryocystitis 不宜立刻做 DCR，先用抗生素控制。
+
+為什麼 ZMC 手術會傷到它？因為 medial buttress 與 lacrimal fossa 相鄰，過度剝離內眥區、螺絲位置太靠內、或 medial orbital wall 的操作，都可能直接壓迫或斷裂 NLD。
+
+治療階梯四層。第一，診斷性檢查：lacrimal irrigation 與 probing，確認阻塞在 canalicular 還是 NLD level，再加 dacryocystography 或 CT 看骨性管道有沒有 disruption。第二，急性期或不完全阻塞：抗生素控制，加 probing 與矽膠 stent，也就是 Crawford tube，留置 3 到 6 個月。第三，完全阻塞或反覆感染：做 dacryocystorhinostomy，在 lacrimal sac 與中鼻道之間做一個新的骨窗，把 sac 黏膜與鼻黏膜縫成 anastomosis；external DCR 成功率最高，大約 90 到 95%，endoscopic endonasal DCR 沒有外部疤痕。第四，如果 canaliculus 也毀損無法重建，做 CDCR 加 Jones tube。
+
+這一題最大的地雷只有一句：絕對不要說「轉給眼科」。正確講法是：這是整形外科在處理顏面骨折時造成的併發症，DCR 是整形外科可以而且應該執行的手術；我會自己做 lacrimal irrigation 與 probing 定位、安排 DCR，必要時再與眼科共同照護。如果能再提一句「用 nasal mucoperiosteal flap 加大 anastomosis、降低 ostium 再狹窄」，會非常加分，因為李主任本人有相關論文。用詞加分句：epiphora 是溢淚、discharge 是分泌物，兩個詞不要混用。
+
+
+第八題。考官問：車禍顏面骨折之後，病人右眼閉不起來、也不能微笑。你的診斷、檢查、治療是什麼？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+診斷是外傷後的周邊型顏面神經麻痺。但這一題的贏法不是診斷，是先分兩軸。第一軸，開放性，也就是穿刺、撕裂或手術中斷裂，還是閉鎖性，也就是顳骨骨折或鈍挫傷。第二軸，立即發作還是延遲發作。立即發作加上完全麻痺，代表神經斷裂的可能性高，是探查手術的指標；延遲發作多為水腫，預後好。
+
+檢查三項。第一，神經傳導與肌電圖，傷後大約 3 到 4 週才較能確診，因為 Wallerian degeneration 需要時間顯現，早期做是為了取得 baseline。第二，顳骨薄切 CT 找顳骨骨折；longitudinal fracture 比較常見，大約 70 到 90%，但顏面麻痺率低、大約 20%，預後好；transverse fracture 比較少，大約 10 到 30%，但麻痺率高、大約 40%，預後差。第三，聽力學檢查，再加 ENoG 評估退化比例。
+
+治療階梯五步。第一，骨折優先處理，先給高劑量 steroid。第二，無效、或完全麻痺且 ENoG 顯示退化超過 90%，考慮顏面神經減壓或探查。第三，有近端殘端，做 cable nerve graft，donor 首選 great auricular nerve，因為它就在術野內，或用 sural nerve。第四，近端不可用，用同側的 masseteric nerve，也就是第五對腦神經第三分支，或 hypoglossal，現在多用 XII 到 VII 的 jump graft，當作 babysitter；同時加對側的 cross-face nerve graft。第五，時間拖太久、肌肉已經纖維化，超過 12 到 18 個月運動終板不可逆，就走 functional free muscle transfer，用 gracilis。
+
+babysitter 的定義要講得清楚：在等待 cross-face nerve graft 的軸突長過來的期間，軸突到達受傷側大約需要 8 到 12 個月，若分兩階段抵達神經肌肉終板還要再多幾個月，這段期間先用一條近、強、可犧牲的 donor，masseteric 或 hypoglossal，暫時支配顏面肌，維持神經肌肉終板不退化，等 cross-face 的軸突到達之後，再由它提供自發性的笑。補一句：單靠 cross-face nerve graft 一種方式並不被建議。
+
+Nerve transfer 的三個條件：有功能的 donor nerve、完整的傳導路徑、肌肉機械上完整且去神經時間小於 18 個月。gracilis 用什麼驅動？cross-face nerve graft 笑容最自然、最自發，但力量較弱、需要二期；masseteric nerve 力量強、恢復快、單期，但需要 bite-smile 再學習。masseteric nerve 怎麼定位？在下方 mandibular notch、上方顴弓、後方髁突、前方 coronoid process 圍成的三角區內尋找。
+
+眼睛保護永遠優先，這一段要主動講：人工淚液、夜間眼藥膏、moisture chamber、tarsorrhaphy、上眼瞼金片、下瞼緊縮的 lateral tarsal strip、靜態懸吊。
+
+如果考官給的是 parotid 手術後、下唇歪掉的影片，那是孤立性的 marginal mandibular palsy。現代首選是對側的化學去神經，也就是在健側的 depressor labii inferioris 打肉毒，讓健側也不要下拉，達成動態對稱；優點是可逆、微創，而且可以先當試驗讓病人決定要不要做永久手術。病人要永久解就做對側 depressor labii inferioris 的 myectomy，另外還有 digastric 前腹轉位，以及時間窗允許時的 cross-face nerve graft。加分句：病人的主訴是「我笑起來歪掉」而不是「下唇不能動」，因為靜態是對稱的，所以評估要請病人做全齒微笑或發「一」的音。
+
+這一題的地雷是：一開口就說「探查修補」。107 年考官強調過，這是 close injury，神經多半沒有斷，不能 explore and repair，閉鎖性損傷先走保守與 steroid。
+
+
+第九題。考官問：把 facial nerve 的分枝背出來。
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+顏面神經出 stylomastoid foramen 之後，進入腮腺之前先發出三條：posterior auricular nerve、nerve to posterior belly of digastric、nerve to stylohyoid。
+
+進入腮腺後，在 pes anserinus，也就是鵝足，分成上下兩大幹，上幹是 temporofacial、下幹是 cervicofacial，再分出五大終末分支：temporal 也叫 frontal、zygomatic、buccal、marginal mandibular、cervical，口訣是 To Zanzibar By Motor Car。
+
+三個必考細節。第一，temporal branch 走 Pitanguy's line，從耳屏下方 0.5 公分連到外側眉毛上方 1.5 公分；它離開腮腺後走在 parotidomasseteric fascia 深面，到顴弓上方大約 1 到 2 公分處改由 temporoparietal fascia 覆蓋，所以拉皮與 coronal approach 的剝離要在這層筋膜的淺面或深面明確選層。Pitanguy's line 的兩個公分數是記憶點、非課本明文。第二，temporal 與 marginal mandibular 是側枝吻合最少、受傷後最不會恢復的兩條；這一句是記憶點，有課本背書的反向敘述是：buccal 與 zygomatic 之間吻合豐富、常共用運動終點，單獨切斷一條通常不會造成明顯無力。第三，marginal mandibular 特別容易在腮腺手術與下顎手術受傷，因為它側枝吻合最少、走行表淺、在年長者可以低於下顎緣 1 到 2 公分，又緊鄰要切除的 level Ib 淋巴結。
+
+Great auricular nerve 也要準備，它是拉皮與腮腺手術最常受傷的感覺神經，來自 C2 到 C3，是頸叢最大的皮支，走在胸鎖乳突肌表面、external jugular vein 後方約 1 公分，損傷造成耳垂永久麻木，而且它是最常用的 nerve graft donor。定位講 McKinney's point：從骨性外耳道的下緣沿胸鎖乳突肌表面往下 6.5 公分。這裡有一個必須避開的錯誤：Erb's point 是胸鎖乳突肌後緣的中點，以解剖界標定義，不以公分數定義。所以你自己絕對不要講「Erb's point 距耳屏 6.5 公分」；如果考官這樣講，順著他的定位走，不要當場糾正。
+
+再補兩個實用點。第一，表情肌絕大多數由深面被支配，所以 SMAS 淺層剝離相對安全；例外只有 mentalis、levator anguli oris、buccinator 三條，位在最深層，是唯一由淺面被支配的。第二，腮腺深淺葉怎麼分？retromandibular vein 就在顏面神經平面的深部，可當替代分界：腫瘤在它外側是 superficial lobe，內側是 deep lobe。這是李經維要的實用答案。
+
+
+第十題。考官問：所有的解剖參考點都被破壞了，現代有什麼工具可以幫你？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+答案是虛擬手術規劃與患者專屬植入物。一句話定位：panfacial 就像一盒沒有盒蓋的拼圖，虛擬手術規劃等於把盒蓋還給你。
+
+完整流程六步。第一，CT 的 DICOM 取像，薄切、建議 1 毫米以下。第二，3D 重建與骨塊分割。第三，以健側鏡像產生目標形態，或以受傷前影像、統計模型為參考。第四，虛擬復位與植入物設計。第五，3D 列印出模型、cutting 與 positioning guide，以及 patient-specific implant。第六，術中導航或術中電腦斷層驗證。
+
+適應症五項：外傷後的眼眶重建，尤其是延遲重建與 enophthalmos 矯正；大範圍或多壁的眼眶缺損，因為單靠預彎鈦網很難重現眶內側後方的 S 型隆起；顏面不對稱與二次重建；panfacial 中所有參考點都不可信時；還有下顎骨折合併缺牙或上顎不穩定時，3D 列印 patient-specific occlusal splint，回到病人受傷前的原始 arch form。
+
+優點是精準、縮短手術時間、減少殘留的 enophthalmos、可術前與病人溝通、可術中即時驗證。缺點主動講：成本高、需要製作時間所以不適合急診，而且高度依賴影像品質與健側是否完好。兩側都壞掉怎麼辦？改用受傷前影像，或統計形態模型與對稱化演算法；再不行就退回傳統原則，從最可靠的那一段骨頭出發。材料多為鈦的客製 mesh 或 plate，或 PEEK；靠近鼻竇等含氣腔、或感染風險高的區域不用聚合物，回到自體骨或鈦。
+
+最後一句：術中 CT 在 panfacial 特別有價值，它讓你在關傷口之前就知道顴弓復位夠不夠、眶容積對不對。
+
+這一題是加分牌，而且是三位考官共同的按鈕：陳志豪的研究主軸就是 PSI，陳天牧會自己講起 3D 列印，李經維本人專長是 CAD/CAM 做正顎手術。你先提，他們都會開心。
+
+
+最後 60 秒，複誦必背數字，跟著我唸。
+
+ZMC 是四個接合不是三個，驗證復位看 ZS suture；手術最好在受傷後 2 週內。Panfacial 在穩定後 24 小時到 2 週內開，超過 2 到 3 週很難復位。Champy：mental foramen 前方上下兩支 miniplate、間距大於 5 毫米，後方到 angle 上緣一支。MMF 不超過 4 到 6 週；髁突高位或關節內骨折 IMF 不超過 14 天；髁突 ORIF 的門檻是軸角度大於 30 度、fracture gap 大於 4 毫米。
+
+三型 Le Fort 都過 pterygoid plate。NOE 是 Markowitz 一到三型，intercanthal distance 引用 30 到 34 毫米。額竇看 outflow tract。
+
+顏面神經：入腮腺前三條、pes anserinus 兩幹、終末五支。Pitanguy's line 是耳屏下 0.5 公分到外側眉上 1.5 公分；McKinney's point 是骨性外耳道下緣往下 6.5 公分，Erb's point 不用公分數。顳骨骨折 longitudinal 常見但麻痺率約 20%，transverse 少見但麻痺率約 40%。肌電圖傷後 3 到 4 週；ENoG 退化超過 90% 考慮減壓；cross-face 軸突 8 到 12 個月到達；運動終板 12 到 18 個月不可逆。
+
+再唸三句地雷句。第一，不要說 tripod，要說 tetrapod、四個接合。第二，不要只背一組重建順序，四個名詞都講、再給你自己的執行版本與切換條件。第三，鼻淚管那一題絕對不要說「轉給眼科」。
+
+顱顏卷兩集到這裡收完。下一集我們練顯微重建與乳房：從皮瓣的分類與監測開始，走過游離皮瓣的選擇與血管危象處理，再到乳房重建的時機、自體與植入物的取捨。第九集見。
