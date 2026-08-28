@@ -1,0 +1,209 @@
+第四集，手外科下半場：正中神經與橈神經。
+
+本集會練九題：周邊神經損傷的分級、再生與修補原則、正中神經的支配清單、手內在肌的完整清單、腕隧道對 AIN 對 pronator syndrome、拇指對掌與 opponensplasty、垂腕與 PIN syndrome、三套肌腱轉移組合、肌腱轉移的六大原則，最後是內在肌緊縮與 Bunnell-Littler test。
+
+先記住一句貫穿全集的話：這一集有三題是純背誦、沒有推理空間——正中神經支配清單、手內在肌清單、AIN 最末端的肌肉——林有德明列這三題是直球背誦，要練到能一口氣講完。其他六題是鑑別與決策，靠同一組邏輯：先分高位低位，再看時間窗，時間夠就修神經，時間不夠就轉肌腱。
+
+考場情報先講一句。林有德教授連珠炮式快問快答，前面考生的建議是「回答慢一點」，因為 8 分鐘固定，答太快只會被問到更多題；每一題主動加一句機轉，把時間用滿。另外，三套肌腱轉移的名字歸屬是查核出來的紅字錯誤，講錯會被抓。
+
+準備好了嗎？我們開始。
+
+第一題。考官問：周邊神經損傷怎麼分級？再生速度是多少？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案分四段：分級、再生、追蹤、修補原則。
+
+第一段，分級，用 Seddon 對 Sunderland。Neurapraxia 等於第一度：局部去髓鞘、軸突連續性完整，沒有 Wallerian degeneration，數天到數週自行完全恢復。Axonotmesis 等於第二到第四度：軸突斷裂但支持結構部分保留，遠端發生 Wallerian degeneration，依 1 毫米一天沿原管路再生；第三度是 endoneurium 破壞、第四度是 perineurium 破壞，第四度常需手術。Neurotmesis 等於第五度：完全斷裂，不手術不會恢復。Mackinnon 再加第六度，是混合型。
+
+第二段，再生速度。標準答案是 1 毫米一天，大約一個月一英吋、2.5 公分，但要加兩個修正。第一是潛伏期：遠端 Wallerian degeneration 要 1 到 2 週，軸突跨過吻合處要 2 到 4 週，所以臨床公式是 1 個月潛伏期加上距離除以 1 毫米一天。第二是位置與年齡：越近端越快、可以到 2 到 3 毫米一天，年輕人比老人快；單純壓迫性病變減壓後恢復可以遠快於 1 毫米一天，因為那是去髓鞘不是軸突斷裂。
+
+第三段，怎麼追蹤。第一，Tinel sign 每個月往遠端前進大約 1 英吋；停在原地不再前進，代表修補失敗或形成神經瘤，要考慮再次手術。第二，EMG，nascent motor unit potential 比臨床可見的收縮早 2 到 3 個月，而且外傷後至少要等 3 到 4 週做才有意義。第三，恢復順序永遠由近端到遠端。第四，Tinel 是追蹤的主力，不要只講 EMG。
+
+第四段，修補原則。乾淨的銳器傷做 primary repair、越早越好；污染、壓砸、撕脫的先清創、把神經 tag 起來，延遲到大約 3 週後再修。技術是顯微鏡下、以 epineurial repair 為主、用血管走向與束型對位、最少縫線、無張力。Tension-free 是鐵律：神經被拉長 5% 到 10% 時血流下降約一半，超過 11% 血流完全消失。
+
+有缺損的時候怎麼選，這一段要講得很精準。主力是自體 nerve graft，以 sural nerve 為主。人工 conduit 只適用於毫米級的短缺損，一版寫小於 6 毫米時療效與 primary repair 相當、超過 6 毫米失敗率就在四成到十成之間，另一版寫限於小於 10 毫米，而且管徑要略大於神經，太緊會壓迫。3 公分是 processed nerve allograft 的上限，不是 conduit 的——這兩個差一個數量級，絕對不可以綁在一起講。allograft 尤其適用於遠端、單束、純感覺的神經。缺損更大或距離太遠，就走 nerve transfer。
+
+決策公式要收尾：用「距離除以 1 毫米一天」預測軸突來不來得及在終板死掉、也就是 12 到 18 個月之前抵達；來不及就改用 nerve transfer，把新的神經源搬到靠近終板的地方——這就是 nerve transfer 存在的理由。
+
+這一題的地雷有兩個。第一，nerve graft 要反轉置放，理由不是靜脈瓣，而是避免再生的軸突沿著移植片上的側枝分岔逃逸而流失；需要反轉以避開瓣膜的是 vein graft，兩者理由完全不同。第二，考官若問「有一點 under tension 是不是一定要 nerve graft」，先講課本原則再補彈性：原則是 tension-free，張力大就用 graft；但如果張力可以用姿勢位克服，我仍偏好 primary repair，因為只有一個 coaptation site、結果比較好，術後副木固定在屈腕大約 40 度，再每次 10 度慢慢伸直——這樣課本跟陳宏基院長兩邊都對。另外，術前一定要說明可能要取 sural nerve，小腿會多一道永久麻木的傷口。
+
+第二題。考官問：哪些是 median nerve 的支配？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案，從近端排到遠端，目標是 40 秒內講完。
+
+前臂，median nerve 本幹依序支配四條：pronator teres、flexor carpi radialis、palmaris longus、flexor digitorum superficialis 全部四條。
+
+接著分出 anterior interosseous nerve，這是純運動支，支配三條：flexor pollicis longus、食指與中指的 flexor digitorum profundus、pronator quadratus。PQ 是 AIN 最末端的肌肉。
+
+手部就是 LOAF 這五個半。L 是第一與第二 lumbrical，O 是 opponens pollicis，A 是 abductor pollicis brevis，F 是 flexor pollicis brevis 的「淺頭」。FPB 的深頭是 ulnar nerve 支配的，這就是所謂的那半條。
+
+感覺分兩支。第一，palmar cutaneous branch 在腕隧道近端就分出、而且不進入隧道，支配大魚際的皮膚——這就是為什麼腕隧道症候群的病人手掌基部感覺是正常的，也是它跟高位 median 損傷最關鍵的鑑別點。第二，common digital nerve 支配橈側三隻半手指的掌側，以及食指、中指遠節的背側。
+
+加分句是 recurrent motor branch 的位置：它就在 Kaplan's cardinal line 與第三指蹼縱軸的交點，支配 APB、FPB 淺頭與 opponens pollicis；所以腕隧道手術的切口要偏尺側，就是為了避開它與 palmar cutaneous branch。
+
+這一題的地雷是：純背誦題沒有推理空間，講得結巴就是失分。把「四條、三條、五個半」背成三個數字，數字先出來，內容自然跟著出來。
+
+第三題。考官問：請把 hand intrinsic muscle 背出來。
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案是四群，合計 19 到 20 條，要能 40 到 50 秒一口氣講完。
+
+第一群，大魚際三條加上 adductor pollicis 獨立一條：abductor pollicis brevis、flexor pollicis brevis、opponens pollicis，加上 adductor pollicis。嚴格定義下 thenar 只有前面三條；有些版本把 adductor pollicis 併進 thenar 講四條，考官這樣講就順著答，總數不受影響。
+
+第二群，小魚際四條：palmaris brevis、abductor digiti minimi、flexor digiti minimi brevis、opponens digiti minimi。
+
+第三群，蚓狀肌四條，起自 FDP 肌腱的橈側，止於 lateral band。記法要講出來：它走在 MCP 關節的掌側、卻走在 IP 關節的背側，所以同時是 MCP 的屈肌、IP 的伸肌——這一條就解釋了整個 claw hand 的機轉。
+
+第四群，骨間肌七條：背側四條是 DAB，dorsal abduct，負責外展；掌側三條是 PAD，palmar adduct，負責內收。合計 19 到 20 條，差異只是 palmaris brevis 計不計入，講「19 到 20 條」就完全涵蓋。
+
+末尾一定要補神經支配的分法，那才是真正的考點：ulnar nerve 支配絕大多數的內在肌，median nerve 只支配五個半，也就是 LOAF。所以臨床上常說尺神經損傷會造成 14.5 條內在肌無力，那個 0.5 就是 flexor pollicis brevis 只有深頭受 ulnar 支配。這個 14.5 的說法出自邱浩遠那一關，課本找不到明確出處，被追問時不要硬掰。
+
+這一題的加分句是第一背側骨間肌：它是最容易目視、也最不會被其他神經代償的指標肌，萎縮時第一指蹼背側凹陷，是 ulnar palsy 最早、最明顯的視覺徵象。
+
+小結一下。到這裡三題，兩題純背誦、一題是地基。地基那題記住兩個數字：1 毫米一天、12 到 18 個月；背誦兩題記住三個框架：本幹四條、AIN 三條、LOAF 五個半，加上內在肌四群 19 到 20 條。接下來三題進入鑑別診斷。
+
+第四題。考官問：一位病人懷疑腕隧道症候群來門診，你要怎麼 approach？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案要先看穿這題：林有德 112 年整關就是這一題，而他真正要考的不是 CTS，是鑑別診斷。所以我用四個軸做鑑別。
+
+第一個軸，手掌基部、也就是大魚際皮膚的感覺。腕隧道症候群是正常的，因為 palmar cutaneous branch 在隧道近端就分出、不進入隧道；高位 median 損傷則是異常的。這是最快、最可靠的一刀切。
+
+第二個軸，FPL 與食指 FDP 的力量，用 OK 手勢測。AIN syndrome 或高位 median 損傷做不出圓形的 OK，會變成扁的三角形，因為 FPL 的 IP 與 FDP 的 DIP 屈不下去；腕隧道症候群則是正常的。
+
+第三個軸，症狀性質。AIN syndrome 是純運動、完全沒有感覺症狀，因為 AIN 是純運動支。Pronator syndrome 有感覺症狀，而且大魚際皮膚也會麻，因為病灶在 palmar cutaneous branch 分出之前；症狀多在前臂、旋前抗阻時誘發，而且不會半夜麻醒——會半夜麻醒、甩手可以緩解的才是腕隧道症候群。
+
+第四個軸，double crush。頸椎神經根病變合併遠端壓迫，兩處都要處理，所以我一定會加做頸椎的評估；文獻上 pronator syndrome 與腕隧道症候群可以併存於高達 6% 的病人，支持這個現象。
+
+腕隧道症候群本身的骨架也要備著。次發性因素背六個：糖尿病、甲狀腺低下、類風濕、懷孕、洗腎、澱粉樣沉積。理學檢查做 Tinel、Phalen 撐 60 秒、Durkan carpal compression 壓 30 秒。電生理檢查的目的是術前 baseline、確認嚴重度、排除其他部位壓迫，不是為了診斷。輕中度先保守 3 個月，有 thenar 萎縮或保守無效才手術，切口偏尺側，失敗最常見的原因是減壓不完全。
+
+這一題有兩個要小心的數字。Phalen's test 主答 60 秒，被追問就說文獻從 20 秒到 2 分鐘都有記載；原理是屈腕使隧道內壓上升而壓迫神經。至於「正常 2.5 毫米汞柱、屈曲時升到 30 到 100 毫米汞柱」，還有 pillar pain 發生率 68%，課本都找不到明確出處，可以講但要說是文獻報告，被追問時不要硬掰。最後補一句：AIN syndrome 多數是自發性、與 Parsonage-Turner syndrome 相關，觀察 3 到 6 個月多半會自行恢復。
+
+第五題。考官問：這位病人右手拇指與小指無法對掌，左右手哪裡不同？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案的關鍵是一個描述。報告老師，對掌是 palmar abduction、flexion、pronation 三個動作的組合，所以正常對掌的時候，拇指與小指之間是一個「立體」的空間——掌心可以放得下一顆雞蛋。
+
+怎麼判斷不正常：如果病人的拇指是貼著手掌心平移過去的，代表缺少 palmar abduction 與 pronation、形不成那個立體結構，這就代表 thenar 的 opponens pollicis 與 abductor pollicis brevis 麻痺，也就是 median nerve、特別是 recurrent motor branch 的損傷。
+
+有兩個答案是錯的，都是考生實際答錯過的，你要主動排除。第一，AIN syndrome 不會造成對掌障礙，因為 AIN 是純運動支，只管 FPL、食指中指的 FDP 與 PQ，不支配 thenar。第二，單獨 FPB 麻痺也不會無法對掌，因為 FPB 深頭由 ulnar 支配可以代償，對掌的主角是 opponens pollicis 與 APB。
+
+對掌重建也要備，記法是 6 乘 6 乘 6：六個 donor、六個 pivot point、六個 insertion。Donor 是 FDS 的 Bunnell 與 Royle-Thompson、EIP 的 Burkhalter、PL 的 Camitz、ADM 的 Huber、ECU 加 EPB 的 Phalen-Miller；EIP 的人名主答 Burkhalter，不要講 Tubiana。Pivot 最常用 pisiform，insertion 最常用 APB 止點。原則是：FDS 力量最好但可能造成 donor 手指 swan neck；EIP 犧牲代價最小；PL 的 Camitz 最簡單、常在腕隧道手術時順便做，但它主要提供 palmar abduction，不產生真正的對掌向量。
+
+這一題的地雷是：ECRL 與 EPL 當對掌 donor，在兩本教科書的 donor 表裡都查不到收錄——ECRL 在標準表中是高位正中神經麻痺的 FPL 與 FDP 動力，不是對掌 donor，課本找不到明確出處，被追問時不要硬掰。加分句是術中怎麼分辨 EIP 與 EDC to index：EIP 在 EDC 的尺側而且比較深，在 wrist level 還看得到它的肌腹——往近端追，還帶著肌肉的就是 EIP；取完要把遠端殘端縫回食指 EDC，避免 extensor lag。
+
+第六題。考官問：這個病人垂腕，你怎麼鑑別？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案，鑑別的一刀切是兩個：手腕能不能伸直，還有手背橈側有沒有麻。兩個都要講才算答完。
+
+高位橈神經麻痺在 supinator 近端，經典情境是 humeral shaft 骨折術後：drop wrist，手腕伸不起來，手指與拇指也伸不起來，而且合併手背橈側、也就是第一指蹼背側的感覺喪失。
+
+PIN syndrome：手指與拇指伸不起來，但手腕可以伸直，因為 ECRL 由 radial nerve 本幹支配；只是會橈偏，因為 ECU 由 PIN 支配而癱瘓了。而且完全沒有感覺喪失，因為 PIN 是純運動支。
+
+第三個要一併提的是 Wartenberg syndrome，也就是 superficial radial nerve 的壓迫：純感覺、手背橈側麻，沒有任何運動障礙。
+
+檢查與時序。電生理檢查在受傷後 3 到 4 週取 baseline、之後每 6 到 12 週追蹤。閉鎖性損傷大約七成以上會自行恢復，所以先觀察 3 到 6 個月，並沿神經走行追蹤 Tinel's sign 有沒有往遠端推進。開放性傷口、骨折復位之後才出現的麻痺、或觀察沒有進展，就手術探查。
+
+重建的三段時序：第一，早期、一年以內、終板還活著，先想 distal nerve transfer，例如 median nerve 到 FDS 或 FCR 的分支轉到 PIN 或 ECRB 的分支。第二，超過 12 到 18 個月或距離太遠，走 tendon transfer。第三，動力肌都耗盡，做 free functioning muscle transfer，例如 free gracilis。
+
+加分句是等待期間的處置：dynamic extension splint、也就是 outrigger，它的目的不是治療，是維持關節被動活動度，因為攣縮的關節是 tendon transfer 的絕對禁忌。地雷是林志鴻 105 年那一題：病人在別家醫院做過 tendon transfer，為什麼還是伸不起來？他要的答案是前一家醫院做錯了——先 re-exploration，再考慮重新 transfer。
+
+小結一下。第四到第六題是三個一刀切：大魚際皮膚感覺分腕隧道與高位、雞蛋那個立體空間分對掌好不好、手腕能不能伸加上手背橈側麻不麻分高位橈神經與 PIN。考官要的就是那一句。剩下三題全部是肌腱。
+
+第七題。考官問：橈神經麻痺的 tendon transfer 有哪幾套？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案是三套，而且要恢復的永遠是三個功能：伸腕、伸指、伸拇。
+
+第一套，Standard transfer，也叫 FCU transfer：PT 轉 ECRB 恢復伸腕，FCU 轉 EDC 恢復伸指，PL 轉 EPL 恢復伸拇。
+
+第二套，FCR transfer，也就是 Brand，現代比較偏好：PT 轉 ECRB，FCR 轉 EDC，PL 轉 EPL。
+
+第三套，Boyes superficialis transfer：PT 轉 ECRB，中指的 FDS 轉 EDC，環指的 FDS 轉 EIP 加 EPL，另外 FCR 轉 APL 加 EPB。
+
+名字的歸屬是本題最重要的一件事，這是查核出來的紅字錯誤。Boyes 這個名字只屬於 superficialis、也就是 FDS 這一套，它的伸腕動力是 PT 轉 ECRB；絕對不要把 FCU 或 FCR 那兩組叫做 Boyes，舊筆記把它冠錯了。另外，如果把 PT 同時接到 ECRL 加 ECRB，那一套的名字是 Jones transfer——三個名字對應三件事，Boyes 對 FDS、Jones 對 PT 接 ECRL 加 ECRB、Brand 對 FCR，分清楚就不會錯。
+
+我主答 FCR transfer 那一組，理由要講兩層。第一，為什麼選 FCR 不用 FCU：FCU 是最強的腕屈肌，也是尺側偏移與 dart-thrower's motion 的穩定者，犧牲它會失去腕部平衡，保留 FCU、改用 FCR 比較符合現代觀念。第二，為什麼選 ECRB 不用 ECRL：ECRB 的止點靠中線，產生的是純伸腕而不是橈偏。
+
+Boyes 的優缺點也要講。優點是可以做出獨立的拇指與食指伸展，力量最完整。缺點是要犧牲兩條 FDS，有握力下降與 swan neck 的風險，而且要經過 interosseous membrane 的窗口。中指與環指的分派兩個版本記載相反，不可以宣稱背反就是錯；考場講法是：Boyes 用兩條 FDS，一條走四指總伸的 EDC、一條走獨立的 EIP 加 EPL，中指與環指的分派兩個版本相反，我採中指走 EDC、環指走 EIP 加 EPL 這一版。
+
+這一題的地雷還有兩個。第一，時序鐵律：若受傷未滿一年，先提 distal nerve transfer，再談 tendon transfer。第二，病人沒有 palmaris longus 怎麼辦——大約 15% 的人缺如，拇指伸直可以改用環指的 FDS 轉 EPL。
+
+第八題。考官問：做 tendon transfer 之前要確認什麼？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案先講最精煉的三前提，再展開六大原則。三前提是：關節被動活動度完整，攣縮的關節是絕對禁忌；軟組織床穩定、無疤痕、無水腫；donor 肌力至少 MRC 4 級以上，而且功能可以犧牲。
+
+六大原則就是把三前提再擴充。第一，關節被動活動度必須完整，先復健再手術。第二，組織條件良好、無疤痕。第三，足夠的肌力，至少 MRC 第 4 級，因為轉位之後一定會掉一級。第四，足夠的 excursion、也就是振幅，記法是 3、5、7：手腕屈伸肌大約 25 到 33 毫米、伸指肌大約 50 毫米、屈指肌大約 70 毫米。第五，一條肌腱只做一個功能。第六，直線的牽引方向、選擇協同的肌肉、而且 donor 必須可犧牲。為什麼要選協同肌？因為協同動作的肌肉在中樞已經有共同的運動程式，轉位後的再學習最快——腕屈與指伸是天然協同的，所以 FCR 轉 EDC 特別好學。
+
+適應症提一句：目前最常見的是脊髓損傷造成健康肌肉癱瘓，腦性麻痺與小兒麻痺已經不再是最常見。
+
+併發症三個要背。第一，quadriga effect：FDP 過度縮短或被縫死在斷指殘端，因為 FDP 共用一個肌腹，其他手指也無法完全屈曲、握力下降。第二，lumbrical-plus finger：FDP 的肌腱移植過長、或在遠端被切斷，屈指時張力不再傳到遠節、反而經 lumbrical 傳到 lateral band，造成越用力想屈曲、PIP 反而伸直的矛盾動作。第三，取 FDS 過多造成 donor 手指 swan neck。
+
+加分句是張力怎麼調：PT 轉 ECRB 在腕中立到輕度伸直位縫合，術中用 tenodesis effect 檢查——被動屈腕時手指應該自然伸直、被動伸腕時手指應該自然屈曲。至於 excursion，教科書有 25 到 33 毫米與 33 毫米兩種寫法，你講「手腕 25 到 33、伸指 50、屈指 70」就同時涵蓋。
+
+第九題。考官問：什麼是 intrinsic tightness？怎麼檢查？
+
+先自己講一遍，我等你三秒。
+（停頓）
+（停頓）
+（停頓）
+
+標準答案。Intrinsic tightness 是指手內在肌，也就是 interossei 與 lumbricals，因為外傷、缺血、燒傷、痙攣或長期不當固定而攣縮纖維化，導致在 MCP 伸直的時候 PIP 的被動屈曲受到限制。
+
+檢查是 Bunnell-Littler test。第一步，先把 MCP 固定在伸直、甚至過度伸直的位置，這時候 intrinsic 被拉到最長，測量 PIP 的被動屈曲角度。第二步，再把 MCP 屈曲，這時候 intrinsic 放鬆，再測一次 PIP 的被動屈曲角度。
+
+判讀：MCP 伸直時 PIP 難彎、MCP 屈曲時 PIP 可以彎更多，就是 intrinsic tightness 陽性；兩個位置都一樣受限，那是 PIP 關節本身的關節囊攣縮，不是 intrinsic 的問題。
+
+兩個對照組一定要一起講，這才顯得真的懂。第一，extrinsic extensor tightness：MCP 屈曲時 PIP 的被動屈曲受限、MCP 伸直時反而比較好，方向跟 intrinsic 完全相反。第二，ORL tightness，也就是 oblique retinacular ligament 緊縮，用 Haines-Zancolli test：PIP 維持伸直時 DIP 的被動屈曲受限，PIP 屈曲時 DIP 就可以彎。
+
+治療是早期做 intrinsic stretching，也就是 MCP 伸直加 IP 屈曲配合副木；晚期做 distal intrinsic release，切除 extensor expansion 的斜行纖維，保留 central slip 與 transverse fibers。
+
+這一題的加分句是把兩個 intrinsic plus 分清楚：intrinsic-plus deformity 是病態，是 intrinsic 攣縮造成的固定變形，MCP 屈曲加 IP 伸直，是 swan neck 的前身；但 intrinsic-plus position 卻是治療用的安全位副木姿勢。同一個姿勢，一個是病、一個是藥，這是這題的關鍵。安全位副木四個角度：手腕伸直 20 到 30 度、MCP 屈曲 70 到 90 度、IP 完全伸直、拇指外展對掌位。理由是 MCP 的 collateral ligament 在屈曲位被拉到最長、IP 的 volar plate 在伸直位最長，固定在最長的位置才不會攣縮後失去活動度；反過來固定在 MCP 伸直、IP 屈曲那個舒服的姿勢，兩到三週就會永久攣縮。
+
+好，本集結束前，用 60 秒複誦本集必背的數字，一個一個唸，跟著我唸一遍。
+
+Sunderland 五度加 Mackinnon 的第六度；第一度沒有 Wallerian degeneration，第五度不手術不會恢復。
+再生 1 毫米一天，等於一個月一英吋、2.5 公分；公式是 1 個月潛伏期加上距離除以 1 毫米一天。EMG 外傷後至少等 3 到 4 週。神經拉長 5% 到 10% 血流少一半，超過 11% 完全消失。
+Conduit 只適用毫米級短缺損，小於 6 毫米與 primary repair 等效、一版限小於 10 毫米；3 公分是 allograft 的上限，兩者不可混講。
+Nerve graft 要反轉置放，理由是避免軸突沿側枝逃逸；vein graft 反轉才是為了瓣膜。
+正中神經本幹 4 條、AIN 3 條、手部 LOAF 五個半；內在肌四群 19 到 20 條，尺神經損傷 14.5 條無力。
+Phalen 60 秒、Durkan 30 秒，腕隧道保守 3 個月；橈神經閉鎖性損傷約七成自行恢復，觀察 3 到 6 個月，palmaris longus 約 15% 缺如。
+Excursion 3、5、7：手腕 25 到 33 毫米、伸指 50、屈指 70；donor 肌力至少 MRC 4 級，轉位後掉一級。
+安全位副木：手腕伸直 20 到 30 度、MCP 屈曲 70 到 90 度、IP 完全伸直、拇指外展對掌位。運動終板 12 到 18 個月不可逆，一年是決策的分水嶺。
+
+下一集我們練手外科第三塊：斷指再植與再血管化——適應症與缺血時間、多指斷指的接合順序兩派並列、優勢指動脈與 1 對 2 的動靜脈比、術後血循判讀，還有壓砸手的 ligamentotaxis 與殘缺手的重建目標。在那之前，今天這九題請至少再走一遍，特別是三套 tendon transfer 的名字歸屬，還有 conduit 跟 allograft 那兩個差一個數量級的數字。我們下集見。

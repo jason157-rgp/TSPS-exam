@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EP02 眼整形，下半場：Ptosis 全套</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="index.html">← 12 集語音課程</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>EP02　眼整形，下半場：Ptosis 全套</h1>
+<p class="sub">7 題　·　約 9k 字　·　朗讀約 36 分鐘</p>
+<nav class="qnav"><b>本集題目</b><ol><li><a href="#q1">這位病人上眼瞼下垂，你要怎麼評估？</a></li><li><a href="#q2">MRD 怎麼量？為什麼用 MRD 取代單量瞼裂高度？</a></li><li><a href="#q3">Levator function 怎麼量？分級是多少？為什麼它決定術式？</a></li><li><a href="#q4">Ptosis 怎麼分類？</a></li><li><a href="#q5">嚴重度怎麼分級？MRD1 是 1 毫米，算 severe 嗎？</a></li><li><a href="#q6">你要怎麼選術式？MMCR、Fasanella-Servat、levator a…</a></li><li><a href="#q7">這位病人 ptosis 開完，為什麼症狀沒有改善？Hering's law 的…</a></li></ol></nav>
+<section class="intro">
+<p>本集練八題：ptosis 的問診與理學檢查、MRD 怎麼量、levator function 怎麼量跟怎麼分級、ptosis 的分類、嚴重度分級、四個術式的決策、Hering's law，最後是 2025 年三位考生都抽到、主任本人說很難的單側 ptosis 魔王題。先記住一句貫穿全集的話：levator function 決定要不要換動力，嚴重度只決定要調多少。準備好了嗎？我們開始。</p>
+</section>
+<section class="q" id="q1">
+<h2>第一題</h2>
+<p class="ask">考官問：這位病人上眼瞼下垂，你要怎麼評估？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。報告老師，我分成四段：病史、量化理學檢查、定性理學檢查、影像與抽血。</p>
+<p>病史六件事。先天還是後天，出生照片可佐證；急性還是緩慢。第二，早上還好、下午越來越垂，那是 fatigability，必須排除 myasthenia gravis。第三，白內障或青光眼手術史，術後腱膜被牽拉延展很常見。第四，長期戴硬式隱形眼鏡，這是 aponeurotic dehiscence 的已知危險因子。第五，外傷、眼疾、家族史、神經肌肉疾病史。第六，對生活的影響：仰頭視物、用額頭撐、開車閱讀困難、傍晚頭痛，這一段同時就是健保功能性給付的佐證。</p>
+<p>量化檢查四個數字：MRD1 正常 4 到 5 毫米；MRD2 正常約 5 毫米；垂直瞼裂高度等於兩者相加，約 9 到 11 毫米，記 10 毫米；第四是 levator function，壓住眉毛擋掉 frontalis 代償再測，這是選術式唯一最重要的指標。每一項都要兩眼分開測、記錄不對稱值、留術前照片。</p>
+<p>定性檢查是一份清單，考官最愛追問還要做什麼，你要一次倒完。瞳孔與對光反射：縮瞳加下垂加同側無汗是 Horner's；散瞳加下垂加眼球 down and out 是 CN 三 palsy，急性發作要當急症排除 posterior communicating artery aneurysm。EOM 六個方向：先天性常合併 superior rectus 無力，CPEO 是進行性、對稱、沒有複視。Bell's phenomenon：用力閉眼、撐開眼瞼看眼球有沒有上轉，不良的人術後暴露性角膜炎風險高，矯正量必須保守。疲勞試驗：持續上視 60 秒以上。冰敷試驗：敷 2 分鐘，MRD1 改善 2 毫米以上為陽性，機轉是低溫抑制 acetylcholinesterase。Cogan's lid twitch：由下視轉正視時上瞼過度上跳再落下。Marcus Gunn jaw-winking：咀嚼或下顎側移時眼皮跟著上跳，那是 CN V3 與 CN 三的 synkinesis，術式完全不同，漏診會做錯手術。再加上上方視野檢查、Schirmer test 與 tear break-up time、眉毛位置與 frontalis 代償，並分辨 brow ptosis 跟 dermatochalasis。最後是 Hering's law 的兩個測試。</p>
+<p>影像與抽血依病因才做：懷疑 MG，驗 anti-AChR 與 anti-MuSK 抗體、single-fiber EMG，加胸部電腦斷層排除 thymoma；懷疑 Horner's，急性加頸痛排除 carotid dissection，小兒排除 neuroblastoma；懷疑 CN 三 palsy，立刻腦部影像排除動脈瘤。</p>
+<p>這一題的計分方式是清單完整度，寧可慢、不可漏。地雷是講完四個數字就停，陳理維最愛追問的就是那句，還要做什麼檢查。</p>
+</section>
+<section class="q" id="q2">
+<h2>第二題</h2>
+<p class="ask">考官問：MRD 怎麼量？為什麼用 MRD 取代單量瞼裂高度？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。要講操作，不是只講定義。病人坐正、primary gaze；檢查者持筆燈，與病人眼睛同高、正對視軸照射，在角膜產生光反射點；用手指壓住眉毛阻斷 frontalis 代償，這一步跟量 levator function 一樣不能省；最後用尺量測，兩眼分別測、記錄不對稱值。</p>
+<p>為什麼取代單量瞼裂：因為 MRD 以角膜光反射點、也就是視軸中心為基準，不受眉毛代償與瞼裂長度干擾。</p>
+<p>數值。MRD1 是光反射點到上瞼緣，正常 4 到 5 毫米；小於等於 2 毫米通常代表明顯下垂；等於 0 表示剛好切到瞳孔中心；負值表示已經蓋過視軸，量法是請病人用額頭抬起眼皮後再量、記成負值。MRD2 是到下瞼緣，正常約 5 毫米，用來評估 lower lid retraction、scleral show 與 ectropion，變大就是下瞼往下掉。三個數字都要量，因為瞼裂變窄可以來自上瞼下垂、下瞼退縮或兩者兼有。</p>
+<p>加分句是：當場用 MRD1 的 4 到 5 加 MRD2 的約 5 推導瞼裂高度給考官看，推導出來的數字沒有人能質疑。地雷是不要說這個數字無爭議，考官引用哪一版就順著走。</p>
+</section>
+<section class="q" id="q3">
+<h2>第三題</h2>
+<p class="ask">考官問：Levator function 怎麼量？分級是多少？為什麼它決定術式？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。五個步驟：病人坐正、正視前方；檢查者用大拇指用力壓住眉毛，把 frontalis 代償完全擋掉；向下極限注視，尺垂直貼在眼前，記錄上瞼緣位置；向上極限注視，再記錄一次；兩者的差值就是 levator excursion，也就是 levator function。</p>
+<p>分級我用這一組：normal 大於等於 12 毫米，good 10 到 12 毫米，fair 6 到 9 毫米，poor 小於等於 5 毫米。講完主動補一句：不同章節的表格略有出入，有的把 normal 定在 15 毫米以上，也有的用大於 10 毫米當正常線，分界的臨床意義是一致的。考官報別組數字就順著走。董光義親口說過，分級每本書不一樣、大概就好，所以別在數字上纏鬥，要在清單上贏。</p>
+<p>為什麼它決定術式：LF 好代表肌肉有力，只要修好傳動系統，走前路 advancement 或後路 MMCR；LF 差代表肌肉沒力，再怎麼縮短都拉不動，必須換動力，做 frontalis sling 借額肌；中間地帶走 levator resection、切除量加大。</p>
+<p>這一題最重要的一句是壓眉毛。不壓，frontalis 會把眉毛連同眼皮抬起來，數值被高估。最糟的後果是：一個真正 poor LF 的先天性 ptosis 被測成 fair，於是做了 levator resection 而不是 frontalis sling，術後完全無效。這一步就是計分點。</p>
+<p>休息一下。剛才那三題的共同點是：手上的動作比嘴上的數字值錢。壓眉毛、筆燈與視軸同高、兩眼分開測，講出這三個動作，考官就知道你真的量過。數字有版本差異，動作沒有。</p>
+</section>
+<section class="q" id="q4">
+<h2>第四題</h2>
+<p class="ask">考官問：Ptosis 怎麼分類？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。先分先天與後天，後天分五型，最後把 pseudoptosis 單獨列出來。</p>
+<p>先天性絕大多數是 levator muscle hypoplasia，肌肉被脂肪與纖維組織取代，所以 LF 差，而且下視時患側眼皮反而落後、出現 lid lag，這是跟後天性最快的區分點。可能合併 superior rectus 無力、Marcus Gunn jaw-winking、BPES。臨床決定只有一個：有沒有遮到視軸。遮到會造成 deprivation amblyopia，那是必須提早手術的唯一硬適應症；沒遮到一般等到 3 到 5 歲。</p>
+<p>後天五型。第一，aponeurotic，最常見，腱膜從瞼板止點 dehiscence 或 disinsertion，成因是老化、白內障或青光眼術後、長期硬式隱形眼鏡、慢性揉眼；典型三徵是 LF 正常、重瞼褶變高變深、pretarsal 區變薄。第二，myogenic：myotonic dystrophy、oculopharyngeal muscular dystrophy、CPEO。第三，neurogenic：CN 三 palsy、Horner's、Marcus Gunn synkinesis、中樞病灶。第四，mechanical：眼瞼腫瘤、疤痕、慢性水腫、dermatochalasis 的重量，小兒眼周 infantile hemangioma 就屬這一型。第五，neurotoxic，肉毒桿菌素注射後，這是新版分類表新增的一格，不要漏掉。再補一句：外傷性我歸在 aponeurotic 底下，有些分類表另立 traumatic 一型。</p>
+<p>Pseudoptosis 是眼皮本身沒問題但看起來下垂：enophthalmos、microphthalmia、對側眼瞼退縮例如 Graves'、對側眼球突出、brow ptosis、dermatochalasis。鑑別關鍵是 LF 一定正常。最後補年齡導向的第一直覺：先天期想 levator hypoplasia；20 到 50 歲單側，先排除 myasthenia gravis 與 Horner's；65 歲以上想 aponeurotic dehiscence，鬆脫的位置就在腱膜與瞼板的止點處。</p>
+<p>地雷是 myasthenia gravis 放哪一格。標準講法：我習慣放 myogenic，因為臨床表現是肌肉無力；但嚴格說病灶在 neuromuscular junction，有些表會獨立出來；不論放哪一格，first line 都是內科治療。主動說出這個分類粒度的差異，考官不會扣你分。</p>
+</section>
+<section class="q" id="q5">
+<h2>第五題</h2>
+<p class="ask">考官問：嚴重度怎麼分級？MRD1 是 1 毫米，算 severe 嗎？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。嚴重度是用理想 MRD1 減去實測 MRD1，理想值取正 4.5 毫米這個固定值。用 Beard 這一版：mild 是 2 毫米以內，moderate 是 3 毫米，severe 是 4 毫米以上。</p>
+<p>所以 MRD1 等於 1 毫米，4.5 減 1 等於 3.5 毫米，落在 moderate 跟 severe 之間，臨床上就寬不就窄、以 severe 端處理，最終仍以 levator function 決定術式。地雷是不要用該病人原本的 MRD1 當基準，要用固定的理想值。</p>
+<p>版本差異要主動聲明：同一本教科書內部就有兩套表，眼瞼重建章寫的是 mild 2 到 3、moderate 3 到 5、severe 大於 5 毫米，我報的是 ptosis 章那一版；而且考古題用的是第七版的表，第八版之後已經改過。收尾句一定要講：真正決定術式的是 levator function，嚴重度只決定矯正量。</p>
+<p>考場情報：董光義曾親口打臉共筆，說 excursion 好就不可能出現 severe ptosis。學理上 aponeurotic dehiscence 確實可以 LF 正常但落差很大，因為壞的是傳動不是動力，但這句留在心裡，不要當場說出來。</p>
+</section>
+<section class="q" id="q6">
+<h2>第六題</h2>
+<p class="ask">考官問：你要怎麼選術式？MMCR、Fasanella-Servat、levator advancement、frontalis sling，什麼時候用哪一個？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。第一軸永遠是 levator function，第二軸才是下垂程度。一句話決策樹：LF 小於等於 5 毫米做 frontalis sling；6 到 9 毫米做 levator resection、切除量加大；大於等於 10 毫米加 moderate 下垂做 levator advancement；大於等於 10 毫米加 mild 下垂而且 phenylephrine test 陽性，做 MMCR。</p>
+<p>MMCR，Müller's muscle conjunctival resection，走後路：從結膜側用特製夾子夾起 Müller's muscle 與結膜一併切除再縫合，等於縮短後層 retractor。適應症的核心是 phenylephrine test 陽性，因為 phenylephrine 是 α-agonist，刺激的正是交感支配的 Müller's，陽性代表這條肌肉還有作用。優點是不留皮膚疤、對稱性佳、時間短，特別適合輕度與 Horner's 造成的下垂。切除量主答 8 毫米，自瞼板上緣起算。禁忌是 LF 差者完全無效、嚴重乾眼慎用、下垂超過 3 毫米力道不足。</p>
+<p>Fasanella-Servat 也走後路，適應症是下垂小於 3 毫米加 LF 大於等於 10 毫米，夾取範圍限於瞼板上緣 3 毫米以內。跟 MMCR 的關鍵差別是它會一併切掉一段瞼板，代價是瞼板高度不足、弧度異常、乾眼。所以現代多以 MMCR 取代之，這句一定要講，是觀念有沒有現代化的分水嶺。</p>
+<p>Levator advancement 走前路、經重瞼切口，用在 moderate 下垂加 LF fair 到 good，也是老年性腱膜鬆脫與白內障術後的首選：打開 septum、找到 preaponeurotic fat，下面就是 aponeurosis，把鬆脫的腱膜重新推進、固定回瞼板上三分之一。</p>
+<p>Frontalis sling 用在 poor levator function，典型是先天性重度下垂，還有 CN 三 palsy、BPES、Marcus Gunn 廢除 levator 之後。原理是放棄 levator、改借額肌當動力。自體 fascia lata 是 gold standard，但通常要 3 到 4 歲以上、腿長足夠才好取；其他有 palmaris longus tendon、silicone rod、ePTFE。年幼病童若已遮到視軸不能等，先用可調整可移除的 silicone rod，長大再換自體筋膜。排列用 Fox pentagon 或 Crawford double triangle。必談併發症是 lagophthalmos 導致 exposure keratopathy，術後要積極護角膜。</p>
+<p>被追問矯正比例是 1 比 1 還是 4 比 1：理由要落在 levator function 跟量測參考點，不要講成切瞼板還是切腱膜。做 plication 時 LF 好的病人 1 比 1 就夠，差就要 2 比 1 甚至 3 比 1；另一種算法以腱膜下緣為參考點，每抬高 1 毫米要縮短 3 到 4 毫米，那就是有些老師強調的 4 比 1。最後把裁量權交給術中直視。</p>
+<p>黃金句是：局部麻醉下請病人坐起來睜眼，直接看瞼緣高度與弧度，任何 nomogram 都不如這一步；用了 epinephrine 要多矯正 1 到 1.5 毫米，因為它會刺激 Müller's。兩個提醒：Whitnall's sling 這個名詞課本上找不到明確出處，被追問時不要硬掰、不要說它是課本上的選項；高醫賴春生的 FOOM flap 用自體帶血循的肌肉、不放異物，收錄的案例是 2.5 歲的 BPES 病童做雙側 FOOM flap 併同期內眥成形，在高醫關講是投其所好，但不要自己加上小小孩要謹慎那句警語。考場情報：陳理維 2025 這一站要的答案是 MMCR，只講 levator advancement 不夠；林育賢的題幹會先給你 LF 是好的，再提 frontalis sling 就是沒讀懂題幹。</p>
+<p>休息一下。剛才那三題是同一條軸線：分類告訴你病因，嚴重度告訴你量，levator function 告訴你走哪一條路。考官要你簡化，就講決策樹的三個數字，5、9、10。</p>
+</section>
+<section class="q" id="q7">
+<h2>第七題</h2>
+<p class="ask">考官問：這位病人 ptosis 開完，為什麼症狀沒有改善？Hering's law 的原理是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。Hering's law of equal innervation 講的是：成對的作用肌，也就是 yoke muscles，接受來自中樞單一、等量的神經衝動，中樞沒辦法對左右分別下指令。</p>
+<p>神經解剖基礎是這一題的分水嶺：兩側的 levator palpebrae superioris 由動眼神經在中腦的 central caudal subnucleus 支配，而這是中腦裡唯一一個同時支配左右兩側同名肌肉的不成對核團，所以左右 levator 生理上就是一對 yoke muscles。只講兩邊神經一樣多，沒有分數。</p>
+<p>機轉叫 masking phenomenon：一側嚴重下垂時，大腦為了讓注視眼的視軸不被遮蔽，加大共同的神經驅動；這個驅動同時送到對側健康的眼，把它過度撐高，看起來正常甚至退縮，所以對側較輕的下垂被撐住了、術前看不出來。手術把下垂側矯正後，中樞驅動回到基準值，對側原本被撐高的眼皮就掉下來，病人的感受就是開了跟沒開一樣。這不是手術失敗，是生理機轉的必然結果。驅動由注視眼決定：遮住健側、強迫較嚴重那隻眼注視，健側退縮更明顯；遮住患側，健側就掉下來，這正是床邊測試的原理。</p>
+<p>所以術前一定要主動揭穿它，三個測試。第一，manual elevation test，用棉棒把下垂側撐到理想高度維持數秒，看對側 MRD1 會不會下降。第二，phenylephrine test，在下垂側上穹窿滴 2.5% phenylephrine，5 到 10 分鐘後重測，MRD1 上升 1.5 毫米以上為陽性，同時看對側會不會下垂；它有全身性交感作用，嚴重高血壓、心律不整、甲亢者慎用，10% 在小兒更要謹慎。第三，cover test，交替遮蓋看翹翹板變化。任一陽性，術前就必須告知病人可能需要雙側手術或二次手術。</p>
+<p>加分句是：它原本描述的是眼外肌的共軛運動，例如右眼 lateral rectus 跟左眼 medial rectus 這一對 yoke muscles，眼瞼只是它在 levator 上的應用；這句講出來，等於告訴考官你懂的是原理不是口訣。</p>
+<p>第八題，本集的魔王題。考官問：一位病人左眼明顯 ptosis、右眼輕微 ptosis，levator muscle 的功能是好的。你要不要幫她開？要自費開還是健保開？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案是這樣。第一步，我會先把診斷做完整，因為要不要開取決於評估結果。量化兩眼的 MRD1、MRD2、瞼裂高度、levator function 與上方視野遮蔽程度；題目已經給了功能是好的，這一點直接把術式限縮在前路 advancement 或 MMCR。病因上，LF 好加成人最可能是腱膜性，但仍要問早輕晚重排除重症肌無力、看瞳孔排除 Horner's 與 CN 三 palsy、問白內障手術史與硬式隱形眼鏡。</p>
+<p>最關鍵的一步是 Hering's law 的術前測試。一眼明顯、一眼輕微正是典型情境，輕的那側極可能被過度驅動撐著、真實嚴重度被低估。所以我一定會徒手把左眼撐起來看右眼會不會掉，並在左眼滴 2.5% phenylephrine，5 到 10 分鐘後看右眼。陽性就代表右眼現在的輕微下垂是假象。</p>
+<p>要不要開？我會開，因為她已經有可測量的視野遮蔽與功能影響。健保還是自費？原則是功能性的矯正走健保，純美觀的部分自費。功能性佐證要備齊四樣：術前正面與側面照片、MRD1 的客觀數值、上方視野檢查顯示遮蔽、病人主訴。自費的是為美觀做的重瞼成形與對稱性微調。所以建議先用健保開明顯下垂的左眼，因為健保給付的是有功能損害的那一眼，右眼術前的客觀數值還沒到門檻。提醒你，健保的具體審查標準各院實務不一、課本上也找不到明確出處，被追問時不要硬掰、不要背條號，只講以功能損害的客觀證據為準、並事前告知費用分野。</p>
+<p>術式：LF 好就走前路 levator advancement；下垂輕、phenylephrine 陽性，MMCR 也是很好的選擇，術中局麻請病人坐起來確認高度與弧度。</p>
+<p>然後是真正的考點：術後右眼掉下來了。這是 Hering's law 的必然結果，不是手術失敗。要不要馬上開右眼？不會急著開，理由有三。第一，術後早期眼瞼高度還在變動，腫脹消退、疤痕成熟、神經肌肉重新適應都要時間，一般等 3 到 6 個月。第二，中樞驅動會重新校準，臨床上確實有病人在數個月到一年後對側自行改善。第三，提早手術可能過度矯正，反而製造反向的不對稱。同時做三件事：持續追蹤 MRD1、留連續照片，以及最重要的，在第一次手術前就把這個可能性告訴病人。</p>
+<p>被追問當初為什麼不兩邊一起開，三個理由：右眼術前數值還沒達到功能損害標準；Hering's 效應大小無法預測，同時開兩邊等於在兩個都會變動的目標上射擊；分次手術可以用第一次的結果校準第二次的量。但要補一句：如果術前測試顯示右眼下垂非常明顯、病人也理解並要求一次解決，兩側同時手術是合理選項。</p>
+<p>最大的地雷是：一開口就答兩邊一起開，主任會把你引導回去，說你就健保開左邊。所以先鋪評估、講 phenylephrine test，再順著他的路線走。另一個考場情報：2025 年第三題因為太多人選被主任臨時換掉，代表題號會調整，四題都要備。</p>
+<p>好，本集結束前，用 60 秒複誦本集必背的數字，一個一個唸，跟著我唸一遍。</p>
+<p>MRD1 正常 4 到 5 毫米，小於等於 2 毫米是明顯下垂，等於 0 表示切到瞳孔中心。</p>
+<p>MRD2 正常約 5 毫米，垂直瞼裂高度等於兩者相加，9 到 11 毫米，記 10。</p>
+<p>Levator function：normal 大於等於 12 毫米，good 10 到 12 毫米，fair 6 到 9 毫米，poor 小於等於 5 毫米。</p>
+<p>決策樹三個數字，5、9、10：小於等於 5 做 frontalis sling，6 到 9 做 levator resection，大於等於 10 走 advancement 或 MMCR。</p>
+<p>嚴重度：理想 MRD1 取正 4.5 毫米，mild 2 毫米、moderate 3 毫米、severe 4 毫米以上。</p>
+<p>MMCR 切除量 8 毫米。Phenylephrine test 用 2.5%，5 到 10 分鐘後判讀，MRD1 上升 1.5 毫米以上為陽性。</p>
+<p>Fasanella-Servat：下垂小於 3 毫米、LF 大於等於 10 毫米，夾取範圍限於瞼板上緣 3 毫米以內。</p>
+<p>冰敷試驗敷 2 分鐘、改善 2 毫米以上為陽性；疲勞試驗持續上視 60 秒以上；用了 epinephrine 要多矯正 1 到 1.5 毫米；術後對側掉下來，先觀察 3 到 6 個月。</p>
+<p>先天性 ptosis 沒遮到視軸等 3 到 5 歲，遮到就提早開，因為 deprivation amblyopia。</p>
+<p class="next">下一集我們練眼整形第三塊：眼瞼全層缺損的重建、球後出血這個眼周唯一的失明急症、下眼瞼退縮與 ectropion、BPES，還有小兒眼周血管瘤對視軸的影響。在那之前，今天這八題請至少再走一遍，特別是決策樹的三個數字，還有 central caudal subnucleus 那一句。我們下集見。</p>
+</section>
+<div class="pager"><a href="ep01.html">← 上一集</a><a href="ep03.html" class="r">下一集 →</a></div>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EP06 手外科第四場：肌腱、掌腱膜攣縮症與操作題</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="index.html">← 12 集語音課程</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>EP06　手外科第四場：肌腱、掌腱膜攣縮症與操作題</h1>
+<p class="sub">10 題　·　約 14k 字　·　朗讀約 57 分鐘</p>
+<nav class="qnav"><b>本集題目</b><ol><li><a href="#q1">為什麼 central slip 不直接 insertion 到 distal…</a></li><li><a href="#q2">如何檢查 FDS 的 function？這項檢查的原理為何？</a></li><li><a href="#q3">影片裡病人中指 DIP 無法主動彎曲，你看到什麼？</a></li><li><a href="#q4">這張手掌的照片是什麼？</a></li><li><a href="#q5">把八塊腕骨背出來。Kaplan's cardinal line 怎麼畫？</a></li><li><a href="#q6">Scaphoid fracture 的 PE 怎麼做？X 光是乾淨的，你要選 …</a></li><li><a href="#q7">Lister's tubercle 在哪裡？跟 EPL 有什麼關聯？</a></li><li><a href="#q8">第八題</a></li><li><a href="#q9">影片裡病人伸直拇指時卡住、有彈響，診斷是什麼？local 要打在哪裡？</a></li><li><a href="#q10">講一下甲床解剖跟這個甲溝炎怎麼來的；還有 Z-plasty 的角度；還有這個併…</a></li></ol></nav>
+<section class="intro">
+<p>本集會練十題：伸肌機轉的三個變形、FDS test 的原理與深淺排列、Jersey finger 與 Leddy–Packer 分型、掌腱膜攣縮症、腕骨解剖與 Kaplan's cardinal line、舟狀骨骨折的影像選擇、Lister's tubercle 與六個背側腔室、理學檢查操作三連、板機指與 A1 pulley，最後是甲床、Z-plasty 與先天性併指的雜項組。</p>
+<p>先記住一句貫穿全集的話：這一集有一半是操作題，考的不是你知不知道，是你的手放對位置沒有、講不講得出原理。奇美邱浩遠院長會把自己的手借給你做理學檢查，而且會檢查你摸的位置對不對——111 年的原文寫得很清楚：「真的要找出來，考官會摸摸看位置對不對。」他這關不聊天，圖片起手，問「確定嗎、真的嗎」的時候不要改答案，改成補理由。另外台中慈濟簡守信 104 到 111 年幾乎每年都出影片題，板機指跟 Jersey finger 是常客，他的鐵律是先描述動作、再下診斷。</p>
+<p>準備好了嗎？我們開始。</p>
+</section>
+<section class="q" id="q1">
+<h2>第一題</h2>
+<p class="ask">考官問：為什麼 central slip 不直接 insertion 到 distal phalanx，而要由 lateral band 去 insertion？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>這是台大洪學義 104 跟 105 年的題目，他要的答案只有兩個字：synergy，協同作用。</p>
+<p>先講設計。central slip 止於中節指骨基部，負責 PIP 伸展；兩條 lateral band 在 PIP 之後匯合成 terminal tendon，止於遠節指骨基部，負責 DIP 伸展；lumbrical 與 interossei 由掌側經 lateral band 併入這個系統。如果 central slip 直接接到遠節，整根手指的伸展就變成一個剛性的單一單元，ROM 會嚴重受限。實際的伸肌機轉是可分散、可滑移的網狀系統，讓 PIP 跟 DIP 可以分別也可以連動地伸展，並讓 intrinsic 與 extrinsic 共用同一套滑移機制。這就是 synergy。</p>
+<p>接著把三個變形串起來。第一，mallet finger：terminal extensor tendon 在 DIP 止點斷裂，或伴隨 bony avulsion，造成 DIP extension lag。治療是 DIP 持續伸直副木 6 到 8 週，不可以中斷。手術門檻用 Doyle 分類的關節面比例，數字要正確：Type 1 是閉鎖性、骨片小於關節面 20%；Type 4b 是 20% 到 50%；Type 4c 是超過 50% 而且合併關節半脫位。不要再講「超過三分之一就開刀」。統合分析顯示 4b 跟 4c 手術與非手術的結果其實 equivocal，只是一般仍偏好手術，尤其 4c。</p>
+<p>第二，boutonnière：central slip 在中節指骨基部斷裂，lateral band 向掌側滑落到 PIP 旋轉軸的掌側，原本伸 PIP 的力量變成屈 PIP，所以是 PIP 屈曲加上 DIP 過度伸直。檢查用 Elson test：PIP 屈曲 90 度抵住桌緣，請病人伸 PIP，如果 DIP 變得僵硬伸直就是陽性，因為力量全跑到 lateral band。急性期 PIP 伸直副木 6 週、DIP 自由活動。</p>
+<p>第三，swan neck：PIP 過度伸直加上 DIP 屈曲。成因是慢性 mallet、FDS 斷裂或 volar plate 鬆弛、類風濕的 intrinsic tightness、關節過動。檢查用 Bunnell intrinsic tightness test，治療有 SORL reconstruction、FDS tenodesis、silicone ring splint。</p>
+<p>一句串起來的因果鏈，請跟我唸：central slip 斷是 boutonnière，terminal tendon 斷是 mallet，慢性 mallet 變成 swan neck。三個變形，就是同一套滑移系統在不同位置失效。加分句：燒傷的手為什麼會 boutonnière？因為手背皮膚極薄，深度燒傷會直接燒穿 PIP 背側的 central slip。</p>
+</section>
+<section class="q" id="q2">
+<h2>第二題</h2>
+<p class="ask">考官問：如何檢查 FDS 的 function？這項檢查的原理為何？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>做法一句話：把其他所有手指固定在完全伸直的位置，然後請病人單獨屈曲受測手指的 PIP joint。</p>
+<p>但他問的是原理，只講做法會被追問。原理是：FDP 的四條肌腱共用一個 common muscle belly，FDS 則各有獨立的肌腹。把其他手指固定在伸直位，等於把 FDP 的肌腹鎖住，讓它無法作用於受測的手指；因此這時候 PIP 還能屈曲，力量就只可能來自 FDS。</p>
+<p>判讀：完全不能動是完全斷裂，能動但無力是部分斷裂。對照的 FDP 測法是固定 PIP joint，測 DIP 能不能主動屈曲。</p>
+<p>陷阱要主動講出來：相當高比例的人小指 FDS 缺如，或跟環指的 FDS 相連，所以測小指時如果把環指壓住，會誤判為 FDS 斷裂——測小指要允許環指一起動。數字要小心：一版寫缺如可達 50%，另一版寫大約 75% 的人小指沒有獨立 FDS 功能。不要再講 30 到 35%，考場上講「相當高比例」最安全。</p>
+<p>深淺排列是謝式洲的追問。FDS 的四條肌腱不在同一平面：到中指與環指的 FDS 在淺層，到食指與小指的 FDS 在深層，四條 FDP 加 FPL 最深。記憶手勢是把中指跟環指往前伸出來、食指跟小指縮在後面。</p>
+<p>兩個常見追問。病人不合作怎麼辦？看 tenodesis effect，被動屈伸腕部觀察手指連動。Zone 2 為什麼叫 no man's land？因為 FDS 跟 FDP 在同一個腱鞘內滑動，FDS 在這裡分岔成兩束、繞到 FDP 背側於 Camper's chiasm 交叉再會合，修補後沾黏機率極高。</p>
+</section>
+<section class="q" id="q3">
+<h2>第三題</h2>
+<p class="ask">考官問：影片裡病人中指 DIP 無法主動彎曲，你看到什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>先描述再診斷：「病人在固定 PIP joint 的情況下無法主動屈曲 DIP joint，代表 FDP 的連續性中斷，診斷是 FDP disruption。」如果病史是抓對方球衣被強力拉開，就是典型的 Jersey finger，也就是 closed FDP avulsion，好發於環指——因為環指的 FDP 止點抗拉強度較弱，而且伸指時它最突出。</p>
+<p>分型用 Leddy–Packer，它的價值在於直接決定你有幾天可以開刀。Type 1，肌腱回縮到手掌，vincula 斷裂、血供中斷，時間窗最短。Type 2，回縮到 PIP 高度，vincula 仍完整，這是最常見的一型。Type 3，帶大塊撕脫骨片卡在 A4 pulley，回縮有限。Type 4，這一型請聽清楚——Smith 追加的是 Type 4，內容是骨折併肌腱自骨片再撕脫的雙重損傷，肌腱可回縮到中節以近甚至手掌，治療是先把骨片固定回遠節，再把撕脫的肌腱推進固定。沒有 Type 5 這一型，不要再講「Smith 追加 Type 5 等於遠節粉碎性骨折」。</p>
+<p>時間窗兩版並列。Type 1：一版寫 7 到 10 天內、趁腱鞘尚未塌陷，另一版寫受傷 2 週內；主答講「越快越好，最好 7 到 10 天內，最遲不超過兩週」。Type 2：一版寫傷後 1 個月仍可嘗試修補，另一版寫 6 週內；主答講「可容忍到 4 到 6 週」。</p>
+<p>為什麼 Type 1 時間這麼短？因為 vincula 是 FDP 的血液供應來源，vincula 一併斷裂後肌腱失去血供，而且回縮到手掌後在腱鞘內攣縮，超過時間窗就無法拉回原位、也無法存活。</p>
+<p>治療是急性期做 primary repair 或 reinsertion，用 pull-out suture 或 bone anchor；慢性、無法直接修補的走 two-stage tendon graft、DIP arthrodesis 或 tenodesis，但要先溝通——單獨 DIP 屈曲喪失的功能影響有限，不一定要積極重建。併發症背兩個：quadriga effect，FDP 縫太緊或縮短超過 1 公分，因共用肌腹而拖累其他手指屈曲；還有 lumbrical-plus finger，肌腱移植過長，造成越用力屈指、PIP 反而伸直的矛盾動作。</p>
+<p>小結前三題。伸肌機轉這一組帶走三句：central slip 斷是 boutonnière、terminal tendon 斷是 mallet、慢性 mallet 變 swan neck。FDS test 考的是原理，答案是「FDP 共用肌腹」。Leddy–Packer 的 Smith 追加型是 Type 4，沒有 Type 5。</p>
+</section>
+<section class="q" id="q4">
+<h2>第四題</h2>
+<p class="ask">考官問：這張手掌的照片是什麼？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>看到圖直接喊 Dupuytren 是這一關最大的地雷。邱浩遠要的是 reasoning，所以先鋪鑑別診斷。第一，ganglion cyst，佔手部所有軟組織腫瘤的 60% 到 70%；而在 ganglion 之中大約 70% 位於背側腕部、20% 位於掌側腕部——這兩個百分比是不同的東西，不要混講。第二，giant cell tumor of tendon sheath，堅硬、不痛、結節狀、生長緩慢。第三，epidermal inclusion cyst。第四，trigger finger 在 A1 pulley 處的 Notta's node。第五，knuckle pad，但它在 PIP 背側，位置不對。</p>
+<p>然後用一句話收束：「其他腫瘤都是往外凸的 mass effect，只有 Dupuytren 因為病變的筋膜與真皮相連，會造成 skin retraction 跟 pitting——所以我的診斷是 Dupuytren's disease。」考官的原話是「其他腫瘤不會 skin retraction，我才說是 Dupuytren」。</p>
+<p>最早的徵象是皮膚變化：skin tightness，伸指時異常發白，加上掌紋變形、dimpling。機轉是病變侵犯連到真皮的 Grapow 纖維，結節跟 cord 是之後才出現的。提醒一句，不要用「Hueston sign」這個 eponym，兩本教科書都查不到這個命名。</p>
+<p>解剖是陳理維要你背的。本質是掌腱膜的纖維增生性疾病，病理是 myofibroblast 增生加上 type 3 collagen 增加；深度只到 palmar fascia、就在皮下，院長原話是「沒經驗的常常一刀劃下去就超過」。正常結構叫 band，病態化之後才叫 cord。pretendinous cord 造成 MCP 攣縮；natatory cord 造成指蹼攣縮；spiral cord 最重要，由 pretendinous band、spiral band、lateral digital sheet 跟 Grayson's ligament 四者組成，造成 PIP 攣縮，而且會把神經血管束拉向淺層、中線、近端，這是術中傷到神經血管束的最大原因；lateral cord 造成 PIP 與 DIP 攣縮；retrovascular cord 造成 DIP 攣縮、也是復發來源；還有 central cord 跟小指的 abductor digiti minimi cord。記住 Grayson's 在掌側、會受侵犯，Cleland's 在背側、不受侵犯，記法是 C 在 ceiling。</p>
+<p>遺傳這一格務必用現代版：Dupuytren 是 polygenic、多基因疾病，已知大約 26 個 genetic risk variants，族群間的盛行率差異大致可由這些基因變異解釋。絕對不要再講「北歐血統、Viking disease」，也不要講「體染色體顯性、不完全外顯」——基因分析已經否定 Viking 這個說法，它也不是地理性疾病。</p>
+<p>手術適應症：MCP 屈曲攣縮超過 30 度，或者任何程度的 PIP 攣縮。床邊指標是 Hueston's tabletop test，手掌無法平放在桌面上。無攣縮、無疼痛的病人衛教觀察就好，不要因為有 nodule 就開刀。</p>
+<p>追問「MCP 超過 30 度就一定要開嗎」，標準答案是「不一定」，而且理由要講機轉：MCP 關節的 collateral ligament 在屈曲位本來就是被拉長的，所以不會攣縮，MCP 的攣縮即使拖久了，術後矯正結果仍然很好；反過來，PIP 的 volar plate、checkrein ligament 跟 collateral ligament 都會隨時間攣縮，越晚開結果越差。所以正確的臨床原則是：PIP 一有攣縮就該積極考慮手術，MCP 反而可以觀察。</p>
+<p>治療階梯：衛教觀察，副木，類固醇注射，needle aponeurotomy 對 MCP 的 pretendinous cord 特別有效但復發率高，collagenase 台灣未上市，fasciotomy 適合高齡共病多的單純 MCP cord，local 或 regional fasciectomy 是現行標準術式，復發或體質明顯的做 dermofasciectomy 加全層皮膚移植當 firebreak graft——但這一項要打折，它的優勢是能更徹底清除殘餘病變組織，不要斷言復發率最低。radical fasciectomy 是明確的地雷，院長原話是「沒病還拿掉，病人無法接受，而且一樣有 scar contracture 的可能」。</p>
+<p>術中最怕傷到被 spiral cord 拉歪的神經血管束——由近端正常區域往遠端 dissect，先找到血管神經束再處理 cord。切口方面院長偏好縱向直線切口加小的 Z-plasty，優於大的 zigzag 皮瓣，因為 skin flap 太薄容易壞死。必須告知病人四件事：皮膚不可留太薄、必要時要植皮；可能殘存 10 到 15 度的屈曲攣縮；會復發，手術是改善不是治癒；併發症包括神經血管損傷、血腫、感染、CRPS、關節僵硬。</p>
+</section>
+<section class="q" id="q5">
+<h2>第五題</h2>
+<p class="ask">考官問：把八塊腕骨背出來。Kaplan's cardinal line 怎麼畫？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>口訣是「舟月三豆、大小頭鉤」。近端排由橈到尺是 scaphoid、lunate、triquetrum、pisiform；遠端排由橈到尺是 trapezium、trapezoid、capitate、hamate。</p>
+<p>真正的考點是 hook of hamate 跟 Kaplan's line。hook of hamate 有三個臨床身分：它是 Guyon's canal 的橈側壁、是 transverse carpal ligament 的尺側附著點、也是 Kaplan's cardinal line 的尺側終點。臨床上 hook of hamate 骨折，例如高爾夫或球棒握把的直接撞擊，是 ulnar nerve deep motor branch 壓迫的典型原因。</p>
+<p>Kaplan's cardinal line 的畫法：從拇指完全外展時第一指蹼的頂點，畫一條平行於 proximal palmar crease 的線，往尺側延伸到 hook of hamate。沿線可以定位四個深部構造。第一，與第三指蹼縱軸的交點是 median nerve 的 recurrent motor branch。第二，與第四指蹼縱軸的交點是 ulnar nerve 的 deep motor branch。第三，這條線距離 superficial palmar arch 在 15 毫米以內、距離 deep palmar arch 在 6 毫米以內——請注意要講成「距離上限」，不要講成「淺弓在遠端 1 公分、深弓在近端 1 公分」，而且深弓其實離這條線更近。第四，尺側終點就是 hook of hamate。</p>
+<p>補充兩點常被追問的。第一，pisiform 是 FCU 肌腱內的 sesamoid bone，不參與腕關節的近端關節面。第二，scaphoid 的血流由遠端進入、呈逆行，所以 proximal pole 骨折有高不癒合與缺血壞死風險；lunate 的缺血壞死才是 Kienböck disease。考場上只講「proximal pole 的 AVN 與 nonunion」，不要冠上 Preiser 這個名字。</p>
+<p>謝式洲還會叫你畫手指橫切面。不要報鐘點數字，改講關係：骨頭在背側、也就是北半球；flexor tendon 在正掌側；神經血管束在骨頭兩側的中軸線偏掌側，動脈在神經的背側、神經在動脈的掌側；靜脈在背側皮下最淺層。</p>
+</section>
+<section class="q" id="q6">
+<h2>第六題</h2>
+<p class="ask">考官問：Scaphoid fracture 的 PE 怎麼做？X 光是乾淨的，你要選 MRI 還是 CT？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>理學檢查三個經典徵象：anatomical snuffbox tenderness，敏感度高但特異度低；scaphoid tubercle tenderness，從掌側、遠端腕橫紋橈側按壓；還有 longitudinal 或 axial thumb compression pain。三者同時陽性時陽性預測值才高，三者都陰性幾乎可以排除。</p>
+<p>影像先照 X 光四個 view：PA、lateral、45 度旋前斜位，加上 scaphoid view，也就是尺偏位的 PA，可以把 scaphoid 拉長。關鍵是——高達 15% 到 25% 的 scaphoid fracture 在初次 X 光看不到，所以只要臨床高度懷疑而 X 光陰性，我不會放病人走。</p>
+<p>MRI 還是 CT，這裡兩邊立場不同，必須並列。正式的選項是「10 到 14 天後複查 X 光」或者「進階影像」。敏感度與特異度：MRI 是 88% 與 100%，CT 是 72% 與 99%——MRI 比較敏感，但不是接近 100%。不過也有作者在急性期偏好 CT，理由是可近性高，而且急性期的骨髓水腫會讓 MRI 的判讀效益下降。所以考場講法是：「兩者皆可；急性期水腫會降低 MRI 的判讀效益，我會依可近性選擇；已確診、要看位移與規劃手術則一定選 CT。」</p>
+<p>但中國醫陳宏基院長那一關要順著他答。他明確表示腕骨骨折建議 MRI 不是 CT，所以答 MRI，並講出理由——受傷後 24 小時內就能看到 bone marrow edema，而且可同時評估 scapholunate 與 lunotriquetral 韌帶及 proximal pole 的訊號變化；再補一句「不過急性期水腫也可能降低判讀效益，所以有作者偏好 CT」。</p>
+<p>為什麼 scaphoid 特別容易不癒合？因為大約 75% 到 80% 的表面被關節軟骨覆蓋，可供血管進入的骨面極少；血流主要由 radial artery 的 dorsal ridge branch 以逆行方式進入。注意這個 70% 到 80% 指的是「整塊舟狀骨」的血流佔比，不是 proximal pole 的比例。可引的數字是整體 nonunion 5% 到 12%、位移性骨折保守治療 nonunion 20%；至於「proximal pole 骨折 AVN 率 30 到 40%」在課本找不到明確出處，不要硬掰。長期不處理會走向 SNAC wrist：radial styloid 關節炎、scaphocapitate 關節炎、然後全腕塌陷。</p>
+<p>小結第二段。第四到第六題三句話：Dupuytren 是 polygenic，不是 Viking、不是體染色體顯性；Kaplan's line 的四個對應點要一口氣講完，而且距離要講成上限；舟狀骨的影像 MRI 與 CT 並列，但陳宏基那關順著答 MRI。</p>
+</section>
+<section class="q" id="q7">
+<h2>第七題</h2>
+<p class="ask">考官問：Lister's tubercle 在哪裡？跟 EPL 有什麼關聯？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>這是邱浩遠 111 年的操作題，他會摸摸看你指的位置對不對，摸錯位置比講錯內容更致命。</p>
+<p>Lister's tubercle 是橈骨遠端「背側」的骨性隆起，是第 2 與第 3 背側腔室的分界。定位方法是從橈骨莖突往背側與尺側移動大約 1 公分，在腕關節近端摸到的那個小骨結節。它在 dorsum of distal radius，不要跟腕骨的隆起弄錯。</p>
+<p>跟 EPL 的關聯：EPL 走在 Lister's tubercle 的尺側，繞過這個結節之後轉向橈側前往拇指——所以 Lister's tubercle 等於是 EPL 的一個滑車。</p>
+<p>三個臨床意義。第一，橈骨遠端骨折，尤其是「無位移」的 Colles' fracture 之後的遲發性 EPL 斷裂，因為結節處同時是血流的分水嶺，又有機械性摩擦。第二，EPL 斷裂後回縮非常嚴重，可以沿著 Lister's tubercle 的尺側往近端追。第三，治療通常不做直接修補，因為肌腱已退化、回縮太多，標準做法是 EIP 轉 EPL 的肌腱轉移。</p>
+<p>六個背側腔室順帶背出來會加分：第一腔室是 APL 加 EPB，第二是 ECRL 加 ECRB，第三是 EPL，第四是 EDC 加 EIP，第五是 EDM，第六是 ECU。追問術中怎麼認出 EIP，兩個要點：EIP 位於 EDC 的尺側而且較深；在腕部高度還看得到 EIP 的肌腹，往近端追、還帶著肌肉的就是 EIP。取 EIP 的代價是食指失去獨立伸指，但 EDC 仍可伸、不減少握力，遠端殘端要縫回食指的 EDC 以免 extensor lag。張力要在腕中立到輕度伸展、拇指完全伸直外展的位置設定，不要講「wrist flexion 30 度加 full opposition」，那與伸肌腱轉移的通則方向相反。</p>
+</section>
+<section class="q" id="q8">
+<h2>第八題</h2>
+<p>考官說：來，用我的手，做 Allen test 給我看。順便講 Phalen 跟 Finkelstein。</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>先講 Allen test。目的是評估手部 radial artery 與 ulnar artery 之間，經由 superficial 與 deep palmar arch 的側支循環是否足夠。步驟五步：第一，請病人把手抬高，用力握拳大約 30 秒，把血驅出；第二，我用兩隻手指同時壓住手腕的 radial 與 ulnar artery；第三，請病人「輕輕」張開手掌，此時手掌應該呈蒼白，注意手不要過度伸展，否則皮膚張力會造成偽陽性；第四，先放開 ulnar artery、繼續壓著 radial artery，觀察手掌恢復紅潤的時間；第五，重複同一動作，這次改放開 radial artery。</p>
+<p>恢復時間各家標準不一，主答講「我用大約 5 秒以內為正常」，並主動說一句「各家採用的秒數略有出入」；另有版本寫 6 秒以內正常、7 到 15 秒 equivocal、超過 15 秒異常。原理是掌弓的環狀吻合，人為阻斷其中一條，測另一條能否單獨供應整個手掌。</p>
+<p>操作上的地雷請記牢：111 年的原文寫「操作時要細心確實，不要把考官的手腕壓出指甲痕」。所以用指腹的平面壓，不要用指尖；壓之前先說「老師我要壓了，會有點不舒服請告訴我」。臨床用途是取 radial forearm flap 之前必做、放動脈導管之前、radial artery 取作繞道血管之前。新光林煌基會追問「Allen 是誰」——答 Edgar Van Nuys Allen，梅約醫學中心的內科醫師，原始用於評估 Buerger's disease 病人的血管通暢度、雙手同時檢查，後來的 modified 版本改成單手逐一釋放；年份細節課本查不到出處，不要硬掰。</p>
+<p>再來是 Phalen test。做法是手腕屈曲，主答壓 60 秒；被追問就順著答「文獻從 20 秒到 2 分鐘都有記載，我習慣用 60 秒」。原理是手腕屈曲使腕隧道內壓上升、壓迫正中神經而誘發症狀。常被引用的數字是正常大約 2.5 mmHg、屈曲時升到 30 到 100 mmHg，但這組數字課本查不到明確出處，講的時候要說是文獻報告。同一組要主動補上 Tinel 跟 Durkan carpal compression，壓 30 秒，Durkan 的敏感度與特異度最好。</p>
+<p>最後是 Finkelstein test。他會要你「寫出全名」，答不出來直接失分：De Quervain's disease 等於 stenosing tenosynovitis of the first dorsal extensor compartment，第一背側伸肌腔室的狹窄性腱鞘炎。做法是拇指內收、屈曲進掌心，然後手腕向尺側偏移，橈骨莖突處劇痛為陽性。學術上的精確區分講出來很加分：病人自己握拳包住拇指再尺偏，嚴格說是 Eichhoff test；Finkelstein 的原始描述是檢查者拉住拇指做縱向牽引再尺偏。</p>
+<p>這一題真正的臨床重點是 septum。第一背側腔室含 APL 與 EPB，而在接受手術的病人中，把 EPB 獨立包起來的纖維骨性次腔室出現率高達 44% 到 86%——不是 35% 到 45%。這個比例比屍體研究更高，暗示 septum 的存在本身就是致病因素、也是保守治療失敗的原因；臨床意義是注射或手術時兩個小隔間都必須處理到。流行病學也要改口徑：盛行率男性大約 0.5%、女性大約 1.3%，男女比約 1 比 2.6，不是 1 比 10；年齡呈雙峰分布，一峰是懷孕與哺乳期的年輕女性，一峰是 50 到 60 多歲。治療是拇指人字副木加類固醇注射為第一線，無效再手術；切口沿 extensor retinaculum 的尺側緣放開，保留橈側當作牆，避免肌腱向掌側半脫位。</p>
+</section>
+<section class="q" id="q9">
+<h2>第九題</h2>
+<p class="ask">考官問：影片裡病人伸直拇指時卡住、有彈響，診斷是什麼？local 要打在哪裡？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>先描述再診斷：「病人主動伸直拇指時出現卡頓與彈跳，被動可以扳直，臨床診斷是 trigger thumb，狹窄性腱鞘炎。」機轉是 FPL 肌腱與 A1 pulley 之間的大小不匹配——A1 pulley 增厚纖維化、肌腱形成 Notta's node，導致肌腱通過 pulley 時卡住。A1 pulley 位於 MCP joint 的掌側。分級用 Green classification：第一級疼痛、第二級可主動 catching、第三級需要被動 unlock、第四級固定攣縮。</p>
+<p>治療階梯：保守治療用 oval-8 或 PIP 阻擋型副木限制 PIP 屈曲，大約 50% 有效，但要戴 6 到 10 週——不要再講「夜間 MCP 伸直副木」。接著是局部類固醇注射，首選的非手術治療，成功率 60% 到 90%，可重複 1 到 2 次。最後是 A1 pulley release。</p>
+<p>簡守信一定會追問注射位置：打在 A1 pulley 的位置，也就是拇指 MCP joint 的掌側橫紋處，從掌側垂直進針，藥物沿腱鞘擴散到 A1 與 oblique pulley 附近即可。考生問「要不要從 dorsal side」，正解是「不用，直接在掌側該位置打」。</p>
+<p>安全上的注意這裡要改口徑：不要再說「從正中線垂直進針就能避開指神經」。文獻反而點名危險就在中線附近——拇指的 radial digital nerve 由近端往遠端呈由尺側走向橈側的斜行路徑跨過中線，而且非常表淺，在拇指 MCP 關節處平均只在真皮下大約 2.2 毫米。安全的講法是：進針要淺、貼著腱鞘走，並清楚知道 radial digital nerve 在此高度會斜行跨過中線且極為表淺；注射時如果阻力極大不要強推，以免打進肌腱實質造成斷裂。</p>
+<p>拇指的 pulley 跟其他手指不同：拇指只有 A1、A2 兩條 annular pulley 加一條 oblique pulley；oblique pulley 是拇指最重要的 pulley，release 時必須保留，切斷會造成 bowstringing 與 IP 屈曲力量喪失。其他手指則是切太多 A2 會 bowstringing。</p>
+<p>小兒板機拇指這一格三個事實都要改。第一，它其實不是先天性的——多個大型研究在新生兒身上找不到這個診斷，「congenital trigger thumb」是誤稱，應該視為後天。第二，最常在大約 2 歲時被診斷出來。第三，只有將近三分之一的個案會在 5 歲前自行緩解，大多數最終仍需要手術，手術年齡的中位數大約 4.1 歲。講法是：「可先觀察與被動伸展，但要告訴家長自行緩解的機會只有大約三分之一，多數最終需要 A1 pulley release。」</p>
+</section>
+<section class="q" id="q10">
+<h2>第十題</h2>
+<p class="ask">考官問：講一下甲床解剖跟這個甲溝炎怎麼來的；還有 Z-plasty 的角度；還有這個併指為什麼前一位醫師沒開完全。</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p>第一，甲床。Perionychium 等於 nail plate 加 nail bed 加周邊構造。Nail bed 分兩段，這是唯一真正的臨床分水嶺：germinal matrix 位於 lunula 及其近端，負責產生大約 90% 的甲板，受傷會造成永久性的指甲缺損；sterile matrix 在 lunula 遠端，讓甲板貼附並增加厚度，受傷造成指甲變形。臨床重點是 nail bed laceration 用 6-0 或 7-0 可吸收線精細縫合，並把甲板或替代物回置到 eponychial fold，以免沾黏造成日後指甲長不出來。</p>
+<p>甲溝炎是李經維 107 年的加碼題，他要的是機械性解釋、不是「細菌感染」：指甲修得太寬、最側邊那一小條沒剪到，殘留的 lateral nail spike 像一把小刀插進 lateral nail fold 的肉裡，造成穿刺傷、細菌侵入。預防的重點就是指甲要平剪到底、不要修圓。急性甲溝炎最常見的致病菌是金黃色葡萄球菌；慢性甲溝炎主答用現代版——傾向以接觸性皮膚炎的框架處理，第一線是避免潮濕加上局部類固醇或 tacrolimus，而不是抗黴菌藥。還有一個口徑要改：沒有合併蜂窩性組織炎時，單純急性甲溝炎在完整切開引流之後不一定需要抗生素。</p>
+<p>第二，Z-plasty，純記憶題，五組數字要背全：30 度延長 25%、45 度 50%、60 度 75%、75 度 100%、90 度 120%。60 度是實務標準，因為它在延長效果與皮瓣尖端血循安全之間最平衡——角度越大延長越多，但皮瓣越難轉、尖端越容易壞死；角度太小則延長不足、皮瓣太細也容易缺血。實際延長量常小於理論值，因為理論值假設皮膚無限可延展，實際受限於周邊皮膚鬆弛度、疤痕的順應性與下方組織的固定。第一指蹼優先考慮 four-flap 或 five-flap。提醒一句，這張角度表在已查核的章節裡找不到明文，它是經典教材數字，被追問時說「這是經典的幾何推算值」，不要硬掰成課本原文。</p>
+<p>第三，先天性併指，這是江原正 107 年的題目。看到照片直接喊診斷是這一關最大的地雷——他要考的是 thinking process，而且 PE 漏掉前臂跟上臂也是他明列的地雷。描述有七個維度：complete 還是 incomplete、simple 還是 complex 還是 complicated、單側還是雙側、只有手還是手腳都有、是哪幾指、有沒有合併其他變形、有沒有症候群。他的提醒是「Apert 很少單側，大部分都是雙側對稱」。</p>
+<p>為什麼前一位醫師沒開完全？答案是 high-riding neurovascular bundle。正常情況下 common digital artery 大約在指蹼或掌骨頭的高度分叉成兩條 proper digital artery；併指的病人分叉點常常比正常更遠端，跑到近節指骨中段甚至更遠。非整形外科的醫師一看到神經血管束就不敢再往下分，於是停在那裡——但神經血管束走在兩側，中間是可以繼續分開的。</p>
+<p>遇到 high-riding NV bundle 有四個層次的處理：第一，神經做 interfascicular dissection，神經幾乎總是可以在束間層次再往近端劈開。第二，結紮一側的 proper digital artery，但要先用血管夾暫時夾住、放開止血帶確認另一側動脈足以供應該指之後才結紮，這是最常用的解法。第三，分期手術，先分到安全高度，等 6 個月以上再做第二階段。第四，接受比較淺的指蹼。絕對禁忌是同一次手術把一根手指兩側的指蹼同時分離，那會造成該指完全缺血。</p>
+<p>手術原則兩句：指蹼一定要用皮瓣重建，不能只靠植皮，否則必然 web creep，背側皮瓣要涵蓋掌骨頭到 PIP 關節之間距離的三分之二；手指側面用全層皮膚移植覆蓋。時機兩端都要提早：邊緣指蹼因為相鄰手指長度差異大，出生後 3 到 6 個月內放開最理想；中央指蹼可延後，但至少要滿 1 歲。被問到「這是 recurrence 還是 inadequate treatment」，正確答案是 inadequate treatment——web creep 是原本分開的指蹼隨生長逐漸向遠端爬升、皮膚是連續的；而這個案例是近節指骨層級從未被分離過的原始融合，不是爬升，是根本沒做到。</p>
+<p>小結第七到第十題。操作題這一組帶走四句：Lister's tubercle 在橈骨遠端背側、EPL 走它的尺側；Allen test 不要把考官的手腕壓出指甲痕，Finkelstein 要答得出全名，而且 septum 是 44% 到 86%；小兒板機拇指不是先天的，約 2 歲診斷、只有三分之一在 5 歲前緩解；併指沒開完全的原因是 high-riding neurovascular bundle。</p>
+<p>最後 60 秒，我們複誦這一集的必背數字，請跟著我唸。</p>
+<p>Doyle 分類：Type 1 骨片小於關節面 20%，Type 4b 是 20% 到 50%，Type 4c 超過 50% 加半脫位。Mallet 副木 6 到 8 週，boutonnière 6 週。</p>
+<p>Leddy–Packer：Type 1 最好 7 到 10 天、最遲兩週；Type 2 可容忍 4 到 6 週；Smith 追加的是 Type 4，沒有 Type 5。</p>
+<p>FDS：中指環指淺、食指小指深；小指 FDS 缺如比例相當高，一版 50%、一版 75%。</p>
+<p>Dupuytren：MCP 超過 30 度或任何程度的 PIP 攣縮才開刀；polygenic，大約 26 個 genetic risk variants；術後可能殘存 10 到 15 度攣縮。</p>
+<p>Kaplan's line：距離淺弓 15 毫米以內、深弓 6 毫米以內。舟狀骨：初次 X 光看不到 15% 到 25%；MRI 敏感度 88%、特異度 100%，CT 是 72% 與 99%。</p>
+<p>背側腔室：APL 加 EPB、ECRL 加 ECRB、EPL、EDC 加 EIP、EDM、ECU。Allen 大約 5 秒內正常，Phalen 60 秒，Durkan 30 秒。De Quervain 男女比 1 比 2.6，septum 44% 到 86%。</p>
+<p>板機拇指：副木 6 到 10 週、有效率 50%；類固醇成功率 60% 到 90%；小兒板機拇指約 2 歲診斷，只有三分之一在 5 歲前緩解，手術中位數 4.1 歲；拇指 radial digital nerve 在 MCP 處只在真皮下 2.2 毫米。</p>
+<p>Z-plasty：30 度 25%、45 度 50%、60 度 75%、75 度 100%、90 度 120%。Germinal matrix 產生 90% 的甲板。併指邊緣指蹼 3 到 6 個月、中央指蹼至少滿 1 歲。</p>
+<p>好，第六集結束，手外科四場全部練完。下一集我們練顯微重建與乳房：free flap 的失敗判讀、穿通枝皮瓣的選擇，以及乳房重建的時機與術式取捨。</p>
+</section>
+<div class="pager"><a href="ep05.html">← 上一集</a><a href="ep07.html" class="r">下一集 →</a></div>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

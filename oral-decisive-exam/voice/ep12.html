@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EP12 皮膚腫瘤、皮瓣幾何與臨場應答，總複習集</title>
+<style>
+:root{
+  --ink:#141a18; --muted:#66736f; --rule:#dfe6e3; --surface:#fff; --bg:#f6f8f7;
+  --accent:#0f6b5c; --accent-soft:#e6f1ee; --accent-ink:#0b5145; --warn:#8a4b16;
+  --warn-soft:#fdf1e4;
+  --fs:19px;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#e8eeec; --muted:#93a19d; --rule:#2b3634; --surface:#151d1b; --bg:#0e1413;
+    --accent:#5ec4ae; --accent-soft:#17302b; --accent-ink:#8fdcc9;
+    --warn:#e0a86a; --warn-soft:#2c2114; }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif;
+  font-size:var(--fs); line-height:1.95;
+  -webkit-text-size-adjust:100%;}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.1rem 5rem}
+a{color:var(--accent-ink)}
+.top{position:sticky; top:0; z-index:5; background:var(--bg);
+  border-bottom:1px solid var(--rule); margin-bottom:1.6rem}
+.topin{max-width:40rem; margin:0 auto; padding:.55rem 1.1rem;
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap}
+.topin a.back{font-size:.78em; text-decoration:none; color:var(--muted); margin-right:auto}
+.topin a.back:hover{color:var(--accent-ink)}
+button.t{font:inherit; font-size:.72em; line-height:1.5; padding:.15rem .6rem;
+  border:1px solid var(--rule); border-radius:20px; background:var(--surface);
+  color:var(--muted); cursor:pointer}
+button.t:hover{border-color:var(--accent); color:var(--accent-ink)}
+button.t[aria-pressed="true"]{background:var(--accent-soft); color:var(--accent-ink);
+  border-color:var(--accent)}
+h1{font-size:1.5em; line-height:1.55; margin:1.2rem 0 .3rem; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:.78em; margin:0 0 1.8rem}
+h2{font-size:1.08em; line-height:1.5; margin:0 0 .7rem; color:var(--accent-ink)}
+p{margin:0 0 1.05rem}
+section{margin:0 0 2.4rem; scroll-margin-top:4rem}
+section.q{border-top:1px solid var(--rule); padding-top:1.6rem}
+.ask{font-weight:600}
+.cue{color:var(--muted); font-size:.85em; margin-bottom:.5rem}
+.trap{background:var(--warn-soft); border-left:3px solid var(--warn);
+  padding:.85rem 1rem; border-radius:0 6px 6px 0; margin:0 0 1.05rem}
+.sum,.recap{background:var(--accent-soft); border-radius:8px; padding:1.1rem 1.1rem .3rem}
+.sum h2,.recap h2{margin-top:0}
+.next{color:var(--muted); font-size:.85em}
+
+/* 停頓：畫面上是提示，唸出來是一段空白 */
+.pause{margin:.2rem 0 1.4rem; color:var(--muted); font-size:.85em;
+  border-left:3px solid var(--rule); padding-left:.9rem}
+.pause::before{content:"⏸　停 3 秒　"}
+.pause .quiet{opacity:.5; letter-spacing:.16em}
+.pause .loud{display:none}
+body.loud .pause::before{content:"⏸　"}
+body.loud .pause .quiet{display:none}
+body.loud .pause .loud{display:inline; font-size:1em; line-height:inherit}
+
+/* 集內題目導覽 */
+.qnav{border:1px solid var(--rule); background:var(--surface); border-radius:10px;
+  padding:.9rem 1.1rem; margin:0 0 2.4rem; font-size:.85em}
+.qnav b{display:block; font-size:.9em; color:var(--muted); font-weight:600;
+  letter-spacing:.06em; margin-bottom:.5rem}
+.qnav ol{margin:0; padding-left:1.4rem}
+.qnav li{margin:0 0 .35rem; line-height:1.6}
+.pager{display:flex; gap:.8rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-size:.85em}
+.pager .r{margin-left:auto}
+
+/* 目錄頁 */
+ul.eps{list-style:none; margin:0; padding:0}
+ul.eps li{border-bottom:1px solid var(--rule)}
+ul.eps a{display:block; padding:.95rem .2rem; text-decoration:none; color:var(--ink)}
+ul.eps a:hover{background:var(--accent-soft)}
+ul.eps .n{font-size:.72em; color:var(--muted); letter-spacing:.08em}
+ul.eps .t{display:block; line-height:1.5}
+ul.eps .m{font-size:.72em; color:var(--muted)}
+.howto{background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:1.1rem 1.2rem .3rem; margin:0 0 2.4rem; font-size:.88em}
+.howto h2{font-size:1em}
+.howto ol{padding-left:1.3rem; margin:0 0 1rem}
+.howto li{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><a class="back" href="index.html">← 12 集語音課程</a><button class="t" type="button" id="fsdn">小</button><button class="t" type="button" id="fsup">大</button><button class="t" type="button" id="pz" aria-pressed="false">停頓：靜音</button></div></div>
+<main class="wrap">
+<h1>EP12　皮膚腫瘤、皮瓣幾何與臨場應答，總複習集</h1>
+<p class="sub">10 題　·　約 10k 字　·　朗讀約 41 分鐘</p>
+<nav class="qnav"><b>本集題目</b><ol><li><a href="#q1">右耳後溝這個潰瘍性病灶，請你描述，這是哪一型，safe margin 切多少？</a></li><li><a href="#q2">怎麼跟 SCC 分？SCC 的 margin 呢？什麼樣的要處理淋巴結？</a></li><li><a href="#q3">右足底負重區的黑色病灶，怎麼描述，怎麼切片，切多少？</a></li><li><a href="#q4">這個 melanoma 要不要做 SLNB？如果 sentinel node …</a></li><li><a href="#q5">請把 bilobed flap 畫出來。角度是幾度？</a></li><li><a href="#q6">請畫 rhomboid flap。一個菱形缺損有幾種設計方向？你怎麼選？</a></li><li><a href="#q7">鼻翼的 BCC 切完是全層缺損，你要怎麼重建？</a></li><li><a href="#q8">頰部缺損超過 4 公分怎麼重建？如果是下眼瞼的全層缺損呢？</a></li><li><a href="#q9">Frey's syndrome 是什麼？機轉？怎麼預防？順便講你怎麼找 fac…</a></li><li><a href="#q10">膝關節前方合併人工關節外露的缺損怎麼重建？另外，清創時發現一段斷掉的 drai…</a></li></ol></nav>
+<section class="sum">
+<h2>本集範圍</h2>
+<p>這一集把口試最常出現的三大塊串起來。第一塊是皮膚惡性腫瘤，包含 BCC 與 cSCC 的切緣、Mohs 的適應症，還有 melanoma 從 Breslow thickness 到 SLNB 再到 MSLT-II 的完整鏈條。第二塊是皮瓣幾何，包含 bilobed 與 rhomboid 的角度、鼻部 subunit principle 與頰部重建。第三塊是重建階梯與重建電梯，加上倫理題。全部 10 題。請務必唸出聲音，不要只用眼睛看。</p>
+</section>
+<section class="q" id="q1">
+<h2>第一題</h2>
+<p class="ask">考官問：右耳後溝這個潰瘍性病灶，請你描述，這是哪一型，safe margin 切多少？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：順序是先描述、再分型、最後把數字包進 risk stratification。描述：邊緣呈捲起的珍珠樣光澤，也就是 rolled pearly border，表面有 telangiectasia，中央潰瘍結痂，周圍有慢性日曬變化，最符合 basal cell carcinoma，nodular type，潰瘍後就是 rodent ulcer；鑑別要列 SCC、keratoacanthoma 與 amelanotic melanoma，確診仍需 biopsy。分型五型：nodular 最常見約六成；superficial 次常見約百分之 15，好發軀幹；morpheaform 或 infiltrative 界線最不清、復發率最高；pigmented；basosquamous 可以轉移。Margin 要先分風險。現行 NCCN 第 1.2026 版已完全取消 Area H、M、L 分區，改用解剖部位直接判定：頭、頸、手、足、脛前與肛門生殖器不論大小一律 high risk，軀幹四肢要 2 公分以上才算 high risk。所以耳後這一顆一律 high risk，首選 Mohs micrographic surgery 或 PDEMA，也就是 peripheral and deep en face margin assessment，而且重建要延後。4 公釐只適用軀幹四肢小於 2 公分的 low-risk BCC，出處是 Wolf 與 Zitelli 1987 年；教科書的表給 high-risk BCC 是 5 到 10 公釐。</p>
+<p class="trap">地雷或加分句：加分句是主動補舊版三個門檻，Area H 小於 6 公釐、Area M 大於等於 10 公釐、Area L 大於等於 20 公釐。地雷是講「Area H 任何大小都算高風險」，那是誤傳。簡守信主任用耳後溝照片問了很多年，地雷是圖沒看完就先喊診斷；董光義主任問 malar BCC，地雷是給含糊區間、不分風險層級。</p>
+</section>
+<section class="q" id="q2">
+<h2>第二題</h2>
+<p class="ask">考官問：怎麼跟 SCC 分？SCC 的 margin 呢？什麼樣的要處理淋巴結？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：BCC 極少轉移；SCC 是角化、質地硬、易出血潰瘍，有明確轉移風險，必須評估區域淋巴結，前驅病灶是 actinic keratosis 到 Bowen's disease 再到 invasive SCC 的光譜。轉移風險因子一口氣列完：第一，部位在耳、唇、頭皮、顳部。第二，大小超過 2 公分。第三，深度超過 6 公釐或侵犯超過皮下脂肪。第四，組織學是 poorly differentiated、desmoplastic 或 adenosquamous。第五，perineural invasion。第六，免疫抑制，包含器官移植、CLL、HIV，這一項最被低估。第七，復發性、放療部位、慢性傷口或燒傷疤痕，也就是 Marjolin's ulcer。Margin：low-risk 做 standard excision，臨床邊界 4 到 6 公釐，出處是 Brodland 與 Zitelli；high-risk 與 very-high-risk 首選 Mohs 或 PDEMA，教科書的表給 high-risk 是 10 公釐。淋巴結：臨床或影像上有可疑淋巴結，先 FNA 確認再做治療性廓清；臨床陰性但屬 very-high-risk 的，現行共識指引建議在切除前先做 SLNB，若要做，重建就要延後。</p>
+<p class="trap">地雷或加分句：加分句是把三個深度數字分清楚，分期門檻是 6 公釐、Mohs appropriate use criteria 的門檻是 2 公釐、Brantsch 2008 年那篇說超過 2 公釐開始轉移是預後數據，要標明是哪一套。地雷有兩個：把 2 公釐當成分期門檻報，還有講「SLNB 在 cSCC 仍屬 investigational」，那跟現行指引相反。董光義主任把兩者當連環題，SCC 的 margin 卡住，前面答再好也扣印象分。</p>
+</section>
+<section class="q" id="q3">
+<h2>第三題</h2>
+<p class="ask">考官問：右足底負重區的黑色病灶，怎麼描述，怎麼切片，切多少？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：絕對不要一看到黑色病灶就喊 melanoma，先用 ABCDE 描述。A 是不對稱；B 是邊緣不規則、界線不清、有 pseudopod；C 是顏色不均，局部有淡色的 regression 區；D 是直徑明顯大於 6 公釐；E 是要問近期有沒有變色、快速變大、隆起、潰瘍或流血。另外找 satellite lesion 與 in-transit metastasis，並觸診淋巴結。亞型最可能是 acral lentiginous melanoma，好發手掌、足底與甲下，教科書的數字是在深膚色族群中佔超過百分之 30。順序不可顛倒，先 biopsy 拿到 Breslow thickness 再依表決定 margin。首選 excisional biopsy，narrow margin 1 到 3 公釐、全層到皮下脂肪；病灶過大或在足底負重區就改 incisional 或 punch biopsy，取最厚、最深色處；原則上避免 shave biopsy，會破壞 Breslow 的判讀。Margin 逐格報：melanoma in situ 是 0.5 到 1 公分；小於等於 1 公釐是 1 公分；大於 1 到 2 公釐是 1 到 2 公分；大於 2 公釐一律 2 公分。AJCC 第 8 版兩個必背改動：T1 切點由 1.0 公釐改成 0.8 公釐，還有 mitotic rate 已從 T 分期移除。</p>
+<p class="trap">地雷或加分句：加分句是隨機試驗只支持到小於等於 2 公釐用 1 公分、大於 2 公釐用 2 公分，1 到 2 公釐這一格仍由 MELMART-II 試驗在驗證。shave 的「絕對」要拿掉，課本明列例外是大面積臉部 lentigo maligna 且幾乎無真皮侵犯時可用。地雷是先講診斷再描述，簡守信主任這關描述的完整度本身就是評分；另外 melanoma 不是 Mohs 的適應症。</p>
+</section>
+<section class="sum">
+<h2>小結</h2>
+<p>前面三題是同一個骨架：先描述、再診斷、最後把數字包進風險分層。BCC 記住分區已取消、頭頸一律 high risk；cSCC 記住 4 到 6 公釐與三個深度數字；melanoma 記住先 Breslow 再 margin。共同的一句話是：惡性腫瘤一定要等 margin clear 才做確定性重建。</p>
+</section>
+<section class="q" id="q4">
+<h2>第四題</h2>
+<p class="ask">考官問：這個 melanoma 要不要做 SLNB？如果 sentinel node 陽性，接下來怎麼辦？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：課本跟指引要分開報。主答用指引，依 AJCC 第 8 版：T1a，小於 0.8 公釐且無 ulceration，不常規建議，除非合併其他高風險因子；T1b，0.8 到 1.0 公釐，或小於 0.8 公釐但有 ulceration，與病人討論後施行；T2 以上，大於 1.0 公釐，應提供並施行。補一句：兩本教科書用的仍是舊門檻 1.0 公釐。顯影是 lymphoscintigraphy 用 Tc-99m 加 vital blue dye。Sentinel node 陽性之後是唯一能拉開差距的地方，不要等他問，主動講：過去的標準是陽性就做 completion lymph node dissection，但 MSLT-II，2017 年 NEJM，以及 DeCOG-SLT 兩個隨機對照試驗已證實，立即 CLND 雖改善 regional control、也提供預後資訊，卻不改善 melanoma-specific survival，而且淋巴水腫等併發症顯著較高。所以現行標準改成 nodal basin ultrasound surveillance 加上系統性輔助治療，CLND 只保留給選擇性病人。輔助治療是 anti-PD-1，也就是 pembrolizumab 與 nivolumab；有 BRAF V600 突變的用 dabrafenib 加 trametinib。</p>
+<p class="trap">地雷或加分句：加分句是年齡越大反而是 sentinel node 陽性的負向預測因子，現在有 nomogram 取代單靠厚度。若考官還停在「陽性就清」，先順著說過去標準確實是 CLND，再補兩個試驗與現行指引，不要正面糾正。簡守信與林煌基主任都問過這題，林主任的原話是「說越多越好」。</p>
+</section>
+<section class="q" id="q5">
+<h2>第五題</h2>
+<p class="ask">考官問：請把 bilobed flap 畫出來。角度是幾度？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：我用 Zitelli 1989 年的改良版。第一，決定旋轉方向，往組織最鬆、而且不會牽動 free margin 的方向，也就是下眼瞼、鼻翼緣與唇緣。第二，定 pivot point，在缺損邊緣外側一個缺損半徑的距離，且在旋轉方向的反側。第三，角度：第一瓣與缺損夾 45 到 50 度，第二瓣與第一瓣再夾 45 到 50 度，總旋轉 90 到 100 度；原始的 Esser 1918 年設計是每瓣 90 度、總共 180 度。第四，大小：第一瓣寬度約等於缺損寬度，第二瓣要在能直接縫合的前提下盡可能大。第五，一定要在 pivot point 切除 standing cutaneous deformity，也就是 Burow's triangle，不做樞紐處一定隆起。第六，剝離平面要夠深，讓缺損與兩個供區能一起移動。為什麼改良？Esser 的 180 度旋轉太大，standing cone 大、pivotal restraint 強、pincushioning 明顯；Zitelli 等於把一次大旋轉拆成兩次小旋轉。適應症是直徑小於 1.5 公分的鼻部缺損。</p>
+<p class="trap">地雷或加分句：加分句是「我會先決定第二瓣的供區放在哪裡，再回推 pivot point 與旋轉方向，因為成敗不在第一瓣，而在第二瓣的供區能不能無張力關起來」。地雷是畫不出來，或答「大概轉一下」講不出角度，那等於零分。董光義主任桌上有紙筆，畫不好他會當場教學。</p>
+</section>
+<section class="q" id="q6">
+<h2>第六題</h2>
+<p class="ask">考官問：請畫 rhomboid flap。一個菱形缺損有幾種設計方向？你怎麼選？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：這是 Limberg 1946 年描述的菱形皮瓣。第一，把缺損裁成菱形，內角 60 度與 120 度，四邊等長，設為 a。第二，從其中一個 120 度的頂角，沿短對角線方向向外延長一段等長的 a，得到 B 點；注意延長的是短對角線，因為 60 度與 120 度的菱形，短對角線長度正好等於邊長。第三，從 B 點再畫一條長度 a 的線，與 BA 夾 60 度且平行於菱形的鄰邊，得到 C 點。第四，A 到 B 到 C 圍出的平行四邊形就是皮瓣，旋轉進缺損、供區直接縫合。一個菱形缺損有 4 種設計，因為兩個 120 度頂角，每一個都可以往兩個方向設計。怎麼選？三條原則缺一不可：第一，供區關閉時的最大張力向量要落在皮膚最鬆弛的方向，現場一定要說我會捏一捏做 pinch test；第二，張力向量不可以牽動 free margin；第三，讓最終疤痕藏進 RSTL 或次單位交界。變化型三個：Dufourmentel 1962 年適用於不是 60 度與 120 度的菱形，用短對角線延長線與鄰邊延長線的平分角來畫；Webster 30 度皮瓣角度更小，並用 M-plasty 分散張力；多重拼接的 rhomboid 用於較大或圓形缺損。</p>
+<p class="trap">地雷或加分句：地雷非常明確，答「2 種」是錯的，正確是 4 種。加分句是「rhomboid 的難度不在切、在選方向，四個選項只有一個對，判準是供區關起來時張力會不會把眼瞼或嘴角拉走」。董光義主任會接在 bilobed 之後問，謝式洲主任也考過，他要的是 thinking process。</p>
+</section>
+<section class="sum">
+<h2>小結</h2>
+<p>這兩題常在同一關連續出現。記住三組數字：bilobed 用 Zitelli，每瓣 45 到 50 度、總共 90 到 100 度，Esser 是 180 度；rhomboid 是 60 度與 120 度、4 種方向。兩個皮瓣都要在 pivot point 切除 Burow's triangle，也都要先問一句：關起來的張力會不會把 free margin 拉走。畫得出來比背得出來重要。</p>
+</section>
+<section class="q" id="q7">
+<h2>第七題</h2>
+<p class="ask">考官問：鼻翼的 BCC 切完是全層缺損，你要怎麼重建？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：鼻部缺損開口一定先講三個字：cover、lining、skeletal support，各缺哪些。教科書有一句可以直接引：判斷 lining 的需求錯誤，是重建失敗最重要的單一原因。接著講 subunit principle。臉分成 forehead、eyelid、nose、lip、cheek 等美學單位，每個再分次單位；鼻部次單位共 9 個，dorsum、tip、columella、兩側 sidewall、兩側 alae、兩側 soft triangle。50 百分比規則要主動加限縮句：次單位重建原則只適用鼻的下三分之一，下三分之一的次單位缺損超過一半時就把整個次單位切除再重建；上三分之二相對平坦，做 defect-only reconstruction，也就是只補缺損、用色澤相配的全層植皮，結果反而更好。Cover 小的用 bilobed 或 nasolabial flap，大的或跨次單位用 paramedian forehead flap，血供是 supratrochlear artery，教科書給的量化條件是眉到髮際至少 6.5 到 7 公分，術前用 reverse Gillies maneuver 確認。分期主答三期：第二期距第一期至少 4 週，此時把皮瓣修薄到 2 到 3 公釐，第三期再至少 1 個月才斷蒂；傳統二期是 3 週後斷蒂，當並列註記。Support 用耳甲軟骨做 alar batten 或 rim graft，或用 septal cartilage。Lining 用耳甲的 composite graft，限 1.5 公分以內、術後固定 7 到 10 天，或 turn-in flap、septal mucoperichondrial flap，大缺損用摺疊的 forehead flap。</p>
+<p class="trap">地雷或加分句：加分句是「臉上的重建，疤痕的位置比長度更重要，我寧可切一條長、但完全落在鼻唇溝與耳前這些自然邊界上的切口」。alar 本身沒有軟骨，但重建一定要放非解剖性支撐，否則會塌陷與鼻孔狹窄。forehead flap 的蒂寬 1.2 到 1.5 公分這個數字，這一點課本找不到明確出處，被追問時不要硬掰，就說臨床上一般這樣處理。地雷是把 50 百分比規則講成全臉通則，還有重建只丟一個皮瓣名字，那是董光義主任明確登錄的地雷。陳理維主任 111 年就用鼻翼 BCC 要你當場畫。</p>
+</section>
+<section class="q" id="q8">
+<h2>第八題</h2>
+<p class="ask">考官問：頰部缺損超過 4 公分怎麼重建？如果是下眼瞼的全層缺損呢？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：先原則再皮瓣。原則是 replace like with like，薄換薄、骨換骨、含毛換含毛，加上金句：在臉上重建要捨遠求近，優先用鄰近、顏色質地相配的組織。頰部階梯三級：小於 1.5 到 2 公分沿 RSTL 直接縫合，或用 bilobed、rhomboid、A-to-T、O-to-Z、V-Y advancement；2 到 4 公分用較大的 rotation flap、note flap 或多個 rhomboid 拼接；超過 4 公分或跨次單位用 cervicofacial rotation-advancement flap，一般稱 Mustardé，教科書用的是 Juri 1979 年推廣的名字，下內側為蒂的頰部旋轉瓣。三個決定成敗的重點：第一，向量必須向上外，不可以水平向內，向內的張力會把下眼瞼拉下來；第二，一定要做懸吊縫合，教科書寫的是用不可吸收線錨定到顴骨骨膜，而且不論用哪一種下眼瞼切口都必須做，必要時加做 lateral canthopexy；第三，皮瓣要做得比缺損大並在無張力下 inset。層次兩派並列：subcutaneous 皮瓣薄、遠端壞死率高；deep-plane 皮瓣厚、血供好，大皮瓣與吸菸者選這一層。下眼瞼全層缺損要分前後兩層：後層必須用有結構的組織，像 tarsus、hard palate 的 mucoperiosteal graft 或耳軟骨；前層可用皮瓣或全層植皮，常用 nasolabial flap，pedicle 設在上方、pivot point 靠近 medial canthus 上方；前後層絕不可同時都用移植物，因為沒有血供。V-Y 的原理是 V 形切開、靠皮下蒂推進、關成 Y 形，血供來自深部穿支，所以底部絕不可剝乾淨。</p>
+<p class="trap">地雷或加分句：一句話收束是 cervicofacial 的失敗有九成不是壞死，是 ectropion。加分句是「關傷口前我一定做兩件事，把皮瓣錨定到顴骨與外側眶緣骨膜，然後請麻醉科讓病人的頭抬起來確認下眼瞼位置」。要注意情境衝突：董光義主任問頰部大缺損，Mustardé 是正解；陳天牧主任問下眼瞼，他評 Mustardé 要翻太大、forehead flap 會帶到頭髮，他要的是 nasolabial flap。所以一定先定義部位與大小，皮瓣的優劣才有意義。</p>
+</section>
+<section class="q" id="q9">
+<h2>第九題</h2>
+<p class="ask">考官問：Frey's syndrome 是什麼？機轉？怎麼預防？順便講你怎麼找 facial nerve 主幹。</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：Frey's syndrome 又稱 auriculotemporal nerve syndrome 或 gustatory sweating，是 parotidectomy 後最常見的長期併發症之一。機轉是核心，四步一定要講出來。第一，auriculotemporal nerve 攜帶來自 CN IX、經 otic ganglion 的節後副交感神經纖維，正常負責支配 parotid gland 的分泌。第二，同一區域的皮膚汗腺與皮下血管由交感神經支配，但它的節後纖維的神經傳導物質同樣是 acetylcholine。第三，parotidectomy 切斷了副交感纖維，這些纖維再生時走錯路，長進被去神經的汗腺與血管的交感受器。第四，結果就是病人進食、看到或想到食物時，臉頰皮膚反而出汗與潮紅。診斷用 Minor's starch-iodine test，患側塗碘、撒澱粉，讓病人咀嚼檸檬，出汗處遇碘變藍黑色，同時也是標定 botulinum toxin 注射範圍的工具。預防的一句話收束是：關鍵是在裸露的腺體斷面與皮膚之間放一層屏障；做法是保留足夠厚度的 skin flap、SMAS flap elevation and rolling、放置 ADM，其他屏障有 sternocleidomastoid muscle flap。已經發生了，先用 20 百分比 aluminium chloride 與 glycopyrrolate cream，現行首選是皮內注射 botulinum toxin A，效果可維持 9 到 12 個月。Facial nerve 用順向 dissection 從主幹往末梢分，四個標記由可靠到不可靠是 tympanomastoid suture、tragal pointer、posterior belly of digastric 的上緣與 styloid process，教科書把 tragal point 歸為可動標記。</p>
+<p class="trap">地雷或加分句：Frey's syndrome 的所有百分比、Minor's starch-iodine test 這個名稱、SMAS rolling 與 ADM，還有 tympanomastoid suture 深部 6 到 8 公釐這個數字，這一點課本找不到明確出處，被追問時不要硬掰，就說臨床上一般這樣處理。地雷是機轉只說神經錯接，卻講不出副交感長進汗腺與兩者都是 acetylcholine 這兩個環節，那等於沒答。馬旭副院長是三段式固定問法，他的原話關鍵字就是 SMAS rolling 與 ADM；另一個地雷是閒聊時自己提到做過 parotid，他會順著問手術步驟。</p>
+</section>
+<section class="q" id="q10">
+<h2>第十題</h2>
+<p class="ask">考官問：膝關節前方合併人工關節外露的缺損怎麼重建？另外，清創時發現一段斷掉的 drain，你會怎麼跟病人講？</p>
+<p class="cue">先自己講一遍，我等你三秒。</p>
+<p class="pause"><span class="quiet">……　……　……　……</span><span class="loud">（停頓）（停頓）（停頓）</span></p>
+<p class="ans">標準答案：先把 reconstructive ladder 走完。第零階是先解決病因，包含減壓、營養支持、控制感染與骨髓炎、戒菸、血糖，不做這一層上面全部會失敗；第一階次級癒合加換藥；第二階直接縫合；第三階植皮或 NPWT 過渡；第四階局部皮瓣，例如 keystone 與雙側 V-Y；第五階區域性肌皮瓣；第六階游離皮瓣。但決定用哪一階看的不是複雜度，而是缺損的本質。一句話收束：階梯是我的思考順序，電梯是我的決策依據。要直接搭電梯往上的情境有五個：問題是體積而不是表面積，也就是大死腔或外露的植入物；重要結構外露；受區條件差，例如放療過或慢性骨髓炎；局部組織已被用過；需要複合組織。所以這個膝關節的病人，問題是體積，我需要的是能填進去的血管化肌肉量，而不是一片薄的皮瓣，要主動把游離皮瓣講出來。倫理那一段，臨床先做對的事：完整取出異物、確認沒有殘段、再照一次 X 光、取深部組織培養、完整記錄在手術紀錄。告知要明確選一邊：我選先告知骨科醫師再一起告知病人，因為下一步需要骨科的判斷，兩科先對齊事實與計畫；但底線是先告知骨科絕不等於延遲或隱瞞，我會在同一次住院、當天或最遲隔天完成對病人的告知。說法是陳述事實、不做因果判定：我在清創時發現一小段引流管殘端，已經完整取出，這是我看到的事實；至於它跟感染有多大關係，目前我沒辦法斷定。</p>
+<p class="trap">地雷或加分句：收束句是「對事實 100 百分比誠實，對因果 100 百分比謹慎」。通用四步可以套到任何倫理情境，包含病人拒絕治療或跟資深醫師意見不合：先處理臨床問題，陳述事實不做因果推論，完整記錄與院內通報，表達關切與歉意但那不等於承認過失。彭成康副院長明確登錄三個地雷：打太極，答「看情況」「請示主任」而沒有下文，他親口說這題沒有標準答案，評的是你有沒有立場與理由；角色扮演時對著考官報告而不是對病人說話；還有沉默等於零分。反過來，曾元生處長那關絕對不要說「這個不能 primary closure」，要說清創之後如果組織條件許可、張力可以接受，直接縫合是可以考慮的選項。</p>
+</section>
+<section class="sum">
+<h2>小結</h2>
+<p>這三題考的是同一件事：你的思考有沒有結構。鼻子開口先講 cover、lining、support；頰部與眼瞼先定義部位與大小再選皮瓣；重建先走完階梯，再決定要不要搭電梯。共同的地雷只有兩個，只丟一個名詞，還有打太極。</p>
+</section>
+<section class="recap">
+<h2>必背數字快速複習，60 秒，跟著我唸</h2>
+<p>BCC，分區已取消，頭頸手足脛前一律 high risk，4 公釐只給軀幹四肢小於 2 公分的 low risk，教科書 high risk 是 5 到 10 公釐。cSCC，low risk 4 到 6 公釐，教科書 high risk 10 公釐；三個深度數字，分期 6 公釐、Mohs 適應症 2 公釐、Brantsch 預後 2 公釐。Melanoma，in situ 0.5 到 1 公分，1 公釐以下 1 公分，1 到 2 公釐是 1 到 2 公分，超過 2 公釐一律 2 公分；AJCC 第 8 版 T1 切點 0.8 公釐、mitotic rate 已移除；SLN 陽性不再常規 CLND，關鍵字是 MSLT-II 與 DeCOG-SLT。Bilobed，Zitelli 每瓣 45 到 50 度、總共 90 到 100 度，Esser 是 180 度。Rhomboid，60 度與 120 度、4 種設計方向。鼻部次單位 9 個，50 百分比規則只適用下三分之一。Forehead flap 是 supratrochlear artery，眉到髮際至少 6.5 到 7 公分，主答三期。Botulinum toxin A 維持 9 到 12 個月。</p>
+</section>
+<section class="recap">
+<h2>上場前最後叮嚀，60 秒</h2>
+<p>第一，三句救命句逐字背下來。答不出來時說：老師，這部分我不夠熟，我回去一定會再把它讀通；老師多半會轉成 teaching 模式，把 8 分鐘變成教學時間，硬拗會被一路追殺。看到圖片時先描述你看到什麼，5 秒之後再下診斷，不要嘴巴先講診斷然後被抓著那個點電下去。被問「確定嗎？真的嗎？」的時候，如果你的答案是對的就不要改，那是在測臨場反應。第二，永遠先講結論再講理由，數字題鐵律三條：先講架構再給數字，把數字包在風險分層或決策軸裡；主動聲明版本差異是加分不是扣分，但聲明完一定要給出你選的那一版與理由；考官當場給的版本永遠優先，順著走、補完判準、不要正面糾正。第三，完全沒概念時不要呆住，請考官多提供病人的基本資料，例如性別、年齡、左右手，通常就能猜出他的重點。記住三個訊號：他說「還有呢」代表你的清單還沒講完；他說「這樣夠嗎」代表要你升階；沉默等於零分。照片題每張控制在 40 到 60 秒，節奏快的關要刻意放慢，每題主動加一句機轉把時間用滿。祝你 9 月 5 號順利，加油。</p>
+</section>
+<div class="pager"><a href="ep11.html">← 上一集</a><a href="index.html" class="r">全部 12 集</a></div>
+</main>
+<script>
+(function(){
+  var b=document.body, K='psoral.voice';
+  var cfg={fs:0, loud:false};
+  try{ cfg=Object.assign(cfg, JSON.parse(localStorage.getItem(K)||'{}')); }catch(e){}
+  function save(){ try{ localStorage.setItem(K, JSON.stringify(cfg)); }catch(e){} }
+  function paint(){
+    document.documentElement.style.setProperty('--fs', (19+cfg.fs*2)+'px');
+    b.classList.toggle('loud', !!cfg.loud);
+    var p=document.getElementById('pz');
+    if(p){ p.setAttribute('aria-pressed', cfg.loud?'true':'false');
+           p.textContent = cfg.loud ? '停頓：唸出來' : '停頓：靜音'; }
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest ? e.target.closest('button.t') : null;
+    if(!t) return;
+    if(t.id==='fsup')   { cfg.fs=Math.min(6, cfg.fs+1); }
+    else if(t.id==='fsdn'){ cfg.fs=Math.max(-2, cfg.fs-1); }
+    else if(t.id==='pz'){ cfg.loud=!cfg.loud; }
+    else return;
+    save(); paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
