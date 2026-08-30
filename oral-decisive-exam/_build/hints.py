@@ -29,9 +29,12 @@ BLOCKS = [
      "⭐ 查長庚官網補上：他是<strong>整形外科顱顏中心主任</strong>，同時是<strong>長庚睡眠中心主治醫師</strong>，"
      "而且<strong>曾任美國史丹佛大學睡眠中心研究員</strong>——這正是 Stanford protocol 的出處，"
      "所以 OSA 的手術分期他一定熟，不要在他面前把 Stanford protocol 講錯。",
-     [("唇顎裂：手術時序表、分類、修補術式、VPI", [], "⏳ 待補寫"),
-      ("正顎：Le Fort I／BSSO／IVRO、cephalometric、順序、surgery-first", [], "⏳ 待補寫"),
-      ("OSA：MMA 的機轉與成效、counterclockwise 加 mandible-first", [], "⏳ 待補寫"),
+     [("唇顎裂：手術時序表、Veau 分類、唇與顎的修補術式、併發症數字",
+       [("唇顎裂", "tc202")], "✅ 已補寫"),
+      ("正顎：Le Fort I／BSSO／IVRO、移動量門檻、cephalometric、順序、surgery-first",
+       [("正顎手術", "tc203")], "✅ 已補寫"),
+      ("OSA：MMA 的機轉與成效、counterclockwise 加 mandible-first、Stanford protocol",
+       [("OSA 的手術治療", "tc204")], "✅ 已補寫"),
       ("現在就能讀的：虛擬手術規劃與患者專屬植入物",
        [("VSP／PSI", "tc19"), ("下顎骨折", "tc12")], "✅ 手冊已有")]),
 
