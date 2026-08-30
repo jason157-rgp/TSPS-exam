@@ -25,6 +25,7 @@ import restructure as R  # noqa: E402
 import plain as P  # noqa: E402
 import mdsource as MD  # noqa: E402
 import voice as V  # noqa: E402
+import intel as I  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_build" / "source.html"
@@ -1176,6 +1177,11 @@ def main():
     if not m:
         sys.exit("[build] 找不到資料區塊")
     sections = json.loads(m.group(2))
+
+    # 考前情報更新：比手冊本身還新的一節，插在卷首章的最後
+    sections.insert(next(i for i, s in enumerate(sections) if s["id"] == "s9"),
+                    I.section())
+
     by_id = {s["id"]: s for s in sections}
 
     # 以校訂版 markdown 取代各節內容（框架不動：代號、順序、metadata 全部沿用）
