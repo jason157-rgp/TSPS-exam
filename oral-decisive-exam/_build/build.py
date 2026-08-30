@@ -26,6 +26,7 @@ import plain as P  # noqa: E402
 import mdsource as MD  # noqa: E402
 import voice as V  # noqa: E402
 import intel as I  # noqa: E402
+import hints as HN  # noqa: E402
 import newtopics as NT  # noqa: E402
 import updates as U  # noqa: E402
 
@@ -1035,6 +1036,12 @@ renderProgress();
 # ---------------------------------------------------------------- CSS
 
 EXTRA_CSS = """
+/* ---- 考官節頂端的「老師給了提示」帶 ---- */
+.hintbar{margin:0 0 18px; padding:11px 13px; border-radius:9px;
+  background:var(--accent-soft); border-left:3px solid var(--accent);
+  font-size:14px; line-height:1.75}
+.hintbar .jump{font-weight:600}
+
 /* ---- 側欄：最後更新 ---- */
 .stamp{font-family:var(--mono); font-size:9.5px; letter-spacing:.04em; color:var(--muted);
   margin:9px 0 0; display:flex; gap:7px; align-items:baseline}
@@ -1186,8 +1193,8 @@ def main():
     sections = json.loads(m.group(2))
 
     # 考前情報更新：比手冊本身還新的一節，插在卷首章的最後
-    sections.insert(next(i for i, s in enumerate(sections) if s["id"] == "s9"),
-                    I.section())
+    at = next(i for i, s in enumerate(sections) if s["id"] == "s9")
+    sections[at:at] = [HN.section(), I.section()]
 
     # 補寫的主題節：手冊原本沒有、但今年情報顯示會考的題目
     new_topics = NT.load(ROOT / "_build" / "newtopics")
@@ -1202,6 +1209,13 @@ def main():
         md_stats, md_report = MD.apply(sections, md_dir)
         if md_report["unmatched_titles"]:
             sys.exit(f"[build] markdown 標題對不上網站節：{md_report['unmatched_titles'][:3]}")
+
+    hinted = 0
+    for sid in HN.banner_ids():
+        if sid not in by_id:
+            sys.exit(f"[build] 提示帶找不到考官節：{sid}")
+        by_id[sid]["html"] = HN.banner(sid) + "\n" + by_id[sid]["html"]
+        hinted += 1
 
     linkify, names = build_linkifier(sections)
 
@@ -1357,6 +1371,7 @@ def main():
     ex_linked = sum(1 for r in rows for e in r["ex"] if e["id"])
     ex_total = sum(len(r["ex"]) for r in rows)
     print(f"[build] 寫出 {OUT}  ({OUT.stat().st_size/1024/1024:.2f} MB)")
+    print(f"[build] 老師提示 {len(HN.BLOCKS)} 關，其中 {hinted} 關已貼提示帶")
     print(f"[build] 標記更新時間 {build_ts}（台北）")
     print(f"[build] 節數 {len(sections)}（原 {len(sections)+len(dropped)}，第一部 11 節併為 1）")
     print(f"[build] 索引 {len(rows)} 列：主題可跳轉 {linked}，考官名牌 {ex_linked}/{ex_total}")
