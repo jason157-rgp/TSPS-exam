@@ -26,6 +26,7 @@ import plain as P  # noqa: E402
 import mdsource as MD  # noqa: E402
 import voice as V  # noqa: E402
 import intel as I  # noqa: E402
+import newtopics as NT  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_build" / "source.html"
@@ -1182,6 +1183,10 @@ def main():
     sections.insert(next(i for i, s in enumerate(sections) if s["id"] == "s9"),
                     I.section())
 
+    # 補寫的主題節：手冊原本沒有、但今年情報顯示會考的題目
+    new_topics = NT.load(ROOT / "_build" / "newtopics")
+    sections.extend(new_topics)          # 稍後的主題節重排會把它們放進各自的領域
+
     by_id = {s["id"]: s for s in sections}
 
     # 以校訂版 markdown 取代各節內容（框架不動：代號、順序、metadata 全部沿用）
@@ -1196,6 +1201,8 @@ def main():
 
     # 1) 第一部 → 結構化索引
     rows, unmatched = build_index_rows(by_id, sections, linkify, names)
+
+    rows += NT.index_rows(new_topics)          # 補寫的節也要能從索引找到
 
     # 索引各列的文字併回 s10，維持全文搜尋可以命中
     idx_text = " ".join(by_id[sid]["text"] for sid in IDX_SECTIONS)
@@ -1340,6 +1347,9 @@ def main():
     print(f"[build] 索引 {len(rows)} 列：主題可跳轉 {linked}，考官名牌 {ex_linked}/{ex_total}")
     print(f"[build] 純文字版：plain/ 共 {n_sec} 節頁 + {n_bundle} 份合輯 + 目錄")
     print(f"[build] 語音課程：voice/ 共 {n_ep} 集、{n_q} 題")
+    if new_topics:
+        print(f"[build] 補寫主題節 {len(new_topics)} 節："
+              + "、".join(f"{t['id']} {t['title'].split('（')[0]}" for t in new_topics))
     if md_stats:
         before = sum(a for a, _ in md_stats.values())
         after = sum(b for _, b in md_stats.values())
