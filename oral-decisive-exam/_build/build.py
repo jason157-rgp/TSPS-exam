@@ -27,6 +27,7 @@ import mdsource as MD  # noqa: E402
 import voice as V  # noqa: E402
 import intel as I  # noqa: E402
 import newtopics as NT  # noqa: E402
+import updates as U  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_build" / "source.html"
@@ -1034,6 +1035,11 @@ renderProgress();
 # ---------------------------------------------------------------- CSS
 
 EXTRA_CSS = """
+/* ---- 側欄：最後更新 ---- */
+.stamp{font-family:var(--mono); font-size:9.5px; letter-spacing:.04em; color:var(--muted);
+  margin:9px 0 0; display:flex; gap:7px; align-items:baseline}
+.stamp .jump{font-family:var(--mono); font-size:9.5px}
+
 /* ---- 側欄：語音課程入口 ---- */
 .voicelink{display:flex; align-items:center; gap:9px; margin:10px 0 0;
   padding:9px 11px; border-radius:9px; text-decoration:none;
@@ -1215,6 +1221,9 @@ def main():
     sections = [s for s in sections if s["id"] not in dropped]
 
     # 2) 卷首考試日的星期更正、讀書進度表倒數即時化、「讀哪裡」變成跳轉
+    build_ts = U.stamp()
+    by_id["s1"]["html"] += "\n" + U.log_html(build_ts)
+    by_id["s1"]["text"] += " " + strip_tags(U.log_html(build_ts))
     patch_exam_weekday(by_id["s1"])
     patch_schedule(by_id["s2"])
 
@@ -1318,6 +1327,11 @@ def main():
     html = html.replace('天後口試　·　9/5（五）',
                         '天後口試　·　<span id="cddate">—</span>', 1)
 
+    if '<div class="axis" role="group"' not in html:
+        sys.exit("[build] 找不到側欄主軸切換器，無法插入更新時間")
+    html = html.replace('\n    <div class="axis" role="group"',
+                        U.rail_html(build_ts) + '\n    <div class="axis" role="group"', 1)
+
     html = html.replace("</style>\n<style>", "</style>\n<style>", 1)
     last_style = html.rfind("</style>")
     html = html[:last_style] + EXTRA_CSS + html[last_style:]
@@ -1343,6 +1357,7 @@ def main():
     ex_linked = sum(1 for r in rows for e in r["ex"] if e["id"])
     ex_total = sum(len(r["ex"]) for r in rows)
     print(f"[build] 寫出 {OUT}  ({OUT.stat().st_size/1024/1024:.2f} MB)")
+    print(f"[build] 標記更新時間 {build_ts}（台北）")
     print(f"[build] 節數 {len(sections)}（原 {len(sections)+len(dropped)}，第一部 11 節併為 1）")
     print(f"[build] 索引 {len(rows)} 列：主題可跳轉 {linked}，考官名牌 {ex_linked}/{ex_total}")
     print(f"[build] 純文字版：plain/ 共 {n_sec} 節頁 + {n_bundle} 份合輯 + 目錄")
