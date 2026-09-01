@@ -27,6 +27,7 @@ import mdsource as MD  # noqa: E402
 import voice as V  # noqa: E402
 import intel as I  # noqa: E402
 import hints as HN  # noqa: E402
+import skiplist as SK  # noqa: E402
 import profiles as PF  # noqa: E402
 import newtopics as NT  # noqa: E402
 import updates as U  # noqa: E402
@@ -1037,6 +1038,11 @@ renderProgress();
 # ---------------------------------------------------------------- CSS
 
 EXTRA_CSS = """
+/* ---- 考官節頂端的「今年應該不會出現」標記 ---- */
+.skipbar{margin:0 0 14px; padding:10px 12px; border-radius:9px;
+  background:var(--surface); border:1px dashed var(--rule);
+  color:var(--muted); font-size:13.5px; line-height:1.75}
+
 /* ---- 考官節頂端的醫院簡介連結 ---- */
 .docbar{margin:0 0 12px; font-size:13px; line-height:1.7; color:var(--muted)}
 .docbar a{font-weight:600}
@@ -1199,7 +1205,7 @@ def main():
 
     # 考前情報更新：比手冊本身還新的一節，插在卷首章的最後
     at = next(i for i, s in enumerate(sections) if s["id"] == "s9")
-    sections[at:at] = [HN.section(), I.section(), PF.section()]
+    sections[at:at] = [HN.section(), SK.section(), I.section(), PF.section()]
 
     # 補寫的主題節：手冊原本沒有、但今年情報顯示會考的題目
     new_topics = NT.load(ROOT / "_build" / "newtopics")
@@ -1221,6 +1227,13 @@ def main():
             sys.exit(f"[build] 提示帶找不到考官節：{sid}")
         by_id[sid]["html"] = HN.banner(sid) + "\n" + by_id[sid]["html"]
         hinted += 1
+
+    skipped = 0
+    for sid in SK.bar_ids():
+        if sid not in by_id:
+            sys.exit(f"[build] 跳過標記找不到考官節：{sid}")
+        by_id[sid]["html"] = SK.bar(sid) + "\n" + by_id[sid]["html"]
+        skipped += 1
 
     docd = 0
     for sid in PF.bar_ids():
@@ -1383,6 +1396,7 @@ def main():
     ex_linked = sum(1 for r in rows for e in r["ex"] if e["id"])
     ex_total = sum(len(r["ex"]) for r in rows)
     print(f"[build] 寫出 {OUT}  ({OUT.stat().st_size/1024/1024:.2f} MB)")
+    print(f"[build] 可跳過的考官 {skipped} 位已貼標記")
     print(f"[build] 考官簡介 {len(PF.DOCS)} 位，其中 {docd} 位已貼連結")
     print(f"[build] 老師提示 {len(HN.BLOCKS)} 關，其中 {hinted} 關已貼提示帶")
     print(f"[build] 標記更新時間 {build_ts}（台北）")
