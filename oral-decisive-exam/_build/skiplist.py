@@ -14,7 +14,7 @@ import re
 
 SID = "s0skip"
 TITLE = "⏭ 可以跳過的考官（同院已有人確定出場）"
-SUB = "115 年　13 位可跳過 · 20 位保留"
+SUB = "115 年　14 位可跳過 · 19 位保留"
 
 # (節代號, 醫院, 姓名, 年份, 被誰取代)
 GREEN = [
@@ -28,6 +28,35 @@ GREEN = [
     ("s66", "高醫", "賴春生", "104", "郭耀仁"),
     ("s68", "高醫", "張高評", "105", "郭耀仁"),
     ("s73", "高雄長庚", "林燦勳", "111", "江原正"),
+    ("s63", "台大", "洪學義", "104–105", "戴浩志"),
+]
+
+# 開啟「隱藏今年不會出的」時，連同這些主題節一起藏起來。
+# 只收「跳過之後真的沒有人會問、而且丟掉也安全」的；被救回或屬基本盤的一律不藏。
+HIDE_TOPICS = [
+    ("tp151", "腮腺腫瘤：Warthin vs pleomorphic adenoma"),
+    ("tp152", "腮腺切除術的步驟與顏面神經定位"),
+    ("tp154", "Frey's syndrome（味覺出汗症候群）"),
+    ("tc9", "上眶裂症候群與眶尖症候群"),
+    ("tc16", "鼻淚管損傷與阻塞"),
+    ("th75", "血管球瘤（Glomus tumor）"),
+]
+
+# 明明只有被跳過的考官會問，但我刻意不藏的，以及理由
+KEPT_ORPHAN = [
+    ("tb124", "傷口的基本處置與 LACERATE 口訣", "最基礎、最不該失分的一塊，任何關都可能順口問"),
+    ("tb125", "破傷風的預防", "同上"),
+    ("th76", "甲床解剖與甲溝炎", "簡守信的指甲下黑色病灶三連問會碰到甲床"),
+    ("tc21", "顏面不對稱與腫瘤的 MRI 判讀", "正顎那一節會用到"),
+    ("tp155", "抽脂的浸潤液與安全上限", "⭐ 林育賢的美容刀含 liposuction"),
+    ("tm102", "Breast ptosis 分級與 mastopexy", "林育賢做 breast；陳宏基也在乳房線"),
+    ("tm104", "隆乳術前測量與術後變形", "同上"),
+    ("tm103", "Tuberous breast 與 Poland syndrome", "林育賢做 breast，但冷門，優先度低"),
+    ("to37", "球後出血——眼周手術唯一的失明急症", "⭐ 三關都做眼整形，而且是失明急症"),
+    ("to35", "下眼瞼成形術／眼袋", "同上"),
+    ("tc7", "術後劇痛失明：球後出血", "同上"),
+    ("tc5", "眶底與下眼瞼手術入路的比較", "李書欣若保留就還在；陳志豪與林育賢的顱顏線也會碰"),
+    ("tc6", "眶底骨折的肌肉問題與白眼爆裂", "同上"),
 ]
 AMBER = [
     ("s39", "高雄長庚", "謝青華", "114", "江原正",
@@ -80,6 +109,7 @@ UNKNOWN = [
     ("基隆長庚", "陳志豪", "111", "顱顏"),
     ("嘉義長庚", "林志鴻", "104–105", "周邊神經"),
 ]
+UNKNOWN = [u for u in UNKNOWN if u[0] != "台大"]
 
 INTRO = """
 <p><strong>推論的前提</strong>：<strong>一院一位</strong>。這一點我驗證過了——
@@ -90,7 +120,7 @@ INTRO = """
 很多主題會被其他考官接住；少數會真的消失，那些要另外決定要不要補。
 下面第三張表就是在算這件事。</p>
 
-<p><strong>省下多少</strong>：考官章共 <strong>286k 字</strong>。跳過建議的那 10 位＝省 <strong>74k 字（26%）</strong>；
+<p><strong>省下多少</strong>：考官章共 <strong>286k 字</strong>。跳過建議的那 11 位＝省 <strong>75k 字（26%）</strong>；
 若連 🟠 的謝青華也跳，再省 12k。</p>
 """
 
@@ -112,7 +142,7 @@ def _jump(label, sid):
 
 
 def html():
-    out = [INTRO, "<h3>🟢 建議跳過（10 位）</h3>",
+    out = [INTRO, "<h3>🟢 建議跳過（11 位）</h3>",
            "<p>共通點：都是<strong>舊期（104–111）</strong>的考官，而且該院 115 年的名額"
            "已由另一位老師佔住。</p>",
            '<table><thead><tr><th>醫院</th><th>考官</th><th>年份</th>'
@@ -128,7 +158,7 @@ def html():
         out.append(f"<h4>{hosp}　{name}（{yr}）</h4><p>{why}　{_jump('看檔案', sid)}</p>")
 
     out += ["<h3>⭐ 跳過之後，這 19 個主題誰來問？</h3>",
-            "<p>這是本節最重要的一張表。跳過那 10 位之後，理論上沒有其他考官檔案會問到這些主題——"
+            "<p>這是本節最重要的一張表。跳過那 11 位之後，理論上沒有其他考官檔案會問到這些主題——"
             "<strong>但其中有一半被今年的情報救回來了</strong>，因為確定出場的老師的專長涵蓋到它們。</p>",
             '<table><thead><tr><th>主題</th><th>判定</th><th>為什麼</th></tr></thead><tbody>']
     for tid, verdict, name, why in ORPHAN:
@@ -138,7 +168,26 @@ def html():
             "血管球瘤</strong> 三個冷門題；<strong>腮腺那三節</strong>（腮腺腫瘤、腮腺切除、Frey's syndrome）"
             "沒有人會問了，但語音課 <strong>EP12 第九題</strong>有完整版，聽一遍就夠。"
             "其餘要嘛被救回來、要嘛是不該失分的基本盤。</p>",
-            "<h3>這 8 家還沒有情報——不能跳</h3>",
+            "<h3>🙈 開啟「隱藏今年不會出的」會藏起什麼</h3>",
+            '<p>側欄「未讀」那一列有一個 <strong>隱藏今年不會出的</strong> 開關。'
+            '打開之後，導覽與搜尋都不會再出現下面這些節——但<strong>內容一個字都沒有刪</strong>，'
+            '關掉開關就全部回來，正在讀的那一節也不會被藏掉。</p>',
+            "<h4>會藏起來的：11 位考官 ＋ 6 個主題</h4>",
+            '<table><thead><tr><th>類別</th><th>節</th></tr></thead><tbody>',
+            "<tr><td><strong>考官檔案</strong></td><td>"
+            + "、".join(_jump(f"{h}　{n}", sid) for sid, h, n, _y, _b in GREEN)
+            + "</td></tr>",
+            "<tr><td><strong>主題</strong></td><td>"
+            + "、".join(_jump(n, tid) for tid, n in HIDE_TOPICS)
+            + "</td></tr>",
+            "</tbody></table>",
+            "<h4>⚠ 只有被跳過的考官會問，但我刻意<u>不藏</u>的 13 個</h4>",
+            "<p>這些照理說也該消失，但丟掉的風險大於省下的時間。</p>",
+            '<table><thead><tr><th>主題</th><th>為什麼留著</th></tr></thead><tbody>',
+            *[f"<tr><td>{_jump(name, tid)}</td><td>{why}</td></tr>"
+              for tid, name, why in KEPT_ORPHAN],
+            "</tbody></table>",
+            "<h3>這 7 家還沒有情報——不能跳</h3>",
             "<p>沒有同學回報，代表 114 年的那位<strong>有可能續任</strong>，也可能換人。這些一律照常準備。</p>",
             '<table><thead><tr><th>醫院</th><th>114／最近一次的考官</th><th>年份</th><th>領域</th></tr></thead><tbody>']
     for hosp, name, yr, dom in UNKNOWN:
@@ -181,3 +230,8 @@ def bar(sid):
 
 def bar_ids():
     return [s for s, *_ in GREEN] + [a[0] for a in AMBER]
+
+
+def hidden_ids():
+    """開關打開時要藏起來的節：跳過的考官 ＋ 只有他們會問的安全主題。"""
+    return [s for s, *_ in GREEN] + [t for t, _n in HIDE_TOPICS]

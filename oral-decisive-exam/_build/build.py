@@ -749,9 +749,10 @@ function renderProgress(){
   const el=document.getElementById('progress');
   if(!el) return;
   el.innerHTML='';
-  const done=readCount(), left=S.length-done;
+  const pool = hideSkip ? S.filter(x=>!SKIPSET.has(x.id)) : S;
+  const done = pool.filter(x=>isRead(x.id)).length, left = pool.length-done;
   const t=document.createElement('span'); t.className='ptext';
-  t.textContent = left ? ('未讀 '+left+' / '+S.length) : ('全部讀完了 · '+S.length+' 節');
+  t.textContent = left ? ('未讀 '+left+' / '+pool.length) : ('全部讀完了 · '+pool.length+' 節');
   const b=document.createElement('button'); b.type='button'; b.className='ponly';
   b.textContent='只看未讀';
   b.setAttribute('aria-pressed', onlyUnread?'true':'false');
@@ -761,6 +762,17 @@ function renderProgress(){
     renderProgress(); renderNav();
   });
   el.appendChild(t); el.appendChild(b);
+
+  const hb=document.createElement('button'); hb.type='button'; hb.className='ponly';
+  hb.textContent='隱藏今年不會出的';
+  hb.title='藏起同院已有人確定出場的 11 位考官，以及只有他們會問的 6 個主題。內容不會被刪。';
+  hb.setAttribute('aria-pressed', hideSkip?'true':'false');
+  hb.addEventListener('click',()=>{
+    hideSkip=!hideSkip;
+    try{ localStorage.setItem('psoral.hideskip', hideSkip?'1':''); }catch(e){}
+    renderProgress(); renderNav();
+  });
+  el.appendChild(hb);
 }
 
 function notePanel(s){
@@ -928,7 +940,10 @@ Object.keys(read).forEach(id=>{                     /* 舊格式 {id:true} 升�
 function isRead(id){ return !!(read[id] && read[id].r); }
 function readCount(){ return Object.keys(read).filter(id=>isRead(id)).length; }
 let onlyUnread=false;
-try{ onlyUnread = !!localStorage.getItem('psoral.onlyunread'); }catch(e){}""",
+try{ onlyUnread = !!localStorage.getItem('psoral.onlyunread'); }catch(e){}
+const SKIPSET = new Set(__SKIPIDS__);      /* 今年不會出的考官與其獨有主題 */
+let hideSkip=false;
+try{ hideSkip = !!localStorage.getItem('psoral.hideskip'); }catch(e){}""",
         js, "read model")
 
     js = sub_once(
@@ -948,7 +963,8 @@ try{ onlyUnread = !!localStorage.getItem('psoral.onlyunread'); }catch(e){}""",
     # 只看未讀
     js = sub_once(
         r"(  const ds = s\.domains\|\|\[\];)",
-        lambda m: ("  if(onlyUnread && isRead(s.id) && s.id!==current) return false;\n" + m.group(1)),
+        lambda m: ("  if(onlyUnread && isRead(s.id) && s.id!==current) return false;\n"
+                   "  if(hideSkip && SKIPSET.has(s.id) && s.id!==current) return false;\n" + m.group(1)),
         js, "unread filter")
 
     # 側欄工具列
@@ -1347,7 +1363,12 @@ def main():
     js_m = re.search(r"(<script>\n\(function\(\)\{\n\"use strict\";)(.*?)(</script>)", html, re.S)
     if not js_m:
         sys.exit("[build] 找不到主程式")
-    html = html[:js_m.start(2)] + patch_js(js_m.group(2), rows_json) + html[js_m.end(2):]
+    patched = patch_js(js_m.group(2), rows_json)
+    if "__SKIPIDS__" not in patched:
+        sys.exit("[build] 隱藏清單沒有被注入")
+    patched = patched.replace("__SKIPIDS__",
+                              json.dumps(SK.hidden_ids(), ensure_ascii=False), 1)
+    html = html[:js_m.start(2)] + patched + html[js_m.end(2):]
 
     # 側欄的考試日改成由考試日算出，避免與內文各處的星期標示各說各話
     if '天後口試　·　9/5（五）' not in html:
@@ -1396,6 +1417,7 @@ def main():
     ex_linked = sum(1 for r in rows for e in r["ex"] if e["id"])
     ex_total = sum(len(r["ex"]) for r in rows)
     print(f"[build] 寫出 {OUT}  ({OUT.stat().st_size/1024/1024:.2f} MB)")
+    print(f"[build] 可隱藏 {len(SK.hidden_ids())} 節（11 位考官 + 6 個主題）")
     print(f"[build] 可跳過的考官 {skipped} 位已貼標記")
     print(f"[build] 考官簡介 {len(PF.DOCS)} 位，其中 {docd} 位已貼連結")
     print(f"[build] 老師提示 {len(HN.BLOCKS)} 關，其中 {hinted} 關已貼提示帶")
